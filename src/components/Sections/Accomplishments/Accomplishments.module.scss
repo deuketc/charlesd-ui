@@ -1,0 +1,15 @@
+@import '../../../_mixins';
+
+.accomplishments {
+  margin-bottom: 3rem;
+  &__wrapper {
+    @include SECTION-WRAPPER;
+  }
+  &__copy {
+    @include STYLE-COPY;
+  }
+
+  &__header {
+    @include STYLE-HEADER;
+  }
+}

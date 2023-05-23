@@ -1,0 +1,13 @@
+@import '../../../mixins';
+@import '../../../variables';
+
+.slider {
+  @include STYLE-SECTION-PADDING;
+  &__wrapper {
+    @include SECTION-WRAPPER;
+
+    text-align: center;
+  }
+  &__img_container {
+  }
+}

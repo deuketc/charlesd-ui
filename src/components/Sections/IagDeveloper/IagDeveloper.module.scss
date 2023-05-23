@@ -1,0 +1,27 @@
+@import '../../../_mixins';
+
+.developer {
+  position: relative;
+  z-index: 2;
+  background-color: #fff;
+  &__wrapper {
+    @include SECTION-WRAPPER;
+    @include STYLE-SECTION-PADDING;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__article {
+    width: 30%;
+    text-align: center;
+  }
+  &__copy_title {
+    @include STYLE-COPY;
+  }
+  &__copy_level {
+    @include STYLE-HEADER-SUPER;
+    font-size: 10rem !important;
+  }
+  &__copy_description {
+    @include STYLE-COPY;
+  }
+}

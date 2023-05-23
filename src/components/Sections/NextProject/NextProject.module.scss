@@ -1,0 +1,23 @@
+@import '../../../mixins';
+@import '../../../variables';
+
+.nextProject {
+  position: relative;
+  z-index: 1;
+  &__wrapper {
+    @include SECTION-WRAPPER;
+    @include STYLE-SECTION-PADDING;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  &__header {
+    @include STYLE-HEADER;
+  }
+  &__copy {
+    @include STYLE-COPY;
+  }
+  &__btn {
+    @include BTN;
+    padding: 0 40px;
+  }
+}

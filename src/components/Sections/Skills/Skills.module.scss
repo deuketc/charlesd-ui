@@ -1,0 +1,46 @@
+@import '../../../mixins';
+@import '../../../variables';
+
+/* Accomplishments */
+
+.skills {
+  margin-bottom: 10rem;
+}
+
+.wrapper {
+  @include SECTION-WRAPPER;
+  max-width: none;
+}
+.header {
+  @include STYLE-HEADER;
+}
+.listWrapper {
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  max-width: none;
+}
+.list {
+  @include SECTION-WRAPPER;
+  max-width: none;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.listItem {
+  outline: 1px solid grey;
+  @include lg-width {
+    width: 20%;
+    background-color: #fff;
+    text-align: center;
+    aspect-ratio: 1 / 1;
+  }
+}
+svg {
+  width: 80%;
+  height: auto;
+}
+
+.label {
+  @include STYLE-COPY;
+}

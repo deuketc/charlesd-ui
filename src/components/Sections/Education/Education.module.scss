@@ -1,0 +1,108 @@
+@import '../../../mixins';
+@import '../../../variables';
+
+.education {
+  overflow: hidden;
+  margin-bottom: 10rem;
+}
+
+.wrapper {
+  @include SECTION-WRAPPER;
+  max-width: none;
+}
+
+.header {
+  @include STYLE-HEADER;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  @include lg-width {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.resumeEducation {
+  &__wrapper {
+  }
+  &__header {
+  }
+  &__headerSub {
+    @include STYLE-HEADER-SUB;
+    margin-top: 0;
+  }
+  &__flex {
+  }
+  &__col {
+    @include STYLE-COPY;
+    @include lg-width {
+      width: 48%;
+    }
+  }
+  &__details {
+    border-bottom: 1px solid #ccc;
+    &:first-child {
+      border-top: 1px solid #ccc;
+    }
+    &[open] > summary {
+      background-image: url('../../../assets/images/icon-expanded-2dpi.gif');
+    }
+  }
+  &__summary {
+    margin: 0;
+    transition: color 0.2s linear;
+    display: block;
+    text-decoration: none;
+    padding: 0.3em 0.3em 0.3em 2em;
+    background-size: 9px;
+    background-image: url('../../../assets/images/icon-expand-2dpi.gif');
+    background-repeat: no-repeat;
+    background-position: 0.8em center;
+    padding-left: 2em;
+
+    &:hover {
+      transition: color 0.2s linear;
+      background-color: #f2f2f2;
+      cursor: pointer;
+      color: #333;
+    }
+  }
+  &__detailsList {
+    margin-top: 0;
+    list-style: none;
+    padding: 0;
+  }
+  &__detailsListItem {
+    padding: 0.3em 0.3em 0.3em 2em;
+  }
+  &__detailsLevel2 {
+    &[open] > summary {
+      background-image: url('/static/resume/icon-expanded-2dpi.gif');
+    }
+  }
+  &__summaryLevel2 {
+    padding: 5px 5px 5px 4em;
+    background-position: 2.5em center;
+    background-image: url('/static/resume/icon-expand-2dpi.gif');
+    background-size: 9px;
+    background-repeat: no-repeat;
+    margin: 0;
+    display: block;
+    cursor: pointer;
+    &:hover {
+      transition: color 0.2s linear;
+      background-color: #f2f2f2;
+      cursor: pointer;
+      color: #333;
+    }
+  }
+  &__detailsListLevel2 {
+    padding-left: 4em;
+    list-style: none;
+  }
+  &__detailsListLevel2Item {
+    padding: 0.3em 0.3em 0.3em 0;
+  }
+}

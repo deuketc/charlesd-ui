@@ -1,0 +1,11 @@
+@import './../../mixins';
+
+.resume {
+  &__header {
+    @include STYLE-HEADER-SUPER;
+  }
+  &__wrapper {
+    @include PAGE;
+    @include SECTION-WRAPPER;
+  }
+}

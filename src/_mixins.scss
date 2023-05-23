@@ -1,0 +1,167 @@
+@import './variables.scss';
+
+@mixin SECTION-WRAPPER {
+  width: 90%;
+  margin: 0 auto;
+}
+
+@mixin STYLE-SECTION-PADDING {
+  padding: 1rem 0;
+  @include sm-width {
+    padding: 2rem 0;
+  }
+  @include md-width {
+    padding: 3rem 0;
+  }
+  @include lg-width {
+    padding: 4rem 0;
+  }
+}
+
+@mixin STYLE-HEADER-SUPER {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  @include sm-width {
+    font-size: 2rem;
+  }
+  @include md-width {
+    font-size: 3rem;
+  }
+  @include lg-width {
+    font-size: 4rem;
+  }
+  @include fhd-width {
+    font-size: 5rem;
+  }
+}
+
+@mixin STYLE-HEADER {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  @include sm-width {
+    font-size: 2rem;
+  }
+  @include md-width {
+    font-size: 2.5rem;
+  }
+  @include lg-width {
+    font-size: 3rem;
+  }
+}
+
+@mixin STYLE-HEADER-SUB {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  @include sm-width {
+    font-size: 2rem;
+  }
+  @include md-width {
+    font-size: 2rem;
+  }
+}
+
+@mixin STYLE-COPY {
+  color: #333;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  @include sm-width {
+    font-size: 1.3rem;
+  }
+  @include lg-width {
+    font-size: 1.5rem;
+  }
+}
+
+@mixin LIST-RESET {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin HIDDEN-TEXT {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+@mixin BTN {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 56px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #000;
+  display: inline-block;
+  border-radius: 100px;
+  box-sizing: border-box;
+  text-align: center;
+  @include sm-width {
+    font-size: 1rem;
+  }
+  @include lg-width {
+    font-size: 1.2rem;
+  }
+}
+
+@mixin BTN__SECONDARY {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 56px;
+  text-decoration: none;
+  color: #000;
+  background-color: #fff;
+  display: inline-block;
+  border-radius: 100px;
+  outline: 2px solid #000;
+  box-sizing: border-box;
+  text-align: center;
+  @include sm-width {
+    font-size: 1rem;
+  }
+  @include lg-width {
+    font-size: 1.2rem;
+  }
+}
+
+@mixin PAGE {
+  padding-top: 50px;
+}
+
+@mixin sm-width {
+  @media (min-width: $sm-width-min) {
+    @content;
+  }
+}
+
+@mixin md-width-max {
+  @media (max-width: $md-width-max) {
+    @content;
+  }
+}
+
+@mixin md-width {
+  @media (min-width: $md-width-min) {
+    @content;
+  }
+}
+
+@mixin lg-width {
+  @media (min-width: $lg-width-min) {
+    @content;
+  }
+}
+
+@mixin fhd-width {
+  @media (min-width: $fhd-width-min) {
+    @content;
+  }
+}

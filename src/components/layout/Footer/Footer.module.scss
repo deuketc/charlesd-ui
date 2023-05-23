@@ -1,0 +1,68 @@
+@import '../../../mixins.scss';
+@import '../../../variables';
+
+.footer {
+  background-color: $text-black;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  z-index: 3;
+  flex-shrink: 0;
+  &__wrapper {
+    @include SECTION-WRAPPER;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    padding: 20px 0px;
+  }
+  &__header {
+    color: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    margin-right: 20px;
+    border-right: 1px solid #fff;
+    padding-right: 20px;
+    margin: 0;
+    margin-right: 10px;
+  }
+  &__navigation {
+    display: flex;
+    align-items: center;
+  }
+
+  &__list {
+    @include LIST-RESET;
+    display: flex;
+    justify-content: right;
+  }
+
+  &__list_item {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  &__list_item_label {
+    display: none;
+  }
+
+  &__list_item_link {
+    display: flex;
+    width: 22px;
+    color: $text-black;
+    text-decoration: none;
+    align-items: center;
+  }
+
+  &__copyright {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    color: #fff;
+    margin: 0;
+  }
+
+  svg {
+    width: 100%;
+    height: auto;
+  }
+}

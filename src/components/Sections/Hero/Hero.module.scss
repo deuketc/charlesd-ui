@@ -1,0 +1,85 @@
+@import '../../../_mixins';
+
+.hero {
+  z-index: 1;
+  position: relative;
+  min-height: 100vh;
+  @include md-width {
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    @include md-width {
+      flex-direction: row;
+    }
+  }
+  &__img_wrapper {
+    overflow: hidden;
+    min-height: 50vh;
+    text-align: right;
+    position: relative;
+    @include md-width {
+      width: 60%;
+      align-items: center;
+      min-height: 100vh;
+    }
+  }
+  &__copy_wrapper {
+    @include md-width {
+      min-height: 100vh;
+      width: 40%;
+    }
+
+    padding-left: 5%;
+    padding-right: 5%;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__copy {
+    @include STYLE-COPY;
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__title {
+    @include STYLE-HEADER-SUPER;
+    margin-top: 0;
+    margin-bottom: 0 !important;
+  }
+}
+
+.btn {
+  &__wrapper {
+    @include md-width {
+      flex-direction: row;
+      justify-content: space-between;
+      display: flex;
+    }
+
+    // max-width: 600px;
+    margin-top: 4rem;
+  }
+  &__primary {
+    @include BTN;
+
+    width: 100%;
+    @include md-width-max {
+      margin-bottom: 1rem;
+    }
+    @include md-width {
+      width: 48%;
+    }
+  }
+  &__secondary {
+    @include BTN__SECONDARY;
+    width: 100%;
+    @include md-width {
+      width: 48%;
+    }
+  }
+}
