@@ -1,24 +1,28 @@
-import { useState, useEffect } from "react"
+import { useEffect, useState } from 'react';
 
-const loadImage = image => {
-  return new Promise((resolve, reject) => {
-    const loadImg = new Image()
-    loadImg.src = image.src
+const useImagesPreloader = (imageUrls: string[]): boolean => {
+  const [loaded, setLoaded] = useState(false);
 
-    loadImg.onload = () => resolve(image.src)
-
-    loadImg.onerror = err => reject(err)
-  })
-}
-
-export default function useImagesPreloader(imagesArray) {
-  const [imgsLoaded, setImgsLoaded] = useState(false)
   useEffect(() => {
-    Promise.all(imagesArray.map(image => loadImage(image)))
-      .then(() => {
-        setImgsLoaded(true)
-      })
-      .catch(err => console.log("Failed to load images", err))
-  }, [imagesArray])
-  return { imgsLoaded }
-}
+    const imagePromises = imageUrls.map((url) => {
+      return new Promise<void>((resolve) => {
+        const image = new Image();
+        image.src = url;
+        image.onload = () => resolve();
+      });
+    });
+
+    Promise.all(imagePromises).then(() => {
+      setLoaded(true);
+    });
+
+    // Clean up event listeners and abort loading if component unmounts
+    return () => {
+      imagePromises.forEach((promise) => promise.catch(() => {}));
+    };
+  }, [imageUrls]);
+
+  return loaded;
+};
+
+export default useImagesPreloader;

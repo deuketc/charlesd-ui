@@ -1,5 +1,6 @@
 import { useRef, useLayoutEffect } from 'react';
 import styles from './SingleParallaxImage.module.scss';
+import useImagesPreloader from '../../../hooks/UseImagesPreloader';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -21,6 +22,7 @@ const SingleParallaxImage = ({
   deviceWidth,
   scrollTriggerAni,
 }: Iprops) => {
+  const imgsLoaded = useImagesPreloader([image]);
   const containerImageRef = useRef(null);
 
   if (scrollTriggerAni) {
@@ -43,7 +45,7 @@ const SingleParallaxImage = ({
       });
       return () => ctx.revert();
       //}, 2000);
-    }, []);
+    }, [imgsLoaded]);
   }
 
   return (

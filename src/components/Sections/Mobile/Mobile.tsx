@@ -22,7 +22,7 @@ const Mobile = ({ images, backgroundColor }: Iprops) => {
   const largeScreen = RESOLUTIONS[1600];
   const elementsRef = useRef(images.map(() => createRef()));
   const mobilePhoneWrapper = useRef(null);
-  const { imgsLoaded } = useImagesPreloader(images);
+  const imgsLoaded = useImagesPreloader(images);
 
   useLayoutEffect(() => {
     if (width > 1600) {
