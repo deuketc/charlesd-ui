@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useLayoutEffect, createRef  } from 'react';
+import { gsap } from 'gsap';
 import moment from 'moment';
 
 import styles from './BlogList.module.scss';
@@ -26,6 +27,82 @@ const BlogList = ({ blogList }: Iprops) => {
   const [imgSrc, setImgSrc] = useState('');
   const [showImage, setShowImage] = useState(false);
 
+  const elementsRef = useRef(blogList.map(() => createRef()));
+  const headerRef = useRef(null);
+
+  useLayoutEffect(() => {
+
+    // Header
+    gsap.set(headerRef.current, {
+      opacity: 0,
+      y: 110,
+    });
+
+    gsap.to(headerRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+    });
+
+    // List Items
+    elementsRef.current.forEach((element, i) => {
+      gsap.set(elementsRef.current[i].current, {
+        opacity: 0,
+        y: 110,
+      });
+      gsap.set(elementsRef.current[i].current.children[0].childNodes[0].children[0], {
+        opacity: 0,
+        y: 20,
+      });
+      gsap.set(elementsRef.current[i].current.children[0].childNodes[0].children[1], {
+        opacity: 0,
+        y: 20,
+      });
+      gsap.set(elementsRef.current[i].current.children[0].childNodes[1], {
+        opacity: 0,
+        y: 20,
+      });
+      gsap.set(elementsRef.current[i].current.children[0].childNodes[2], {
+        opacity: 0,
+        y: 20,
+      });
+    });
+
+    elementsRef.current.forEach((element, i) => {
+      gsap.to(elementsRef.current[i].current, {
+        y: 0,
+        opacity: 1,
+        delay: 0.2 + i / 4,
+        duration: 0.7,
+      });
+      gsap.to(elementsRef.current[i].current.children[0].childNodes[0].children[0], {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        delay: 0.6 + i / 4,
+      });
+      gsap.to(elementsRef.current[i].current.children[0].childNodes[0].children[1], {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        delay: 0.8 + i / 4,
+      });
+      gsap.to(elementsRef.current[i].current.children[0].childNodes[1], {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        delay: 1.0 + i / 4,
+      });
+      gsap.to(elementsRef.current[i].current.children[0].childNodes[2], {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        delay: 1.2 + i / 4,
+      });
+    });
+
+  }, []);
+
   const onShowImage = (toggle: boolean) => {
     setShowImage(toggle);
   };
@@ -49,7 +126,7 @@ const BlogList = ({ blogList }: Iprops) => {
   return (
     <section className={styles.blogList}>
       <div className={styles.blogList__wrapper}>
-        <h1 className={styles.blogList__header}>Blog</h1>
+        <h1 ref={headerRef} className={styles.blogList__header}>Blog</h1>
       </div>
       <ul
         onMouseEnter={() => onShowImage(true)}
@@ -65,7 +142,7 @@ const BlogList = ({ blogList }: Iprops) => {
               href={item.url}
               onMouseEnter={() => onListItemHover(item.thumb)}
             >
-              <li className={styles.blogList__list_item}>
+              <li ref={elementsRef.current[index]} className={styles.blogList__list_item}>
                 <div className={styles.blogList__list_item_wrapper}>
                   <div className={styles.blogList__list_item_title_wrapper}>
                     <span className={styles.blogList__list_item_title}>

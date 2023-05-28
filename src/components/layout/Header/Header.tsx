@@ -9,7 +9,6 @@ const Header = () => {
     : styles.navigation;
 
   const onHeaderButtonClick = () => {
-    console.log('test');
     setActive(!isActive);
   };
 

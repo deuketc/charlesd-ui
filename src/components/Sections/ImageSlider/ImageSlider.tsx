@@ -11,7 +11,6 @@ const ImageSlider = ({ images, backgroundColor }: Iprops) => {
   const [currentImage, setCurrentImage] = useState(0);
 
   const onNavClick = (index: number) => {
-    console.log('index', index);
     setCurrentImage(index);
   };
 
