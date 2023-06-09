@@ -16,8 +16,57 @@ interface Iprops {
 
 const Hero = ({ title, copy, imgSrc, heroComponent }: Iprops) => {
   const heroBackgroundLayer = useRef(null);
+  const headerRef = useRef(null);
+  const subHeaderRef = useRef(null);
+  const btnPrimaryRef = useRef(null);
+  const btnSecondaryRef = useRef(null);
 
   useLayoutEffect(() => {
+
+    gsap.set(headerRef.current, {
+      opacity: 0,
+      y: 110,
+    });
+    gsap.set(subHeaderRef.current, {
+      opacity: 0,
+      y: 110,
+    });
+    gsap.set(btnPrimaryRef.current, {
+      opacity: 0,
+      y: 110,
+    });
+    gsap.set(btnSecondaryRef.current, {
+      opacity: 0,
+      y: 110,
+    });
+
+    gsap.to(headerRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      delay: 0.2,
+    })
+    gsap.to(subHeaderRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      delay: 0.4,
+    })
+    gsap.to(btnPrimaryRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      delay: 0.6,
+    })
+    gsap.to(btnSecondaryRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      delay: 0.8,
+    })
+
+
+
     let ctx = gsap.context(() => {
       gsap.to(heroBackgroundLayer.current, {
         yPercent: 70,
@@ -37,13 +86,13 @@ const Hero = ({ title, copy, imgSrc, heroComponent }: Iprops) => {
     <section ref={heroBackgroundLayer} className={styles.hero}>
       <div className={styles.hero__wrapper}>
         <div className={styles.hero__copy_wrapper}>
-          <h1 className={styles.hero__title}>{title as string}</h1>
-          <p className={styles.hero__copy}>{copy}</p>
+          <h1 ref={headerRef} className={styles.hero__title}>{title as string}</h1>
+          <p  ref={subHeaderRef} className={styles.hero__copy}>{copy}</p>
           <div className={styles.btn__wrapper}>
-            <Link to="#" className={styles.btn__primary}>
+            <Link ref={btnPrimaryRef} to="#" className={styles.btn__primary}>
               Visit the website
             </Link>
-            <Link to="#" className={styles.btn__secondary}>
+            <Link ref={btnSecondaryRef} to="#" className={styles.btn__secondary}>
               Read more
             </Link>
           </div>

@@ -10,36 +10,58 @@
   flex-shrink: 0;
   &__wrapper {
     @include SECTION-WRAPPER;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    display: flex;
-    align-items: center;
     padding: 20px 0px;
+    @media (min-width: 768px) {
+      flex-direction: row-reverse;    
+      display: flex;    
+      justify-content: space-between;
+      align-items: center;
+    }
   }
   &__header {
     color: #fff;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 400;
-    margin-right: 20px;
-    border-right: 1px solid #fff;
-    padding-right: 20px;
     margin: 0;
-    margin-right: 10px;
+    @media (max-width: 767.9999px) { 
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 768px) {
+      margin-right: 10px;    
+      margin-right: 20px;
+      border-right: 1px solid #fff;
+      padding-right: 20px;
+    }
   }
   &__navigation {
-    display: flex;
-    align-items: center;
+
+    @media (min-width: 768px) { 
+      display: flex;
+      align-items: center;
+    }
+    @media (max-width: 767.9999px) {
+      margin-bottom: 1rem
+    }
+    
   }
 
   &__list {
     @include LIST-RESET;
     display: flex;
-    justify-content: right;
+    justify-content: center;
+    flex-wrap: wrap;
+    @media (min-width: 768px) { 
+      justify-content: right;
+    }
   }
 
   &__list_item {
     margin-left: 10px;
     margin-right: 10px;
+    @media (max-width: 767.9999px) {
+      margin-bottom: 1rem
+    }
   }
 
   &__list_item_label {
@@ -59,6 +81,9 @@
     font-weight: 400;
     color: #fff;
     margin: 0;
+    @media (max-width: 767.9999px) { 
+      text-align: center;
+    }
   }
 
   svg {
