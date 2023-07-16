@@ -34,21 +34,25 @@ const WatoPage = () => {
         title="What are the odds?"
         copy="What are the odds is an promotional microsite built for State Insurance and Flybuys."
         imgSrc={heroImage}
+        url="https://charlesd.co.nz/wato"
       />
       <CopySection
+        paddingTop={true}
         title="Engaging UX"
         body="The campaign promoted the purchase of policies by earning customers the chance to win 30,000 Flybuys points each day for the month of April 2018."
         backgroundColor="#f2f2f2"
       />
       <SingleImage image={mySingleImage} backgroundColor="#f2f2f2" />
       <CopySection
+        paddingTop={true}
         title="Device compatibility"
-        body="As the front-end developer for the project my objective was to deliver a consistent experience to both desktop and mobile. This was accomplished using responsive web development and the JavaScript animation library GreenSock."
+        body="As the front-end developer for the project my objective was to deliver a consistent experience to both desktop and mobile."
       />
       <Mobile images={mobileShowcase} />
       <CopySection
+        paddingTop={true}
         title="Animation with JavaScript"
-        body="Overcoming challenges such as differences in mobile and desktop layout was accomplished by creating the timeline dynamically whenever a screen size change was detected."
+        body="Accomplished with responsive web development and the JavaScript animation library GreenSock."
         backgroundColor="#f2f2f2"
       />
       <Video
@@ -56,8 +60,11 @@ const WatoPage = () => {
         backgroundColor="#f2f2f2"
       />
       <CopySection
+        paddingTop={true}
+        paddingBottom={true}
         title="Scale"
-        body="Overcoming challenges such as differences in mobile and desktop layout was accomplished by creating the timeline dynamically whenever a screen size change was detected."
+        body="Deserunt fugiat enim culpa eiusmod. Cillum consectetur veniam esse
+        dolor ea dolore adipisicing."
       />
       <SingleParallaxImage
         image={watoCityImage}
@@ -66,11 +73,10 @@ const WatoPage = () => {
       />
       <NextProject
         backgroundColor="#ffffff"
-        copy="Deserunt fugiat enim culpa eiusmod. Cillum consectetur veniam esse
-          dolor ea dolore adipisicing in dolore sint eiusmod. Labore ea esse
-          eiusmod aliqua."
-        header="Want to see another project?"
-        url="/projects/udc"
+        header="The above project was built during my time at IAG Insurance."
+        copy="Learn about my role and other projects I've worked on as a Developer?"
+        btnLabel='IAG casestudy'
+        btnUrl="/projects/iag"
       />
     </>
   );

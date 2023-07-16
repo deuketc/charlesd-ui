@@ -1,6 +1,7 @@
 import { useRef, useLayoutEffect, Component } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Hero.module.scss';
+import {is_touch_device} from '../../../utils/utils'
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -12,17 +13,28 @@ interface Iprops {
   copy?: string;
   imgSrc?: string;
   heroComponent?: object;
+  url: string;
 }
 
-const Hero = ({ title, copy, imgSrc, heroComponent }: Iprops) => {
+const Hero = ({ title, copy, imgSrc, heroComponent, url }: Iprops) => {
   const heroBackgroundLayer = useRef(null);
   const headerRef = useRef(null);
   const subHeaderRef = useRef(null);
   const btnPrimaryRef = useRef(null);
   const btnSecondaryRef = useRef(null);
+  
+
+  const handleClickScroll = () => {
+    const element = document.getElementById('scroll-to');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
 
   useLayoutEffect(() => {
 
+    if(!is_touch_device()) {
     gsap.set(headerRef.current, {
       opacity: 0,
       y: 110,
@@ -79,8 +91,9 @@ const Hero = ({ title, copy, imgSrc, heroComponent }: Iprops) => {
         },
       });
     });
-
+    console.log('useEffect from Hero.tsx')
     return () => ctx.revert();
+  }
   }, []);
   return (
     <section ref={heroBackgroundLayer} className={styles.hero}>
@@ -89,12 +102,12 @@ const Hero = ({ title, copy, imgSrc, heroComponent }: Iprops) => {
           <h1 ref={headerRef} className={styles.hero__title}>{title as string}</h1>
           <p  ref={subHeaderRef} className={styles.hero__copy}>{copy}</p>
           <div className={styles.btn__wrapper}>
-            <Link ref={btnPrimaryRef} to="#" className={styles.btn__primary}>
+            <a ref={btnPrimaryRef} target='_blank' href={url} className={styles.btn__primary}>
               Visit the website
-            </Link>
-            <Link ref={btnSecondaryRef} to="#" className={styles.btn__secondary}>
+            </a>
+            <button ref={btnSecondaryRef} onClick={() => handleClickScroll()} className={styles.btn__secondary}>
               Read more
-            </Link>
+            </button>
           </div>
         </div>
         <div className={styles.hero__img_wrapper}>
@@ -110,6 +123,7 @@ const Hero = ({ title, copy, imgSrc, heroComponent }: Iprops) => {
           </>
         </div>
       </div>
+      <div id='scroll-to'></div>
     </section>
   );
 };

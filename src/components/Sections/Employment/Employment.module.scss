@@ -2,7 +2,7 @@
 @import '../../../variables';
 
 .employment {
-  margin-bottom: 10rem;
+  @include STYLE-SECTION-PADDING
 }
 .wrapper {
   @include SECTION-WRAPPER;

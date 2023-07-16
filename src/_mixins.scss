@@ -11,10 +11,55 @@
     padding: 2rem 0;
   }
   @include md-width {
-    padding: 3rem 0;
+    padding: 4rem 0;
   }
   @include lg-width {
-    padding: 4rem 0;
+    padding: 6rem 0;
+  }
+}
+
+@mixin STYLE-SECTION-PADDING-TOP {
+  padding-top: 1rem;
+  @include sm-width {
+    padding-top: 2rem;
+  }
+  @include md-width {
+    padding-top: 4rem;
+  }
+  @include lg-width {
+    padding-top: 6rem;
+  }
+}
+
+@mixin STYLE-SECTION-PADDING-BOTTOM {
+  padding-bottom: 1rem;
+  @include sm-width {
+    padding-bottom: 2rem;
+  }
+  @include md-width {
+    padding-bottom: 4rem;
+  }
+  @include lg-width {
+    padding-bottom: 6rem;
+  }
+}
+
+@mixin STYLE-HEADER-ULTRA {
+  margin-top: 3rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  @include sm-width {
+    font-size: 2rem;
+  }
+  @include md-width {
+    font-size: 3rem;
+  }
+  @include lg-width {
+    font-size: 4rem;
+  }
+  @include fhd-width {
+    font-size: 7rem;
   }
 }
 
@@ -47,7 +92,7 @@
     font-size: 2.5rem;
   }
   @include lg-width {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 }
 
@@ -64,15 +109,14 @@
 }
 
 @mixin STYLE-COPY {
-  color: #333;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Source Sans 3', sans-serif;
   font-weight: 400;
   font-size: 1.2rem;
   @include sm-width {
     font-size: 1.3rem;
   }
   @include lg-width {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
   }
 }
 
@@ -95,7 +139,6 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 1rem;
-  line-height: 56px;
   text-decoration: none;
   color: #fff;
   background-color: #000;
@@ -103,11 +146,16 @@
   border-radius: 100px;
   box-sizing: border-box;
   text-align: center;
+  padding:1.15rem 0;
+  cursor: pointer;
+  &:hover {
+    background-color: #1d1d1d;
+  } 
   @include sm-width {
     font-size: 1rem;
   }
   @include lg-width {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -115,20 +163,23 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 1rem;
-  line-height: 56px;
   text-decoration: none;
   color: #000;
   background-color: #fff;
   display: inline-block;
   border-radius: 100px;
   outline: 2px solid #000;
+  outline-offset: -2px;
   box-sizing: border-box;
   text-align: center;
+  cursor: pointer;
+  padding:1.15rem 0;
+  &:hover {background-color: #f6f6f6;}
   @include sm-width {
     font-size: 1rem;
   }
   @include lg-width {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 }
 

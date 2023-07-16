@@ -1,13 +1,15 @@
 import styles from './NextProject.module.scss';
+import { Link } from 'react-router-dom';
 
 interface IProps {
   copy: string;
   header: string;
-  url: string;
+  btnUrl: string;
+  btnLabel: string;
   backgroundColor?: string;
 }
 
-const NextProject = ({ copy, header, url, backgroundColor }: IProps) => {
+const NextProject = ({ copy, header, btnUrl, btnLabel, backgroundColor }: IProps) => {
   return (
     <section
       className={styles.nextProject}
@@ -16,9 +18,17 @@ const NextProject = ({ copy, header, url, backgroundColor }: IProps) => {
       <div className={styles.nextProject__wrapper}>
         <h2 className={styles.nextProject__header}>{header}</h2>
         <p className={styles.nextProject__copy}>{copy}</p>
-        <a className={styles.nextProject__btn} href={url}>
+        <div className={styles.btn__wrapper}>
+            <Link to={btnUrl} className={styles.btn__primary}>
+              {btnLabel}
+            </Link>
+            <Link to="/projects" className={styles.btn__secondary}>
+              All Projects
+            </Link>
+          </div>
+        {/* <a className={styles.nextProject__btn} href={url}>
           UDC casestudy
-        </a>
+        </a> */}
       </div>
     </section>
   );

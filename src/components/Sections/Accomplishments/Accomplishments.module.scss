@@ -1,7 +1,7 @@
 @import '../../../_mixins';
 
 .accomplishments {
-  margin-bottom: 3rem;
+  @include STYLE-SECTION-PADDING;
   &__wrapper {
     @include SECTION-WRAPPER;
   }

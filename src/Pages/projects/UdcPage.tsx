@@ -43,39 +43,43 @@ const UdcPage = () => {
     <>
       <Hero
         title="UDC"
-        copy="Develop a responsive, pixel perfect front-end enabling customers to easily access information."
+        copy="Providing asset-based finance to New&nbsp;Zealand businesses"
         imgSrc={heroImage}
+        url='https://udc.co.nz'
       />
       <CopySection
-        title="Lorem ipsum dolor sit"
-        body="Nunc accumsan libero felis, vel imperdiet enim condimentum vulputate. In tristique libero ac egestas semper. Nam vel ante consectetur eros aliquet mattis. "
+        paddingTop={true}
+        title="Our team developed..."
+        body="A responsive, pixel perfect front-end enabling customers to easily access information."
         backgroundColor="#f2f2f2"
       />
       <ResponsiveSlider images={responsiveSliderImages} />
       <CopySection
+        paddingTop={true}
         title="Device optimized"
-        body="The UDC website is accessible to all devices, supports legacy browsers including ie8+ and without compromise."
+        body="Accessible to all devices, supports legacy browsers including ie8+ without compromise."
         backgroundColor="#fff"
       />
       <Mobile images={mobileShowcase} />
       <CopySection
+        paddingTop={true}
         title="Custom loan comparison calulator"
-        body="A responsive customized JavaScript calculator allows customers to compare a variety of loans easily from any device."
+        body="A custom calculator enables customers to compare a variety of loans easily from any device."
         backgroundColor="#eff7fa"
       />
       <ImageSlider images={sliderImages} backgroundColor="#eff7fa" />
       <CopySection
-        title="CMS driven content"
-        body="The UDC websites content including images, video and copy was updatable through a custom CMS and easy to use flexible customized templates."
+        paddingTop={true}
+        title="Managed Content"
+        body="Content including images, video and copy is updated through a custom content management system."
         backgroundColor="#f2f2f2"
       />
       <SingleImage image={mySingleImage} backgroundColor={'#f2f2f2'} />
       <NextProject
-        copy="Deserunt fugiat enim culpa eiusmod. Cillum consectetur veniam esse
-          dolor ea dolore adipisicing in dolore sint eiusmod. Labore ea esse
-          eiusmod aliqua."
-        header="Want to see another project?"
-        url="/projects/udc"
+        copy="A promotional microsite built for State Insurance and Flybuys, learn more?"
+        header="Want to know the odds?"
+        btnUrl="/projects/wato"
+        btnLabel='WATO casestudy'
       />
     </>
   );

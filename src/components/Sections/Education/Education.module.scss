@@ -3,7 +3,7 @@
 
 .education {
   overflow: hidden;
-  margin-bottom: 10rem;
+  @include STYLE-SECTION-PADDING
 }
 
 .wrapper {

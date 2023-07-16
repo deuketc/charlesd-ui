@@ -61,17 +61,20 @@ const TouchpointPage = () => {
         title="Touchpoint Group"
         copy="Enterprise software and services for superior customer engagement."
         imgSrc={heroImage}
+        url='https://touchpoint.co.nz'
       />
 
       <CopySection
+        paddingTop={true}
         title="Front-end Development"
-        body="During my time at Touchpoint I worked helped develop the following 3 products"
+        body="During my time at Touchpoint I helped develop the following 3 products"
         backgroundColor="#f2f2f2"
       />
       <Mobile images={mobileShowcase} backgroundColor="#f2f2f2" />
       <CopySection
+        paddingTop={true}
         title="Working Together"
-        body="As a front-end developer working with Touchpoint Group, I was fortunate to work with the following brands."
+        body="As a front-end developer, I was fortunate to work with the following brands."
         backgroundColor="#ffffff"
       />
       <LogosTiled logos={logos} />
@@ -82,8 +85,9 @@ const TouchpointPage = () => {
         backgroundColor="#f2f2f2"
       />
       <CopySection
+        paddingTop={true}
         title="More experts in more places"
-        body="write some stuff about ANZ."
+        body="Write some stuff about ANZ. Maecenas sed urna in urna facilisis vulputate. Nulla facilisi. "
         backgroundColor="#fff"
       />
       <Video
@@ -93,17 +97,17 @@ const TouchpointPage = () => {
         backgroundColor="#fff"
       />
       <CopySection
+        paddingTop={true}
         title="Innovation"
-        body='For my work on responsive email campaigns I received Touchpoint Group’s innovation award. Check out my most recent email code for responsive emails on my <a href="https://github.com/deuketc/edm-desktop-first">Github</a> page.'
+        body='For my work on responsive email campaigns I received Touchpoint Group’s innovation award. Check out my code on <a href="https://github.com/deuketc/edm-desktop-first">Github</a>.'
         backgroundColor="#f2f2f2"
       />
       <SingleImage image={mySingleImage} backgroundColor="#f2f2f2" />
       <NextProject
-        copy="Deserunt fugiat enim culpa eiusmod. Cillum consectetur veniam esse
-          dolor ea dolore adipisicing in dolore sint eiusmod. Labore ea esse
-          eiusmod aliqua."
-        header="Want to see another project?"
-        url="/projects/udc"
+        copy="Providing asset-based finance to New Zealand businesses, want to know more?"
+        header="Touchpoint group introduced me to UDC."
+        btnUrl="/projects/udc"
+        btnLabel="UDC casestudy"
       />
     </>
   );

@@ -1,0 +1,30 @@
+@import '../../../_mixins';
+
+.btn_section {
+    &__wrapper {
+        padding-bottom: 4rem;
+    }
+    &__container {
+        @include SECTION-WRAPPER;
+        text-align: center;
+        display: flex;
+        max-width: 750px;
+        @include sm-width {
+            flex-direction: row;
+            justify-content: space-between;
+         }      
+    }
+}
+
+.btn__primary {
+    @include BTN;
+    margin-bottom: 1rem;
+    width: 47%;
+}
+
+.btn__secondary {
+    @include BTN__SECONDARY;
+    margin-bottom: 1rem;
+    width: 47%
+}
+

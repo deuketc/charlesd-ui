@@ -4,7 +4,7 @@
 /* Accomplishments */
 
 .skills {
-  margin-bottom: 10rem;
+  @include STYLE-SECTION-PADDING
 }
 
 .wrapper {

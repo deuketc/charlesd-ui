@@ -1,3 +1,5 @@
+import { useRef,useState, useLayoutEffect, useEffect } from 'react';
+
 import Hero from '../../components/Sections/Hero/Hero';
 import CopySection from '../../components/Sections/CopySection/CopySection';
 import Mobile from '../../components/Sections/Mobile/Mobile';
@@ -29,6 +31,8 @@ import screenhotImage from '../../assets/projects/iag/screenshot-disaster_hub-st
 import sliderImageEmail01 from '../../assets/projects/iag/email-state-light.jpg';
 import sliderImageEmail02 from '../../assets/projects/iag/email-state-dark.jpg';
 import IagDeveloper from '../../components/Sections/IagDeveloper/IagDeveloper';
+import DarkMode from '../../components/Sections/DarkMode/DarkMode';
+import BtnSection from '../../components/Sections/BtnSection/BtnSection';
 
 const sliderImagesEmail = [sliderImageEmail01, sliderImageEmail02];
 
@@ -41,54 +45,70 @@ const mySingleImage = {
 
 const mobileShowcase = [mobile01, mobile02, mobile03];
 
+
 const IagPage = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  
+  useLayoutEffect(() => {
+    console.log('useEffect from IagPage.tsx')
+    setIsLoaded(true)
+  }, []);
+
   return (
     <>
       <Hero
+        url="https://www.iag.co.nz"
         title="Making the world a safer place"
         copy={'Full-time front-end engineer role'}
         heroComponent={<IagHero />}
       />
-      <IagDeveloper />
       <CopySection
-        title="Claims Applications"
-        body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sem urna, sagittis et justo et, sodales posuere eros."
+        paddingTop={true}
+        title="Our team built..."
+        body="Motor and property lodgement applications using the latest technologies."
         backgroundColor="#f2f2f2"
       />
-      <ResponsiveSlider images={responsiveSliderImages} />
+      <ResponsiveSlider images={responsiveSliderImages} />    
+      <IagDeveloper isLoaded={isLoaded} />  
       <CopySection
+        paddingTop={true}
         title="Disaster Claims Hub"
-        body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sem urna, sagittis et justo et, sodales posuere eros."
-        backgroundColor="#fff"
-      />
-      <SingleImage image={mySingleImage} backgroundColor="#ffffff" />
-      <CopySection
-        title="Disaster Claims Hub"
-        body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sem urna, sagittis et justo et, sodales posuere eros."
+        body="Helpful information on how to prepare for and get back on your feet after a natural disaster."
         backgroundColor="#f2f2f2"
       />
-      <Mobile images={mobileShowcase} backgroundColor="#f2f2f2" />
+      <SingleImage image={mySingleImage} backgroundColor="#f2f2f2" />
       <CopySection
+        paddingTop={true}
+        title="Built for all brands"
+        body="UI designed and developed for all New Zealand brands using the Oracle Service Cloud including IAG, State and AMI."
+        backgroundColor="#ffffff"
+      />
+      <Mobile images={mobileShowcase} backgroundColor="#ffffff" />
+      <CopySection
+        paddingTop={true}
         title="What are the odds?"
-        body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sem urna, sagittis et justo et, sodales posuere eros."
-        backgroundColor="#fff"
+        body="A promotional microsite built for State Insurance and Flybuys"
+        backgroundColor="#f2f2f2"
       />
       <Video
         src="https://player.vimeo.com/video/355045208?autoplay=1&loop=1&autopause=0"
-        backgroundColor="#fff"
-      />
-      <CopySection
-        title="Responsive emails"
-        body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sem urna, sagittis et justo et, sodales posuere eros."
         backgroundColor="#f2f2f2"
       />
-      <ImageSlider images={sliderImagesEmail} backgroundColor="#f2f2f2" />
+
+      <BtnSection btn01Label="Launch Project" btn02Label="More Info" backgroundColor='#f2f2f2' />
+      <CopySection
+      paddingTop={true}
+        title="Responsive emails"
+        body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sem urna, sagittis et justo et, sodales posuere eros."
+        backgroundColor="#fff"
+      />
+      <DarkMode images={sliderImagesEmail} isLoaded={isLoaded} backgroundColor="#fff" />
       <NextProject
-        copy="Deserunt fugiat enim culpa eiusmod. Cillum consectetur veniam esse
-          dolor ea dolore adipisicing in dolore sint eiusmod. Labore ea esse
-          eiusmod aliqua."
+        backgroundColor="#f2f2f2"
+        copy="Unichem is network of more than 250 pharmacies throughout New&nbsp;Zealand."
         header="Want to see another project?"
-        url="/projects/udc"
+        btnUrl="/projects/unichem"
+        btnLabel='Unichem casestudy'
       />
     </>
   );

@@ -5,7 +5,8 @@ interface IProps {
   src: string;
 }
 
-const Video = ({ backgroundColor, src }: IProps) => {
+const Video = ({ backgroundColor, src, }: IProps) => {
+
   return (
     <div
       className={styles.video}

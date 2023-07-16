@@ -21,11 +21,14 @@ const ResponsiveSlider = ({ images }: Iprops) => {
   const heroBackgroundLayer = useRef(null);
 
   const onScrollChange = (percentage:number) => {
-    console.log(percentage)
-    if(percentage>.3) {
+
+    if (percentage >= 0 && percentage <= .33  ) {
+      onNavClick(0)
+    }
+    if(percentage >= 0.34 && percentage <= .66 ) {
       onNavClick(1)
     }
-    if(percentage>.6) {
+    if(percentage >= 0.67 && percentage <= 1 ) {
       onNavClick(2)
     }
   }
@@ -37,8 +40,8 @@ const ResponsiveSlider = ({ images }: Iprops) => {
         scrollTrigger: {
           pin: true,
           trigger: heroBackgroundLayer.current,
-          start: '0px top', // the default values
-          end: 'bottom top',
+          start: 'top 0', // the default values
+          end: '+=3000',
           onUpdate: self => onScrollChange(self.progress)
         },
       });

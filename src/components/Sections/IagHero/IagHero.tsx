@@ -89,7 +89,7 @@ const iagHero = () => {
     }, comp); // <- IMPORTANT! Scopes selector text
 
     iagtl.play();
-
+    console.log('useEffect from IagHero.tsx')
     return () => ctx.revert(); // cleanup
   }, []);
 

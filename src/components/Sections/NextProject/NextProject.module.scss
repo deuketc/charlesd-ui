@@ -7,6 +7,7 @@
   &__wrapper {
     @include SECTION-WRAPPER;
     @include STYLE-SECTION-PADDING;
+    container-type: inline-size;
     max-width: 1200px;
     margin: 0 auto;
   }
@@ -21,3 +22,41 @@
     padding: 0 40px;
   }
 }
+
+.btn {
+  &__wrapper {
+    max-width: 750px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    @container (min-width: 480px) { 
+      margin-top: 4rem;
+    }
+    @container (max-width: 479px) { 
+      margin-bottom: 2rem;
+    }
+    @container (min-width: 480px) { 
+      flex-direction: row;
+      justify-content: space-between;
+      display: flex;
+
+    }
+  }
+  &__primary {
+    @include BTN;
+    width: 100%;
+    @container (max-width: 479px) { 
+      margin-bottom: 1rem;
+    }
+    @container (min-width: 480px) { 
+      width: 47%;
+    }
+  }
+  &__secondary {
+    @include BTN__SECONDARY;
+    width: 100%;
+    @container (min-width: 480px) { 
+      width: 47%;
+    }
+  }
+}
+

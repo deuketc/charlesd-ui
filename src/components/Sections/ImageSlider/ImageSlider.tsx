@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import RadioListNav from '../../layout/RadioListNav/RadioListNav';
 import styles from './ImageSlider.module.scss';
+import { makeid } from '../../../utils/utils';
 
 interface Iprops {
   images: string[];
@@ -12,19 +13,6 @@ const ImageSlider = ({ images, backgroundColor }: Iprops) => {
 
   const onNavClick = (index: number) => {
     setCurrentImage(index);
-  };
-
-  const makeid = (length: number) => {
-    let result = '';
-    const characters =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const charactersLength = characters.length;
-    let counter = 0;
-    while (counter < length) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-      counter += 1;
-    }
-    return result;
   };
 
   return (

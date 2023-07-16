@@ -1,7 +1,7 @@
 import { useRef, useLayoutEffect, createRef } from 'react';
 import iagThumb from '../../assets/projects/iag-thumb.jpg';
 import { gsap } from 'gsap';
-import touchpointThumb from '../../assets/projects/touchpoint-thumb.png';
+import touchpointThumb from '../../assets/projects/touchpoint-thumb.jpg';
 import udcThumb from '../../assets/projects/udc-thumb.jpg';
 import unichemThumb from '../../assets/projects/unichem-thumb.jpg';
 import watoThumb from '../../assets/projects/wato-thumb.jpg';

@@ -1,10 +1,11 @@
 @import '../../../_mixins';
+@import '../../../variables';
 
 .hero {
   z-index: 1;
   position: relative;
-  min-height: 100vh;
   @include md-width {
+    min-height: 100vh;
   }
   &__wrapper {
     display: flex;
@@ -15,7 +16,7 @@
   }
   &__img_wrapper {
     overflow: hidden;
-    min-height: 50vh;
+    
     text-align: right;
     position: relative;
     @include md-width {
@@ -23,8 +24,12 @@
       align-items: center;
       min-height: 100vh;
     }
+    @include md-width-max {
+      padding-top: 60px;
+    }
   }
   &__copy_wrapper {
+    container-type: inline-size;
     @include md-width {
       min-height: 100vh;
       width: 40%;
@@ -55,31 +60,36 @@
 
 .btn {
   &__wrapper {
-    @include md-width {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    @container (min-width: 480px) { 
+      margin-top: 4rem;
+    }
+    @container (max-width: 479px) { 
+      margin-bottom: 2rem;
+    }
+    @container (min-width: 480px) { 
       flex-direction: row;
       justify-content: space-between;
       display: flex;
-    }
 
-    // max-width: 600px;
-    margin-top: 4rem;
+    }
   }
   &__primary {
     @include BTN;
-
     width: 100%;
-    @include md-width-max {
+    @container (max-width: 479px) { 
       margin-bottom: 1rem;
     }
-    @include md-width {
-      width: 48%;
+    @container (min-width: 480px) { 
+      width: 47%;
     }
   }
   &__secondary {
     @include BTN__SECONDARY;
     width: 100%;
-    @include md-width {
-      width: 48%;
+    @container (min-width: 480px) { 
+      width: 47%;
     }
   }
 }

@@ -11,8 +11,9 @@
   }
   &__picture {
     max-width: 100%;
-    box-shadow: 0px 0px 20px 7px rgba(0, 0, 0, 0.1);
+    // box-shadow: 0px 0px 20px 7px rgba(0, 0, 0, 0.1);
     display: block;
     margin: 0 auto;
+    border-radius: 20px;
   }
 }

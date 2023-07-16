@@ -38,25 +38,29 @@ const UnichemPage = () => {
     <>
       <Hero
         title="Unichem"
-        copy="Our team developed a CMS driven website for Unichem, a network of more than 250 pharmacies throughout New Zealand."
+        copy="A network of more than 250 pharmacies throughout New Zealand."
         imgSrc={heroImage}
+        url='https://unichem.co.nz'
       />
       <CopySection
-        title="Lorem ipsum dolor sit"
-        body="Nunc accumsan libero felis, vel imperdiet enim condimentum vulputate. In tristique libero ac egestas semper. Nam vel ante consectetur eros aliquet mattis."
+        paddingTop={true}
+        title="Our team built..."
+        body="A customised content managed website, with a fully responsive UI."
         backgroundColor="#f2f2f2"
       />
       <ResponsiveSlider images={sliderImages} />
       <CopySection
+        paddingTop={true}
         title="Google maps integration"
-        body="Nunc accumsan libero felis, vel imperdiet enim condimentum vulputate. In tristique libero ac egestas semper. Nam vel ante consectetur eros aliquet mattis."
+        body="Find a Unichem in your area easily with our customized storefinder."
       />
       <Mobile images={mobileShowcase} />
       <CopySection
+        paddingTop={true}
         backgroundColor="#4f5565"
         color="#fff"
         title="A wealth of knowledge"
-        body="Unichems website was built to support many different forms of content including articles, product information, locations and interactive brochures."
+        body="Hosts many different forms of content including articles, product information, locations and interactive brochures."
       />
       <Video
         src={
@@ -65,17 +69,17 @@ const UnichemPage = () => {
         backgroundColor="#4f5565"
       />
       <CopySection
-        title="CMS driven content"
-        body="The Unichem websites content including images, video and copy is managed through a custom CMS with easy to use flexible templates."
+        paddingTop={true}
+        title="Edit all your content"
+        body="Content including images, video and copy is managed through a custom content management CMS."
         backgroundColor="#f2f2f2"
       />
       <SingleImage image={mySingleImage} backgroundColor="#f2f2f2" />
       <NextProject
-        copy="Deserunt fugiat enim culpa eiusmod. Cillum consectetur veniam esse
-          dolor ea dolore adipisicing in dolore sint eiusmod. Labore ea esse
-          eiusmod aliqua."
-        header="Want to see another project?"
-        url="/projects/udc"
+        header="I built the Unichem UI during my time at Touchpoint."
+        copy="Want to know more about the projects I worked on during my time at Touchpoint Group?"
+        btnLabel="Touchpoint casestudy"
+        btnUrl='/projects/touchpoint'
       />
     </>
   );

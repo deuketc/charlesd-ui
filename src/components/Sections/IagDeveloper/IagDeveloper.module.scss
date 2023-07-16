@@ -5,23 +5,69 @@
   z-index: 2;
   background-color: #fff;
   &__wrapper {
+    max-width: 1600px;
     @include SECTION-WRAPPER;
-    @include STYLE-SECTION-PADDING;
-    display: flex;
     justify-content: space-between;
+
+    // stack elements
+    display: grid;
+    grid-template-columns: 1fr;
+    height:100vh;
+    align-items:center;
   }
-  &__article {
-    width: 30%;
-    text-align: center;
+  &__article {  
+    @include STYLE-SECTION-PADDING;
+
+    // stack elements
+    grid-row-start: 1;
+    grid-column-start: 1;
   }
   &__copy_title {
-    @include STYLE-COPY;
+    @include STYLE-HEADER-SUB;
   }
   &__copy_level {
     @include STYLE-HEADER-SUPER;
-    font-size: 10rem !important;
+    line-height: 25rem;
+    font-size: 25rem !important;
+    margin: 0;
+    text-align: right;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    color: #fff;
+
   }
-  &__copy_description {
-    @include STYLE-COPY;
+  &__copy_l3 {
+    @include STYLE-HEADER
+  }
+  &__cols {
+    display: flex;
+    justify-content: space-between;
+    &_col1 {
+      width: 35%;
+    }
+    &_col2 {
+      @include STYLE-COPY;
+      width: 55%;
+    }
+  }
+  &__card {
+    padding: 10%;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background-color: #8651e8;
+  }
+  &__card_title {
+    @include STYLE-HEADER-SUB;
+    margin: 0;
+    color: #fff;
+    &_lvl {
+      color: #999;
+    }
+  }
+  &__card_date {
+    margin:0;
+    @include STYLE-HEADER-SUB;
+    padding-bottom: 1rem;
+    color:#fff;
   }
 }

@@ -5,6 +5,14 @@
   @include STYLE-SECTION-PADDING;
   position: relative;
   z-index: 1;
+  &__padding_top {
+    @include STYLE-SECTION-PADDING-TOP;
+    padding-bottom: 0 !important;
+  }
+  &__padding_bottom {
+    @include STYLE-SECTION-PADDING-BOTTOM;
+    padding-top: 0 !important;
+  }
 }
 
 .embedContainer {
@@ -15,7 +23,7 @@
   max-width: 1440px;
   margin: 0 auto;
   @media (min-width: 1440px) {
-    padding-bottom: 37%;
+    padding-bottom: 32%;
   }
 }
 .embedContainer iframe,
