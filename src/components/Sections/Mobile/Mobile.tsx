@@ -18,22 +18,22 @@ const Mobile = ({ images, backgroundColor }: Iprops) => {
     setActiveImage(index);
   };
 
-  const { height, width } = useWindowDimensions();
-  const largeScreen = RESOLUTIONS[1600];
-  const elementsRef = useRef(images.map(() => createRef()));
+  const { width } = useWindowDimensions();
   const mobilePhoneWrapper = useRef(null);
   const imgsLoaded = useImagesPreloader(images);
 
   useLayoutEffect(() => {
     if (width > 1600) {
       let ctx = gsap.context(() => {
-        gsap.set(elementsRef.current[0].current, {
+
+        gsap.set('.mobile-phone-00', {
           x: 460,
         });
-        gsap.set(elementsRef.current[2].current, {
+        gsap.set('.mobile-phone-02', {
           x: -460,
         });
-        gsap.to(elementsRef.current[0].current, {
+
+        gsap.to('.mobile-phone-00', {
           scrollTrigger: {
             trigger: mobilePhoneWrapper.current,
             start: 'bottom bottom',
@@ -45,7 +45,7 @@ const Mobile = ({ images, backgroundColor }: Iprops) => {
           x: 0,
         });
 
-        gsap.to(elementsRef.current[2].current, {
+        gsap.to('.mobile-phone-02', {
           scrollTrigger: {
             trigger: mobilePhoneWrapper.current,
             start: 'bottom bottom',
@@ -54,7 +54,8 @@ const Mobile = ({ images, backgroundColor }: Iprops) => {
           },
           x: 0,
         });
-      });
+
+      }, mobilePhoneWrapper);
 
       return () => ctx.revert();
     }
@@ -74,9 +75,8 @@ const Mobile = ({ images, backgroundColor }: Iprops) => {
           {images.map((image, index) => {
             return (
               <div
-                ref={elementsRef.current[index]}
                 key={index}
-                className={`${styles.mobile__phone_vector} ${
+                className={`mobile-phone-0${index} ${styles.mobile__phone_vector} ${
                   activeImage === index
                     ? styles['mobile__phone_vector--active']
                     : ''

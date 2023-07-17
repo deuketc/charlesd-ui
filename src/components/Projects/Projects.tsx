@@ -45,8 +45,11 @@ const projectItemList = [
 const Projects = () => {
   const elementsRef = useRef(projectItemList.map(() => createRef()));
   const headerRef = useRef(null);
+  const listItems = useRef(null);
 
   useLayoutEffect(() => {
+
+    let ctx = gsap.context(() => {
     // Header
     gsap.set(headerRef.current, {
       opacity: 0,
@@ -60,41 +63,46 @@ const Projects = () => {
     });
 
     // List Items
-    elementsRef.current.forEach((element, i) => {
-      gsap.set(elementsRef.current[i].current, {
+    projectItemList.forEach((element, i) => {
+      gsap.set(`.projects__list_item_0${i}`, {
         opacity: 0,
         y: 110,
       });
-      gsap.set(elementsRef.current[i].current.children[0].childNodes[1], {
+      gsap.set(`.projects__list_item_0${i} .projects__list_item_header`, {
         opacity: 0,
         y: 20,
       });
-      gsap.set(elementsRef.current[i].current.children[0].childNodes[2], {
+      gsap.set(`.projects__list_item_0${i} .projects__list_item_subheader`, {
         opacity: 0,
         y: 20,
       });
     });
 
-    elementsRef.current.forEach((element, i) => {
-      gsap.to(elementsRef.current[i].current, {
+    projectItemList.forEach((element, i) => {
+      gsap.to(`.projects__list_item_0${i}`, {
         y: 0,
         opacity: 1,
         delay: 0.2 + i / 4,
         duration: 0.7,
       });
-      gsap.to(elementsRef.current[i].current.children[0].childNodes[1], {
+      gsap.to(`.projects__list_item_0${i} .projects__list_item_header`, {
         opacity: 1,
         y: 0,
         duration: 0.6,
         delay: 0.6 + i / 4,
       });
-      gsap.to(elementsRef.current[i].current.children[0].childNodes[2], {
+      gsap.to(`.projects__list_item_0${i} .projects__list_item_subheader`, {
         opacity: 1,
         y: 0,
         duration: 0.6,
         delay: 0.8 + i / 4,
       });
     });
+
+      return () => ctx.revert();
+    }, listItems);
+
+
   }, []);
 
   return (
@@ -103,12 +111,11 @@ const Projects = () => {
         <h1 ref={headerRef} className={styles.projects__header}>
           Projects
         </h1>
-        <ul className={styles.projects__list}>
+        <ul ref={listItems} className={styles.projects__list}>
           {projectItemList.map((projectItem, i) => (
             <li
-              ref={elementsRef.current[i]}
               key={i}
-              className={styles.projects__list_item}
+              className={`projects__list_item_0${i} ${styles.projects__list_item}`}
             >
               <Link
                 className={styles.projects__list_item_link}
@@ -119,10 +126,10 @@ const Projects = () => {
                   src={projectItem.img}
                   alt=""
                 />
-                <h2 className={styles.projects__list_item_header}>
+                <h2 className={`projects__list_item_header ${styles.projects__list_item_header}`}>
                   {projectItem.title}
                 </h2>
-                <p className={styles.projects__list_item_subheader}>
+                <p className={`projects__list_item_subheader ${styles.projects__list_item_subheader}`}>
                   {projectItem.subTitle}
                 </p>
               </Link>

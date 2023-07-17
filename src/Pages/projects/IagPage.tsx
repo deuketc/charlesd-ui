@@ -47,12 +47,6 @@ const mobileShowcase = [mobile01, mobile02, mobile03];
 
 
 const IagPage = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  
-  useLayoutEffect(() => {
-    console.log('useEffect from IagPage.tsx')
-    setIsLoaded(true)
-  }, []);
 
   return (
     <>
@@ -69,7 +63,7 @@ const IagPage = () => {
         backgroundColor="#f2f2f2"
       />
       <ResponsiveSlider images={responsiveSliderImages} />    
-      <IagDeveloper isLoaded={isLoaded} />  
+      <IagDeveloper />  
       <CopySection
         paddingTop={true}
         title="Disaster Claims Hub"
@@ -95,14 +89,14 @@ const IagPage = () => {
         backgroundColor="#f2f2f2"
       />
 
-      <BtnSection btn01Label="Launch Project" btn02Label="More Info" backgroundColor='#f2f2f2' />
+      <BtnSection btn01Url='https://charlesd.co.nz/wato/' btn02Url='/projects/wato' btn01Label="Launch Project" btn02Label="More Info" backgroundColor='#f2f2f2' />
       <CopySection
       paddingTop={true}
         title="Responsive emails"
         body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sem urna, sagittis et justo et, sodales posuere eros."
         backgroundColor="#fff"
       />
-      <DarkMode images={sliderImagesEmail} isLoaded={isLoaded} backgroundColor="#fff" />
+      <DarkMode images={sliderImagesEmail} backgroundColor="#fff" />
       <NextProject
         backgroundColor="#f2f2f2"
         copy="Unichem is network of more than 250 pharmacies throughout New&nbsp;Zealand."

@@ -14,8 +14,8 @@ import sliderDesktopImage from '../../assets/projects/unichem/screenshot-unichem
 
 import screenhotImage from '../../assets/projects/unichem/unichem-article-1440.jpg';
 
-import mobile01 from '../../assets/projects/unichem/unichem-mobile-nav-01.jpg';
-import mobile02 from '../../assets/projects/unichem/unichem-mobile-nav-02.jpg';
+import mobile01 from '../../assets/projects/unichem/unichem-mobile-nav-02.jpg';
+import mobile02 from '../../assets/projects/unichem/unichem-mobile-nav-01.jpg';
 import mobile03 from '../../assets/projects/unichem/unichem-mobile-nav-03.jpg';
 
 const mySingleImage = {

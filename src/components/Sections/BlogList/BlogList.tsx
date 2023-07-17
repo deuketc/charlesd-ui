@@ -29,6 +29,7 @@ const BlogList = ({ blogList }: Iprops) => {
 
   const elementsRef = useRef(blogList.map(() => createRef()));
   const headerRef = useRef(null);
+  const listItems = useRef(null);
 
   useLayoutEffect(() => {
 
@@ -45,61 +46,61 @@ const BlogList = ({ blogList }: Iprops) => {
     });
 
     // List Items
-    elementsRef.current.forEach((element, i) => {
-      gsap.set(elementsRef.current[i].current, {
+    blogList.forEach((element, i) => {
+      gsap.set(`.blogList__list_item0${i}`, {
         opacity: 0,
         y: 110,
       });
-      gsap.set(elementsRef.current[i].current.children[0].childNodes[0].children[0], {
+      gsap.set(`.blogList__list_item0${i} .blogList__list_item_title`, {
         opacity: 0,
         y: 20,
       });
-      gsap.set(elementsRef.current[i].current.children[0].childNodes[0].children[1], {
+      gsap.set(`.blogList__list_item0${i} .blogList__list_item_description`, {
         opacity: 0,
         y: 20,
       });
-      gsap.set(elementsRef.current[i].current.children[0].childNodes[1], {
+      gsap.set(`.blogList__list_item0${i} .blogList__list_item_tags`, {
         opacity: 0,
         y: 20,
       });
-      gsap.set(elementsRef.current[i].current.children[0].childNodes[2], {
+      gsap.set(`.blogList__list_item0${i} .blogList__list_item_date`, {
         opacity: 0,
         y: 20,
       });
     });
 
-    elementsRef.current.forEach((element, i) => {
-      gsap.to(elementsRef.current[i].current, {
+    blogList.forEach((element, i) => {
+      gsap.to(`.blogList__list_item0${i}`, {
         y: 0,
         opacity: 1,
         delay: 0.2 + i / 4,
         duration: 0.7,
       });
-      gsap.to(elementsRef.current[i].current.children[0].childNodes[0].children[0], {
+      gsap.to(`.blogList__list_item0${i} .blogList__list_item_title`, {
         opacity: 1,
         y: 0,
         duration: 0.6,
         delay: 0.6 + i / 4,
       });
-      gsap.to(elementsRef.current[i].current.children[0].childNodes[0].children[1], {
+      gsap.to(`.blogList__list_item0${i} .blogList__list_item_description`, {
         opacity: 1,
         y: 0,
         duration: 0.6,
         delay: 0.8 + i / 4,
       });
-      gsap.to(elementsRef.current[i].current.children[0].childNodes[1], {
+      gsap.to(`.blogList__list_item0${i} .blogList__list_item_tags`, {
         opacity: 1,
         y: 0,
         duration: 0.6,
         delay: 1.0 + i / 4,
       });
-      gsap.to(elementsRef.current[i].current.children[0].childNodes[2], {
+      gsap.to(`.blogList__list_item0${i} .blogList__list_item_date`, {
         opacity: 1,
         y: 0,
         duration: 0.6,
         delay: 1.2 + i / 4,
       });
-    });
+    }, listItems);
 
   }, []);
 
@@ -128,7 +129,7 @@ const BlogList = ({ blogList }: Iprops) => {
       <div className={styles.blogList__wrapper}>
         <h1 ref={headerRef} className={styles.blogList__header}>Blog</h1>
       </div>
-      <ul
+      <ul ref={listItems}
         onMouseEnter={() => onShowImage(true)}
         onMouseLeave={() => onShowImage(false)}
         className={styles.blogList__list}
@@ -142,20 +143,20 @@ const BlogList = ({ blogList }: Iprops) => {
               href={item.url}
               onMouseEnter={() => onListItemHover(item.thumb)}
             >
-              <li ref={elementsRef.current[index]} className={styles.blogList__list_item}>
+              <li className={`blogList__list_item0${index} ${styles.blogList__list_item}`}>
                 <div className={styles.blogList__list_item_wrapper}>
                   <div className={styles.blogList__list_item_title_wrapper}>
-                    <span className={styles.blogList__list_item_title}>
+                    <span className={`blogList__list_item_title ${styles.blogList__list_item_title}`}>
                       {item.title}
                     </span>
-                    <span className={styles.blogList__list_item_description}>
+                    <span className={`blogList__list_item_description ${styles.blogList__list_item_description}`}>
                       {item.description}
                     </span>
                   </div>
-                  <span className={styles.blogList__list_item_tags}>
+                  <span className={`blogList__list_item_tags ${styles.blogList__list_item_tags}`}>
                     {item.tags}
                   </span>
-                  <span className={styles.blogList__list_item_date}>
+                  <span className={`blogList__list_item_date ${styles.blogList__list_item_date}`}>
                     {moment(item.date).format('MMMM Do YYYY')}
                   </span>
                 </div>

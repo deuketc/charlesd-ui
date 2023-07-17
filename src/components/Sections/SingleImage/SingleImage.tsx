@@ -18,7 +18,7 @@ const SingleImage = ({ image, backgroundColor, deviceWidth }: IProps) => {
       style={{ backgroundColor: backgroundColor }}
       className={styles.singleImage}
     >
-      <div className={deviceWidth ? null : styles.singleImage__wrapper}>
+      <div className={deviceWidth ? '' : styles.singleImage__wrapper}>
         <picture>
           <source media="(max-width: 767px)" srcSet={image.mobileSrc} />
           <source

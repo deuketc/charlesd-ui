@@ -7,11 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface Iprops {
-  isLoaded: boolean;
-}
-
-const IagDeveloper = ({isLoaded}: Iprops) => {
+const IagDeveloper = () => {
   const wrapper = useRef(null);
   const articleRef_01_header = useRef(null);
   const articleRef_01_copy = useRef(null);
@@ -195,10 +191,9 @@ const IagDeveloper = ({isLoaded}: Iprops) => {
           },"-=2")
           ;
       });
-   console.log("useEffect IagDeveloper")
     return () => ctx.revert();
 
-  }, [isLoaded]);
+  }, []);
 
   return (
     <section className={styles.developer}>

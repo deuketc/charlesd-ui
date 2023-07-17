@@ -1,4 +1,4 @@
-import { useRef,useState, useLayoutEffect, useEffect } from 'react';
+import { useRef,useState, useLayoutEffect, useEffect, MouseEvent } from 'react';
 import RadioListNav from '../../layout/RadioListNav/RadioListNav';
 import styles from './DarkMode.module.scss';
 import { makeid } from '../../../utils/utils';
@@ -13,12 +13,11 @@ gsap.registerPlugin(ScrollTrigger);
 interface Iprops {
   images: string[];
   backgroundColor: string;
-  isLoaded: boolean;
 }
 
 
 
-const DarkMode = ({ images, backgroundColor, isLoaded }: Iprops) => {
+const DarkMode = ({ images, backgroundColor }: Iprops) => {
   const [imageMaskWidth, setImageMaskWidth] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
   const tooltip = useRef(null);
@@ -29,7 +28,7 @@ const DarkMode = ({ images, backgroundColor, isLoaded }: Iprops) => {
     setCurrentImage(index);
   };
 
-  const onMouseMouseFunc = (e:MouseEvent) => {
+  const handleMouseEvent = (e: MouseEvent<HTMLDivElement>) => {
     setImageMaskWidth(e.pageX - e.currentTarget.offsetLeft);
   };
 
@@ -43,20 +42,19 @@ const DarkMode = ({ images, backgroundColor, isLoaded }: Iprops) => {
       gsap.to(tooltip.current, {
         scrollTrigger:{
           trigger:sliderWrapper2.current, 
-          markers:true,
-          start:"top center"
+          start:"top 20%",
+          end:"bottom 60%",
+          toggleActions:'play reverse play reset'
         },
         opacity: 1,
         x: 0,
-        duration: 1,
+        duration: .5,
       })
       
     });
-    console.log('darkmode component');
-    console.log('isLoaded', isLoaded);
     return () => ctx2.revert();
    
-  }, [isLoaded, imgsLoaded]);
+  }, [imgsLoaded]);
 
   const isTouchDevice = is_touch_device();
 
@@ -68,8 +66,8 @@ const DarkMode = ({ images, backgroundColor, isLoaded }: Iprops) => {
     >
       <div className={styles.slider__wrapper}>
         <div
-          onMouseMove={e => {
-            onMouseMouseFunc(e);
+          onMouseMove={(e) => {
+            handleMouseEvent (e);
           }}
           className={styles.slider__inner_wrapper}
         >

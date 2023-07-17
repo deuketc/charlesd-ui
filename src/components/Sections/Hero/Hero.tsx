@@ -35,6 +35,9 @@ const Hero = ({ title, copy, imgSrc, heroComponent, url }: Iprops) => {
   useLayoutEffect(() => {
 
     if(!is_touch_device()) {
+
+    let ctx = gsap.context(() => {
+
     gsap.set(headerRef.current, {
       opacity: 0,
       y: 110,
@@ -78,8 +81,6 @@ const Hero = ({ title, copy, imgSrc, heroComponent, url }: Iprops) => {
     })
 
 
-
-    let ctx = gsap.context(() => {
       gsap.to(heroBackgroundLayer.current, {
         yPercent: 70,
         ease: 'none',
@@ -91,7 +92,6 @@ const Hero = ({ title, copy, imgSrc, heroComponent, url }: Iprops) => {
         },
       });
     });
-    console.log('useEffect from Hero.tsx')
     return () => ctx.revert();
   }
   }, []);

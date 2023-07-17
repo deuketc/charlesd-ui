@@ -10,21 +10,23 @@ interface IProps {
 }
 
 const logosTiled = ({ logos }: IProps) => {
-  const containerImageRef = useRef<HTMLUListElement>(null);
+  const containerImageRef = useRef(null);
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      gsap.set(containerImageRef.current.children, { opacity: 0 });
-      gsap.to(containerImageRef.current.children, {
-        opacity: 1,
-        duration: 1,
-        stagger: 0.15,
-        scrollTrigger: {
-          trigger: containerImageRef.current,
-          start: 'top 70%',
-          toggleActions: 'play play reverse reverse',
-        },
-      });
+      if (!containerImageRef) {
+        gsap.set(containerImageRef.current.children, { opacity: 0 });
+        gsap.to(containerImageRef.current.children, {
+          opacity: 1,
+          duration: 1,
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: containerImageRef.current,
+            start: 'top 70%',
+            toggleActions: 'play play reverse reverse',
+          },
+        });
+      }
     });
 
     return () => ctx.revert();
