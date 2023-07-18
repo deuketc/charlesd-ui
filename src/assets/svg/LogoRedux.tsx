@@ -37,6 +37,7 @@ const LogoRedux = () => {
   var reduxtl = gsap.timeline({ paused: true });
 
   useEffect(() => {
+    // @ts-ignore
     reduxtl
       .to(svgHideStock.current, { delay: 0.001 })
       .set(svgHideStock.current, { opacity: 0 })
@@ -128,7 +129,7 @@ const LogoRedux = () => {
       .set(svgBallMoveLeft.current, { opacity: 1 })
       .set(svgBallMoveRight.current, { opacity: 1 })
       .set(svgBallMoveTop.current, { opacity: 1 })
-      .set(svgSwooshLeft.current, { opacity: 0 })
+      .set('.svgSwooshLeft', { opacity: 0 })
       .set(svgSwooshRight.current, { opacity: 0 })
       .set(svgSwooshTop.current, { opacity: 0 })
       .to(
@@ -137,7 +138,7 @@ const LogoRedux = () => {
         'start-lines'
       )
       .to(
-        svgSwooshLeftHide.current,
+        '.svgSwooshLeftHide',
         { duration: swooshDuration, drawSVG: '0% 0%' },
         'start-lines'
       )
@@ -151,7 +152,7 @@ const LogoRedux = () => {
       // balls move
       /**********************************/
       .to(
-        svgSwooshLeft.current,
+        '.svgSwooshLeft',
         {
           duration: swooshDuration,
           opacity: 1,
@@ -237,7 +238,7 @@ const LogoRedux = () => {
       <g id="animation">
         <g id="lines">
           <path
-            ref={svgSwooshLeft}
+            className='svgSwooshLeft'
             id="swoosh-left"
             fill="#764ABC"
             d="M609.458,629.625c-34.621,68.229-89.204,121.207-168.635,162.961
@@ -248,7 +249,7 @@ const LogoRedux = () => {
         L609.458,629.625z"
           />
           <path
-            ref={svgSwooshLeftHide}
+            className='svgSwooshLeftHide'
             id="swoosh-left-hide"
             fill="none"
             stroke="#FFFFFF"
