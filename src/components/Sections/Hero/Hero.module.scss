@@ -4,13 +4,13 @@
 .hero {
   z-index: 1;
   position: relative;
-  @include md-width {
+  @include min-width-1280px {
     min-height: 100vh;
   }
   &__wrapper {
     display: flex;
     flex-direction: column-reverse;
-    @include md-width {
+    @include min-width-1280px {
       flex-direction: row;
     }
   }
@@ -19,26 +19,30 @@
     
     text-align: right;
     position: relative;
-    @include md-width {
+    @include min-width-1280px {
       width: 60%;
       align-items: center;
       min-height: 100vh;
     }
-    @include md-width-max {
+    @include max-width-1279px {
       padding-top: 60px;
     }
   }
   &__copy_wrapper {
+    @include SECTION-WRAPPER;
+    @include min-width-1280px { 
+      width: 80%;
+    }
+  }
+  &__copy_container {
     container-type: inline-size;
-    @include md-width {
+    @include max-width-1279px {
+      @include STYLE-SECTION-PADDING-BOTTOM
+    }
+    @include min-width-1280px {
       min-height: 100vh;
       width: 40%;
     }
-
-    padding-left: 5%;
-    padding-right: 5%;
-    box-sizing: border-box;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,41 +58,38 @@
   &__title {
     @include STYLE-HEADER-SUPER;
     margin-top: 0;
-    margin-bottom: 0 !important;
   }
 }
 
 .btn {
   &__wrapper {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    @container (min-width: 480px) { 
-      margin-top: 4rem;
-    }
-    @container (max-width: 479px) { 
-      margin-bottom: 2rem;
-    }
-    @container (min-width: 480px) { 
+    max-width: 850px;
+    @container (min-width: 580px) { 
       flex-direction: row;
       justify-content: space-between;
       display: flex;
 
     }
+    @include min-width-1921px {
+      max-width: 1000px;
+    }
   }
   &__primary {
     @include BTN;
     width: 100%;
-    @container (max-width: 479px) { 
-      margin-bottom: 1rem;
+    margin-bottom: 1rem;
+    @container (max-width: 579px) { 
+      
     }
-    @container (min-width: 480px) { 
+    @container (min-width: 580px) { 
       width: 47%;
     }
   }
   &__secondary {
     @include BTN__SECONDARY;
+    margin-bottom: 1rem;
     width: 100%;
-    @container (min-width: 480px) { 
+    @container (min-width: 580px) { 
       width: 47%;
     }
   }

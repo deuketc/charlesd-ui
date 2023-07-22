@@ -8,8 +8,8 @@
         @include SECTION-WRAPPER;
         text-align: center;
         display: flex;
-        max-width: 750px;
-        @include sm-width {
+        max-width: 800px;
+        @include min-width-768px {
             flex-direction: row;
             justify-content: space-between;
          }      

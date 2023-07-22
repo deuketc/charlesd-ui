@@ -22,8 +22,8 @@
   overflow: hidden;
   max-width: 1440px;
   margin: 0 auto;
-  @media (min-width: 1440px) {
-    padding-bottom: 32%;
+  @include min-width-1440px {
+    padding-bottom: 950px;
   }
 }
 .embedContainer iframe,

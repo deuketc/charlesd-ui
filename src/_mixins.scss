@@ -5,60 +5,90 @@
   margin: 0 auto;
 }
 
-@mixin STYLE-SECTION-PADDING {
-  padding: 1rem 0;
-  @include sm-width {
-    padding: 2rem 0;
+@mixin STYLE-SECTION-BORDER-RADIUS {
+  border-radius: 1.2rem;
+  @include min-width-420px {
+    border-radius: 1.5rem;
   }
-  @include md-width {
+  @include min-width-768px {
+    border-radius: 2rem;
+  }
+  @include min-width-1600px {
+    border-radius: 3rem;
+  }
+}
+
+@mixin STYLE-SECTION-PADDING {
+  padding: 3rem 0;
+  @include min-width-420px {
     padding: 4rem 0;
   }
-  @include lg-width {
+  @include min-width-768px {
+    padding: 5rem 0;
+  }
+  @include min-width-1280px {
     padding: 6rem 0;
+  }
+  @include min-width-1921px {
+    padding: 8rem 0;
   }
 }
 
 @mixin STYLE-SECTION-PADDING-TOP {
-  padding-top: 1rem;
-  @include sm-width {
-    padding-top: 2rem;
+  padding-top: 2rem;
+  @include min-width-420px {
+    padding-top: 3rem;
   }
-  @include md-width {
+  @include min-width-768px {
     padding-top: 4rem;
   }
-  @include lg-width {
+  @include min-width-1280px() {
     padding-top: 6rem;
+  }
+  @include min-width-1921px() {
+    padding-top: 8rem;
   }
 }
 
 @mixin STYLE-SECTION-PADDING-BOTTOM {
-  padding-bottom: 1rem;
-  @include sm-width {
-    padding-bottom: 2rem;
+  padding-bottom: 2rem;
+  @include min-width-420px() {
+    padding-bottom: 3rem;
   }
-  @include md-width {
+  @include min-width-768px() {
     padding-bottom: 4rem;
   }
-  @include lg-width {
+  @include min-width-1280px() {
     padding-bottom: 6rem;
   }
+  @include min-width-1921px() {
+    padding-bottom: 8rem;
+  }
+}
+
+@mixin STYLE-HEADER-FAMILY {
+  font-family: 'Montserrat', sans-serif;
+}
+
+@mixin STYLE-COPY-FAMILY {
+  font-family: 'Source Sans 3', sans-serif;
 }
 
 @mixin STYLE-HEADER-ULTRA {
   margin-top: 3rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  font-size: 2rem;
-  @include sm-width {
-    font-size: 2rem;
-  }
-  @include md-width {
-    font-size: 3rem;
-  }
-  @include lg-width {
+  font-size: 3rem;
+  @include min-width-768px {
     font-size: 4rem;
   }
-  @include fhd-width {
+  @include min-width-1280px {
+    font-size: 5rem;
+  }
+  @include min-width-1600px {
+    font-size: 6rem;
+  }
+  @include min-width-1921px {
     font-size: 7rem;
   }
 }
@@ -67,56 +97,63 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 2rem;
-  @include sm-width {
-    font-size: 2rem;
-  }
-  @include md-width {
+  @include min-width-768px {
     font-size: 3rem;
   }
-  @include lg-width {
+  @include min-width-1280px {
     font-size: 4rem;
   }
-  @include fhd-width {
+  @include min-width-1600px {
     font-size: 5rem;
+  }
+  @include min-width-1921px {
+    font-size: 6rem;
   }
 }
 
 @mixin STYLE-HEADER {
-  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  font-size: 1.5rem;
-  @include sm-width {
+  font-size: 1.6rem;
+  @include min-width-768px {
     font-size: 2rem;
   }
-  @include md-width {
+  @include min-width-1280px {
     font-size: 2.5rem;
   }
-  @include lg-width {
-    font-size: 4rem;
+  @include min-width-1600px {
+    font-size: 3rem;
   }
-}
-
-@mixin STYLE-HEADER-SUB {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 1.5rem;
-  @include sm-width {
-    font-size: 2rem;
-  }
-  @include md-width {
-    font-size: 2rem;
+  @include min-width-1921px {
+    font-size: 3.6rem;
   }
 }
 
 @mixin STYLE-COPY {
-  font-family: 'Source Sans 3', sans-serif;
   font-weight: 400;
-  font-size: 1.2rem;
-  @include sm-width {
-    font-size: 1.3rem;
+  font-size: 1.4rem;
+  @include min-width-768px {
+    font-size: 1.6rem;
   }
-  @include lg-width {
+  @include min-width-1280px {
+    font-size: 2.0rem;
+  }
+  @include min-width-1600px {
     font-size: 2.5rem;
+  }
+  @include min-width-1921px {
+    font-size: 2.8rem;
+  }
+}
+
+
+@mixin STYLE-HEADER-SUB {
+  font-weight: 600;
+  font-size: 1.5rem;
+  @include min-width-768px {
+    font-size: 2rem;
+  }
+  @include min-width-1280px {
+    font-size: 2rem;
   }
 }
 
@@ -135,84 +172,105 @@
   overflow: hidden;
 }
 
-@mixin BTN {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
+@mixin BTN-BASE {
+  font-family: 'Montserrat', sans-serif;  
+  font-weight: 600; 
+  font-size: 1.2rem;
   text-decoration: none;
-  color: #fff;
-  background-color: #000;
   display: inline-block;
   border-radius: 100px;
-  box-sizing: border-box;
   text-align: center;
-  padding:1.15rem 0;
-  cursor: pointer;
-  &:hover {
-    background-color: #1d1d1d;
-  } 
-  @include sm-width {
-    font-size: 1rem;
+  padding:1rem 0;
+  box-sizing: border-box;cursor: pointer;
+  @include min-width-768px {
+    font-size: 1.3rem;
   }
-  @include lg-width {
-    font-size: 1.5rem;
+  @include min-width-1280px {
+    font-size: 1.4rem;
+    padding:1.2rem 0;
+  }
+  @include min-width-1600px {
+    font-size: 1.6rem;
+  }
+  @include min-width-1921px {
+    font-size: 1.8rem;
+    padding:1.4rem 0;
   }
 }
 
+@mixin BTN {
+  @include BTN-BASE();
+  color: #fff;
+  background-color: #000;
+  &:hover {
+    color: #fff;
+    background-color: #1d1d1d;
+  } 
+}
+
 @mixin BTN__SECONDARY {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: none;
+  @include BTN-BASE();
   color: #000;
   background-color: #fff;
-  display: inline-block;
-  border-radius: 100px;
   outline: 2px solid #000;
   outline-offset: -2px;
-  box-sizing: border-box;
-  text-align: center;
-  cursor: pointer;
-  padding:1.15rem 0;
   &:hover {background-color: #f6f6f6;}
-  @include sm-width {
-    font-size: 1rem;
-  }
-  @include lg-width {
-    font-size: 1.5rem;
-  }
 }
 
 @mixin PAGE {
   padding-top: 50px;
 }
 
-@mixin sm-width {
-  @media (min-width: $sm-width-min) {
+@mixin min-width-420px {
+  @media (min-width: $min-width-420px) {
     @content;
   }
 }
 
-@mixin md-width-max {
-  @media (max-width: $md-width-max) {
+@mixin max-width-767px {
+  @media (max-width: $max-width-767px) {
     @content;
   }
 }
 
-@mixin md-width {
-  @media (min-width: $md-width-min) {
+@mixin min-width-768px {
+  @media (min-width: $min-width-768px) {
     @content;
   }
 }
 
-@mixin lg-width {
-  @media (min-width: $lg-width-min) {
+@mixin max-width-1279px {
+  @media (max-width: $max-width-1279px) {
     @content;
   }
 }
 
-@mixin fhd-width {
-  @media (min-width: $fhd-width-min) {
+@mixin min-width-1280px {
+  @media (min-width: $min-width-1280px) {
+    @content;
+  }
+}
+
+@mixin min-width-1440px {
+  @media (min-width: $min-width-1440px) {
+    @content;
+  }
+}
+
+@mixin max-width-1599px {
+  @media (max-width: $max-width-1599px) {
+    @content;
+  }
+}
+
+@mixin min-width-1600px {
+  @media (min-width: $min-width-1600px) {
+    @content;
+  }
+}
+
+@mixin min-width-1921px {
+  @media (min-width: $min-width-1921px) {
     @content;
   }
 }

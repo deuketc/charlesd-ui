@@ -18,7 +18,7 @@
 .flex {
   display: flex;
   flex-direction: column;
-  @include lg-width {
+  @include min-width-1600px {
     flex-direction: row;
     justify-content: space-between;
   }
@@ -37,7 +37,7 @@
   }
   &__col {
     @include STYLE-COPY;
-    @include lg-width {
+    @include min-width-1600px {
       width: 48%;
     }
   }

@@ -8,7 +8,7 @@
   @include SECTION-WRAPPER;
   max-width: none;
   overflow: hidden;
-  @include md-width {
+  @include min-width-1280px {
     overflow: auto;
   }
 }
@@ -21,7 +21,7 @@
 }
 .listWrapper {
   overflow: hidden;
-  @include md-width {
+  @include min-width-1280px {
     width: 90%;
     margin: 0 auto;
     overflow: visible;
@@ -31,7 +31,7 @@
 .list {
   display: flex;
   width: 400%;
-  @include md-width {
+  @include min-width-1280px {
     width: 100%;
     align-items: stretch;
     //overflow: hidden;
@@ -45,11 +45,11 @@
   > article {
     width: 33.3%;
     flex-shrink: 0;
-    @include md-width {
+    @include min-width-1280px {
       width: 100%;
     }
   }
-  @include md-width {
+  @include min-width-1280px {
     //position: absolute;
     //margin-left: 50%;
     width: 50%;
@@ -59,7 +59,7 @@
 .listItemCurrentWrapper {
   width: 90%;
   margin: 0 auto;
-  @include md-width {
+  @include min-width-1280px {
     padding: 6rem 2rem 6rem 0;
     width: auto;
     position: relative;
@@ -68,14 +68,14 @@
 .listItemWrapper {
   width: 90%;
   margin: 0 auto;
-  @include md-width {
+  @include min-width-1280px {
     padding: 6rem 0;
   }
 }
 
 .listItemCurrent {
   width: 25%;
-  @include md-width {
+  @include min-width-1280px {
     //position: absolute;
     //left: 0;
     width: 50%;

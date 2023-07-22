@@ -98,16 +98,18 @@ const Hero = ({ title, copy, imgSrc, heroComponent, url }: Iprops) => {
   return (
     <section ref={heroBackgroundLayer} className={styles.hero}>
       <div className={styles.hero__wrapper}>
-        <div className={styles.hero__copy_wrapper}>
-          <h1 ref={headerRef} className={styles.hero__title}>{title as string}</h1>
-          <p  ref={subHeaderRef} className={styles.hero__copy}>{copy}</p>
-          <div className={styles.btn__wrapper}>
-            <a ref={btnPrimaryRef} target='_blank' href={url} className={styles.btn__primary}>
-              Visit the website
-            </a>
-            <button ref={btnSecondaryRef} onClick={() => handleClickScroll()} className={styles.btn__secondary}>
-              Read more
-            </button>
+        <div className={styles.hero__copy_container}>
+          <div className={styles.hero__copy_wrapper}>
+            <h1 ref={headerRef} className={styles.hero__title}>{title as string}</h1>
+            <p  ref={subHeaderRef} className={styles.hero__copy}>{copy}</p>
+            <div className={styles.btn__wrapper}>
+              <a ref={btnPrimaryRef} target='_blank' href={url} className={styles.btn__primary}>
+                Visit the website
+              </a>
+              <button ref={btnSecondaryRef} onClick={() => handleClickScroll()} className={styles.btn__secondary}>
+                Read more
+              </button>
+            </div>
           </div>
         </div>
         <div className={styles.hero__img_wrapper}>

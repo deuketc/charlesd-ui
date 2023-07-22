@@ -30,7 +30,7 @@ const Root = () => {
   return (
     <>
       <ScrollRestoration />
-      <Header />
+      {/* <Header /> */}
       <Outlet />
       <Footer />
     </>

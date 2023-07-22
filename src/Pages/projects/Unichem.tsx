@@ -13,6 +13,8 @@ import sliderTabletImage from '../../assets/projects/unichem/screenshot-unichem-
 import sliderDesktopImage from '../../assets/projects/unichem/screenshot-unichem-desktop.png';
 
 import screenhotImage from '../../assets/projects/unichem/unichem-article-1440.jpg';
+import screenhotImageTablet from '../../assets/projects/unichem/unichem-article-768.png';
+import screenhotImageMobile from '../../assets/projects/unichem/unichem-article-460.png';
 
 import mobile01 from '../../assets/projects/unichem/unichem-mobile-nav-02.jpg';
 import mobile02 from '../../assets/projects/unichem/unichem-mobile-nav-01.jpg';
@@ -20,16 +22,12 @@ import mobile03 from '../../assets/projects/unichem/unichem-mobile-nav-03.jpg';
 
 const mySingleImage = {
   name: 'Unichem Image',
-  mobileSrc: screenhotImage,
-  tabletSrc: screenhotImage,
+  mobileSrc: screenhotImageMobile,
+  tabletSrc: screenhotImageTablet,
   desktopSrc: screenhotImage,
 };
 
-const sliderImages = [
-  { src: sliderMobileImage, screenSize: 'mobile' },
-  { src: sliderTabletImage, screenSize: 'tablet' },
-  { src: sliderDesktopImage, screenSize: 'desktop' },
-];
+const sliderImages = [sliderMobileImage, sliderTabletImage, sliderDesktopImage]
 
 const mobileShowcase = [mobile01, mobile02, mobile03];
 
@@ -74,7 +72,7 @@ const UnichemPage = () => {
         body="Content including images, video and copy is managed through a custom content management CMS."
         backgroundColor="#f2f2f2"
       />
-      <SingleImage image={mySingleImage} backgroundColor="#f2f2f2" />
+      <SingleImage image={mySingleImage} backgroundColor="#f2f2f2" /> 
       <NextProject
         header="I built the Unichem UI during my time at Touchpoint."
         copy="Want to know more about the projects I worked on during my time at Touchpoint Group?"

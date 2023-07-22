@@ -8,41 +8,23 @@
 
   &__header {
     @include STYLE-HEADER-ULTRA;
-    // text-align: center;
   }
 
   &__list {
     @include LIST-RESET;
-    @include sm-width {
+    @include min-width-768px {
       display: grid;
       grid-template-columns: 47% 47%;
       column-gap:6%;
     }
-    // @include lg-width {
-    //   grid-template-columns: 31% 31% 31%;
-    //   column-gap: 3.5%;
-    // }
   }
 
   &__list_item {
-    margin-bottom: 3rem;
-    @include sm-width {
-      margin-bottom: 4.5rem;
-    }
-    @include md-width {
-      margin-bottom: 6.5rem;
-    }
-    @include lg-width {
-      margin-bottom: 7.5rem;
-    }
+    @include STYLE-SECTION-PADDING-BOTTOM;
   }
 
   &__list_item_link {
-    // display: flex;
-    // flex-direction: column;
-    color: $text-black;
     text-decoration: none;
-    margin-bottom: 4rem;
   }
 
   &__list_item_header {
@@ -54,14 +36,14 @@
   }
 
   &__list_item_subheader {
+    @include STYLE-COPY;
     margin: 0;
     order: 2;
-    @include STYLE-COPY;
   }
 
   &__list_item_image {
     max-width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 5%;
     display: block;
     order: 0;
   }

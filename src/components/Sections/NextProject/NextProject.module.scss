@@ -25,36 +25,33 @@
 
 .btn {
   &__wrapper {
-    max-width: 750px;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    @container (min-width: 480px) { 
-      margin-top: 4rem;
-    }
-    @container (max-width: 479px) { 
-      margin-bottom: 2rem;
-    }
-    @container (min-width: 480px) { 
+    max-width: 850px;
+    @container (min-width: 580px) { 
       flex-direction: row;
       justify-content: space-between;
       display: flex;
 
     }
+    @include min-width-1921px {
+      max-width: 1000px;
+    }
   }
   &__primary {
     @include BTN;
     width: 100%;
-    @container (max-width: 479px) { 
-      margin-bottom: 1rem;
+    margin-bottom: 1rem;
+    @container (max-width: 579px) { 
+      
     }
-    @container (min-width: 480px) { 
+    @container (min-width: 580px) { 
       width: 47%;
     }
   }
   &__secondary {
     @include BTN__SECONDARY;
+    margin-bottom: 1rem;
     width: 100%;
-    @container (min-width: 480px) { 
+    @container (min-width: 580px) { 
       width: 47%;
     }
   }

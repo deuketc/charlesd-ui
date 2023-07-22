@@ -7,8 +7,15 @@ body {
   display: none;
 }
 h1,h2,h3,h4,h5,h6 {
+  @include STYLE-HEADER-FAMILY;
   margin-top: 0;  
 }
+p, ul, ol, a, span {
+  @include STYLE-COPY-FAMILY;
+  margin-top: 0;  
+}
+a { color: $text-black }
+a:hover { color: $text-black-hover  }
 .btn { @include BTN; min-width:250px; }
 .btn-secondary { @include BTN__SECONDARY;  min-width:250px;}
 .center { text-align: center;}

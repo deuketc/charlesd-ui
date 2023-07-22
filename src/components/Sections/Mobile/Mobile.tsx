@@ -6,6 +6,7 @@ import useImagesPreloader from '../../../hooks/UseImagesPreloader';
 import RadioListNav from '../../layout/RadioListNav/RadioListNav';
 import styles from './Mobile.module.scss';
 import { RESOLUTIONS } from './../../../constants/constants';
+import { is_touch_device } from '../../../utils/utils';
 gsap.registerPlugin(ScrollTrigger);
 
 interface Iprops {
@@ -23,7 +24,7 @@ const Mobile = ({ images, backgroundColor }: Iprops) => {
   const imgsLoaded = useImagesPreloader(images);
 
   useLayoutEffect(() => {
-    if (width > 1600) {
+    if (width > 1599 && !is_touch_device()) {
       let ctx = gsap.context(() => {
 
         gsap.set('.mobile-phone-00', {
@@ -41,6 +42,7 @@ const Mobile = ({ images, backgroundColor }: Iprops) => {
             pin: true,
             pinSpacing: true,
             toggleActions: 'restart none none none',
+            
           },
           x: 0,
         });
@@ -51,6 +53,7 @@ const Mobile = ({ images, backgroundColor }: Iprops) => {
             start: 'bottom bottom',
             scrub: true,
             toggleActions: 'restart none none none',
+            markers:true
           },
           x: 0,
         });

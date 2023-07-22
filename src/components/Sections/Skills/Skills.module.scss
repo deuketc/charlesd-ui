@@ -29,7 +29,7 @@
 }
 .listItem {
   outline: 1px solid grey;
-  @include lg-width {
+  @include min-width-1600px {
     width: 20%;
     background-color: #fff;
     text-align: center;
