@@ -12,11 +12,7 @@ import sliderMobileImage from '../../assets/projects/udc/udc-screenshot-mobile.p
 import sliderTabletImage from '../../assets/projects/udc/udc-screenshot-tablet.png';
 import sliderDesktopImage from '../../assets/projects/udc/udc-screenshot-desktop.png';
 
-const responsiveSliderImages = [
-  { src: sliderMobileImage, screenSize: 'mobile' },
-  { src: sliderTabletImage, screenSize: 'tablet' },
-  { src: sliderDesktopImage, screenSize: 'desktop' },
-];
+const responsiveSliderImages = [sliderMobileImage, sliderTabletImage, sliderDesktopImage];
 
 import sliderImage01 from '../../assets/projects/udc/screenshot-udc-calc-02.jpg';
 import sliderImage02 from '../../assets/projects/udc/screenshot-udc-calc-03.jpg';

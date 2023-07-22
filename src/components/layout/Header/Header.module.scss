@@ -18,7 +18,8 @@
   }
 
   &__logo {
-    font-weight: 100;
+    font-weight: 600;
+    font-size: 1.4rem;
     @include STYLE-COPY-FAMILY;
     margin: 0;
     & a {

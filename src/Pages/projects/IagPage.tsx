@@ -20,11 +20,7 @@ import sliderMobileImage from '../../assets/projects/iag/iag-claims-ami-mobile.p
 import sliderTabletImage from '../../assets/projects/iag/iag-claims-ami-tablet.png';
 import sliderDesktopImage from '../../assets/projects/iag/iag-claims-ami-desktop.png';
 
-const responsiveSliderImages = [
-  { src: sliderMobileImage, screenSize: 'mobile' },
-  { src: sliderTabletImage, screenSize: 'tablet' },
-  { src: sliderDesktopImage, screenSize: 'desktop' },
-];
+const responsiveSliderImages = [sliderMobileImage, sliderTabletImage, sliderDesktopImage];
 
 import screenhotImage from '../../assets/projects/iag/screenshot-disaster_hub-state-desktop.png';
 

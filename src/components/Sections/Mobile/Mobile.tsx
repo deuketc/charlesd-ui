@@ -53,7 +53,6 @@ const Mobile = ({ images, backgroundColor }: Iprops) => {
             start: 'bottom bottom',
             scrub: true,
             toggleActions: 'restart none none none',
-            markers:true
           },
           x: 0,
         });
@@ -98,30 +97,6 @@ const Mobile = ({ images, backgroundColor }: Iprops) => {
               currentIndex={activeImage}
               onChangeFunc={onSetActiveImage}
             />
-            {/* <nav className={styles.sliderNav}>
-              <div className={styles.sliderNav__wrapper}>
-                {images.map((image, index) => {
-                  return (
-                    <div key={index} className={styles.sliderNav__item}>
-                      <input
-                        className={styles.sliderNav__item_radio}
-                        type="radio"
-                        id={index.toString()}
-                        name="drone"
-                        value={image}
-                        onChange={() => onSetActiveImage(index)}
-                      />
-                      <label
-                        className={styles.sliderNav__item_label}
-                        htmlFor={index.toString()}
-                      >
-                        {index + 1}
-                      </label>
-                    </div>
-                  );
-                })}
-              </div>
-            </nav> */}
           </div>
         )}
       </div>

@@ -4,13 +4,13 @@
 .hero {
   z-index: 1;
   position: relative;
-  @include min-width-1280px {
+  @include min-width-1440px {
     min-height: 100vh;
   }
   &__wrapper {
     display: flex;
     flex-direction: column-reverse;
-    @include min-width-1280px {
+    @include min-width-1440px {
       flex-direction: row;
     }
   }
@@ -19,7 +19,7 @@
     
     text-align: right;
     position: relative;
-    @include min-width-1280px {
+    @include min-width-1440px {
       width: 60%;
       align-items: center;
       min-height: 100vh;
@@ -30,7 +30,7 @@
   }
   &__copy_wrapper {
     @include SECTION-WRAPPER;
-    @include min-width-1280px { 
+    @include min-width-1440px { 
       width: 80%;
     }
   }
@@ -39,7 +39,7 @@
     @include max-width-1279px {
       @include STYLE-SECTION-PADDING-BOTTOM
     }
-    @include min-width-1280px {
+    @include min-width-1440px {
       min-height: 100vh;
       width: 40%;
     }
@@ -57,14 +57,19 @@
   }
   &__title {
     @include STYLE-HEADER-SUPER;
+    margin-bottom: 2.4rem;
     margin-top: 0;
   }
 }
 
 .btn {
   &__wrapper {
+    @include min-width-1440px {
+    @include STYLE-SECTION-PADDING-TOP;      
+    }
+
     max-width: 850px;
-    @container (min-width: 580px) { 
+    @container (min-width: 720px) { 
       flex-direction: row;
       justify-content: space-between;
       display: flex;
@@ -78,10 +83,10 @@
     @include BTN;
     width: 100%;
     margin-bottom: 1rem;
-    @container (max-width: 579px) { 
+    @container (max-width: 719px) { 
       
     }
-    @container (min-width: 580px) { 
+    @container (min-width: 720px) { 
       width: 47%;
     }
   }
@@ -89,7 +94,7 @@
     @include BTN__SECONDARY;
     margin-bottom: 1rem;
     width: 100%;
-    @container (min-width: 580px) { 
+    @container (min-width: 720px) { 
       width: 47%;
     }
   }
