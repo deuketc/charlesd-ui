@@ -5,6 +5,8 @@ import Mobile from '../../components/Sections/Mobile/Mobile';
 import Video from '../../components/Sections/Video/Video';
 import SingleImage from '../../components/Sections/SingleImage/SingleImage';
 import NextProject from '../../components/Sections/NextProject/NextProject';
+import useImagesPreloader from '../../hooks/UseImagesPreloader';
+import Spinner from '../../components/layout/Spinner/Spinner';
 
 import heroImage from '../../assets/projects/unichem/hero-unichem.jpg';
 
@@ -26,19 +28,31 @@ const mySingleImage = {
   tabletSrc: screenhotImageTablet,
   desktopSrc: screenhotImage,
 };
-
-const sliderImages = [sliderMobileImage, sliderTabletImage, sliderDesktopImage]
-
+const sliderImages = [sliderMobileImage, sliderTabletImage, sliderDesktopImage];
 const mobileShowcase = [mobile01, mobile02, mobile03];
 
+const unichemPageImages = [
+  mobile01,
+  mobile02,
+  mobile03,
+  sliderMobileImage,
+  sliderTabletImage,
+  sliderDesktopImage,
+  screenhotImageMobile,
+  screenhotImageTablet,
+  screenhotImage,
+];
+
 const UnichemPage = () => {
-  return (
+  const imgsLoaded = useImagesPreloader(unichemPageImages);
+
+  return imgsLoaded ? (
     <>
       <Hero
         title="Unichem"
         copy="A network of more than 250 pharmacies throughout New Zealand."
         imgSrc={heroImage}
-        url='https://unichem.co.nz'
+        url="https://unichem.co.nz"
       />
       <CopySection
         paddingTop={true}
@@ -72,14 +86,16 @@ const UnichemPage = () => {
         body="Content including images, video and copy is managed through a custom content management CMS."
         backgroundColor="#f2f2f2"
       />
-      <SingleImage image={mySingleImage} backgroundColor="#f2f2f2" /> 
+      <SingleImage image={mySingleImage} backgroundColor="#f2f2f2" />
       <NextProject
         header="I built the Unichem UI during my time at Touchpoint."
         copy="Want to know more about the projects I worked on during my time at Touchpoint Group?"
         btnLabel="Touchpoint casestudy"
-        btnUrl='/projects/touchpoint'
+        btnUrl="/projects/touchpoint"
       />
     </>
+  ) : (
+    <Spinner />
   );
 };
 
