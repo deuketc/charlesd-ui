@@ -24,7 +24,7 @@ const ResponsiveSlider = ({ images, refreshPriority }: Iprops) => {
   const { width } = useWindowDimensions();
   const toggleResponsive = (width > 1599 && !is_touch_device())
 
-  const imgsLoaded = useImagesPreloader(images);
+  // const imgsLoaded = useImagesPreloader(images);
 
   const onScrollChange = (percentage:number) => {
 
@@ -57,7 +57,7 @@ const ResponsiveSlider = ({ images, refreshPriority }: Iprops) => {
     }); 
     return () => ctx.revert();
   }
-  }, [imgsLoaded, width])
+  }, [width])
 
   const onNavClick = (index: number) => {
     setCurrentSlide(index);

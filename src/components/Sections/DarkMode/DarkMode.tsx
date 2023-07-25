@@ -23,8 +23,6 @@ const DarkMode = ({ images, backgroundColor, refreshPriority }: Iprops) => {
   const [currentImage, setCurrentImage] = useState(0);
   const tooltip = useRef(null);
   const sliderWrapper2 = useRef(null);
-  const imgsLoaded = useImagesPreloader(images);
-
   const onNavClick = (index: number) => {
     setCurrentImage(index);
   };
@@ -65,7 +63,7 @@ const DarkMode = ({ images, backgroundColor, refreshPriority }: Iprops) => {
     return () => ctx2.revert();
   }
    
-  }, [imgsLoaded]);
+  }, []);
 
   const isTouchDevice = is_touch_device();
 

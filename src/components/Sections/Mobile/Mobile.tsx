@@ -22,7 +22,6 @@ const Mobile = ({ images, backgroundColor, refreshPriority }: Iprops) => {
 
   const { width } = useWindowDimensions();
   const mobilePhoneWrapper = useRef(null);
-  const imgsLoaded = useImagesPreloader(images);
 
   useLayoutEffect(() => {
     if (width > 1599 && !is_touch_device()) {
@@ -62,7 +61,7 @@ const Mobile = ({ images, backgroundColor, refreshPriority }: Iprops) => {
 
       return () => ctx.revert();
     }
-  }, [imgsLoaded, width]);
+  }, [width]);
 
   const [activeImage, setActiveImage] = useState(0);
 

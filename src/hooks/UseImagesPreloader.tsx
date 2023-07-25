@@ -8,6 +8,7 @@ const useImagesPreloader = (imageUrls: string[]): boolean => {
       return new Promise<void>((resolve) => {
         const image = new Image();
         image.src = url;
+        console.log('image loaded', image)
         image.onload = () => resolve();
       });
     });
