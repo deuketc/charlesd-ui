@@ -18,12 +18,16 @@
   &__list_item_wrapper {
     @include SECTION-WRAPPER;
     @include STYLE-COPY;
-    display: flex;
+    @include min-width-1280px {
+      display: flex;      
+    }
     padding: 2rem 0;
     align-items: center;
   }
   &__list_item_title_wrapper {
-    width: 70%;
+    @include min-width-1280px {
+      width: 70%;
+    }
   }
   &__list_item_title {
     @include STYLE-HEADER;
@@ -35,12 +39,16 @@
   }
   &__list_item_tags {
     display: block;
-    width: 15%;
+    @include min-width-1280px {
+      width: 15%;
+    }
   }
   &__list_item_date {
     display: block;
-    width: 20%;
-    text-align: right;
+    @include min-width-1280px { 
+      width: 20%; 
+      text-align: right;
+    }
   }
   &__list_item_link {
     text-decoration: none;
@@ -54,6 +62,9 @@
     }
   }
   &__floating_image {
+    @include max-width-1279px {
+      display: none;
+    }
     position: absolute;
     right: 0;
     top: 0;

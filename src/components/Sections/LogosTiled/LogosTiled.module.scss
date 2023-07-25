@@ -18,13 +18,13 @@
   &__item {
     float: left;
     width: 50%;
-    @media (min-width: 480px) {
+    @include min-width-420px {
       width: 33.3%;
     }
-    @media (min-width: 768px) {
+    @include min-width-768px {
       width: 25%;
     }
-    @media (min-width: 1200px) {
+    @include min-width-1280px {
       width: 20%;
     }
   }
@@ -32,10 +32,9 @@
     display: block;
     margin: 0 auto;
     text-align: center;
-  }
-  &__item-svg {
-    width: 80%;
-    height: 80%;
+    @include max-width-1599px {
+      max-width: 90%;
+    }
   }
   &__item-label {
     display: block;

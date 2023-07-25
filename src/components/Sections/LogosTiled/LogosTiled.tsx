@@ -3,6 +3,7 @@ import styles from './LogosTiled.module.scss';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import useImagesPreloader from '../../../hooks/UseImagesPreloader';
+import { is_touch_device } from '../../../utils/utils';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,6 +16,7 @@ const logosTiled = ({ logos }: IProps) => {
   const imgsLoaded = useImagesPreloader(logos);
 
   useLayoutEffect(() => {
+    if(!is_touch_device()) {
     let ctx = gsap.context(() => {
 
         gsap.set('.logoGridList .logo', { opacity: 0 });
@@ -31,6 +33,7 @@ const logosTiled = ({ logos }: IProps) => {
       
     }, containerImageRef);
     return () => ctx.revert();
+  }
   }, [imgsLoaded]);
 
   return (

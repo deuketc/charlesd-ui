@@ -9,8 +9,6 @@ import ImageSlider from '../../components/Sections/ImageSlider/ImageSlider';
 import NextProject from '../../components/Sections/NextProject/NextProject';
 import IagHero from '../../components/Sections/IagHero/IagHero';
 
-import heroImage from '../../assets/projects/iag/hero-iag.jpg';
-
 import mobile01 from '../../assets/projects/iag/mobile-01.jpg';
 import mobile02 from '../../assets/projects/iag/mobile-02.jpg';
 import mobile03 from '../../assets/projects/iag/mobile-03.jpg';
@@ -22,21 +20,22 @@ import sliderDesktopImage from '../../assets/projects/iag/iag-claims-ami-desktop
 
 const responsiveSliderImages = [sliderMobileImage, sliderTabletImage, sliderDesktopImage];
 
-import screenhotImage from '../../assets/projects/iag/screenshot-disaster_hub-state-desktop.png';
+import screenhotImageDesktop from '../../assets/projects/iag/screenshot-disaster_hub-state-1440.jpg';
+import screenhotImageTablet from '../../assets/projects/iag/screenshot-disaster_hub-state-768.jpg';
+import screenhotImageMobile from '../../assets/projects/iag/screenshot-disaster_hub-state-360.jpg';
 
 import sliderImageEmail01 from '../../assets/projects/iag/email-state-light.jpg';
 import sliderImageEmail02 from '../../assets/projects/iag/email-state-dark.jpg';
-import IagDeveloper from '../../components/Sections/IagDeveloper/IagDeveloper';
 import DarkMode from '../../components/Sections/DarkMode/DarkMode';
 import BtnSection from '../../components/Sections/BtnSection/BtnSection';
 
 const sliderImagesEmail = [sliderImageEmail01, sliderImageEmail02];
 
 const mySingleImage = {
-  name: 'Disaster hHb Image',
-  mobileSrc: screenhotImage,
-  tabletSrc: screenhotImage,
-  desktopSrc: screenhotImage,
+  name: 'Disaster hub Image',
+  mobileSrc: screenhotImageMobile,
+  tabletSrc: screenhotImageTablet,
+  desktopSrc: screenhotImageDesktop,
 };
 
 const mobileShowcase = [mobile01, mobile02, mobile03];
@@ -59,42 +58,42 @@ const IagPage = () => {
         backgroundColor="#f2f2f2"
       />
       <ResponsiveSlider images={responsiveSliderImages} />    
-      <IagDeveloper />  
+      {/* <IagDeveloper />   */}
       <CopySection
         paddingTop={true}
         title="Disaster Claims Hub"
         body="Helpful information on how to prepare for and get back on your feet after a natural disaster."
-        backgroundColor="#f2f2f2"
+        backgroundColor="#fff"
       />
-      <SingleImage image={mySingleImage} backgroundColor="#f2f2f2" />
+      <SingleImage image={mySingleImage} backgroundColor="#fff" />
       <CopySection
         paddingTop={true}
         title="Built for all brands"
         body="UI designed and developed for all New Zealand brands using the Oracle Service Cloud including IAG, State and AMI."
-        backgroundColor="#ffffff"
+        backgroundColor="#f2f2f2"
       />
-      <Mobile images={mobileShowcase} backgroundColor="#ffffff" />
+      <Mobile images={mobileShowcase} backgroundColor="#f2f2f2" />
       <CopySection
         paddingTop={true}
         title="What are the odds?"
         body="A promotional microsite built for State Insurance and Flybuys"
-        backgroundColor="#f2f2f2"
+        backgroundColor="#fff"
       />
       <Video
         src="https://player.vimeo.com/video/355045208?autoplay=1&loop=1&autopause=0"
-        backgroundColor="#f2f2f2"
+        backgroundColor="#fff"
       />
 
-      <BtnSection btn01Url='https://charlesd.co.nz/wato/' btn02Url='/projects/wato' btn01Label="Launch Project" btn02Label="More Info" backgroundColor='#f2f2f2' />
+      <BtnSection btn01Url='https://charlesd.co.nz/wato/' btn02Url='/projects/wato' btn01Label="Launch Project" btn02Label="More Info" backgroundColor='#fff' />
       <CopySection
       paddingTop={true}
         title="Responsive emails"
         body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sem urna, sagittis et justo et, sodales posuere eros."
-        backgroundColor="#fff"
-      />
-      <DarkMode images={sliderImagesEmail} backgroundColor="#fff" />
-      <NextProject
         backgroundColor="#f2f2f2"
+      />
+      <DarkMode images={sliderImagesEmail} backgroundColor="#f2f2f2" /> 
+      <NextProject
+        backgroundColor="#fff"
         copy="Unichem is network of more than 250 pharmacies throughout New&nbsp;Zealand."
         header="Want to see another project?"
         btnUrl="/projects/unichem"

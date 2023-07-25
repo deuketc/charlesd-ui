@@ -4,7 +4,11 @@ import heroImage from '../../assets/projects/wato/hero-wato.jpg';
 import CopySection from '../../components/Sections/CopySection/CopySection';
 import SingleImage from '../../components/Sections/SingleImage/SingleImage';
 
-import screenhotImage from '../../assets/projects/wato/desktop-02.jpg';
+import screenhotImageDesktop from '../../assets/projects/wato/desktop.jpg';
+import screenhotImageTablet from '../../assets/projects/wato/tablet.jpg';
+import screenhotImageMobile from '../../assets/projects/wato/mobile.jpg';
+
+
 import Mobile from '../../components/Sections/Mobile/Mobile';
 
 import mobile01 from '../../assets/projects/wato/mobile-02.jpg';
@@ -20,9 +24,9 @@ import NextProject from '../../components/Sections/NextProject/NextProject';
 
 const mySingleImage = {
   name: 'Wato Image',
-  mobileSrc: screenhotImage,
-  tabletSrc: screenhotImage,
-  desktopSrc: screenhotImage,
+  mobileSrc: screenhotImageMobile,
+  tabletSrc: screenhotImageTablet,
+  desktopSrc: screenhotImageDesktop,
 };
 
 const mobileShowcase = [mobile01, mobile02, mobile03];

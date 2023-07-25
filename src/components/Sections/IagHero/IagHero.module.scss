@@ -1,7 +1,13 @@
+@import '../../../mixins';
+@import '../../../variables';
+
 .aniSvg {
-  position: absolute;
-  left: 0;
-  top: 0;
   width: 100%;
-  height: auto;
+  @include min-width-1600px {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+  }
 }

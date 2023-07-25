@@ -19,13 +19,15 @@ import sliderImage02 from '../../assets/projects/udc/screenshot-udc-calc-03.jpg'
 
 const sliderImages = [sliderImage01, sliderImage02];
 
-import screenhotImage from '../../assets/projects/udc/udc-capitaldrawdown-1440.png';
+import screenhotImageDesktop from '../../assets/projects/udc/udc-capitaldrawdown-1440.png';
+import screenhotImageTablet from '../../assets/projects/udc/udc-capitaldrawdown-768.png'
+import screenhotImageMobile from '../../assets/projects/udc/udc-capitaldrawdown-360.png'
 
 const mySingleImage = {
   name: 'Unichem Image',
-  mobileSrc: screenhotImage,
-  tabletSrc: screenhotImage,
-  desktopSrc: screenhotImage,
+  mobileSrc: screenhotImageMobile,
+  tabletSrc: screenhotImageTablet,
+  desktopSrc: screenhotImageDesktop,
 };
 
 import mobile01 from '../../assets/projects/udc/udc-mobile-nav-01.png';

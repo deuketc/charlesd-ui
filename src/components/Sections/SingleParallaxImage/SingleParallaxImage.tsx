@@ -1,6 +1,7 @@
 import { useRef, useLayoutEffect } from 'react';
 import styles from './SingleParallaxImage.module.scss';
 import useImagesPreloader from '../../../hooks/UseImagesPreloader';
+import {is_touch_device} from '../../../utils/utils'
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -25,7 +26,7 @@ const SingleParallaxImage = ({
   const imgsLoaded = useImagesPreloader([image]);
   const containerImageRef = useRef(null);
 
-  if (scrollTriggerAni) {
+  if (scrollTriggerAni && !is_touch_device()) {
     useLayoutEffect(() => {
       //setTimeout(() => {
       let ctx = gsap.context(() => {

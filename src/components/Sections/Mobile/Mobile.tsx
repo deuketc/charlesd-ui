@@ -12,9 +12,10 @@ gsap.registerPlugin(ScrollTrigger);
 interface Iprops {
   images: string[];
   backgroundColor?: string;
+  refreshPriority?: number;
 }
 
-const Mobile = ({ images, backgroundColor }: Iprops) => {
+const Mobile = ({ images, backgroundColor, refreshPriority }: Iprops) => {
   const onSetActiveImage = (index: number) => {
     setActiveImage(index);
   };
@@ -42,10 +43,10 @@ const Mobile = ({ images, backgroundColor }: Iprops) => {
             pin: true,
             pinSpacing: true,
             toggleActions: 'restart none none none',
-            
           },
           x: 0,
         });
+        console.log('mobile-phone-00')
 
         gsap.to('.mobile-phone-02', {
           scrollTrigger: {
@@ -56,7 +57,7 @@ const Mobile = ({ images, backgroundColor }: Iprops) => {
           },
           x: 0,
         });
-
+        console.log('mobile-phone-2')
       }, mobilePhoneWrapper);
 
       return () => ctx.revert();

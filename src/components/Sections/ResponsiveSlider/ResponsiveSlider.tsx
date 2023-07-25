@@ -12,10 +12,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 interface Iprops {
-  images: string[]
+  images: string[];
+  refreshPriority?: number;
 }
 
-const ResponsiveSlider = ({ images }: Iprops) => {
+const ResponsiveSlider = ({ images, refreshPriority }: Iprops) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slideResolution, setSlideResolution] = useState('mobile');
   const heroBackgroundLayer = useRef(null);
@@ -48,9 +49,11 @@ const ResponsiveSlider = ({ images }: Iprops) => {
           trigger: heroBackgroundLayer.current,
           start: 'top 0', // the default values
           end: '+=3000',
-          onUpdate: self => onScrollChange(self.progress)
+          onUpdate: self => onScrollChange(self.progress),
+          refreshPriority: refreshPriority
         },
       });
+      console.log('responsiveSlider')
     }); 
     return () => ctx.revert();
   }

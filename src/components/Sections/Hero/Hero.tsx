@@ -14,9 +14,10 @@ interface Iprops {
   imgSrc?: string;
   heroComponent?: object;
   url: string;
+  refreshPriority?: number
 }
 
-const Hero = ({ title, copy, imgSrc, heroComponent, url }: Iprops) => {
+const Hero = ({ title, copy, imgSrc, heroComponent, url, refreshPriority }: Iprops) => {
   const heroBackgroundLayer = useRef(null);
   const headerRef = useRef(null);
   const subHeaderRef = useRef(null);
@@ -89,8 +90,10 @@ const Hero = ({ title, copy, imgSrc, heroComponent, url }: Iprops) => {
           start: '0px top', // the default values
           end: 'bottom top',
           scrub: true,
+          refreshPriority: refreshPriority
         },
       });
+      console.log('hero')
     });
     return () => ctx.revert();
   }

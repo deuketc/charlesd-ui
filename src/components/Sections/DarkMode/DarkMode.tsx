@@ -13,11 +13,12 @@ gsap.registerPlugin(ScrollTrigger);
 interface Iprops {
   images: string[];
   backgroundColor: string;
+  refreshPriority?: number;
 }
 
 
 
-const DarkMode = ({ images, backgroundColor }: Iprops) => {
+const DarkMode = ({ images, backgroundColor, refreshPriority }: Iprops) => {
   const [imageMaskWidth, setImageMaskWidth] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
   const tooltip = useRef(null);
@@ -29,10 +30,18 @@ const DarkMode = ({ images, backgroundColor }: Iprops) => {
   };
 
   const handleMouseEvent = (e: MouseEvent<HTMLDivElement>) => {
-    setImageMaskWidth(e.pageX - e.currentTarget.offsetLeft);
+    setImageMaskWidth(e.pageX - e.currentTarget.offsetLeft - 95);
+  };
+
+  const handleMouseLeave = (e: MouseEvent<HTMLDivElement>) => {
+    if(imageMaskWidth <= 300) {
+      setImageMaskWidth(0);
+    } else {setImageMaskWidth(600); }
+    
   };
 
   useLayoutEffect(() => {
+    if(!is_touch_device()) {
     let ctx2 = gsap.context(() => {
       gsap.set(tooltip.current, {
         opacity: 0,
@@ -44,15 +53,17 @@ const DarkMode = ({ images, backgroundColor }: Iprops) => {
           trigger:sliderWrapper2.current, 
           start:"top 20%",
           end:"bottom 60%",
-          toggleActions:'play reverse play reset'
+          toggleActions:'play reverse play reset',
+          refreshPriority: refreshPriority
         },
         opacity: 1,
         x: 0,
         duration: .5,
       })
-      
+      console.log('darkmode')
     });
     return () => ctx2.revert();
+  }
    
   }, [imgsLoaded]);
 
@@ -69,7 +80,10 @@ const DarkMode = ({ images, backgroundColor }: Iprops) => {
           onMouseMove={(e) => {
             handleMouseEvent (e);
           }}
-          className={styles.slider__inner_wrapper}
+          onMouseLeave={(e) => {
+            handleMouseLeave (e);
+          }}
+          className={styles.slider__container}
         >
           <div className={`${styles.slider__img_container}`}>
             <img className={styles.slider__img} src={images[0]} />
@@ -79,9 +93,9 @@ const DarkMode = ({ images, backgroundColor }: Iprops) => {
           </div>
           
         </div>
-        <span ref={tooltip} className={styles.slider__tooltip}>Hover for Light/Dark mode</span>
+        {!isTouchDevice && (<span ref={tooltip} className={styles.slider__tooltip}>Hover for Light/Dark mode</span>)}
       </div>
-      {isTouchDevice && (
+      {/* {isTouchDevice && (
         <div>
           <RadioListNav
             currentIndex={currentImage}
@@ -90,7 +104,7 @@ const DarkMode = ({ images, backgroundColor }: Iprops) => {
             radioListName={makeid(5)}
           />
         </div>
-      )}
+      )} */}
     </section>
   );
 };

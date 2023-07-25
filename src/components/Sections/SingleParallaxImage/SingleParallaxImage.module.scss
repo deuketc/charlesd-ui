@@ -2,7 +2,9 @@
 
 .singleParallaxImage {
   &__wrapper {
-    min-height: 100vh;
+    @include min-width-1440px {
+      min-height: 100vh;
+    }
   }
   &__img {
     width: 100%;
