@@ -5,39 +5,51 @@ import Mobile from '../../components/Sections/Mobile/Mobile';
 import SingleImage from '../../components/Sections/SingleImage/SingleImage';
 import NextProject from '../../components/Sections/NextProject/NextProject';
 import ImageSlider from '../../components/Sections/ImageSlider/ImageSlider';
+import useImagesPreloader from '../../hooks/UseImagesPreloader';
+import Spinner from '../../components/layout/Spinner/Spinner';
 
 import heroImage from '../../assets/projects/udc/hero-udc.jpg';
-
 import sliderMobileImage from '../../assets/projects/udc/udc-screenshot-mobile.png';
 import sliderTabletImage from '../../assets/projects/udc/udc-screenshot-tablet.png';
 import sliderDesktopImage from '../../assets/projects/udc/udc-screenshot-desktop.png';
-
-const responsiveSliderImages = [sliderMobileImage, sliderTabletImage, sliderDesktopImage];
-
 import sliderImage01 from '../../assets/projects/udc/screenshot-udc-calc-02.jpg';
 import sliderImage02 from '../../assets/projects/udc/screenshot-udc-calc-03.jpg';
-
-const sliderImages = [sliderImage01, sliderImage02];
-
 import screenhotImageDesktop from '../../assets/projects/udc/udc-capitaldrawdown-1440.png';
 import screenhotImageTablet from '../../assets/projects/udc/udc-capitaldrawdown-768.png'
 import screenhotImageMobile from '../../assets/projects/udc/udc-capitaldrawdown-360.png'
+import mobile01 from '../../assets/projects/udc/udc-mobile-nav-01.png';
+import mobile02 from '../../assets/projects/udc/udc-mobile-nav-02.png';
+import mobile03 from '../../assets/projects/udc/udc-mobile-nav-03.png';
 
+const responsiveSliderImages = [sliderMobileImage, sliderTabletImage, sliderDesktopImage];
+const mobileShowcase = [mobile01, mobile02, mobile03];
+const sliderImages = [sliderImage01, sliderImage02];
 const mySingleImage = {
-  name: 'Unichem Image',
+  name: 'UDC Image',
   mobileSrc: screenhotImageMobile,
   tabletSrc: screenhotImageTablet,
   desktopSrc: screenhotImageDesktop,
 };
 
-import mobile01 from '../../assets/projects/udc/udc-mobile-nav-01.png';
-import mobile02 from '../../assets/projects/udc/udc-mobile-nav-02.png';
-import mobile03 from '../../assets/projects/udc/udc-mobile-nav-03.png';
-
-const mobileShowcase = [mobile01, mobile02, mobile03];
+const udcPageImages = [
+  heroImage,
+  sliderMobileImage, 
+  sliderTabletImage, 
+  sliderDesktopImage, 
+  mobile01, 
+  mobile02,
+  mobile03, 
+  sliderImage01, 
+  sliderImage02,
+  screenhotImageMobile,
+  screenhotImageTablet,
+  screenhotImageDesktop
+]
 
 const UdcPage = () => {
-  return (
+  const imgsLoaded = useImagesPreloader(udcPageImages);
+
+  return imgsLoaded ? (
     <>
       <Hero
         title="UDC"
@@ -80,6 +92,8 @@ const UdcPage = () => {
         btnLabel='WATO casestudy'
       />
     </>
+  ) : (
+    <Spinner />
   );
 };
 

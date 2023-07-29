@@ -2,7 +2,6 @@ import { useRef, useLayoutEffect } from 'react';
 import styles from './LogosTiled.module.scss';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import useImagesPreloader from '../../../hooks/UseImagesPreloader';
 import { is_touch_device } from '../../../utils/utils';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -13,7 +12,6 @@ interface IProps {
 
 const logosTiled = ({ logos }: IProps) => {
   const containerImageRef = useRef(null);
-  const imgsLoaded = useImagesPreloader(logos);
 
   useLayoutEffect(() => {
     if(!is_touch_device()) {
@@ -34,7 +32,7 @@ const logosTiled = ({ logos }: IProps) => {
     }, containerImageRef);
     return () => ctx.revert();
   }
-  }, [imgsLoaded]);
+  }, []);
 
   return (
     <div className={styles.logos}>

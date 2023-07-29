@@ -9,38 +9,36 @@ import useImagesPreloader from '../../hooks/UseImagesPreloader';
 import Spinner from '../../components/layout/Spinner/Spinner';
 
 import heroImage from '../../assets/projects/unichem/hero-unichem.jpg';
-
 import sliderMobileImage from '../../assets/projects/unichem/screenshot-unichem-mobile.png';
 import sliderTabletImage from '../../assets/projects/unichem/screenshot-unichem-tablet.png';
 import sliderDesktopImage from '../../assets/projects/unichem/screenshot-unichem-desktop.png';
-
-import screenhotImage from '../../assets/projects/unichem/unichem-article-1440.jpg';
-import screenhotImageTablet from '../../assets/projects/unichem/unichem-article-768.png';
-import screenhotImageMobile from '../../assets/projects/unichem/unichem-article-460.png';
-
+import screenshotImage from '../../assets/projects/unichem/unichem-article-1440.jpg';
+import screenshotImageTablet from '../../assets/projects/unichem/unichem-article-768.png';
+import screenshotImageMobile from '../../assets/projects/unichem/unichem-article-460.png';
 import mobile01 from '../../assets/projects/unichem/unichem-mobile-nav-02.jpg';
 import mobile02 from '../../assets/projects/unichem/unichem-mobile-nav-01.jpg';
 import mobile03 from '../../assets/projects/unichem/unichem-mobile-nav-03.jpg';
 
 const mySingleImage = {
   name: 'Unichem Image',
-  mobileSrc: screenhotImageMobile,
-  tabletSrc: screenhotImageTablet,
-  desktopSrc: screenhotImage,
+  mobileSrc: screenshotImageMobile,
+  tabletSrc: screenshotImageTablet,
+  desktopSrc: screenshotImage,
 };
 const sliderImages = [sliderMobileImage, sliderTabletImage, sliderDesktopImage];
 const mobileShowcase = [mobile01, mobile02, mobile03];
 
 const unichemPageImages = [
+  heroImage,
   mobile01,
   mobile02,
   mobile03,
   sliderMobileImage,
   sliderTabletImage,
   sliderDesktopImage,
-  screenhotImageMobile,
-  screenhotImageTablet,
-  screenhotImage,
+  screenshotImageMobile,
+  screenshotImageTablet,
+  screenshotImage,
 ];
 
 const UnichemPage = () => {

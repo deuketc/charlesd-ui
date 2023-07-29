@@ -6,15 +6,16 @@ import LogosTiled from '../../components/Sections/LogosTiled/LogosTiled';
 import Video from '../../components/Sections/Video/Video';
 import SingleImage from '../../components/Sections/SingleImage/SingleImage';
 import NextProject from '../../components/Sections/NextProject/NextProject';
+import useImagesPreloader from '../../hooks/UseImagesPreloader';
+import Spinner from '../../components/layout/Spinner/Spinner';
 
 import heroImage from '../../assets/projects/touchpoint/hero-touchpoint.jpg';
-
-import screenhotImage from '../../assets/projects/touchpoint/screenshot-touchpoint-desktop-01.jpg';
-
+import screenhotImageDesktop from '../../assets/projects/touchpoint/touchpoint-screenshot-desktop.jpg';
+import screenhotImageTablet from '../../assets/projects/touchpoint/touchpoint-screenshot-tablet.jpg';
+import screenhotImageMobile from '../../assets/projects/touchpoint/touchpoint-screenshot-mobile.jpg';
 import mobile01 from '../../assets/projects/touchpoint/screenshot-touchpoint-mobile-cx.jpg';
 import mobile02 from '../../assets/projects/touchpoint/screenshot-touchpoint-mobile-ip.jpg';
 import mobile03 from '../../assets/projects/touchpoint/screenshot-touchpoint-mobile-mx.jpg';
-
 import logoHarmony from '../../assets/projects/touchpoint/logo-harmoney.jpg';
 import logoKingsplantbarn from '../../assets/projects/touchpoint/logo-kingsplantbarn.jpg';
 import logoSamsung from '../../assets/projects/touchpoint/logo-samsung.jpg';
@@ -47,15 +48,38 @@ import anzHeroImage from '../../assets/projects/touchpoint/hero-anz.jpg';
 
 const mySingleImage = {
   name: 'Touchpoint Image',
-  mobileSrc: screenhotImage,
-  tabletSrc: screenhotImage,
-  desktopSrc: screenhotImage,
+  mobileSrc: screenhotImageMobile,
+  tabletSrc: screenhotImageTablet,
+  desktopSrc: screenhotImageDesktop,
 };
 
 const mobileShowcase = [mobile01, mobile02, mobile03];
 
+const touchpointPageImages = [
+  heroImage,
+  logoHarmony,
+  logoKingsplantbarn,
+  logoSamsung,
+  logoUDC,
+  logoUnichem,
+  logoSpark,
+  logoMercury,
+  logoLion,
+  logoAA,
+  logoHuawei,
+  logoFreedom,
+  logoASB,
+  screenhotImageDesktop,
+  screenhotImageTablet,
+  screenhotImageMobile,
+  mobile01, 
+  mobile02, 
+  mobile03
+]
+
 const TouchpointPage = () => {
-  return (
+  const imgsLoaded = useImagesPreloader(touchpointPageImages);
+  return imgsLoaded ? (
     <>
       <Hero
         title="Touchpoint Group"
@@ -63,7 +87,6 @@ const TouchpointPage = () => {
         imgSrc={heroImage}
         url='https://touchpoint.co.nz'
       />
-
       <CopySection
         paddingTop={true}
         title="Front-end Development"
@@ -87,7 +110,7 @@ const TouchpointPage = () => {
       <CopySection
         paddingTop={true}
         title="More experts in more places"
-        body="Write some stuff about ANZ. Maecenas sed urna in urna facilisis vulputate. Nulla facilisi. "
+        body="See below the UI adapt to all possible dimensions. A part of our appraoch to customized responsive UI's"
         backgroundColor="#fff"
       />
       <Video
@@ -99,7 +122,7 @@ const TouchpointPage = () => {
       <CopySection
         paddingTop={true}
         title="Innovation"
-        body='For my work on responsive email campaigns I received Touchpoint Group’s innovation award. Check out my code on <a href="https://github.com/deuketc/edm-desktop-first">Github</a>.'
+        body='For my work on responsive email development, I received Touchpoint Group&rsquo;s innovation award. Check out my code on <a href="https://github.com/deuketc/edm-desktop-first">Github</a>.'
         backgroundColor="#f2f2f2"
       />
       <SingleImage image={mySingleImage} backgroundColor="#f2f2f2" />
@@ -110,6 +133,8 @@ const TouchpointPage = () => {
         btnLabel="UDC casestudy"
       />
     </>
+  ) : (
+    <Spinner />
   );
 };
 

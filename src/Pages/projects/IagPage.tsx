@@ -1,5 +1,3 @@
-import { useRef, useState, useLayoutEffect, useEffect } from 'react';
-
 import Hero from '../../components/Sections/Hero/Hero';
 import CopySection from '../../components/Sections/CopySection/CopySection';
 import Mobile from '../../components/Sections/Mobile/Mobile';
@@ -10,6 +8,8 @@ import IagHero from '../../components/Sections/IagHero/IagHero';
 import Video from '../../components/Sections/Video/Video';
 import useImagesPreloader from '../../hooks/UseImagesPreloader';
 import Spinner from '../../components/layout/Spinner/Spinner';
+import DarkMode from '../../components/Sections/DarkMode/DarkMode';
+import BtnSection from '../../components/Sections/BtnSection/BtnSection';
 
 import mobile01 from '../../assets/projects/iag/mobile-01.jpg';
 import mobile02 from '../../assets/projects/iag/mobile-02.jpg';
@@ -23,8 +23,7 @@ import screenhotImageMobile from '../../assets/projects/iag/screenshot-disaster_
 import sliderImageEmail01 from '../../assets/projects/iag/email-state-light.jpg';
 import sliderImageEmail02 from '../../assets/projects/iag/email-state-dark.jpg';
 
-import DarkMode from '../../components/Sections/DarkMode/DarkMode';
-import BtnSection from '../../components/Sections/BtnSection/BtnSection';
+
 
 const sliderImagesEmail = [sliderImageEmail01, sliderImageEmail02];
 const responsiveSliderImages = [
@@ -40,7 +39,7 @@ const mySingleImage = {
 };
 const mobileShowcase = [mobile01, mobile02, mobile03];
 
-const IagPageImages = [
+const iagPageImages = [
   sliderImageEmail01,
   sliderImageEmail02,
   screenhotImageMobile,
@@ -55,7 +54,7 @@ const IagPageImages = [
 ];
 
 const IagPage = () => {
-  const imgsLoaded = useImagesPreloader(IagPageImages);
+  const imgsLoaded = useImagesPreloader(iagPageImages);
 
   return imgsLoaded ? (
     <>

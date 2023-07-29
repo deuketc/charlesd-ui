@@ -1,26 +1,21 @@
 import Hero from '../../components/Sections/Hero/Hero';
-
-import heroImage from '../../assets/projects/wato/hero-wato.jpg';
 import CopySection from '../../components/Sections/CopySection/CopySection';
 import SingleImage from '../../components/Sections/SingleImage/SingleImage';
+import Mobile from '../../components/Sections/Mobile/Mobile';
+import Spinner from '../../components/layout/Spinner/Spinner';
+import useImagesPreloader from '../../hooks/UseImagesPreloader';
+import Video from '../../components/Sections/Video/Video';
+import SingleParallaxImage from '../../components/Sections/SingleParallaxImage/SingleParallaxImage';
+import NextProject from '../../components/Sections/NextProject/NextProject';
 
+import heroImage from '../../assets/projects/wato/hero-wato2.jpg';
 import screenhotImageDesktop from '../../assets/projects/wato/desktop.jpg';
 import screenhotImageTablet from '../../assets/projects/wato/tablet.jpg';
 import screenhotImageMobile from '../../assets/projects/wato/mobile.jpg';
-
-
-import Mobile from '../../components/Sections/Mobile/Mobile';
-
 import mobile01 from '../../assets/projects/wato/mobile-02.jpg';
 import mobile02 from '../../assets/projects/wato/mobile-01.jpg';
 import mobile03 from '../../assets/projects/wato/mobile-03.jpg';
-
 import watoCityImage from '../../assets/projects/wato/state-wato-promo03.jpg';
-
-import Video from '../../components/Sections/Video/Video';
-
-import SingleParallaxImage from '../../components/Sections/SingleParallaxImage/SingleParallaxImage';
-import NextProject from '../../components/Sections/NextProject/NextProject';
 
 const mySingleImage = {
   name: 'Wato Image',
@@ -31,8 +26,21 @@ const mySingleImage = {
 
 const mobileShowcase = [mobile01, mobile02, mobile03];
 
+const watoPageImages = [
+  heroImage,
+  screenhotImageMobile,
+  screenhotImageMobile,
+  screenhotImageDesktop,
+  mobile01, 
+  mobile02, 
+  mobile03,
+  watoCityImage
+]
+
 const WatoPage = () => {
-  return (
+  const imgsLoaded = useImagesPreloader(watoPageImages);
+
+  return imgsLoaded ? (
     <>
       <Hero
         title="What are the odds?"
@@ -42,7 +50,7 @@ const WatoPage = () => {
       />
       <CopySection
         paddingTop={true}
-        title="Engaging UX"
+        title="A chance to win."
         body="Earning customers the chance to win 30,000 Flybuys points each day for the month of April 2018."
         backgroundColor="#f2f2f2"
       />
@@ -66,9 +74,8 @@ const WatoPage = () => {
       <CopySection
         paddingTop={true}
         paddingBottom={true}
-        title="Scale"
-        body="Deserunt fugiat enim culpa eiusmod. Cillum consectetur veniam esse
-        dolor ea dolore adipisicing."
+        title="How did it go?"
+        body="The website was interacted with by over 10,000 unique visitors and hundreds of winners."
       />
       <SingleParallaxImage
         image={watoCityImage}
@@ -83,6 +90,8 @@ const WatoPage = () => {
         btnUrl="/projects/iag"
       />
     </>
+  ) : (
+    <Spinner />
   );
 };
 
