@@ -7,9 +7,9 @@
     &__container {
         @include SECTION-WRAPPER;
         text-align: center;
-        display: flex;
         max-width: 800px;
-        @include min-width-768px {
+        @include min-width-420px {
+            display: flex;
             flex-direction: row;
             justify-content: space-between;
          }      
@@ -19,12 +19,18 @@
 .btn__primary {
     @include BTN;
     margin-bottom: 1rem;
-    width: 47%;
+    width: 100%;
+    @include min-width-420px {
+        width: 47%;
+    }
 }
 
 .btn__secondary {
     @include BTN__SECONDARY;
     margin-bottom: 1rem;
-    width: 47%
+    width: 100%;
+    @include min-width-420px {
+        width: 47%
+    }
 }
 

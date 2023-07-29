@@ -110,7 +110,7 @@ const TouchpointPage = () => {
       <CopySection
         paddingTop={true}
         title="More experts in more places"
-        body="See below the UI adapt to all possible dimensions. A part of our appraoch to customized responsive UI's"
+        body="See below the UI adapt to all possible dimensions. A part of our approach to customized responsive UI's"
         backgroundColor="#fff"
       />
       <Video

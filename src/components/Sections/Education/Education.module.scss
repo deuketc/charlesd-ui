@@ -37,6 +37,7 @@
   }
   &__col {
     @include STYLE-COPY;
+    @include STYLE-SECTION-PADDING-BOTTOM;
     @include min-width-1600px {
       width: 48%;
     }

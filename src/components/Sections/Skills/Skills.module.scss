@@ -28,11 +28,16 @@
   flex-wrap: wrap;
 }
 .listItem {
+  width: 50%;
+  text-align: center;
   outline: 1px solid grey;
+  @include min-width-768px {
+    width: 33.3%;
+  }
   @include min-width-1600px {
     width: 20%;
     background-color: #fff;
-    text-align: center;
+    
     aspect-ratio: 1 / 1;
   }
 }

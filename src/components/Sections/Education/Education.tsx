@@ -14,7 +14,7 @@ const Education = () => {
               </h3>
               <p>Diploma of Digital Media (Graduated with Distinction)</p>
               <p>February 2011 - December 2011</p>
-              <h4>Projects</h4>
+              <h4 className={styles.resumeEducation__headerSub}>Projects</h4>
               <div>
                 <details className={styles.resumeEducation__details}>
                   <summary className={styles.resumeEducation__summary}>
@@ -22,7 +22,7 @@ const Education = () => {
                   </summary>
                   <div className={styles.resumeEducation__detailsListItem}>
                     <p>
-                      Brief: Pick a favourite visual Artist that is currently
+                      <span className={styles.resumeEducation__headerSub}>Brief:</span> Pick a favourite visual Artist that is currently
                       living, and that you have access to at least 15 visual
                       samples of their work. Analyze the visual style of the
                       Artist in order to create a Brand concept around the
@@ -30,7 +30,7 @@ const Education = () => {
                     </p>
                     <p>XHTML, CSS, JavaScript</p>
                     <p>
-                      <a
+                      <a className="btn"
                         target="_blank"
                         rel="noreferrer"
                         href="http://charlesd.co.nz/artist/"
@@ -46,7 +46,7 @@ const Education = () => {
                   </summary>
                   <div className={styles.resumeEducation__detailsListItem}>
                     <p>
-                      Brief: Using the skills given to you in the course so far
+                    <span className={styles.resumeEducation__headerSub}>Brief:</span> Using the skills given to you in the course so far
                       you will be able to produce a well designed, cohesive and
                       usable website with a wordpress content management system
                       allowing the client to easily update all content on the
@@ -54,7 +54,7 @@ const Education = () => {
                     </p>
                     <p>Tech: HTML5 &amp; CSS</p>
                     <p>
-                      <a
+                      <a className='btn'
                         target="_blank"
                         rel="noreferrer"
                         href="http://charlesd.co.nz/zen/"
@@ -73,7 +73,7 @@ const Education = () => {
               </h3>
               <p>Bachelor of Information Systems</p>
               <p>Feburary 1999 - December 2003</p>
-              <h4>Prospectus</h4>
+              <h4  className={styles.resumeEducation__headerSub}>Prospectus</h4>
               <div>
                 <details className={styles.resumeEducation__details}>
                   <summary className={styles.resumeEducation__summary}>

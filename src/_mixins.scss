@@ -128,6 +128,24 @@
   }
 }
 
+
+@mixin STYLE-HEADER-SUB {
+  font-weight: 600;
+  font-size: 1.4rem;
+  @include min-width-768px {
+    font-size: 1.6rem;
+  }
+  @include min-width-1280px {
+    font-size: 2rem;
+  }
+  @include min-width-1600px {
+    font-size: 2.4rem;
+  }
+  @include min-width-1921px {
+    font-size: 2.8rem;
+  }
+}
+
 @mixin STYLE-COPY {
   font-weight: 400;
   font-size: 1.4rem;
@@ -142,18 +160,6 @@
   }
   @include min-width-1921px {
     font-size: 2.6rem;
-  }
-}
-
-
-@mixin STYLE-HEADER-SUB {
-  font-weight: 600;
-  font-size: 1.5rem;
-  @include min-width-768px {
-    font-size: 2rem;
-  }
-  @include min-width-1280px {
-    font-size: 2rem;
   }
 }
 

@@ -29,9 +29,9 @@
   }
 }
 .list {
-  display: flex;
-  width: 400%;
+  
   @include min-width-1280px {
+    display: flex;
     width: 100%;
     align-items: stretch;
     //overflow: hidden;
@@ -41,46 +41,37 @@
 }
 .listPreviousWrapper {
   display: flex;
-  width: 75%;
+  width: 100%;overflow-x: scroll;
+  @include min-width-1280px {
+    width: 75%;
+  }
   > article {
-    width: 33.3%;
+    width: 100%;
     flex-shrink: 0;
     @include min-width-1280px {
       width: 100%;
     }
   }
   @include min-width-1280px {
-    //position: absolute;
-    //margin-left: 50%;
     width: 50%;
-    overflow-x: scroll;
+    
   }
 }
-.listItemCurrentWrapper {
-  width: 90%;
-  margin: 0 auto;
-  @include min-width-1280px {
-    padding: 6rem 2rem 6rem 0;
-    width: auto;
-    position: relative;
-  }
-}
+
 .listItemWrapper {
   width: 90%;
   margin: 0 auto;
+  padding: 6rem 0;
   @include min-width-1280px {
-    padding: 6rem 0;
+    
   }
 }
 
 .listItemCurrent {
-  width: 25%;
+  width: 100%;
+  background-color: #f2f2f2;
   @include min-width-1280px {
-    //position: absolute;
-    //left: 0;
     width: 50%;
-    background-color: #f2f2f2;
-    //height: 100%;
     &::after {
       content: '';
       display: block;
@@ -93,50 +84,17 @@
     }
   }
 }
+.listItemCurrentWrapper {
+  width: 90%;
+  margin: 0 auto;
+  padding: 6rem 2rem 6rem 0;
+  box-sizing: border-box;
+  @include min-width-1280px {
+    
+    width: auto;
+    position: relative;
+  }
+}
 .copy {
   @include STYLE-COPY;
 }
-
-/* Employment History 
-.resume-employment-history {
-  &__col {
-    padding: 3em 0;
-    box-sizing: border-box;
-    vertical-align: top;
-    text-align: left;
-    @media (min-width: 1024px) {
-      width: 30%;
-      margin-left: 5%;
-      float: left;
-    }
-    &--current {
-      z-index: 1;
-      box-sizing: border-box;
-      position: relative;
-      margin-left: 0;
-      padding-right: 2rem;
-      &::after {
-        background: #f9f9f9 none repeat scroll 0 0;
-        z-index: -1;
-        content: "";
-        height: 100%;
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 9999px;
-      }
-    }
-  }
-  &__list {
-    padding: 0;
-    list-style: none;
-  }
-  &__list-item {
-    padding-left: 1.5em;
-    //background-image: url(../images/resume/icon-arrow.gif);
-    background-repeat: no-repeat;
-    background-position: left 0.7em;
-    margin-bottom: 0.6em;
-  }
-}
-*/
