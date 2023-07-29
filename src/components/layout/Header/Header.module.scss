@@ -102,14 +102,16 @@
     // }
   }
 
+  &__button_label {
+    display: none;
+  }
+
   &__button {
     @media (max-width: $max-width-767px) {
       display: block;
-      text-indent: -9999px;
-      background: #000;
-      width: 60px;
-      height: 60px;
-      //position: absolute;
+      position: static;
+      width: 70px;
+      height: 54px;
       margin-right: -6%;
       right: 0;
       top: 0;
@@ -119,4 +121,5 @@
       display: none;
     }
   }
+
 }

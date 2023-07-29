@@ -7,9 +7,16 @@ const Header = () => {
   const contentClassName = isActive
     ? `${styles.navigation__active} ${styles.navigation}`
     : styles.navigation;
+  const btnClassName = isActive
+  ? `is-active`
+  : '';
 
   const onHeaderButtonClick = () => {
     setActive(!isActive);
+  };
+
+  const onHeaderLinkClick = () => {
+    setActive(false);
   };
 
   return (
@@ -21,15 +28,21 @@ const Header = () => {
 
         <button
           onClick={onHeaderButtonClick}
-          className={styles.navigation__button}
+          className={`${styles.navigation__button} ${btnClassName} hamburger hamburger--slider`}
         >
-          <span>Toggle Mobile Navigation</span>
+          <span className={styles.navigation__button_label}>
+            Toggle Mobile Navigation
+          </span>
+          <div className="hamburger-box">
+            <div className="hamburger-inner"></div>
+          </div>
         </button>
         <nav className={contentClassName}>
           <h4 className={styles.navigation__header}>Header Navigation</h4>
           <ul className={styles.navigation__list}>
             <li className={styles.navigation__list_item}>
-              <Link
+              <Link 
+                onClick={onHeaderLinkClick}
                 className={styles.navigation__list_item_link}
                 to="/projects"
               >
@@ -37,17 +50,23 @@ const Header = () => {
               </Link>
             </li>
             <li className={styles.navigation__list_item}>
-              <Link className={styles.navigation__list_item_link} to="/blog">
+              <Link 
+                onClick={onHeaderLinkClick}
+                className={styles.navigation__list_item_link} to="/blog">
                 Blog
               </Link>
             </li>
             <li className={styles.navigation__list_item}>
-              <Link className={styles.navigation__list_item_link} to="/resume">
+              <Link 
+                onClick={onHeaderLinkClick}
+                className={styles.navigation__list_item_link} to="/resume">
                 Resume
               </Link>
             </li>
             <li className={styles.navigation__list_item}>
-              <Link className={styles.navigation__list_item_link} to="/resume">
+              <Link 
+                onClick={onHeaderLinkClick}
+                className={styles.navigation__list_item_link} to="/resume">
                 Contact
               </Link>
             </li>
