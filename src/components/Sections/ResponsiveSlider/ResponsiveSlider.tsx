@@ -1,6 +1,5 @@
 import { useState, useLayoutEffect, useRef } from 'react';
 import RadioListNav from '../../layout/RadioListNav/RadioListNav';
-import useImagesPreloader from '../../../hooks/UseImagesPreloader';
 import useWindowDimensions from '../../../hooks/UseWindowDimensions';
 import { is_touch_device } from '../../../utils/utils';
 
@@ -23,8 +22,6 @@ const ResponsiveSlider = ({ images, refreshPriority }: Iprops) => {
   const screenSizeLabels = ['mobile', 'tablet', 'desktop']
   const { width } = useWindowDimensions();
   const toggleResponsive = (width > 1599 && !is_touch_device())
-
-  // const imgsLoaded = useImagesPreloader(images);
 
   const onScrollChange = (percentage:number) => {
 

@@ -12,22 +12,7 @@ export const footerLinks = [
   {
     label: 'LinkedIn',
     href: 'https://nz.linkedin.com/in/charles-deukett-718bba73',
-    img: <LogoTwitter />,
-  },
-  {
-    label: 'Pinterest',
-    href: 'http://twitter.com/#!/deuketc',
-    img: <LogoPinterest />,
-  },
-  {
-    label: 'Twitter',
-    href: 'http://twitter.com/#!/deuketc',
-    img: <LogoLinkedin />,
-  },
-  {
-    label: 'Instagram',
-    href: 'https://www.instagram.com/deuketc/',
-    img: <LogoInstagram />,
+    img: <LogoLinkedin />
   },
   {
     label: 'Youtube',
@@ -35,9 +20,24 @@ export const footerLinks = [
     img: <LogoYoutube />,
   },
   {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/charlesdeukett/',
+    img: <LogoInstagram />,
+  },
+  {
+    label: 'Twitter',
+    href: 'https://twitter.com/CharlesDeukett',
+    img: <LogoTwitter />,
+  },
+  {
     label: 'Facebook',
     href: 'https://www.facebook.com/charles.deukett',
     img: <LogoFacebook />,
+  },
+  {
+    label: 'Pinterest',
+    href: 'https://www.pinterest.nz/charlesdeukett/',
+    img: <LogoPinterest />,
   },
   {
     label: 'Github',
@@ -46,7 +46,7 @@ export const footerLinks = [
   },
   {
     label: 'Codepen',
-    href: 'https://codepen.io/charles-deukett/',
+    href: 'https://codepen.io/charlesdeukett',
     img: <LogoCodepen />,
   },
 ];

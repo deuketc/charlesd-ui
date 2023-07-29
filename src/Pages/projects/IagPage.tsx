@@ -61,7 +61,7 @@ const IagPage = () => {
       <Hero
         url="https://www.iag.co.nz"
         title="Making the world a safer place"
-        copy={'Full-time front-end engineer role'}
+        copy={'Full-time front-end engineer role.'}
         heroComponent={<IagHero />}
       />
       <CopySection
@@ -89,7 +89,7 @@ const IagPage = () => {
       <CopySection
         paddingTop={true}
         title="What are the odds?"
-        body="A promotional microsite built for State Insurance and Flybuys"
+        body="A promotional microsite built for State Insurance and Flybuys."
         backgroundColor="#fff"
       />
       <Video
@@ -107,7 +107,7 @@ const IagPage = () => {
       <CopySection
         paddingTop={true}
         title="Responsive emails"
-        body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sem urna, sagittis et justo et, sodales posuere eros."
+        body="Our email templates including response layouts, high resolution images and are now dark mode optimised."
         backgroundColor="#f2f2f2"
       />
       <DarkMode images={sliderImagesEmail} backgroundColor="#f2f2f2" />

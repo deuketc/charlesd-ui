@@ -2,6 +2,7 @@
 @import '../../../variables';
 
 .video {
+  @include STYLE-SECTION-PADDING-BOTTOM;
   position: relative;
   z-index: 1;
   &__padding_top {
