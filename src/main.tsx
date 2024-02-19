@@ -40,7 +40,7 @@ const Root = () => {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
-      <Route index element={<ProjectsPage />} />
+      <Route index element={<Landing />} />
       <Route path="blog" element={<Blog />} />
       <Route path="projects" element={<ProjectsPage />} />
       <Route path="resume" element={<ResumePage />} />
