@@ -4,7 +4,7 @@
 /* Accomplishments */
 
 .skills {
-  @include STYLE-SECTION-PADDING
+  @include STYLE-SECTION-PADDING;
 }
 
 .wrapper {
@@ -37,7 +37,7 @@
   @include min-width-1600px {
     width: 20%;
     background-color: #fff;
-    
+
     aspect-ratio: 1 / 1;
   }
 }

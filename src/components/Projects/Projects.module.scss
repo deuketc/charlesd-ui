@@ -7,7 +7,7 @@
   }
 
   &__header {
-    @include STYLE-HEADER-ULTRA;
+    @include STYLE-HEADER-SUPER;
   }
 
   &__list {
@@ -15,7 +15,7 @@
     @include min-width-768px {
       display: grid;
       grid-template-columns: 47% 47%;
-      column-gap:6%;
+      column-gap: 6%;
     }
   }
 
@@ -32,7 +32,6 @@
     margin: 0;
     margin-bottom: 0.5rem;
     order: 1;
-    font-weight: 400;
   }
 
   &__list_item_subheader {

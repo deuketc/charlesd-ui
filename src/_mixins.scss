@@ -77,7 +77,7 @@
 @mixin STYLE-HEADER-ULTRA {
   margin-top: 3rem;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 3rem;
   @include min-width-768px {
     font-size: 4rem;
@@ -89,45 +89,45 @@
     font-size: 6rem;
   }
   @include min-width-1921px {
-    font-size: 7rem;
+    font-size: 6rem;
   }
 }
 
 @mixin STYLE-HEADER-SUPER {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 2rem;
+  font-weight: 500;
+  font-size: 2.5rem;
+  margin: 3rem 0;
   @include min-width-768px {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
   @include min-width-1280px {
     font-size: 4rem;
   }
   @include min-width-1600px {
-    font-size: 5rem;
+    font-size: 4.5rem;
   }
   @include min-width-1921px {
-    font-size: 6rem;
+    font-size: 5rem;
   }
 }
 
 @mixin STYLE-HEADER {
-  font-weight: 600;
-  font-size: 1.6rem;
+  font-weight: 500;
+  font-size: 1.2rem;
   @include min-width-768px {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   @include min-width-1280px {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   @include min-width-1600px {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   @include min-width-1921px {
-    font-size: 3.6rem;
+    font-size: 3rem;
   }
 }
-
 
 @mixin STYLE-HEADER-SUB {
   font-weight: 600;
@@ -142,24 +142,41 @@
     font-size: 2.4rem;
   }
   @include min-width-1921px {
-    font-size: 2.8rem;
+    font-size: 2.3rem;
   }
 }
 
 @mixin STYLE-COPY {
   font-weight: 400;
-  font-size: 1.4rem;
+  font-size: 1rem;
   @include min-width-768px {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
   }
   @include min-width-1280px {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
   }
   @include min-width-1600px {
-    font-size: 2.0rem;
+    font-size: 1.5rem;
   }
   @include min-width-1921px {
-    font-size: 2.6rem;
+    font-size: 2rem;
+  }
+}
+
+@mixin STYLE-COPY-DETAILS {
+  font-weight: 300;
+  font-size: 0.5rem;
+  @include min-width-768px {
+    font-size: 0.6rem;
+  }
+  @include min-width-1280px {
+    font-size: 0.8rem;
+  }
+  @include min-width-1600px {
+    font-size: 1rem;
+  }
+  @include min-width-1921px {
+    font-size: 1.5rem;
   }
 }
 
@@ -179,28 +196,29 @@
 }
 
 @mixin BTN-BASE {
-  font-family: 'Montserrat', sans-serif;  
-  font-weight: 600; 
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
   font-size: 1.2rem;
   text-decoration: none;
   display: inline-block;
   border-radius: 100px;
   text-align: center;
-  padding:1rem 0;
-  box-sizing: border-box;cursor: pointer;
+  padding: 1rem 0;
+  box-sizing: border-box;
+  cursor: pointer;
   @include min-width-768px {
     font-size: 1.3rem;
   }
   @include min-width-1280px {
     font-size: 1.4rem;
-    padding:1.2rem 0;
+    padding: 1.2rem 0;
   }
   @include min-width-1600px {
     font-size: 1.4rem;
   }
   @include min-width-1921px {
     font-size: 1.6rem;
-    padding:1.4rem 0;
+    padding: 1.4rem 0;
   }
 }
 
@@ -211,7 +229,7 @@
   &:hover {
     color: #fff;
     background-color: #1d1d1d;
-  } 
+  }
 }
 
 @mixin BTN__SECONDARY {
@@ -220,7 +238,9 @@
   background-color: #fff;
   outline: 2px solid #000;
   outline-offset: -2px;
-  &:hover {background-color: #f6f6f6;}
+  &:hover {
+    background-color: #f6f6f6;
+  }
 }
 
 @mixin PAGE {

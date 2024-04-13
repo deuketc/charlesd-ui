@@ -3,7 +3,7 @@
 
 .education {
   overflow: hidden;
-  @include STYLE-SECTION-PADDING
+  @include STYLE-SECTION-PADDING;
 }
 
 .wrapper {
@@ -32,6 +32,13 @@
   &__headerSub {
     @include STYLE-HEADER-SUB;
     margin-top: 0;
+    margin-bottom: 0;
+  }
+  &__headerItal {
+    @include STYLE-COPY;
+    font-style: italic;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
   &__flex {
   }
@@ -41,6 +48,16 @@
     @include min-width-1600px {
       width: 48%;
     }
+  }
+  &__date {
+    @include STYLE-COPY-DETAILS;
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+  &__date_block {
+    @include STYLE-COPY-DETAILS;
+    display: block;
+    margin-right: 0.5rem;
   }
   &__details {
     border-bottom: 1px solid #ccc;

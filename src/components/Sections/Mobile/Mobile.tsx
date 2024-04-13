@@ -26,7 +26,6 @@ const Mobile = ({ images, backgroundColor, refreshPriority }: Iprops) => {
   useLayoutEffect(() => {
     if (width > 1599 && !is_touch_device()) {
       let ctx = gsap.context(() => {
-
         gsap.set('.mobile-phone-00', {
           x: 460,
         });
@@ -45,8 +44,6 @@ const Mobile = ({ images, backgroundColor, refreshPriority }: Iprops) => {
           },
           x: 0,
         });
-        console.log('mobile-phone-00')
-
         gsap.to('.mobile-phone-02', {
           scrollTrigger: {
             trigger: mobilePhoneWrapper.current,
@@ -56,7 +53,6 @@ const Mobile = ({ images, backgroundColor, refreshPriority }: Iprops) => {
           },
           x: 0,
         });
-        console.log('mobile-phone-2')
       }, mobilePhoneWrapper);
 
       return () => ctx.revert();
@@ -78,7 +74,9 @@ const Mobile = ({ images, backgroundColor, refreshPriority }: Iprops) => {
             return (
               <div
                 key={index}
-                className={`mobile-phone-0${index} ${styles.mobile__phone_vector} ${
+                className={`mobile-phone-0${index} ${
+                  styles.mobile__phone_vector
+                } ${
                   activeImage === index
                     ? styles['mobile__phone_vector--active']
                     : ''

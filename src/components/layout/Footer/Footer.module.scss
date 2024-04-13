@@ -12,8 +12,8 @@
     @include SECTION-WRAPPER;
     padding: 20px 0px;
     @include min-width-768px {
-      flex-direction: row-reverse;    
-      display: flex;    
+      flex-direction: row-reverse;
+      display: flex;
       justify-content: space-between;
       align-items: center;
     }
@@ -23,12 +23,12 @@
     font-weight: 400;
     font-size: 1rem;
     margin: 0;
-    @include max-width-767px { 
+    @include max-width-767px {
       text-align: center;
       margin-bottom: 1rem;
     }
     @include min-width-768px {
-      margin-right: 10px;    
+      margin-right: 10px;
       margin-right: 20px;
       border-right: 1px solid #fff;
       padding-right: 20px;
@@ -38,15 +38,13 @@
     }
   }
   &__navigation {
-
-    @include min-width-768px { 
+    @include min-width-768px {
       display: flex;
       align-items: center;
     }
     @include max-width-767px {
-      margin-bottom: 1rem
+      margin-bottom: 1rem;
     }
-    
   }
 
   &__list {
@@ -54,26 +52,26 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    @include min-width-768px { 
+    @include min-width-768px {
       justify-content: right;
     }
   }
 
   &__list_item {
-    margin: 6%;
-    width: 12%;
-    @include max-width-767px {
-      margin-bottom: 1rem
-    }
+    margin: 4% 8%;
+    width: 9%;
+    // @include max-width-767px {
+    //   margin-bottom: 1rem;
+    // }
     @include min-width-420px {
-      margin:0 3.25%;
+      margin: 0 3.25%;
       width: 6%;
     }
     @include min-width-768px {
       width: 25px;
-      margin:0 10px;
+      margin: 0 10px;
     }
-    @include min-width-1600px { 
+    @include min-width-1600px {
       margin: 0 13px;
       width: 30px;
     }
@@ -96,7 +94,7 @@
     font-weight: 400;
     color: #fff;
     margin: 0;
-    @include max-width-767px { 
+    @include max-width-767px {
       text-align: center;
     }
     @include min-width-1600px {

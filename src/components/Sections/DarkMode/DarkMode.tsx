@@ -1,4 +1,10 @@
-import { useRef,useState, useLayoutEffect, useEffect, MouseEvent } from 'react';
+import {
+  useRef,
+  useState,
+  useLayoutEffect,
+  useEffect,
+  MouseEvent,
+} from 'react';
 import RadioListNav from '../../layout/RadioListNav/RadioListNav';
 import styles from './DarkMode.module.scss';
 import { makeid } from '../../../utils/utils';
@@ -16,8 +22,6 @@ interface Iprops {
   refreshPriority?: number;
 }
 
-
-
 const DarkMode = ({ images, backgroundColor, refreshPriority }: Iprops) => {
   const [imageMaskWidth, setImageMaskWidth] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
@@ -32,66 +36,71 @@ const DarkMode = ({ images, backgroundColor, refreshPriority }: Iprops) => {
   };
 
   const handleMouseLeave = (e: MouseEvent<HTMLDivElement>) => {
-    if(imageMaskWidth <= 300) {
+    if (imageMaskWidth <= 300) {
       setImageMaskWidth(0);
-    } else {setImageMaskWidth(600); }
-    
+    } else {
+      setImageMaskWidth(600);
+    }
   };
 
   useLayoutEffect(() => {
-    if(!is_touch_device()) {
-    let ctx2 = gsap.context(() => {
-      gsap.set(tooltip.current, {
-        opacity: 0,
-        x: 110,
-      });
+    if (!is_touch_device()) {
+      let ctx2 = gsap.context(() => {
+        gsap.set(tooltip.current, {
+          opacity: 0,
+          x: 110,
+        });
 
-      gsap.to(tooltip.current, {
-        scrollTrigger:{
-          trigger:sliderWrapper2.current, 
-          start:"top 20%",
-          end:"bottom 60%",
-          toggleActions:'play reverse play reset',
-          refreshPriority: refreshPriority
-        },
-        opacity: 1,
-        x: 0,
-        duration: .5,
-      })
-      console.log('darkmode')
-    });
-    return () => ctx2.revert();
-  }
-   
+        gsap.to(tooltip.current, {
+          scrollTrigger: {
+            trigger: sliderWrapper2.current,
+            start: 'top 20%',
+            end: 'bottom 60%',
+            toggleActions: 'play reverse play reset',
+            refreshPriority: refreshPriority,
+          },
+          opacity: 1,
+          x: 0,
+          duration: 0.5,
+        });
+      });
+      return () => ctx2.revert();
+    }
   }, []);
 
   const isTouchDevice = is_touch_device();
 
   return (
-    <section 
+    <section
       ref={sliderWrapper2}
       className={styles.slider}
       style={{ backgroundColor: backgroundColor }}
     >
       <div className={styles.slider__wrapper}>
         <div
-          onMouseMove={(e) => {
-            handleMouseEvent (e);
+          onMouseMove={e => {
+            handleMouseEvent(e);
           }}
-          onMouseLeave={(e) => {
-            handleMouseLeave (e);
+          onMouseLeave={e => {
+            handleMouseLeave(e);
           }}
           className={styles.slider__container}
         >
           <div className={`${styles.slider__img_container}`}>
             <img className={styles.slider__img} src={images[0]} />
           </div>
-          <div className={`${styles.slider__img_container}`} style={{width: imageMaskWidth}}>
+          <div
+            className={`${styles.slider__img_container}`}
+            style={{ width: imageMaskWidth }}
+          >
             <img className={styles.slider__img} src={images[1]} />
           </div>
-          
         </div>
-        {!isTouchDevice && (<span ref={tooltip} className={styles.slider__tooltip}>Hover for Light/Dark mode</span>)}
+        {!isTouchDevice && (
+          <span ref={tooltip} className={styles.slider__tooltip}>
+            Hover for Light/Dark mode
+          </span>
+        )}
       </div>
       {/* {isTouchDevice && (
         <div>

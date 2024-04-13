@@ -12,9 +12,13 @@ const Education = () => {
               <h3 className={styles.resumeEducation__headerSub}>
                 Media Design School
               </h3>
-              <p>Diploma of Digital Media (Graduated with Distinction)</p>
-              <p>February 2011 - December 2011</p>
-              <h4 className={styles.resumeEducation__headerSub}>Projects</h4>
+              <p className={styles.resumeEducation__date}>
+                Diploma of Digital Media
+              </p>
+              <p className={styles.resumeEducation__date}>
+                February 2011 - December 2011
+              </p>
+              <h4 className={styles.resumeEducation__headerItal}>Projects</h4>
               <div>
                 <details className={styles.resumeEducation__details}>
                   <summary className={styles.resumeEducation__summary}>
@@ -22,15 +26,20 @@ const Education = () => {
                   </summary>
                   <div className={styles.resumeEducation__detailsListItem}>
                     <p>
-                      <span className={styles.resumeEducation__headerSub}>Brief:</span> Pick a favourite visual Artist that is currently
-                      living, and that you have access to at least 15 visual
-                      samples of their work. Analyze the visual style of the
-                      Artist in order to create a Brand concept around the
-                      artist.
+                      <span className={styles.resumeEducation__headerItal}>
+                        Brief:
+                      </span>{' '}
+                      Pick a favourite visual Artist that is currently living,
+                      and that you have access to at least 15 visual samples of
+                      their work. Analyze the visual style of the Artist in
+                      order to create a Brand concept around the artist.
                     </p>
-                    <p>XHTML, CSS, JavaScript</p>
+                    <p className={styles.resumeEducation__date}>
+                      XHTML, CSS, JavaScript
+                    </p>
                     <p>
-                      <a className="btn"
+                      <a
+                        className="btn"
                         target="_blank"
                         rel="noreferrer"
                         href="http://charlesd.co.nz/artist/"
@@ -46,15 +55,21 @@ const Education = () => {
                   </summary>
                   <div className={styles.resumeEducation__detailsListItem}>
                     <p>
-                    <span className={styles.resumeEducation__headerSub}>Brief:</span> Using the skills given to you in the course so far
-                      you will be able to produce a well designed, cohesive and
+                      <span className={styles.resumeEducation__headerItal}>
+                        Brief:
+                      </span>{' '}
+                      Using the skills given to you in the course so far you
+                      will be able to produce a well designed, cohesive and
                       usable website with a wordpress content management system
                       allowing the client to easily update all content on the
                       website.
                     </p>
-                    <p>Tech: HTML5 &amp; CSS</p>
+                    <p className={styles.resumeEducation__date}>
+                      Tech: HTML5 &amp; CSS
+                    </p>
                     <p>
-                      <a className='btn'
+                      <a
+                        className="btn"
                         target="_blank"
                         rel="noreferrer"
                         href="http://charlesd.co.nz/zen/"
@@ -71,9 +86,13 @@ const Education = () => {
               <h3 className={styles.resumeEducation__headerSub}>
                 Manukau Institute of Technology
               </h3>
-              <p>Bachelor of Information Systems</p>
-              <p>Feburary 1999 - December 2003</p>
-              <h4  className={styles.resumeEducation__headerSub}>Prospectus</h4>
+              <p className={styles.resumeEducation__date}>
+                Bachelor of Information Systems
+              </p>
+              <p className={styles.resumeEducation__date}>
+                Feburary 1999 - December 2003
+              </p>
+              <h4 className={styles.resumeEducation__headerItal}>Prospectus</h4>
               <div>
                 <details className={styles.resumeEducation__details}>
                   <summary className={styles.resumeEducation__summary}>

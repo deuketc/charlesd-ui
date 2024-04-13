@@ -3,7 +3,7 @@
 
 .blogList {
   &__header {
-    @include STYLE-HEADER-ULTRA;
+    @include STYLE-HEADER-SUPER;
   }
   &__wrapper {
     @include PAGE;
@@ -19,7 +19,7 @@
     @include SECTION-WRAPPER;
     @include STYLE-COPY;
     @include min-width-1280px {
-      display: flex;      
+      display: flex;
     }
     padding: 2rem 0;
     align-items: center;
@@ -38,15 +38,17 @@
     display: block;
   }
   &__list_item_tags {
+    @include STYLE-COPY-DETAILS;
     display: block;
     @include min-width-1280px {
       width: 15%;
     }
   }
   &__list_item_date {
+    @include STYLE-COPY-DETAILS;
     display: block;
-    @include min-width-1280px { 
-      width: 20%; 
+    @include min-width-1280px {
+      width: 20%;
       text-align: right;
     }
   }

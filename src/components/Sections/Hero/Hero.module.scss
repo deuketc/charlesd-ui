@@ -16,7 +16,7 @@
   }
   &__img_wrapper {
     overflow: hidden;
-    
+
     text-align: right;
     position: relative;
     @include min-width-1440px {
@@ -30,14 +30,14 @@
   }
   &__copy_wrapper {
     @include SECTION-WRAPPER;
-    @include min-width-1440px { 
+    @include min-width-1440px {
       width: 80%;
     }
   }
   &__copy_container {
     container-type: inline-size;
     @include max-width-1279px {
-      @include STYLE-SECTION-PADDING
+      @include STYLE-SECTION-PADDING;
     }
     @include min-width-1440px {
       min-height: 100vh;
@@ -56,7 +56,7 @@
     object-fit: cover;
   }
   &__title {
-    @include STYLE-HEADER-SUPER;
+    @include STYLE-HEADER-ULTRA;
     margin-bottom: 2.4rem;
     margin-top: 0;
   }
@@ -65,15 +65,14 @@
 .btn {
   &__wrapper {
     @include min-width-1440px {
-    @include STYLE-SECTION-PADDING-TOP;      
+      @include STYLE-SECTION-PADDING-TOP;
     }
 
     max-width: 850px;
-    @container (min-width: 720px) { 
+    @container (min-width: 720px) {
       flex-direction: row;
       justify-content: space-between;
       display: flex;
-
     }
     @include min-width-1921px {
       max-width: 1000px;
@@ -83,10 +82,9 @@
     @include BTN;
     width: 100%;
     margin-bottom: 1rem;
-    @container (max-width: 719px) { 
-      
+    @container (max-width: 719px) {
     }
-    @container (min-width: 720px) { 
+    @container (min-width: 720px) {
       width: 47%;
     }
   }
@@ -94,7 +92,7 @@
     @include BTN__SECONDARY;
     margin-bottom: 1rem;
     width: 100%;
-    @container (min-width: 720px) { 
+    @container (min-width: 720px) {
       width: 47%;
     }
   }

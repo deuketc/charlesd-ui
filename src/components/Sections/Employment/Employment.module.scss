@@ -2,7 +2,7 @@
 @import '../../../variables';
 
 .employment {
-  @include STYLE-SECTION-PADDING
+  @include STYLE-SECTION-PADDING;
 }
 .wrapper {
   @include SECTION-WRAPPER;
@@ -18,6 +18,7 @@
 .headerSub {
   @include STYLE-HEADER-SUB;
   margin-top: 0;
+  margin-bottom: 0;
 }
 .listWrapper {
   overflow: hidden;
@@ -29,7 +30,6 @@
   }
 }
 .list {
-  
   @include min-width-1280px {
     display: flex;
     width: 100%;
@@ -41,7 +41,8 @@
 }
 .listPreviousWrapper {
   display: flex;
-  width: 100%;overflow-x: scroll;
+  width: 100%;
+  overflow-x: scroll;
   @include min-width-1280px {
     width: 75%;
   }
@@ -54,7 +55,6 @@
   }
   @include min-width-1280px {
     width: 50%;
-    
   }
 }
 
@@ -63,7 +63,6 @@
   margin: 0 auto;
   padding: 6rem 0;
   @include min-width-1280px {
-    
   }
 }
 
@@ -90,11 +89,21 @@
   padding: 6rem 2rem 6rem 0;
   box-sizing: border-box;
   @include min-width-1280px {
-    
     width: auto;
     position: relative;
   }
 }
 .copy {
   @include STYLE-COPY;
+}
+
+.copy_italic {
+  @include STYLE-COPY;
+  font-style: italic;
+}
+
+.date {
+  @include STYLE-COPY-DETAILS;
+  margin-right: 0.5rem;
+  display: inline-block;
 }

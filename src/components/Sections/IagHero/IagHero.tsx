@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect, Component } from 'react';
+import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
@@ -8,7 +8,7 @@ gsap.registerPlugin(MotionPathPlugin);
 import styles from './IagHero.module.scss';
 
 const iagHero = () => {
-  const comp = useRef(); // create a ref for the root level element (for scoping)
+  const comp = useRef(null); // create a ref for the root level element (for scoping)
   var iagtl = gsap.timeline({ paused: true });
 
   // SVG Refs
@@ -23,7 +23,7 @@ const iagHero = () => {
   const background = useRef(null);
   const theMaskRect = useRef(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     let ctx = gsap.context(() => {
       iagtl
 
@@ -93,7 +93,7 @@ const iagHero = () => {
   }, []);
 
   return (
-    <>
+    <div ref={comp}>
       <svg
         preserveAspectRatio="xMidYMid meet"
         className={styles.aniSvg}
@@ -294,7 +294,7 @@ const iagHero = () => {
           </g>
         </g>
       </svg>
-    </>
+    </div>
   );
 };
 
