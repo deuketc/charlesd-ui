@@ -37,7 +37,7 @@ const Education = () => {
                     <p className={styles.resumeEducation__date}>
                       XHTML, CSS, JavaScript
                     </p>
-                    <p>
+                    {/* <p>
                       <a
                         className="btn"
                         target="_blank"
@@ -46,7 +46,7 @@ const Education = () => {
                       >
                         Launch
                       </a>
-                    </p>
+                    </p> */}
                   </div>
                 </details>
                 <details className={styles.resumeEducation__details}>
@@ -67,7 +67,7 @@ const Education = () => {
                     <p className={styles.resumeEducation__date}>
                       Tech: HTML5 &amp; CSS
                     </p>
-                    <p>
+                    {/* <p>
                       <a
                         className="btn"
                         target="_blank"
@@ -76,7 +76,7 @@ const Education = () => {
                       >
                         Launch
                       </a>
-                    </p>
+                    </p> */}
                   </div>
                 </details>
               </div>

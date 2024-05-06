@@ -18,7 +18,7 @@ import Spinner from '../components/layout/Spinner/Spinner';
 const Landing = () => {
   const [footerHeight, setFooterHeight] = useState(0);
   const [headerHeight, setHeaderHeight] = useState(0);
-  const { height } = useWindowDimensions();
+  const { height, width } = useWindowDimensions();
   const landing = useRef(null);
   const headerRef = useRef(null);
   const copyRef = useRef(null);
@@ -82,20 +82,22 @@ const Landing = () => {
           justifyContent: 'center',
         }}
       >
-        <Suspense fallback={<Spinner />}>
-          <Canvas
-            className="r3f"
-            shadows
-            camera={{
-              fov: 45,
-              near: 0.1,
-              far: 200,
-              position: [-4, 3, 6],
-            }}
-          >
-            <Coffee />
-          </Canvas>
-        </Suspense>
+        {width > 1280 && (
+          <Suspense fallback={<Spinner />}>
+            <Canvas
+              className="r3f"
+              shadows
+              camera={{
+                fov: 45,
+                near: 0.1,
+                far: 200,
+                position: [-4, 3, 6],
+              }}
+            >
+              <Coffee />
+            </Canvas>
+          </Suspense>
+        )}
       </div>
       <div ref={landing} className={styles.landing}>
         <h1 ref={headerRef} className={styles.landing__heading}>

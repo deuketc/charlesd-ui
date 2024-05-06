@@ -97,13 +97,13 @@
   }
   &__detailsLevel2 {
     &[open] > summary {
-      background-image: url('/static/resume/icon-expanded-2dpi.gif');
+      background-image: url('../../../assets/images/icon-expanded-2dpi.gif');
     }
   }
   &__summaryLevel2 {
     padding: 5px 5px 5px 4em;
     background-position: 2.5em center;
-    background-image: url('/static/resume/icon-expand-2dpi.gif');
+    background-image: url('../../../assets/images/icon-expand-2dpi.gif');
     background-size: 9px;
     background-repeat: no-repeat;
     margin: 0;

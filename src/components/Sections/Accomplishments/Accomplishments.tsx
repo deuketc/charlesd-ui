@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Accomplishments.module.scss';
+import { Link } from 'react-router-dom';
 
 const Accomplishments = () => {
   return (
@@ -11,7 +12,7 @@ const Accomplishments = () => {
             <p className={styles.accomplishments__copy}>
               &bull;&nbsp;&nbsp;Awarded a &ldquo;TOA&rdquo; for the development
               of the "What are the odds" State Insurance promotion website.{' '}
-              <a href="project-state-wato.html">Read more</a>
+              <Link to="/projects/wato">Read more</Link>
             </p>
           </div>
           <div className={styles.accomplishments__cell}>
