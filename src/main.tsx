@@ -31,7 +31,9 @@ const Root = () => {
     <>
       <ScrollRestoration />
       <Header />
-      <Outlet />
+      <main id="Main">
+        <Outlet />
+      </main>
       <Footer />
     </>
   );

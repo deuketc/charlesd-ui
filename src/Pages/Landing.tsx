@@ -72,17 +72,17 @@ const Landing = () => {
 
   return (
     <>
-      <div
-        style={{
-          height: `${height - footerHeight - headerHeight}px`,
-          marginTop: `${headerHeight}px`,
-          marginRight: '40%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        {width > 1280 && (
+      {width > 1280 && (
+        <div
+          style={{
+            height: `${height - footerHeight - headerHeight}px`,
+            marginTop: `${headerHeight}px`,
+            marginRight: '40%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
           <Suspense fallback={<Spinner />}>
             <Canvas
               className="r3f"
@@ -97,8 +97,8 @@ const Landing = () => {
               <Coffee />
             </Canvas>
           </Suspense>
-        )}
-      </div>
+        </div>
+      )}
       <div ref={landing} className={styles.landing}>
         <h1 ref={headerRef} className={styles.landing__heading}>
           Welcome to My Digital Canvas
