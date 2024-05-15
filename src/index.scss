@@ -1,5 +1,33 @@
 @import '../src/_mixins';
 
+#whitepath01 {
+  stroke-dasharray: 404, 1473;
+  stroke-linecap: round;
+  stroke-dashoffset: 0;
+}
+#whitepath02 {
+  stroke-dasharray: 404, 1473;
+  stroke-linecap: round;
+  stroke-dashoffset: 0;
+}
+#whitepath03 {
+  stroke-dasharray: 404, 1473;
+  stroke-linecap: round;
+  stroke-dashoffset: 0;
+}
+#logopath01 {
+  stroke-dasharray: 1877, 0;
+  stroke-dashoffset: 83;
+}
+#logopath02 {
+  stroke-dasharray: 1877, 0;
+  stroke-dashoffset: 83;
+}
+#logopath03 {
+  stroke-dasharray: 1877, 0;
+  stroke-dashoffset: 83;
+}
+
 /*****/
 
 html,

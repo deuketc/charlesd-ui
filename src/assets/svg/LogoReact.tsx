@@ -1,27 +1,311 @@
-import React from "react"
+import { useRef, useLayoutEffect } from 'react';
+import gsap from 'gsap';
+import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin';
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
+
+gsap.registerPlugin(DrawSVGPlugin);
+gsap.registerPlugin(MotionPathPlugin);
 
 const LogoReact = () => {
+  const circle = useRef(null);
+  const circleContainer = useRef<SVGRectElement>(null);
+
+  const pathAnimationDuration = 1;
+  let reacttl = gsap.timeline();
+
+  useLayoutEffect(() => {
+    reacttl = gsap.timeline({ paused: true });
+    // @ts-ignore
+    reacttl
+      .set('#logoWrapper', {
+        transformOrigin: '70.5% 70.5%',
+      })
+
+      .set('#gradiant01', {
+        scale: 0,
+        transformOrigin: '50% 50%',
+      })
+
+      .set('#gradiant02', {
+        scale: 0,
+        transformOrigin: '50% 50%',
+      })
+
+      .set('#gradiant03', {
+        scale: 0,
+        transformOrigin: '50% 50%',
+      })
+
+      /*************************************/
+      // START
+      /************************************/
+
+      .add('start')
+      .to(
+        '#logopath03',
+        pathAnimationDuration / 2,
+        { strokeDasharray: '0, 1877', ease: 'none' },
+        'start'
+      )
+      .add('path02')
+      .set('#logopath03', { opacity: '0' })
+      .to('#gradiant03', {
+        duration: pathAnimationDuration,
+        motionPath: { path: '#clearpath03', start: -0, end: -1 },
+        ease: 'none',
+        repeat: -1,
+      })
+      .to(
+        '#whitepath03',
+        pathAnimationDuration,
+        { strokeDashoffset: '1877', ease: 'none', repeat: -1 },
+        '<'
+      )
+      .to('#gradiant03', { scale: 1 }, '<')
+
+      .to(
+        '#logopath02',
+        pathAnimationDuration / 2,
+        { strokeDasharray: '0, 1877', ease: 'none' },
+        `path02`
+      )
+      .add('path03')
+      .set('#logopath02', { opacity: '0' })
+      .to('#gradiant02', {
+        duration: pathAnimationDuration,
+        motionPath: { path: '#clearpath02', start: -0, end: -1 },
+        ease: 'none',
+        repeat: -1,
+      })
+      .to(
+        '#whitepath02',
+        pathAnimationDuration,
+        { strokeDashoffset: '1877', ease: 'none', repeat: -1 },
+        '<'
+      )
+      .to('#gradiant02', { scale: 1 }, '<')
+
+      .to(
+        '#logopath01',
+        pathAnimationDuration / 2,
+        { strokeDasharray: '0, 1877', ease: 'none' },
+        `path03`
+      )
+      .set('#logopath01', { opacity: '0' })
+      .to('#gradiant01', {
+        duration: pathAnimationDuration,
+        motionPath: { path: '#clearpath01', start: -0, end: -1 },
+        ease: 'none',
+        repeat: -1,
+      })
+      .to(
+        '#whitepath01',
+        pathAnimationDuration,
+        { strokeDashoffset: '1877', ease: 'none', repeat: -1 },
+        '<'
+      )
+      .to('#gradiant01', { scale: 1 }, '<');
+  }, []);
+
+  const onMouseEnter = () => {
+    reacttl.play();
+  };
+
+  const onMouseLeave = () => {
+    reacttl.restart().pause();
+  };
+
+  const onMouseCircleMove = (e: any) => {
+    if (circleContainer.current) {
+      const { left, top, width, height } =
+        circleContainer.current.getBoundingClientRect();
+
+      const halfW = width / 2;
+      const halfH = height / 2;
+      const mouseX = e.clientX - left;
+      const mouseY = e.clientY - top;
+
+      const x = gsap.utils.interpolate(-halfW, halfW, mouseX / width);
+      const y = gsap.utils.interpolate(-halfH, halfH, mouseY / height);
+
+      gsap.to(circle.current, {
+        x: x,
+        y: y,
+        scale: 0.8,
+        duration: 0.6,
+        ease: 'power1',
+        overwrite: true,
+      });
+    }
+  };
+  const onMouseCircleLeave = () => {
+    gsap.to(circle.current, {
+      x: 0,
+      y: 0,
+      scale: 1,
+      ease: 'power3',
+      duration: 0.6,
+      overwrite: true,
+    });
+  };
+
   return (
     <svg
+      id="ani-svg"
+      className="logoReact"
       xmlns="http://www.w3.org/2000/svg"
       width="1000"
       height="1000"
+      x="0"
+      y="0"
+      version="1.1"
       viewBox="0 0 1000 1000"
+      onMouseEnter={() => onMouseEnter()}
+      onMouseLeave={() => onMouseLeave()}
     >
-      <path
-        fill="#53C1DE"
-        d="M757.912 374.738a536.02 536.02 0 0 0-25.767-8.119 489.197 489.197 0 0 0 3.979-17.574c19.506-94.685 6.754-170.962-36.795-196.075-41.763-24.082-110.055 1.025-179.025 61.052-6.634 5.771-13.284 11.882-19.932 18.288a480.067 480.067 0 0 0-13.266-12.25c-72.283-64.182-144.739-91.229-188.248-66.042-41.718 24.15-54.071 95.858-36.511 185.59a532.787 532.787 0 0 0 5.915 26.517c-10.254 2.913-20.155 6.013-29.627 9.316-84.745 29.548-138.867 75.851-138.867 123.883 0 49.61 58.102 99.367 146.371 129.542 6.964 2.379 14.193 4.629 21.643 6.767-2.418 9.736-4.521 19.27-6.285 28.575-16.745 88.172-3.668 158.191 37.937 182.188 42.981 24.784 115.106-.691 185.341-62.085 5.551-4.852 11.119-9.998 16.704-15.396a525.32 525.32 0 0 0 21.636 19.748c68.026 58.532 135.221 82.177 176.79 58.111 42.933-24.853 56.888-100.069 38.774-191.575a458 458 0 0 0-4.802-21.394 492.47 492.47 0 0 0 14.881-4.649c91.77-30.402 151.474-79.558 151.474-129.832-.001-48.206-55.865-94.824-142.32-124.586z"
-      />
-      <path
-        fill="#FFF"
-        d="M738.006 596.697a470.982 470.982 0 0 1-13.444 4.208c-10.129-32.076-23.799-66.177-40.529-101.412 15.961-34.395 29.106-68.063 38.953-99.926a498.567 498.567 0 0 1 23.795 7.504c74.074 25.504 119.257 63.206 119.257 92.252-.001 30.946-48.801 71.115-128.032 97.374zm-32.873 65.144c8.006 40.463 9.156 77.044 3.849 105.648-4.768 25.696-14.358 42.83-26.211 49.692-25.227 14.599-79.174-4.38-137.355-54.447a492.164 492.164 0 0 1-20.122-18.349c22.55-24.673 45.093-53.346 67.096-85.195 38.696-3.438 75.257-9.049 108.408-16.716a422.91 422.91 0 0 1 4.335 19.367zM372.665 814.656c-24.646 8.705-44.275 8.952-56.142 2.11-25.252-14.557-35.746-70.775-21.428-146.186a491.423 491.423 0 0 1 5.839-26.57c32.79 7.251 69.084 12.468 107.875 15.609 22.148 31.171 45.341 59.815 68.714 84.896-5.106 4.928-10.191 9.625-15.253 14.046-31.055 27.145-62.177 46.409-89.605 56.095zM257.199 596.504c-39.03-13.341-71.268-30.68-93.359-49.597-19.858-17.005-29.877-33.883-29.877-47.584 0-29.143 43.452-66.323 115.931-91.591 8.793-3.069 17.999-5.958 27.552-8.673 10.019 32.585 23.157 66.651 39.017 101.099-16.066 34.958-29.393 69.567-39.506 102.533-6.811-1.96-13.41-4.014-19.758-6.187zm38.705-263.463c-15.042-76.88-5.054-134.878 20.087-149.43 26.779-15.504 85.997 6.6 148.411 62.019a453.619 453.619 0 0 1 12.011 11.086c-23.259 24.973-46.236 53.405-68.191 84.386-37.646 3.491-73.681 9.095-106.815 16.603-2.085-8.384-3.931-16.615-5.503-24.664zm345.284 85.26a1091.128 1091.128 0 0 0-24.342-40.034c25.537 3.231 50.011 7.514 72.989 12.759-6.899 22.113-15.5 45.23-25.621 68.927a1188.962 1188.962 0 0 0-23.026-41.652zM500.385 281.154c15.769 17.086 31.566 36.167 47.105 56.864-15.657-.74-31.51-1.121-47.49-1.121-15.827 0-31.561.374-47.121 1.101 15.553-20.508 31.484-39.56 47.506-56.844zm-141.71 137.383a1013.596 1013.596 0 0 0-22.599 41.393c-9.955-23.618-18.473-46.839-25.434-69.264 22.84-5.113 47.191-9.292 72.567-12.458a1008.286 1008.286 0 0 0-24.534 40.329zm25.268 204.342c-26.22-2.918-50.938-6.884-73.771-11.851 7.068-22.828 15.775-46.547 25.946-70.675a998.938 998.938 0 0 0 22.691 41.42h.004a1002.156 1002.156 0 0 0 25.13 41.106zm117.383 97.027c-16.206-17.484-32.37-36.831-48.157-57.636 15.325.601 30.949.912 46.831.912 16.312 0 32.448-.367 48.319-1.078-15.589 21.186-31.329 40.559-46.993 57.802zM664.54 539.125c10.704 24.388 19.718 47.983 26.881 70.414-23.207 5.3-48.268 9.563-74.673 12.731a1189.519 1189.519 0 0 0 24.578-40.733 1084.896 1084.896 0 0 0 23.214-42.412zm-52.836 25.328c-12.516 21.7-25.356 42.409-38.4 61.963-23.754 1.693-48.293 2.566-73.304 2.566-24.911 0-49.143-.769-72.473-2.283a970.69 970.69 0 0 1-39.128-62.06h.007a959.498 959.498 0 0 1-34.156-64.493 970.968 970.968 0 0 1 34.052-64.531l-.006.004a961.595 961.595 0 0 1 38.815-61.788 969.785 969.785 0 0 1 72.886-2.739H500c24.781 0 49.226.948 73.021 2.76 13.236 19.54 26.16 40.144 38.574 61.583 12.551 21.682 24.078 43.158 34.504 64.226-10.399 21.43-21.898 43.122-34.395 64.792zm70.542-381.86c26.805 15.459 37.23 77.8 20.392 159.549a472.789 472.789 0 0 1-3.601 15.914c-33.21-7.663-69.273-13.364-107.029-16.907-21.997-31.323-44.788-59.798-67.669-84.449a502.373 502.373 0 0 1 18.412-16.884c59.097-51.43 114.33-71.734 139.495-57.223z"
-      />
-      <path
-        fill="#53C1DE"
-        d="M500 427.846c39.478 0 71.479 32.004 71.479 71.478 0 39.48-32.002 71.481-71.479 71.481s-71.478-32.001-71.478-71.481c0-39.474 32.001-71.478 71.478-71.478"
-      />
-    </svg>
-  )
-}
+      <g id="logoWrapper">
+        <radialGradient
+          id="gradiantradial"
+          cx="0"
+          cy="0"
+          r="387.554"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset=".449" stopColor="#53c1de" />
+          <stop offset=".569" stopColor="#56c2df" stopOpacity=".7821" />
+          <stop offset=".654" stopColor="#5fc5e0" stopOpacity=".6278" />
+          <stop offset=".728" stopColor="#6fcbe3" stopOpacity=".4931" />
+          <stop offset=".796" stopColor="#85d3e8" stopOpacity=".3696" />
+          <stop offset=".86" stopColor="#a1dded" stopOpacity=".2538" />
+          <stop offset=".921" stopColor="#c4eaf4" stopOpacity=".1437" />
+          <stop offset=".978" stopColor="#edf9fc" stopOpacity=".0401" />
+          <stop offset="1" stopColor="#fff" stopOpacity="0" />
+        </radialGradient>
 
-export default LogoReact
+        <g id="gradiant01mask">
+          <g mask="url(#whitepath01mask)">
+            <circle
+              id="gradiant01"
+              cx="0"
+              cy="0"
+              r="387.554"
+              fill="url(#gradiantradial)"
+            />
+          </g>
+          <g mask="url(#whitepath02mask)">
+            <circle
+              id="gradiant02"
+              cx="0"
+              cy="0"
+              r="387.554"
+              fill="url(#gradiantradial)"
+            />
+          </g>
+          <g mask="url(#whitepath03mask)">
+            <circle
+              id="gradiant03"
+              cx="0"
+              cy="0"
+              r="387.554"
+              fill="url(#gradiantradial)"
+            />
+          </g>
+        </g>
+
+        <g
+          id="whitepaths"
+          fill="none"
+          stroke="#FFF"
+          strokeMiterlimit="10"
+          strokeWidth="35"
+        >
+          <mask id="whitepath01mask">
+            <path
+              id="whitepath01"
+              d="M500 320.613c219.6 0 397.625 80.11 397.625 178.931 0 98.821-178.024 178.931-397.625 178.931-219.602 0-397.624-80.11-397.624-178.931.001-98.821 178.023-178.931 397.624-178.931z"
+            />
+          </mask>
+          <mask id="whitepath02mask">
+            <path
+              id="whitepath02"
+              d="M654.96 410.079c109.8 190.18 129.432 384.406 43.853 433.817-85.581 49.409-243.97-64.705-353.77-254.887-109.802-190.181-129.437-384.408-43.855-433.819 85.582-49.409 243.971 64.708 353.772 254.889z"
+            />
+          </mask>
+          <mask id="whitepath03mask">
+            <path
+              id="whitepath03"
+              strokeLinejoin="round"
+              d="M654.96 589.01C545.159 779.191 386.77 893.306 301.188 843.896c-85.582-49.411-65.947-243.638 43.855-433.817 109.8-190.181 268.188-304.298 353.77-254.888 85.579 49.411 65.947 243.638-43.853 433.819z"
+            />
+          </mask>
+        </g>
+
+        <g id="clearpaths" fill="none">
+          <path
+            id="clearpath01"
+            d="M499.999 321.026c219.602 0 397.625 80.11 397.625 178.931 0 98.82-178.023 178.93-397.625 178.93-219.601 0-397.623-80.109-397.623-178.93 0-98.821 178.022-178.931 397.623-178.931z"
+          />
+          <path
+            id="clearpath02"
+            d="M654.959 410.492c109.8 190.179 129.433 384.406 43.852 433.816-85.58 49.409-243.968-64.705-353.77-254.887-109.801-190.18-129.435-384.407-43.854-433.817 85.582-49.41 243.971 64.707 353.772 254.888z"
+          />
+          <path
+            id="clearpath03"
+            d="M654.959 589.422c-109.801 190.182-268.19 304.296-353.772 254.887-85.581-49.41-65.947-243.638 43.854-433.816 109.801-190.181 268.189-304.298 353.77-254.888 85.581 49.41 65.948 243.637-43.852 433.817z"
+          />
+        </g>
+        <g id="Logo">
+          <circle
+            ref={circle}
+            id="circle01"
+            cx="500"
+            cy="499.957"
+            r="82.701"
+            fill="#53C1DE"
+          />
+          <path
+            id="logopath01"
+            fill="none"
+            stroke="#53C1DE"
+            strokeLinecap="round"
+            strokeMiterlimit="19"
+            strokeWidth="45"
+            d="M500 321.026c219.601 0 397.625 80.11 397.625 178.931S719.601 678.886 500 678.886c-219.602 0-397.624-80.108-397.624-178.929S280.398 321.026 500 321.026z"
+          />
+          <path
+            id="logopath02"
+            fill="none"
+            stroke="#53C1DE"
+            strokeLinecap="round"
+            strokeMiterlimit="19"
+            strokeWidth="45"
+            d="M654.96 410.492c109.799 190.179 129.432 384.406 43.853 433.817-85.582 49.409-243.97-64.706-353.771-254.888-109.802-190.18-129.436-384.408-43.854-433.818 85.581-49.409 243.97 64.708 353.772 254.889z"
+          />
+          <path
+            id="logopath03"
+            fill="none"
+            stroke="#53C1DE"
+            strokeLinecap="round"
+            strokeMiterlimit="19"
+            strokeWidth="45"
+            d="M654.96 589.422C545.158 779.604 386.769 893.719 301.188 844.31c-85.581-49.411-65.947-243.639 43.854-433.817 109.8-190.182 268.188-304.298 353.771-254.888 85.579 49.409 65.946 243.637-43.853 433.817z"
+          />
+        </g>
+        <rect
+          ref={circleContainer}
+          id="circleContainer"
+          x="328"
+          y="329"
+          fill="#FFFFFF"
+          width="342"
+          height="342"
+          opacity="0"
+          onMouseMove={e => onMouseCircleMove(e)}
+          onMouseLeave={() => onMouseCircleLeave()}
+        />
+      </g>
+    </svg>
+  );
+};
+
+export default LogoReact;
