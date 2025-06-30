@@ -1,36 +1,35 @@
-@import '../../../_mixins';
+@use '../../../_mixins' as mixin;
 
 .btn_section {
-    &__wrapper {
-        padding-bottom: 4rem;
+  &__wrapper {
+    padding-bottom: 4rem;
+  }
+  &__container {
+    text-align: center;
+    max-width: 800px;
+    @include mixin.SECTION-WRAPPER;
+    @include mixin.min-width-420px {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
     }
-    &__container {
-        @include SECTION-WRAPPER;
-        text-align: center;
-        max-width: 800px;
-        @include min-width-420px {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-         }      
-    }
+  }
 }
 
 .btn__primary {
-    @include BTN;
-    margin-bottom: 1rem;
-    width: 100%;
-    @include min-width-420px {
-        width: 47%;
-    }
+  margin-bottom: 1rem;
+  width: 100%;
+  @include mixin.BTN;
+  @include mixin.min-width-420px {
+    width: 47%;
+  }
 }
 
 .btn__secondary {
-    @include BTN__SECONDARY;
-    margin-bottom: 1rem;
-    width: 100%;
-    @include min-width-420px {
-        width: 47%
-    }
+  margin-bottom: 1rem;
+  width: 100%;
+  @include mixin.BTN__SECONDARY;
+  @include mixin.min-width-420px {
+    width: 47%;
+  }
 }
-

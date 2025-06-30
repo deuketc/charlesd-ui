@@ -1,11 +1,11 @@
-@import './../../mixins';
+@use './../../mixins' as mixin;
 
 .resume {
   &__header {
-    @include STYLE-HEADER-SUPER;
+    @include mixin.STYLE-HEADER-SUPER;
   }
   &__wrapper {
-    @include PAGE;
-    @include SECTION-WRAPPER;
+    @include mixin.PAGE;
+    @include mixin.SECTION-WRAPPER;
   }
 }

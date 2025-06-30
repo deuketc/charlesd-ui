@@ -1,10 +1,10 @@
-@import '../../../mixins';
-@import '../../../variables';
+@use '../../../mixins' as mixin;
+@use '../../../variables' as var;
 
 .slider {
-  @include STYLE-SECTION-PADDING;
+  @include mixin.STYLE-SECTION-PADDING;
   &__wrapper {
-    @include SECTION-WRAPPER;
+    @include mixin.SECTION-WRAPPER;
     position: relative;
     text-align: center;
   }
@@ -18,13 +18,13 @@
     &:last-child {
       width: 100%;
       position: absolute;
-      top:0;
+      top: 0;
       left: 0;
       overflow: hidden;
-      height: 100%;       
-      max-width: 600px; 
-      @include max-width-1279px {
-          display: none;
+      height: 100%;
+      max-width: 600px;
+      @include mixin.max-width-1279px {
+        display: none;
       }
       img {
         width: 600px;
@@ -36,22 +36,21 @@
     max-width: 100%;
   }
   &__tooltip {
-    top:30vh;
-    left:calc(50% - 504px);
+    top: 30vh;
+    left: calc(50% - 504px);
     position: fixed;
     z-index: 2;
     background-color: #fff;
-    padding: .4rem;
+    padding: 0.4rem;
     border-radius: 5px;
     border: 2px solid #000;
-    @include STYLE-HEADER-SUB;
-    font-size:1rem !important;
+    font-size: 1rem !important;
     color: #fff;
     background: #000;
     &::after {
-      content: "";
-      width: 0; 
-      height: 0; 
+      content: '';
+      width: 0;
+      height: 0;
       border-top: 10px solid transparent;
       border-bottom: 10px solid transparent;
       border-left: 10px solid #000;
@@ -59,7 +58,8 @@
       position: absolute;
       right: -10px;
     }
-    @include max-width-1279px {
+    @include mixin.STYLE-HEADER-SUB;
+    @include mixin.max-width-1279px {
       display: none;
     }
   }

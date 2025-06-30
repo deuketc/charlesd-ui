@@ -1,18 +1,18 @@
-@import '../../../mixins';
-@import '../../../variables';
+@use '../../../mixins' as mixin;
+@use '../../../variables' as var;
 
 .singleImage {
   position: relative;
   z-index: 2;
   text-align: center;
   &__wrapper {
-    @include SECTION-WRAPPER;
-    @include STYLE-SECTION-PADDING;
+    @include mixin.SECTION-WRAPPER;
+    @include mixin.STYLE-SECTION-PADDING;
   }
   &__picture {
     max-width: 100%;
     display: block;
     margin: 0 auto;
-    @include STYLE-SECTION-BORDER-RADIUS;
+    @include mixin.STYLE-SECTION-BORDER-RADIUS;
   }
 }

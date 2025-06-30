@@ -1,28 +1,28 @@
-@import '../../../mixins';
-@import '../../../variables';
+@use '../../../mixins' as mixin;
+@use '../../../variables' as var;
 
 .employment {
-  @include STYLE-SECTION-PADDING;
+  @include mixin.STYLE-SECTION-PADDING;
 }
 .wrapper {
-  @include SECTION-WRAPPER;
+  @include mixin.SECTION-WRAPPER;
   max-width: none;
   overflow: hidden;
-  @include min-width-1280px {
+  @include mixin.min-width-1280px {
     overflow: auto;
   }
 }
 .header {
-  @include STYLE-HEADER;
+  @include mixin.STYLE-HEADER;
 }
 .headerSub {
-  @include STYLE-HEADER-SUB;
   margin-top: 0;
   margin-bottom: 0;
+  @include mixin.STYLE-HEADER-SUB;
 }
 .listWrapper {
   overflow: hidden;
-  @include min-width-1280px {
+  @include mixin.min-width-1280px {
     width: 90%;
     margin: 0 auto;
     overflow: visible;
@@ -30,7 +30,7 @@
   }
 }
 .list {
-  @include min-width-1280px {
+  @include mixin.min-width-1280px {
     display: flex;
     width: 100%;
     align-items: stretch;
@@ -43,17 +43,17 @@
   display: flex;
   width: 100%;
   overflow-x: scroll;
-  @include min-width-1280px {
+  @include mixin.min-width-1280px {
     width: 75%;
   }
   > article {
     width: 100%;
     flex-shrink: 0;
-    @include min-width-1280px {
+    @include mixin.min-width-1280px {
       width: 100%;
     }
   }
-  @include min-width-1280px {
+  @include mixin.min-width-1280px {
     width: 50%;
   }
 }
@@ -62,14 +62,14 @@
   width: 90%;
   margin: 0 auto;
   padding: 6rem 0;
-  @include min-width-1280px {
+  @include mixin.min-width-1280px {
   }
 }
 
 .listItemCurrent {
   width: 100%;
   background-color: #f2f2f2;
-  @include min-width-1280px {
+  @include mixin.min-width-1280px {
     width: 50%;
     &::after {
       content: '';
@@ -88,22 +88,24 @@
   margin: 0 auto;
   padding: 6rem 2rem 6rem 0;
   box-sizing: border-box;
-  @include min-width-1280px {
+  @include mixin.min-width-1280px {
     width: auto;
     position: relative;
   }
 }
 .copy {
-  @include STYLE-COPY;
+  @include mixin.STYLE-COPY;
 }
 
 .copy_italic {
-  @include STYLE-COPY;
-  font-style: italic;
+  & {
+    font-style: italic;
+  }
+  @include mixin.STYLE-COPY;
 }
 
 .date {
-  @include STYLE-COPY-DETAILS;
   margin-right: 0.5rem;
   display: inline-block;
+  @include mixin.STYLE-COPY-DETAILS;
 }

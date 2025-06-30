@@ -23,8 +23,6 @@ import screenhotImageMobile from '../../assets/projects/iag/screenshot-disaster_
 import sliderImageEmail01 from '../../assets/projects/iag/email-state-light.jpg';
 import sliderImageEmail02 from '../../assets/projects/iag/email-state-dark.jpg';
 
-
-
 const sliderImagesEmail = [sliderImageEmail01, sliderImageEmail02];
 const responsiveSliderImages = [
   sliderMobileImage,
@@ -50,7 +48,7 @@ const iagPageImages = [
   mobile03,
   sliderMobileImage,
   sliderTabletImage,
-  sliderDesktopImage
+  sliderDesktopImage,
 ];
 
 const IagPage = () => {
@@ -60,7 +58,7 @@ const IagPage = () => {
     <>
       <Hero
         url="https://www.iag.co.nz"
-        title="Making the world a safer place"
+        title="We make your world a safer place"
         copy={'Full-time front-end engineer role.'}
         heroComponent={<IagHero />}
       />

@@ -1,10 +1,10 @@
-@import '../../../_mixins';
+@use '../../../_mixins' as mixin;
 
 .spinner {
-    &__wrapper { 
-        display: flex;
-        min-height: 100vh;
-        align-items: center;
-        justify-content: center;
-    }
+  &__wrapper {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+  }
 }

@@ -1,10 +1,10 @@
-@import '../../../mixins';
-@import '../../../variables';
+@use '../../../_mixins' as mixin;
+@use '../../../_variables' as var;
 
 .video {
-  @include STYLE-SECTION-PADDING-BOTTOM;
   position: relative;
   z-index: 1;
+  @include mixin.STYLE-SECTION-PADDING-BOTTOM;
   &__padding_top {
     padding-bottom: 0 !important;
   }
@@ -20,7 +20,7 @@
   overflow: hidden;
   max-width: 1440px;
   margin: 0 auto;
-  @include min-width-1440px {
+  @include mixin.min-width-1440px {
     padding-bottom: 950px;
   }
 }

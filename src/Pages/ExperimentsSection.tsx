@@ -1,17 +1,35 @@
-import BlogList from '../components/Sections/BlogList/BlogList';
+import ExperimentsList from '../components/Sections/ExperimentsList/ExperimentsList';
 
-import blogDestinyButtonThumb from '../assets/images/blog-destinybutton-thumb.jpg';
-import blogScrollAnimationThumb from '../assets/images/blog-scrollanimation-thumb.jpg';
-import blog3DScene from '../assets/images/blog-3dscene-thumb.jpg';
-import blogAnimatedLogos from '../assets/images/blog-animatedlogos-thumb.jpg';
+import experimentsDestinyButtonThumb from '../assets/images/experiments-destinybutton-thumb.jpg';
+import experimentsScrollAnimationThumb from '../assets/images/experiments-scrollanimation-thumb.jpg';
+import experiments3DScene from '../assets/images/experiments-3dscene-thumb.jpg';
+import experimentsAnimatedLogos from '../assets/images/experiments-animatedlogos-thumb.jpg';
 
-const blogList = [
+const experimentsList = [
   {
-    title: 'Logos Animations',
+    title: 'Klaims Kombat',
+    description: 'Our team re-imagined as Mortal Kombat fighters with AI',
+    tags: 'Leonardo.AI, ElevenLabs.AI, Davinci Resolve',
+    date: '20252207T000000',
+    thumb: experimentsAnimatedLogos,
+    full: '',
+    url: 'https://www.youtube.com/watch?v=mmqtxVUZp6A',
+  },
+  {
+    title: 'Fill beaker animation',
+    description: 'Click to fill beaker interaction and animation',
+    tags: 'Rive',
+    date: '20251303T000000',
+    thumb: experimentsAnimatedLogos,
+    full: '',
+    url: 'https://rive.app/marketplace/18003-33777-fill-beaker-animation/',
+  },
+  {
+    title: 'Logo Animations',
     description: 'Animating some of my favourite logos using GSAP',
     tags: 'GSAP, html, SVG',
     date: '20240506T000000',
-    thumb: blogAnimatedLogos,
+    thumb: experimentsAnimatedLogos,
     full: '',
     url: 'https://deuketc.github.io/logo-animations/',
   },
@@ -20,7 +38,7 @@ const blogList = [
     description: 'Realtime rendering of a scene created in Blender.',
     tags: '3JS, Blender',
     date: '20240506T000000',
-    thumb: blog3DScene,
+    thumb: experiments3DScene,
     full: '',
     url: 'https://charlesd.co.nz/portal-scene/',
   },
@@ -29,8 +47,8 @@ const blogList = [
     description: 'Animation demo using GSAP (Greensock animation platform)',
     tags: 'Javascript, CSS, GSAP, html, SVG',
     date: '20210406T090940Z',
-    thumb: blogScrollAnimationThumb,
-    full: '../../assets/images/blog-scrollanimation.jpg',
+    thumb: experimentsScrollAnimationThumb,
+    full: '../../assets/images/experiments-scrollanimation.jpg',
     url: 'https://deuketc.github.io/tax-saving/',
   },
   {
@@ -38,16 +56,16 @@ const blogList = [
     description: 'My favourite snippets and small experiments',
     tags: 'Javascript, CSS, html',
     date: '20140909T000000',
-    thumb: blogDestinyButtonThumb,
-    full: '../../assets/images/blog-destinybutton.jpg',
-    url: 'https://codepen.io/charles-deukett',
+    thumb: experimentsDestinyButtonThumb,
+    full: '../../assets/images/experiments-destinybutton.jpg',
+    url: 'https://codepen.io/charlesdeukett',
   },
   // {
   //   title: 'Client project',
   //   description: 'Media design school client summative for Zen Bathrooms',
   //   tags: 'Javascript, CSS, GSAP, html, SVG',
   //   date: '20111011T000000',
-  //   thumb: blogZenThumb,
+  //   thumb: experimentsZenThumb,
   //   full: '../../assets/images/full.jpg',
   //   url: 'https://charlesd.co.nz/zen',
   // },
@@ -56,7 +74,7 @@ const blogList = [
   //   description: 'Media Design School artist summative',
   //   tags: 'Wordpress, PHP',
   //   date: '20110411T000000',
-  //   thumb: blogArtistThumb,
+  //   thumb: experimentsArtistThumb,
   //   full: '../../images/full.jpg',
   //   url: 'https://charlesd.co.nz/artist/',
   // },
@@ -65,8 +83,8 @@ const blogList = [
   //   description: 'Mobile menu toggle button animation',
   //   tags: 'Javascript, CSS, html',
   //   date: '20110615T120854',
-  //   thumb: blogHambuttonThumb,
-  //   full: '../../assets/images/blog-hambutton.jpg',
+  //   thumb: experimentsHambuttonThumb,
+  //   full: '../../assets/images/experiments-hambutton.jpg',
   //   url: 'https://codepen.io/charles-deukett/pen/qBXgaVp',
   // },
   // {
@@ -74,13 +92,13 @@ const blogList = [
   //   description: 'Family lounge recreated in pixel art form',
   //   tags: 'Photoshop',
   //   date: '20090103T120854',
-  //   thumb: blogPixelLoungeThumb,
+  //   thumb: experimentsPixelLoungeThumb,
   //   full: '../../assets/images/pixel_lounge_01.jpg',
   //   url: 'https://charlesd.co.nz/pixellounge/pixel_lounge_01.gif',
   // },
 ];
-const Blog = () => {
-  return <BlogList blogList={blogList} />;
+const ExperimentsSection = () => {
+  return <ExperimentsList experimentsList={experimentsList} />;
 };
 
-export default Blog;
+export default ExperimentsSection;

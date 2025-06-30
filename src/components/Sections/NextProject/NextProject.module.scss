@@ -1,59 +1,56 @@
-@import '../../../mixins';
-@import '../../../variables';
+@use '../../../mixins' as mixin;
+@use '../../../variables' as var;
 
 .nextProject {
   position: relative;
   z-index: 1;
   &__wrapper {
-    @include SECTION-WRAPPER;
-    @include STYLE-SECTION-PADDING;
     container-type: inline-size;
     max-width: 1200px;
     margin: 0 auto;
+    @include mixin.SECTION-WRAPPER;
+    @include mixin.STYLE-SECTION-PADDING;
   }
   &__header {
-    @include STYLE-HEADER;
+    @include mixin.STYLE-HEADER;
   }
   &__copy {
-    @include STYLE-COPY;
+    @include mixin.STYLE-COPY;
   }
   &__btn {
-    @include BTN;
     padding: 0 40px;
+    @include mixin.BTN;
   }
 }
 
 .btn {
   &__wrapper {
     max-width: 850px;
-    @container (min-width: 580px) { 
+    @container (min-width: 580px) {
       flex-direction: row;
       justify-content: space-between;
       display: flex;
-
     }
-    @include min-width-1921px {
+    @include mixin.min-width-1921px {
       max-width: 1000px;
     }
   }
   &__primary {
-    @include BTN;
     width: 100%;
     margin-bottom: 1rem;
-    @container (max-width: 579px) { 
-      
+    @include mixin.BTN;
+    @container (max-width: 579px) {
     }
-    @container (min-width: 580px) { 
+    @container (min-width: 580px) {
       width: 47%;
     }
   }
   &__secondary {
-    @include BTN__SECONDARY;
     margin-bottom: 1rem;
     width: 100%;
-    @container (min-width: 580px) { 
+    @include mixin.BTN__SECONDARY;
+    @container (min-width: 580px) {
       width: 47%;
     }
   }
 }
-

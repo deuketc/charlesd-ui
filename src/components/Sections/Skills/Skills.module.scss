@@ -1,18 +1,18 @@
-@import '../../../mixins';
-@import '../../../variables';
+@use '../../../mixins' as mixin;
+@use '../../../variables' as var;
 
 /* Accomplishments */
 
 .skills {
-  @include STYLE-SECTION-PADDING;
+  @include mixin.STYLE-SECTION-PADDING;
 }
 
 .wrapper {
-  @include SECTION-WRAPPER;
+  @include mixin.SECTION-WRAPPER;
   max-width: none;
 }
 .header {
-  @include STYLE-HEADER;
+  @include mixin.STYLE-HEADER;
 }
 .listWrapper {
   border-top: 1px solid gray;
@@ -20,7 +20,7 @@
   max-width: none;
 }
 .list {
-  @include SECTION-WRAPPER;
+  @include mixin.SECTION-WRAPPER;
   max-width: none;
   list-style: none;
   padding: 0;
@@ -31,21 +31,21 @@
   width: 50%;
   text-align: center;
   outline: 1px solid grey;
-  @include min-width-768px {
+  @include mixin.min-width-768px {
     width: 33.3%;
   }
-  @include min-width-1600px {
+  @include mixin.min-width-1600px {
     width: 20%;
     background-color: #fff;
-
     aspect-ratio: 1 / 1;
   }
 }
-svg {
+
+.listItem svg {
   width: 80%;
   height: auto;
 }
 
 .label {
-  @include STYLE-COPY;
+  @include mixin.STYLE-COPY;
 }

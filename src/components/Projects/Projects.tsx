@@ -6,6 +6,9 @@ import udcThumb from '../../assets/projects/udc-thumb.jpg';
 import unichemThumb from '../../assets/projects/unichem-thumb.jpg';
 import watoThumb from '../../assets/projects/wato-thumb.jpg';
 import useImagesPreloader from '../../hooks/UseImagesPreloader';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-regular-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 import { Link } from 'react-router-dom';
 import styles from './Projects.module.scss';
@@ -49,6 +52,7 @@ const Projects = () => {
   const imgsLoaded = useImagesPreloader(images);
   const elementsRef = useRef(projectItemList.map(() => createRef()));
   const headerRef = useRef(null);
+  const headerSubRef = useRef(null);
   const listItems = useRef(null);
 
   useLayoutEffect(() => {
@@ -114,10 +118,18 @@ const Projects = () => {
   return imgsLoaded ? (
     <section className={styles.projects}>
       <div className={styles.projects__wrapper}>
-        <h1 ref={headerRef} className={styles.projects__header}>
-          Projects
-        </h1>
         <ul ref={listItems} className={styles.projects__list}>
+          <li className={styles.projects__list_item}>
+            <h1 ref={headerRef} className={styles.projects__header}>
+              Featured Projects
+            </h1>
+            <p ref={headerSubRef} className={styles.projects__header_sub}>
+              A selection of key projects from my career as a web developer,
+              showcasing impactful work delivered across larger-scale
+              initiatives. These represent both technical achievement and strong
+              collaboration with teams I was proud to be part of.
+            </p>
+          </li>
           {projectItemList.map((projectItem, i) => (
             <li
               key={i}
@@ -127,14 +139,19 @@ const Projects = () => {
                 className={styles.projects__list_item_link}
                 to={projectItem.href}
               >
-                <img
-                  className={styles.projects__list_item_image}
-                  src={projectItem.img}
-                  alt=""
-                />
+                <div className={styles.projects__list_item_image_wrapper}>
+                  <img
+                    className={styles.projects__list_item_image}
+                    src={projectItem.img}
+                    alt=""
+                  />
+                </div>
                 <h2
                   className={`projects__list_item_header ${styles.projects__list_item_header}`}
                 >
+                  <span className={styles.projects__list_item_header_arrow}>
+                    <FontAwesomeIcon icon={faArrowRight} />
+                  </span>
                   {projectItem.title}
                 </h2>
                 <p

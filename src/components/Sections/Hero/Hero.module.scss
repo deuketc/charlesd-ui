@@ -1,54 +1,55 @@
-@import '../../../_mixins';
-@import '../../../variables';
+@use '../../../_mixins' as mixin;
+@use '../../../_variables' as var;
 
 .hero {
   z-index: 1;
   position: relative;
-  @include min-width-1440px {
+  @include mixin.min-width-1440px {
     min-height: 100vh;
   }
   &__wrapper {
     display: flex;
     flex-direction: column-reverse;
-    @include min-width-1440px {
+    @include mixin.min-width-1440px {
       flex-direction: row;
     }
   }
   &__img_wrapper {
-    overflow: hidden;
-
-    text-align: right;
-    position: relative;
-    @include min-width-1440px {
+    & {
+      overflow: hidden;
+      text-align: right;
+      position: relative;
+    }
+    @include mixin.min-width-1440px {
       width: 60%;
       align-items: center;
       min-height: 100vh;
     }
-    @include max-width-1279px {
+    @include mixin.max-width-1279px {
       padding-top: 60px;
     }
   }
   &__copy_wrapper {
-    @include SECTION-WRAPPER;
-    @include min-width-1440px {
+    @include mixin.SECTION-WRAPPER;
+    @include mixin.min-width-1440px {
       width: 80%;
     }
   }
   &__copy_container {
     container-type: inline-size;
-    @include max-width-1279px {
-      @include STYLE-SECTION-PADDING;
-    }
-    @include min-width-1440px {
-      min-height: 100vh;
-      width: 40%;
-    }
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @include mixin.max-width-1279px {
+      @include mixin.STYLE-SECTION-PADDING;
+    }
+    @include mixin.min-width-1440px {
+      min-height: 100vh;
+      width: 40%;
+    }
   }
   &__copy {
-    @include STYLE-COPY;
+    @include mixin.STYLE-COPY;
   }
   &__img {
     width: 100%;
@@ -56,32 +57,31 @@
     object-fit: cover;
   }
   &__title {
-    @include STYLE-HEADER-ULTRA;
     margin-bottom: 2.4rem;
     margin-top: 0;
+    @include mixin.STYLE-HEADER-SUPER;
   }
 }
 
 .btn {
   &__wrapper {
-    @include min-width-1440px {
-      @include STYLE-SECTION-PADDING-TOP;
-    }
-
     max-width: 850px;
+    @include mixin.min-width-1440px {
+      @include mixin.STYLE-SECTION-PADDING-TOP;
+    }
     @container (min-width: 720px) {
       flex-direction: row;
       justify-content: space-between;
       display: flex;
     }
-    @include min-width-1921px {
+    @include mixin.min-width-1921px {
       max-width: 1000px;
     }
   }
   &__primary {
-    @include BTN;
     width: 100%;
     margin-bottom: 1rem;
+    @include mixin.BTN;
     @container (max-width: 719px) {
     }
     @container (min-width: 720px) {
@@ -89,9 +89,11 @@
     }
   }
   &__secondary {
-    @include BTN__SECONDARY;
-    margin-bottom: 1rem;
-    width: 100%;
+    & {
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+    @include mixin.BTN__SECONDARY;
     @container (min-width: 720px) {
       width: 47%;
     }

@@ -1,4 +1,4 @@
-@import '../../../_mixins';
+@use '../../../_mixins' as mixin;
 
 .developer {
   position: relative;
@@ -6,27 +6,27 @@
   background-color: #fff;
   &__wrapper {
     max-width: 1600px;
-    @include SECTION-WRAPPER;
+    @include mixin.SECTION-WRAPPER;
     justify-content: space-between;
 
     // stack elements
     display: grid;
     grid-template-columns: 1fr;
-    height:100vh;
-    align-items:center;
+    height: 100vh;
+    align-items: center;
   }
-  &__article {  
-    @include STYLE-SECTION-PADDING;
+  &__article {
+    @include mixin.STYLE-SECTION-PADDING;
 
     // stack elements
     grid-row-start: 1;
     grid-column-start: 1;
   }
   &__copy_title {
-    @include STYLE-HEADER-SUB;
+    @include mixin.STYLE-HEADER-SUB;
   }
   &__copy_level {
-    @include STYLE-HEADER-SUPER;
+    @include mixin.STYLE-HEADER-SUPER;
     line-height: 25rem;
     font-size: 25rem !important;
     margin: 0;
@@ -34,10 +34,9 @@
     font-family: 'Montserrat';
     font-weight: 600;
     color: #fff;
-
   }
   &__copy_l3 {
-    @include STYLE-HEADER
+    @include mixin.STYLE-HEADER;
   }
   &__cols {
     display: flex;
@@ -46,7 +45,7 @@
       width: 35%;
     }
     &_col2 {
-      @include STYLE-COPY;
+      @include mixin.STYLE-COPY;
       width: 55%;
     }
   }
@@ -57,7 +56,7 @@
     background-color: #8651e8;
   }
   &__card_title {
-    @include STYLE-HEADER-SUB;
+    @include mixin.STYLE-HEADER-SUB;
     margin: 0;
     color: #fff;
     &_lvl {
@@ -65,9 +64,9 @@
     }
   }
   &__card_date {
-    margin:0;
-    @include STYLE-HEADER-SUB;
+    margin: 0;
+    @include mixin.STYLE-HEADER-SUB;
     padding-bottom: 1rem;
-    color:#fff;
+    color: #fff;
   }
 }

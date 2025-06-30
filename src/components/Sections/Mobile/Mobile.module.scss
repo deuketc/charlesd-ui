@@ -1,20 +1,20 @@
-@import '../../../_mixins';
-@import '../../../_variables';
+@use '../../../_mixins' as mixin;
+@use '../../../_variables' as var;
 
 .mobile {
-  background-color: $bkgrnd-grey-light;
+  background-color: var.$bkgrnd-grey-light;
   position: relative;
   z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  @include min-width-1600px {
+  @include mixin.min-width-1600px {
     min-height: 100vh;
   }
   &__wrapper {
-    @include SECTION-WRAPPER;
-    @include STYLE-SECTION-PADDING;
     text-align: center;
+    @include mixin.SECTION-WRAPPER;
+    @include mixin.STYLE-SECTION-PADDING;
   }
   &__header {
     display: none;
@@ -23,18 +23,18 @@
     position: relative;
   }
   &__phone_vector {
-    @include max-width-1599px {
+    @include mixin.max-width-1599px {
       display: none;
     }
     &:nth-child(2) {
       z-index: 100;
     }
-    @include min-width-1600px {
+    @include mixin.min-width-1600px {
       margin: 0 40px;
       display: inline-block;
       position: relative;
       padding: 50px 10px;
-      background-color: $text-black;
+      background-color: var.$text-black;
       border-radius: 20px;
       &::after {
         content: '';
@@ -60,7 +60,7 @@
       }
     }
     &--active {
-      @include max-width-1599px  {
+      @include mixin.max-width-1599px {
         display: block;
       }
     }

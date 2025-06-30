@@ -1,7 +1,7 @@
 import Projects from '../components/Projects/Projects';
 
-const ProjectsPage = () => {
+const ProjectsSection = () => {
   return <Projects />;
 };
 
-export default ProjectsPage;
+export default ProjectsSection;

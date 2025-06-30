@@ -1,0 +1,339 @@
+    // 1. A simplified outline path from your SVG
+    const outlinePath = `M162.3 14.18l25.065 27.091 18.99 31.397 3.798 29.877-4.557 35.701-21.775 92.416-38.233 40.259-77.731 47.854-12.154-8.102-21.268-74.44L0 107.609 48.867 16.205 102.545 0Z`;
+    const vertices = Vertices.fromPath(outlinePath);
+
+    // 2. Create a physics body from the outline
+    const smiley = Bodies.fromVertices(
+      300,
+      100,
+      vertices,
+      {
+        restitution: 0.8,
+        render: {
+          sprite: {
+            texture: '/smiley.svg', // your full SVG file
+            xScale: 0.5,
+            yScale: 0.5,
+          },
+        },
+      },
+      true
+    ); // `true` auto-simplifies concave shapes
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // const randomColor = () => {
+    //   const index = Math.floor(Math.random() * colorPalette.length);
+    //   return colorPalette[index];
+    // };
+
+    // const shapes = [];
+    // for (let i = 0; i < 15; i++) {
+    //   const isCircle = Math.random() > 0.5;
+    //   // const x = Math.random() * width * 0.9 + width * 0.05;
+    //   const x = width * 0.2 + Math.random() * (width * 0.1);
+    //   const y = Math.random() * height * 0.3 + 80;
+
+    //   if (isCircle) {
+    //     const radius = Math.random() * 100 + 50;
+    //     shapes.push(
+    //       Bodies.circle(x, y, radius, {
+    //         restitution: 0.8,
+    //         render: { fillStyle: randomColor() },
+    //       })
+    //     );
+    //   } else {
+    //     const w = Math.random() * 120 + 120;
+    //     const h = Math.random() * 120 + 120;
+    //     shapes.push(
+    //       Bodies.rectangle(x, y, w, h, {
+    //         restitution: 0.8,
+    //         render: { fillStyle: randomColor() },
+    //       })
+    //     );
+    //   }
+    // }
+
+
+
+
+
+
+
+
+
+
+    const svg = document.querySelector('#smiley-tounge-path');
+    if (!svg) {
+      console.warn('SVG not found yet');
+      return;
+    }
+
+    const pathEl = svg.querySelector('path');
+    if (!pathEl) {
+      console.warn('Path not found in SVG');
+      return;
+    }
+
+    const vertices = Matter.Svg.pathToVertices(pathEl, 30);
+    Vertices.scale(vertices, 1, 1, Matter.Vertices.centre(vertices));
+
+    // 2. Create a physics body from the outline
+    const smiley = Bodies.fromVertices(
+      300,
+      150,
+      vertices,
+      {
+        restitution: 0.8,
+        render: {
+          sprite: {
+            texture: '/smiley-tounge.svg', // your full SVG file
+            xScale: 1,
+            yScale: 1,
+          },
+        },
+      },
+      true
+    ); // `true` auto-simplifies concave shapes
+
+    const svg2 = document.querySelector('#pill-path');
+    if (!svg2) {
+      console.warn('SVG not found yet');
+      return;
+    }
+
+    const pathEl2 = svg2.querySelector('path');
+    if (!pathEl2) {
+      console.warn('Path not found in SVG');
+      return;
+    }
+
+    const vertices2 = Matter.Svg.pathToVertices(pathEl2, 30);
+    Vertices.scale(vertices, 1, 1, Matter.Vertices.centre(vertices2));
+
+    // 2. Create a physics body from the outline
+    const pill = Bodies.fromVertices(
+      400,
+      300,
+      vertices2,
+      {
+        restitution: 0.8,
+        render: {
+          sprite: {
+            texture: '/pill.svg', // your full SVG file
+            xScale: 1,
+            yScale: 1,
+          },
+        },
+      },
+      true
+    ); // `true` auto-simplifies concave shapes
+
+    const svg3 = document.querySelector('#rainbow-path');
+    if (!svg3) {
+      console.warn('SVG not found yet');
+      return;
+    }
+
+    const pathEl3 = svg3.querySelector('path');
+    if (!pathEl3) {
+      console.warn('Path not found in SVG');
+      return;
+    }
+
+    const vertices3 = Matter.Svg.pathToVertices(pathEl3, 30);
+    Vertices.scale(vertices, 1, 1, Matter.Vertices.centre(vertices3));
+
+    // 2. Create a physics body from the outline
+    const rainbow = Bodies.fromVertices(
+      600,
+      20,
+      vertices3,
+      {
+        restitution: 0.8,
+        frictionAir: 0.6,
+        render: {
+          sprite: {
+            texture: '/rainbow.svg', // your full SVG file
+            xScale: 1,
+            yScale: 1,
+          },
+        },
+      },
+      true
+    ); // `true` auto-simplifies concave shapes
+
+    const svg4 = document.querySelector('#flower-tounge-path');
+    if (!svg4) {
+      console.warn('SVG not found yet');
+      return;
+    }
+
+    const pathEl4 = svg4.querySelector('path');
+    if (!pathEl4) {
+      console.warn('Path not found in SVG');
+      return;
+    }
+
+    const vertices4 = Matter.Svg.pathToVertices(pathEl4, 30);
+    Vertices.scale(vertices, 1, 1, Matter.Vertices.centre(vertices4));
+
+    // 2. Create a physics body from the outline
+    const flowerTounge = Bodies.fromVertices(
+      600,
+      20,
+      vertices4,
+      {
+        restitution: 0.8,
+        render: {
+          sprite: {
+            texture: '/flower-tounge.svg', // your full SVG file
+            xScale: 1,
+            yScale: 1,
+          },
+        },
+      },
+      true
+    ); // `true` auto-simplifies concave shapes
+
+    const svg5 = document.querySelector('#cassette-path');
+    if (!svg5) {
+      console.warn('SVG not found yet');
+      return;
+    }
+
+    const pathEl5 = svg5.querySelector('path');
+    if (!pathEl5) {
+      console.warn('Path not found in SVG');
+      return;
+    }
+
+    const vertices5 = Matter.Svg.pathToVertices(pathEl5, 30);
+    Vertices.scale(vertices, 1, 1, Matter.Vertices.centre(vertices5));
+
+    // 2. Create a physics body from the outline
+    const cassette = Bodies.fromVertices(
+      600,
+      20,
+      vertices5,
+      {
+        restitution: 0.8,
+        render: {
+          sprite: {
+            texture: '/cassette.svg', // your full SVG file
+            xScale: 1,
+            yScale: 1,
+          },
+        },
+      },
+      true
+    ); // `true` auto-simplifies concave shapes
+
+    const svg6 = document.querySelector('#bomb-path');
+    if (!svg6) {
+      console.warn('SVG not found yet');
+      return;
+    }
+
+    const pathEl6 = svg6.querySelector('path');
+    if (!pathEl6) {
+      console.warn('Path not found in SVG');
+      return;
+    }
+
+    const vertices6 = Matter.Svg.pathToVertices(pathEl6, 30);
+    Vertices.scale(vertices, 1, 1, Matter.Vertices.centre(vertices6));
+
+    // 2. Create a physics body from the outline
+    const bomb = Bodies.fromVertices(
+      600,
+      20,
+      vertices6,
+      {
+        restitution: 0.8,
+        render: {
+          sprite: {
+            texture: '/bomb.svg', // your full SVG file
+            xScale: 1,
+            yScale: 1,
+          },
+        },
+      },
+      true
+    ); // `true` auto-simplifies concave shapes
+
+    const svg7 = document.querySelector('#flower-path');
+    if (!svg7) {
+      console.warn('SVG not found yet');
+      return;
+    }
+
+    const pathEl7 = svg7.querySelector('path');
+    if (!pathEl7) {
+      console.warn('Path not found in SVG');
+      return;
+    }
+
+    const vertices7 = Matter.Svg.pathToVertices(pathEl7, 30);
+    Vertices.scale(vertices, 1, 1, Matter.Vertices.centre(vertices7));
+
+    // 2. Create a physics body from the outline
+    const flowser = Bodies.fromVertices(
+      600,
+      20,
+      vertices7,
+      {
+        restitution: 0.8,
+        render: {
+          sprite: {
+            texture: '/flower.svg', // your full SVG file
+            xScale: 1,
+            yScale: 1,
+          },
+        },
+      },
+      true
+    ); // `true` auto-simplifies concave shapes
+
+
+
+
+
+
+    //const worldArray = [];
+
+    svgList.forEach(svgItem => {
+      fetch(svgItem.path)
+        .then(res => res.text())
+        .then(svgText => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(svgText, 'image/svg+xml');
+          const path = doc.querySelector('path');
+          if (!path) return;
+
+          const vertices = Svg.pathToVertices(path, 30);
+          Vertices.scale(vertices, 1, 1, Matter.Vertices.centre(vertices));
+          const body = Bodies.fromVertices(svgItem.x, svgItem.y, [vertices], {
+            render: {
+              sprite: {
+                texture: svgItem.sprite,
+                xScale: 1,
+                yScale: 1,
+              },
+            },
+          });
+
+          //worldArray.push(body);
+          Composite.add(world, body);
+        });
+    });

@@ -1,12 +1,12 @@
-@import '../../../mixins';
-@import '../../../variables';
+@use '../../../mixins' as mixin;
+@use '../../../variables' as var;
 
 .logos {
   position: relative;
   z-index: 2;
   background-color: #fff;
   &__wrapper {
-    @include SECTION-WRAPPER;
+    @include mixin.SECTION-WRAPPER;
   }
 }
 
@@ -18,13 +18,13 @@
   &__item {
     float: left;
     width: 50%;
-    @include min-width-420px {
+    @include mixin.min-width-420px {
       width: 33.3%;
     }
-    @include min-width-768px {
+    @include mixin.min-width-768px {
       width: 25%;
     }
-    @include min-width-1280px {
+    @include mixin.min-width-1280px {
       width: 20%;
     }
   }
@@ -32,7 +32,7 @@
     display: block;
     margin: 0 auto;
     text-align: center;
-    @include max-width-1599px {
+    @include mixin.max-width-1599px {
       max-width: 90%;
     }
   }

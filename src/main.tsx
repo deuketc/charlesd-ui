@@ -14,9 +14,9 @@ import Footer from './components/layout/Footer/Footer';
 import Header from './components/layout/Header/Header';
 import Spinner from './components/layout/Spinner/Spinner';
 
-import Blog from './Pages/Blog';
-import Landing from './Pages/Landing';
-import ProjectsPage from './Pages/ProjectsPage';
+import Experiments from './Pages/ExperimentsSection';
+import LandingPage from './Pages/LandingPage';
+import ProjectsPage from './Pages/ProjectsSection';
 import ResumePage from './Pages/ResumePage';
 import TouchpointPage from './Pages/projects/TouchpointPage';
 import UdcPage from './Pages/projects/UdcPage';
@@ -42,8 +42,8 @@ const Root = () => {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
-      <Route index element={<Landing />} />
-      <Route path="blog" element={<Blog />} />
+      <Route index element={<LandingPage />} />
+      <Route path="experiments" element={<Experiments />} />
       <Route path="projects" element={<ProjectsPage />} />
       <Route path="resume" element={<ResumePage />} />
       <Route path="projects/touchpoint" element={<TouchpointPage />} />

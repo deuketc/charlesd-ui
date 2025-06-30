@@ -1,9 +1,9 @@
-@import '../../../mixins';
-@import '../../../variables';
+@use '../../../mixins' as mixin;
+@use '../../../variables' as var;
 
 .aniSvg {
   width: 100%;
-  @include min-width-1600px {
+  @include mixin.min-width-1600px {
     position: absolute;
     left: 0;
     top: 0;

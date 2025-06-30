@@ -1,8 +1,8 @@
-@import '../../../_mixins';
+@use '../../../_mixins' as mixin;
 
 .singleParallaxImage {
   &__wrapper {
-    @include min-width-1440px {
+    @include mixin.min-width-1440px {
       min-height: 100vh;
     }
   }

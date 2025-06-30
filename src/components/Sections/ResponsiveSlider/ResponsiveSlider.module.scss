@@ -1,29 +1,30 @@
-@import '../../../_mixins';
-@import '../../../_variables';
+@use '../../../_mixins' as mixin;
+@use '../../../_variables' as var;
 
 .slider {
   display: flex;
   align-items: center;
   position: relative;
   z-index: 1;
-  background-color: $bkgrnd-grey-light;
+  background-color: var.$bkgrnd-grey-light;
   min-height: 100vh;
   &__wrapper {
-    @include SECTION-WRAPPER;
+    @include mixin.SECTION-WRAPPER;
   }
   &__picture_wrapper {
-    @include STYLE-SECTION-PADDING;
+    @include mixin.STYLE-SECTION-PADDING;
   }
   &__picture {
     max-width: 100%;
     display: block;
     margin: 0 auto;
-    @include STYLE-SECTION-BORDER-RADIUS;
+    @include mixin.STYLE-SECTION-BORDER-RADIUS;
   }
 }
 
 .bitmap {
-  @include min-width-1600px {
+  @include mixin.min-width-1600px {
+    position: relative;
     height: 600px;
     margin: 0 auto 44px;
     transition: 0.5s max-width ease-out;
@@ -59,17 +60,16 @@
       border-radius: 6px;
       transition: all 0.5s ease-out;
       outline: 2px solid #999;
-
     }
 
     &--mobile {
       max-width: 360px;
     }
-    &--tablet {    
+    &--tablet {
       background: #fff;
       outline-color: #999;
       max-width: 768px;
-      &::after { 
+      &::after {
         width: 30px;
         height: 30px;
         margin-left: -15px;
@@ -79,7 +79,7 @@
         background: #fff;
       }
     }
-    &--desktop { 
+    &--desktop {
       background: #222;
       max-width: 1280px;
       outline-color: #777;
@@ -95,7 +95,7 @@
         outline-color: #777;
       }
     }
-    position: relative;
+
     &__img_container {
       position: absolute;
       width: calc(100% - 24px);

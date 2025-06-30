@@ -1,24 +1,24 @@
-@import '../../../mixins';
-@import '../../../variables';
+@use '../../../mixins' as mixin;
+@use '../../../variables' as var;
 
 .education {
   overflow: hidden;
-  @include STYLE-SECTION-PADDING;
+  @include mixin.STYLE-SECTION-PADDING;
 }
 
 .wrapper {
-  @include SECTION-WRAPPER;
+  @include mixin.SECTION-WRAPPER;
   max-width: none;
 }
 
 .header {
-  @include STYLE-HEADER;
+  @include mixin.STYLE-HEADER;
 }
 
 .flex {
   display: flex;
   flex-direction: column;
-  @include min-width-1600px {
+  @include mixin.min-width-1600px {
     flex-direction: row;
     justify-content: space-between;
   }
@@ -30,34 +30,34 @@
   &__header {
   }
   &__headerSub {
-    @include STYLE-HEADER-SUB;
     margin-top: 0;
     margin-bottom: 0;
+    @include mixin.STYLE-HEADER-SUB;
   }
   &__headerItal {
-    @include STYLE-COPY;
     font-style: italic;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    @include mixin.STYLE-COPY;
   }
   &__flex {
   }
   &__col {
-    @include STYLE-COPY;
-    @include STYLE-SECTION-PADDING-BOTTOM;
-    @include min-width-1600px {
+    @include mixin.STYLE-COPY;
+    @include mixin.STYLE-SECTION-PADDING-BOTTOM;
+    @include mixin.min-width-1600px {
       width: 48%;
     }
   }
   &__date {
-    @include STYLE-COPY-DETAILS;
     display: inline-block;
     margin-right: 0.5rem;
+    @include mixin.STYLE-COPY-DETAILS;
   }
   &__date_block {
-    @include STYLE-COPY-DETAILS;
     display: block;
     margin-right: 0.5rem;
+    @include mixin.STYLE-COPY-DETAILS;
   }
   &__details {
     border-bottom: 1px solid #ccc;

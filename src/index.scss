@@ -1,4 +1,5 @@
-@import '../src/_mixins';
+@use '../src/_mixins' as mixin;
+@use '../src/_variables' as var;
 
 #whitepath01 {
   stroke-dasharray: 404, 1473;
@@ -68,7 +69,7 @@ h3,
 h4,
 h5,
 h6 {
-  @include STYLE-HEADER-FAMILY;
+  @include mixin.STYLE-HEADER-FAMILY;
   margin-top: 0;
 }
 p,
@@ -78,22 +79,22 @@ a,
 li,
 span,
 summary {
-  @include STYLE-COPY-FAMILY;
+  @include mixin.STYLE-COPY-FAMILY;
   margin-top: 0;
 }
 a {
-  color: $text-black;
+  color: var.$text-black;
 }
 a:hover {
-  color: $text-black-hover;
+  color: var.$text-black-hover;
 }
 .btn {
-  @include BTN;
   min-width: 250px;
+  @include mixin.BTN;
 }
 .btn-secondary {
-  @include BTN__SECONDARY;
   min-width: 250px;
+  @include mixin.BTN__SECONDARY;
 }
 .center {
   text-align: center;
@@ -182,4 +183,18 @@ a:hover {
 }
 .hamburger--slider.is-active .hamburger-inner::after {
   transform: translate3d(0, -20px, 0) rotate(-90deg);
+}
+
+.matter-container {
+  // background-color: #f2f2f2;
+  /* position: absolute;
+  left: 0;
+  top:0; */
+
+  height: 100vh;
+  width: 100%;
+}
+
+.matter-container canvas {
+  display: block;
 }
