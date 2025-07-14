@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './ExperimentsList.module.scss';
-import { Icon } from '@fortawesome/fontawesome-svg-core';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 interface Iprops {
   experimentsList: ExperimentsItem[];
@@ -13,7 +13,7 @@ interface ExperimentsItem {
   tags: string[];
   date: string;
   thumb: string;
-  icon: Icon;
+  icon: IconDefinition;
   backgroundColor: string;
 }
 
