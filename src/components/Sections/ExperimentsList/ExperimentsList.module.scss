@@ -3,17 +3,14 @@
 
 .experimentsList {
   position: relative;
-  overflow: hidden;
   padding-bottom: 100px;
   background-color: #ffffff;
   z-index: 10;
   &__header {
-    //display: inline-block;
     margin-right: 2rem;
     @include mixin.STYLE-HEADER-SUPER;
   }
   &__header_sub {
-    //display: inline-block;
     @include mixin.STYLE-COPY;
   }
   &__wrapper {
@@ -22,26 +19,59 @@
   }
   &__list {
     @include mixin.LIST-RESET;
+    @include mixin.SECTION-WRAPPER;
+    @include mixin.min-width-1280px {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
   }
-  &__list_item {
-    border-top: 1px solid #f2f2f2;
+  &__list_item_link {
+    text-decoration: none;
+    display: block;
+    background-color: #ccc;
+    margin-bottom: 1rem;
+    border-radius: 20px;
+    @include mixin.min-width-1280px {
+      width: 48%;
+      margin-bottom: 4%;
+    }
+    @include mixin.min-width-1600px {
+      width: 32%;
+      margin-bottom: 2%;
+    }
+    // @include mixin.min-width-1921px {
+    //   width: 24%;
+    //   margin-bottom: 1%;
+    // }
+  }
+  &__list_item_icon {
+    background-color: #fff;
+    display: inline-block;
+    text-align: center;
+    border-radius: 200px;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    align-items: center;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    @include mixin.min-width-1600px {
+      width: 5rem;
+      height: 5rem;
+      font-size: 2.5rem;
+    }
   }
   &__list_item_wrapper {
     padding: 2rem 0;
     align-items: center;
     @include mixin.SECTION-WRAPPER;
     @include mixin.STYLE-COPY;
-    @include mixin.min-width-1280px {
-      display: flex;
-    }
   }
-  &__list_item_title_wrapper {
-    @include mixin.min-width-1280px {
-      width: 70%;
-    }
-  }
+  // &__list_item_title_wrapper {
+  // }
   &__list_item_title {
-    display: inline-block;
     margin-right: 2rem;
     margin-bottom: 0.5rem;
     @include mixin.STYLE-HEADER-SUB;
@@ -51,47 +81,14 @@
   }
   &__list_item_tags {
     display: block;
-    @include mixin.STYLE-COPY-DETAILS;
-    @include mixin.min-width-1280px {
-      width: 20%;
-    }
+    margin-bottom: 0;
   }
-  // &__list_item_date {
-  //   display: block;
-  //   @include mixin.STYLE-COPY-DETAILS;
-  //   @include mixin.min-width-1280px {
-  //     width: 20%;
-  //     text-align: right;
-  //   }
-  // }
-  &__list_item_icon {
-    @include mixin.min-width-1280px {
-      text-align: right;
-      width: 10%;
-    }
-  }
-  &__list_item_link {
-    text-decoration: none;
-    display: block;
-    //transition: background 0.1s linear;
-    // &:hover {
-    //   background: #000;
-    //   & span {
-    //     color: #fff;
-    //   }
-    // }
-  }
-  &__floating_image {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 630px;
-    height: 490px;
-    pointer-events: none;
-    z-index: 4;
-    //transition: all 0.01s ease-in;
-    @include mixin.max-width-1279px {
-      display: none;
-    }
+  &__list_item_tag {
+    background-color: #fff;
+    display: inline-block;
+    padding: 0.2rem 1rem;
+    border-radius: 20px;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 }
