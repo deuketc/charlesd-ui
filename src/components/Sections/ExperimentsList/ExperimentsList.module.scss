@@ -21,9 +21,20 @@
     @include mixin.LIST-RESET;
     @include mixin.SECTION-WRAPPER;
     @include mixin.min-width-1280px {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 48% 48%;
+      column-gap: 4%;
+      row-gap: 4%;
+    }
+    @include mixin.min-width-1600px {
+      grid-template-columns: 32% 32% 32%;
+      column-gap: 2%;
+      row-gap: 2%;
+    }
+    @include mixin.min-width-2561px {
+      grid-template-columns: 24% 24% 24% 24%;
+      column-gap: 1%;
+      row-gap: 1%;
     }
   }
   &__list_item_link {
@@ -32,18 +43,6 @@
     background-color: #ccc;
     margin-bottom: 1rem;
     border-radius: 20px;
-    @include mixin.min-width-1280px {
-      width: 48%;
-      margin-bottom: 4%;
-    }
-    @include mixin.min-width-1600px {
-      width: 32%;
-      margin-bottom: 2%;
-    }
-    // @include mixin.min-width-1921px {
-    //   width: 24%;
-    //   margin-bottom: 1%;
-    // }
   }
   &__list_item_icon {
     background-color: #fff;

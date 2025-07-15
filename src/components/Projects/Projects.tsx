@@ -1,13 +1,11 @@
-import { useRef, useLayoutEffect, createRef } from 'react';
+import { useRef, createRef } from 'react';
 import iagThumb from '../../assets/projects/iag-thumb.jpg';
-import { gsap } from 'gsap';
 import touchpointThumb from '../../assets/projects/touchpoint-thumb.jpg';
 import udcThumb from '../../assets/projects/udc-thumb.jpg';
 import unichemThumb from '../../assets/projects/unichem-thumb.jpg';
 import watoThumb from '../../assets/projects/wato-thumb.jpg';
 import useImagesPreloader from '../../hooks/UseImagesPreloader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 import { Link } from 'react-router-dom';
@@ -50,70 +48,9 @@ const projectItemList = [
 const Projects = () => {
   const images = [iagThumb, watoThumb, udcThumb, touchpointThumb, unichemThumb];
   const imgsLoaded = useImagesPreloader(images);
-  const elementsRef = useRef(projectItemList.map(() => createRef()));
   const headerRef = useRef(null);
   const headerSubRef = useRef(null);
   const listItems = useRef(null);
-
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      // Header
-      if (imgsLoaded) {
-        gsap.set(headerRef.current, {
-          opacity: 0,
-          y: 110,
-        });
-
-        gsap.to(headerRef.current, {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-        });
-
-        // List Items
-        projectItemList.forEach((element, i) => {
-          gsap.set(`.projects__list_item_0${i}`, {
-            opacity: 0,
-            y: 110,
-          });
-          gsap.set(`.projects__list_item_0${i} .projects__list_item_header`, {
-            opacity: 0,
-            y: 20,
-          });
-          gsap.set(
-            `.projects__list_item_0${i} .projects__list_item_subheader`,
-            {
-              opacity: 0,
-              y: 20,
-            }
-          );
-        });
-
-        projectItemList.forEach((element, i) => {
-          gsap.to(`.projects__list_item_0${i}`, {
-            y: 0,
-            opacity: 1,
-            delay: 0.2 + i / 4,
-            duration: 0.7,
-          });
-          gsap.to(`.projects__list_item_0${i} .projects__list_item_header`, {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            delay: 0.6 + i / 4,
-          });
-          gsap.to(`.projects__list_item_0${i} .projects__list_item_subheader`, {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            delay: 0.8 + i / 4,
-          });
-        });
-      }
-
-      return () => ctx.revert();
-    }, listItems);
-  }, [imgsLoaded]);
 
   return imgsLoaded ? (
     <section className={styles.projects}>
@@ -131,10 +68,7 @@ const Projects = () => {
             </p>
           </li>
           {projectItemList.map((projectItem, i) => (
-            <li
-              key={i}
-              className={`projects__list_item_0${i} ${styles.projects__list_item}`}
-            >
+            <li key={i} className={styles.projects__list_item}>
               <Link
                 className={styles.projects__list_item_link}
                 to={projectItem.href}
@@ -146,17 +80,13 @@ const Projects = () => {
                     alt=""
                   />
                 </div>
-                <h2
-                  className={`projects__list_item_header ${styles.projects__list_item_header}`}
-                >
+                <h2 className={styles.projects__list_item_header}>
                   <span className={styles.projects__list_item_header_arrow}>
                     <FontAwesomeIcon icon={faArrowRight} />
                   </span>
                   {projectItem.title}
                 </h2>
-                <p
-                  className={`projects__list_item_subheader ${styles.projects__list_item_subheader}`}
-                >
+                <p className={styles.projects__list_item_subheader}>
                   {projectItem.subTitle}
                 </p>
               </Link>

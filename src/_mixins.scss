@@ -58,6 +58,12 @@
   }
 }
 
+@mixin min-width-2561px {
+  @media (min-width: var.$min-width-2561px) {
+    @content;
+  }
+}
+
 @mixin SECTION-WRAPPER {
   width: 90%;
   margin: 0 auto;
