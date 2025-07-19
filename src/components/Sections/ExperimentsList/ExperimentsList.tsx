@@ -21,7 +21,7 @@ const ExperimentsList = ({ experimentsList }: Iprops) => {
   return (
     <section id="ExperimentsList" className={styles.experimentsList}>
       <div className={styles.experimentsList__wrapper}>
-        <h1 className={styles.experimentsList__header}>Side Quests</h1>
+        <h1 className={styles.experimentsList__header}>Experiments</h1>
         <p className={styles.experimentsList__header_sub}>
           Creative experiments, prototypes & playful builds
         </p>

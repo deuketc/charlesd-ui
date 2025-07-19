@@ -7,31 +7,33 @@
   z-index: 101;
   top: 0;
   mix-blend-mode: difference;
-
+  @media (min-width: var.$min-width-1280px) {
+    mix-blend-mode: difference;
+    pointer-events: none;
+  }
   &__wrapper {
-    @include mixin.SECTION-WRAPPER;
     padding: 20px 2%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include mixin.SECTION-WRAPPER;
   }
 
   &__logo {
+    pointer-events: all;
     font-weight: 600;
     font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: 0.05rem;
+    position: relative;
+    z-index: 2;
     @include mixin.STYLE-COPY-FAMILY;
     margin: 0;
     & a {
       text-decoration: none;
       color: #fff;
-    }
-    &:hover {
-      .header {
-        &__logo_step1 {
-          display: none;
-        }
+      &:hover {
+        color: #fff;
       }
     }
   }
@@ -44,10 +46,10 @@
     align-items: center;
     position: fixed;
     flex-flow: wrap;
-    background-color: #ccc;
+    background-color: #000;
     left: 0;
     top: 0;
-    z-index: 100;
+    z-index: 1;
     width: 100%;
     height: 100vh;
     text-align: center;
@@ -71,36 +73,35 @@
 
   &__list_item {
     @media (max-width: var.$max-width-1279px) {
-      border-bottom: 1px solid var.$grey-d;
+      border-bottom: 1px solid #999;
       &:first-child {
-        border-top: 1px solid var.$grey-d;
+        border-top: 1px solid #999;
       }
-    }
-    @media (min-width: var.$min-width-1280px) {
-      // border-left: 1px solid var.$grey-d;
     }
   }
 
   &__list_item_link {
     padding: 14px 10px;
     position: relative;
-    font-family: 'Source Sans Pro', sans-serif;
-    color: var.$text-black;
+    color: #fff;
     text-decoration: none;
-    font-size: 1.2rem;
     display: block;
     width: 100%;
     min-width: 120px;
-
     text-align: center;
-    &:hover {
-      color: #555;
-      &::after {
-        width: 100%;
+    @media (max-width: var.$max-width-1279px) {
+      @include mixin.STYLE-HEADER-SUB;
+      &:hover {
+        color: #fff;
       }
     }
+
     @media (min-width: var.$min-width-1280px) {
+      pointer-events: all;
+      padding: 10px 8px;
+      font-size: 1.2rem;
       background-color: #f2f2f2;
+      color: #000;
       border-radius: 100px;
     }
   }
@@ -128,7 +129,6 @@
       position: static;
       width: 70px;
       height: 54px;
-      // margin-right: -6%;
       right: 0;
       top: 0;
       z-index: 999;

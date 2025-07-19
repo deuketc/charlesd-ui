@@ -21,7 +21,7 @@ const Header = () => {
   };
 
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${btnClassName}`}>
       <div className={styles.header__wrapper}>
         <h3 className={styles.header__logo}>
           <Link to="/">Charles D.</Link>
@@ -72,13 +72,6 @@ const Header = () => {
                 Resume
               </Link>
             </li>
-            {/* <li className={styles.navigation__list_item}>
-              <Link 
-                onClick={onHeaderLinkClick}
-                className={styles.navigation__list_item_link} to="/resume">
-                Contact
-              </Link>
-            </li> */}
           </ul>
         </nav>
       </div>
