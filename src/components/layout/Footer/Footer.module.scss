@@ -2,6 +2,7 @@
 @use '../../../mixins' as mixin;
 
 .footer {
+  color: #fff;
   background-color: var.$text-black;
   position: relative;
   width: 100%;
@@ -10,12 +11,7 @@
   flex-shrink: 0;
   &__wrapper {
     @include mixin.SECTION-WRAPPER;
-    padding: 20px 0px;
     @include mixin.min-width-768px {
-      flex-direction: row-reverse;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
     }
   }
   &__header {
@@ -23,46 +19,44 @@
     font-weight: 400;
     font-size: 1rem;
     margin: 0;
-    @include mixin.max-width-767px {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-    @include mixin.min-width-768px {
-      margin-right: 10px;
-      margin-right: 20px;
-      border-right: 1px solid #fff;
-      padding-right: 20px;
+    margin-bottom: 1rem;
+    @include mixin.STYLE-HEADER-SUB;
+    @include mixin.min-width-1280px {
+      display: none;
     }
     @include mixin.min-width-1600px {
       font-size: 1.4rem;
     }
   }
-  &__navigation {
-    @include mixin.min-width-768px {
-      display: flex;
-      align-items: center;
+  &__header_sub {
+    @include mixin.STYLE-COPY;
+    @include mixin.min-width-1280px {
+      margin: 0;
     }
-    @include mixin.max-width-767px {
-      margin-bottom: 1rem;
+  }
+  &__navigation {
+    padding: 1rem 0;
+    @include mixin.min-width-768px {
+      padding: 2rem 0;
+    }
+    @include mixin.min-width-1280px {
+      padding: 3rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
   }
 
   &__list {
     @include mixin.LIST-RESET;
     display: flex;
-    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    @include mixin.min-width-768px {
-      justify-content: right;
-    }
   }
 
   &__list_item {
     margin: 4% 8%;
     width: 9%;
-    // @include max-width-767px {
-    //   margin-bottom: 1rem;
-    // }
     @include mixin.min-width-420px {
       margin: 0 3.25%;
       width: 6%;
@@ -73,7 +67,7 @@
     }
     @include mixin.min-width-1600px {
       margin: 0 13px;
-      width: 30px;
+      width: 40px;
     }
   }
 
@@ -82,23 +76,52 @@
   }
 
   &__list_item_link {
+    color: #fff;
     display: flex;
-    color: var.$text-black;
     text-decoration: none;
     align-items: center;
     box-sizing: border-box;
+    font-size: 3rem;
+    &.linkedin:hover {
+      color: #0077b5;
+    }
+    &.github:hover {
+      color: #ccc;
+    }
+    &.pinterest:hover {
+      color: #e60023;
+    }
+    &.youtube:hover {
+      color: #ff0000;
+    }
+    &.instagram:hover {
+      color: #e1306c;
+    }
+    &.x:hover {
+      color: #1da1f2;
+    }
+    &.facebook:hover {
+      color: #1877f2;
+    }
+    &.codepen:hover {
+      color: #47cf73;
+    }
   }
 
   &__copyright {
-    font-family: 'Source Sans Pro', sans-serif;
+    @include mixin.STYLE-COPY-DETAILS;
     font-weight: 400;
     color: #fff;
     margin: 0;
-    @include mixin.max-width-767px {
-      text-align: center;
+    padding: 1rem 0;
+    span {
+      display: block;
     }
-    @include mixin.min-width-1600px {
-      font-size: 1.4rem;
+    @include mixin.min-width-420px {
+      border-top: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
   }
 

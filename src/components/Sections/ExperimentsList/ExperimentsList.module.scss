@@ -81,6 +81,7 @@
   &__list_item_tags {
     display: block;
     margin-bottom: 0;
+    @include mixin.STYLE-COPY-DETAILS;
   }
   &__list_item_tag {
     background-color: #fff;

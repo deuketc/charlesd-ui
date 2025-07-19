@@ -240,19 +240,19 @@
 
 @mixin STYLE-COPY-DETAILS {
   font-weight: 400;
-  font-size: 0.5rem;
+  font-size: 0.8rem;
   @include min-width-768px {
-    font-size: 0.6rem;
-  }
-  @include min-width-1280px {
-    font-size: 0.8rem;
-  }
-  @include min-width-1600px {
     font-size: 1rem;
   }
-  @include min-width-1921px {
-    font-size: 1.5rem;
+  @include min-width-1280px {
+    font-size: 1.2rem;
   }
+  @include min-width-1600px {
+    font-size: 1.4rem;
+  }
+  // @include min-width-1921px {
+  //   font-size: 1.5rem;
+  // }
 }
 
 @mixin LIST-RESET {
