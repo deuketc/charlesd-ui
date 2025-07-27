@@ -165,12 +165,11 @@ const Landing = () => {
           </div>
         </div>
         <p ref={introScrollCta} className={styles.intro__scroll_cta}>
-          <FontAwesomeIcon icon={faAnglesDown} />
           <span className={styles.intro__scroll_cta_copy}>
-            Scroll to projects
+            <FontAwesomeIcon icon={faAnglesDown} />
+            &nbsp;&nbsp;&nbsp;&nbsp;Scroll to projects&nbsp;&nbsp;&nbsp;&nbsp;
+            <FontAwesomeIcon icon={faAnglesDown} />
           </span>
-
-          <FontAwesomeIcon icon={faAnglesDown} />
         </p>
       </section>
       <div className={styles.spacer}></div>

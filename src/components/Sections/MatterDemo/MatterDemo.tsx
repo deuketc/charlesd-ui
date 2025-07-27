@@ -19,8 +19,7 @@ import Matter, {
 const MatterDemo = () => {
   let isFiring = false;
   const sceneRef = useRef(null);
-  const engineRef = useRef([]);
-  const renderRef = useRef(null);
+  const engineRef = useRef(null);
   const groundRef = useRef(null);
   const leftWallRef = useRef(null);
   const rightWallRef = useRef(null);
@@ -126,8 +125,6 @@ const MatterDemo = () => {
       },
     });
 
-    //renderRef.current = render;
-
     // Create initial ground
     const ground = Bodies.rectangle(
       width / 2,
@@ -230,6 +227,23 @@ const MatterDemo = () => {
         { x: newWidth + 60, y: newHeight },
         { x: newWidth, y: newHeight },
       ]);
+
+      // Scale all bodies in the "bodies" constant
+      const scale = Math.min(newWidth / 1200, newHeight / 1200);
+      Object.values(bodies).forEach(body => {
+        if (body) {
+          // Calculate current scale based on body's render.sprite.xScale
+          const currentScale = body.render?.sprite?.xScale || 1;
+          const scaleFactor = scale / currentScale;
+          Matter.Body.scale(body, scaleFactor, scaleFactor);
+
+          // Update sprite scale for rendering
+          if (body.render && body.render.sprite) {
+            body.render.sprite.xScale = scale;
+            body.render.sprite.yScale = scale;
+          }
+        }
+      });
     };
 
     render.canvas.addEventListener('mouseup', () => {

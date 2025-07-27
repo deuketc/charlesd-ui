@@ -50,18 +50,24 @@
   &__scroll_cta {
     pointer-events: none;
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
     left: 0;
     width: 100%;
     text-align: center;
     display: none;
+    box-sizing: border-box;
     @media (min-width: var.$min-width-1280px) {
       display: block;
     }
   }
   &__scroll_cta_copy {
-    padding: 0 50px;
-    @include mixin.STYLE-COPY-DETAILS;
+    padding: 20px 30px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    background: #fff;
+    display: inline-block;
+    font-size: 1.2rem;
+    //@include mixin.STYLE-COPY-DETAILS;
   }
   &__btn_section {
     display: flex;

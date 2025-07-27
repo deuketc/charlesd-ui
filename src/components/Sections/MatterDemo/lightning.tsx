@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Matter, { Vertices } from 'matter-js';
 
 export async function spawnLightning(x, y, world, scaleFunc) {
