@@ -1,5 +1,4 @@
-// @ts-nocheck
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Matter, {
   Engine,
   Render,
@@ -15,100 +14,92 @@ import Matter, {
 } from 'matter-js';
 
 type SvgList = {
+  name: string;
   sprite: string;
   path: string;
   x: number;
   y: number;
+  frictionAir: number;
+  restitution: number;
 };
 
 const shapeDefs = [
   {
+    name: 'smileyTounge',
     sprite: '/svg/smiley-tounge.svg',
     path: '/vertices/smiley-tounge-path.json',
-    x: 300,
-    y: 400,
+    x: (window.innerWidth * 30) / 100,
+    y: (window.innerHeight * 20) / 100,
+    frictionAir: 0,
+    restitution: 0.5,
   },
   {
-    sprite: '/svg/pill.svg',
-    path: '/vertices/pill-path.json',
-    x: 400,
-    y: 200,
-  },
-  {
+    name: 'bomb',
     sprite: '/svg/bomb.svg',
     path: '/vertices/bomb-path.json',
-    x: 500,
-    y: 300,
+    x: (window.innerWidth * 30) / 100,
+    y: (window.innerHeight * 20) / 100,
+    frictionAir: 0,
+    restitution: 0.5,
   },
   {
+    name: 'pill',
+    sprite: '/svg/pill.svg',
+    path: '/vertices/pill-path.json',
+    x: (window.innerWidth * 10) / 100,
+    y: (window.innerHeight * 20) / 100,
+    frictionAir: 0,
+    restitution: 0.5,
+  },
+  {
+    name: 'cassette',
     sprite: '/svg/cassette.svg',
     path: '/vertices/cassette-path.json',
-    x: 600,
-    y: 100,
+    x: (window.innerWidth * 40) / 100,
+    y: (window.innerHeight * 20) / 100,
+    frictionAir: 0,
+    restitution: 0.5,
   },
   {
+    name: 'flower',
     sprite: '/svg/flower.svg',
     path: '/vertices/flower-path.json',
-    x: 200,
-    y: 400,
+    x: (window.innerWidth * 10) / 100,
+    y: (window.innerHeight * 20) / 100,
+    frictionAir: 0,
+    restitution: 0.5,
   },
   {
-    sprite: '/svg/rainbow.svg',
-    path: '/vertices/rainbow-path.json',
-    x: 400,
-    y: 0,
-  },
-  {
+    name: 'flowerTounge',
     sprite: '/svg/flower-tounge.svg',
     path: '/vertices/flower-tounge-path.json',
-    x: 500,
-    y: 350,
+    x: (window.innerWidth * 30) / 100,
+    y: (window.innerHeight * 20) / 100,
+    frictionAir: 0,
+    restitution: 0.5,
+  },
+  {
+    name: 'rainbowOne',
+    sprite: '/svg/rainbow.svg',
+    path: '/vertices/rainbow-path.json',
+    x: (window.innerWidth * 15) / 100,
+    y: (window.innerHeight * 0) / 100,
+    frictionAir: 1,
+    restitution: 0,
+  },
+  {
+    name: 'rainbowTwo',
+    sprite: '/svg/rainbow.svg',
+    path: '/vertices/rainbow-path.json',
+    x: (window.innerWidth * 40) / 100,
+    y: (window.innerHeight * 0) / 100,
+    frictionAir: 1,
+    restitution: 0,
   },
 ];
 
-async function loadResponsiveBody(shape: SvgList, world: World, scale = 1) {
-  const res = await fetch(shape.path);
-  const raw = await res.json();
-
-  // Clone so we don’t mutate original
-  const verts = raw.map(v => ({ x: v.x, y: v.y })); // ← clone manually
-
-  // Dynamically scale for responsive design
-  Vertices.scale(verts, scale, scale, Vertices.centre(verts));
-
-  const body = Matter.Bodies.fromVertices(
-    shape.x,
-    shape.y,
-    [verts],
-    {
-      render: {
-        sprite: {
-          texture: shape.sprite,
-          xScale: scale,
-          yScale: scale,
-        },
-      },
-    },
-    true
-  );
-
-  Matter.World.add(world, body);
-  return body;
-}
-
-async function loadAllShapes(
-  shapes: SvgList[],
-  world: World,
-  delay = 25,
-  scale = 1
-) {
-  for (const shape of shapes) {
-    await loadResponsiveBody(shape, world, scale);
-    await new Promise(res => setTimeout(res, delay));
-  }
-}
-
 const MatterDemo = () => {
+  let isFiring = false;
   const sceneRef = useRef(null);
   const engineRef = useRef(null);
   const renderRef = useRef(null);
@@ -117,7 +108,119 @@ const MatterDemo = () => {
   const rightWallRef = useRef(null);
   const THICCNESS = 60;
 
+  const bodies = [];
+
   useEffect(() => {
+    // stores reference to all objects
+
+    async function loadResponsiveBody(shape: SvgList, world: World, scale = 1) {
+      const res = await fetch(shape.path);
+      const raw = await res.json();
+
+      // Clone so we don’t mutate original
+      const verts = raw.map(v => ({ x: v.x, y: v.y })); // ← clone manually
+
+      // Dynamically scale for responsive design
+      Vertices.scale(verts, scale, scale, Vertices.centre(verts));
+
+      const body = Matter.Bodies.fromVertices(
+        shape.x,
+        shape.y,
+        [verts],
+        {
+          //inertia: Infinity, stops rotation
+          label: shape.name,
+          frictionAir: shape.frictionAir,
+          restitution: shape.restitution,
+          // isStatic: true, stays in place, no mouse
+          render: {
+            sprite: {
+              texture: shape.sprite,
+              xScale: scale,
+              yScale: scale,
+            },
+          },
+        },
+        true
+      );
+
+      Matter.World.add(world, body);
+      bodies[shape.name] = body;
+    }
+
+    async function loadAllShapes(
+      shapes: SvgList[],
+      world: World,
+      delay = 25,
+      scale = 1
+    ) {
+      for (const shape of shapes) {
+        await loadResponsiveBody(shape, world, scale);
+        await new Promise(res => setTimeout(res, delay));
+      }
+      console.log('All shapes loaded:', bodies);
+      setupClickHandler(bodies['rainbowOne']);
+      setupClickHandler(bodies['rainbowTwo']);
+    }
+
+    const setupClickHandler = shape => {
+      render.canvas.addEventListener('mousedown', e => {
+        const mousePos = mouse.position;
+
+        // Get cloud under mouse (simplified hit-test)
+        const clickedBody = Matter.Query.point([shape], mousePos)[0];
+
+        if (clickedBody) {
+          isFiring = true;
+          spawnLightningLoop(shape);
+        }
+      });
+    };
+
+    const spawnLightningLoop = shape => {
+      if (!isFiring) return;
+
+      spawnLightning(shape.position.x, shape.position.y + 220); // offset downward
+
+      setTimeout(() => {
+        spawnLightningLoop(shape); // recurse if still holding
+      }, 500); // fire every 0.5s or whatever feels good
+    };
+
+    async function spawnLightning(x, y) {
+      const res = await fetch('/vertices/lightning-path.json');
+      const raw = await res.json();
+      // Clone so we don’t mutate original
+      const verts = raw.map(v => ({ x: v.x, y: v.y })); // ← clone manually
+
+      // Dynamically scale for responsive design
+      Vertices.scale(verts, getScale(), getScale(), Vertices.centre(verts));
+
+      const lightning = Matter.Bodies.fromVertices(
+        x,
+        y,
+        [verts],
+        {
+          restitution: 0.4,
+          render: {
+            sprite: {
+              texture: '/svg/lightning.svg',
+              xScale: getScale(),
+              yScale: getScale(),
+            },
+          },
+        },
+        true
+      );
+
+      Matter.World.add(world, lightning);
+
+      // Auto-remove after 3 seconds
+      setTimeout(() => {
+        Matter.World.remove(world, lightning);
+      }, 3000);
+    }
+
     // create an engine
     const engine = Engine.create();
 
@@ -174,9 +277,6 @@ const MatterDemo = () => {
 
     // add all of the bodies to the world
     Composite.add(world, [ground, leftWall, rightWall]);
-
-    // Load all SVG's
-    loadAllShapes(shapeDefs, world, 1000, 1);
 
     // 🖱️ Mouse constraint for interactivity
     const mouse = Mouse.create(render.canvas);
@@ -249,7 +349,9 @@ const MatterDemo = () => {
       ]);
     };
 
-    window.addEventListener('resize', handleResize);
+    render.canvas.addEventListener('mouseup', () => {
+      isFiring = false;
+    });
 
     const onScroll = () => {
       const baseHeight = window.innerHeight;
@@ -270,7 +372,34 @@ const MatterDemo = () => {
       });
     };
 
+    window.addEventListener('resize', handleResize);
     window.addEventListener('scroll', onScroll);
+
+    // Load all SVG's
+    const getScale = () => {
+      const baseWidth = 1200; // Base width for scaling
+      return Math.min(
+        window.innerWidth / baseWidth,
+        window.innerHeight / baseWidth
+      );
+    };
+    loadAllShapes(shapeDefs, world, 1000, getScale());
+
+    // const svg3 = document.querySelector('#lightning-path');
+    // if (!svg3) {
+    //   console.warn('SVG not found yet');
+    //   return;
+    // }
+
+    // const pathEl3 = svg3.querySelector('path');
+    // if (!pathEl3) {
+    //   console.warn('Path not found in SVG');
+    //   return;
+    // }
+
+    // const vertices3 = Matter.Svg.pathToVertices(pathEl3, 30);
+
+    // console.log(JSON.stringify(vertices3, null, 2));
 
     return () => {
       window.removeEventListener('scroll', onScroll);
