@@ -55,18 +55,16 @@ const Projects = () => {
   return imgsLoaded ? (
     <section className={styles.projects}>
       <div className={styles.projects__wrapper}>
+        <div className={styles.projects__copy}>
+          <h1 ref={headerRef} className={styles.projects__header}>
+            Featured Projects
+          </h1>
+          <p ref={headerSubRef} className={styles.projects__header_sub}>
+            A selection of key projects from my career as a web developer,
+            showcasing impactful work delivered across larger-scale initiatives.
+          </p>
+        </div>
         <ul ref={listItems} className={styles.projects__list}>
-          <li className={styles.projects__list_item}>
-            <h1 ref={headerRef} className={styles.projects__header}>
-              Featured Projects
-            </h1>
-            <p ref={headerSubRef} className={styles.projects__header_sub}>
-              A selection of key projects from my career as a web developer,
-              showcasing impactful work delivered across larger-scale
-              initiatives. These represent both technical achievement and strong
-              collaboration with teams I was proud to be part of.
-            </p>
-          </li>
           {projectItemList.map((projectItem, i) => (
             <li key={i} className={styles.projects__list_item}>
               <Link

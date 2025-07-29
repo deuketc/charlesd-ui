@@ -10,6 +10,11 @@
     @include mixin.PAGE;
   }
 
+  &__copy {
+    margin-bottom: 5%;
+    max-width: 47%;
+  }
+
   &__header {
     @include mixin.STYLE-HEADER-SUPER;
   }
