@@ -15,6 +15,8 @@ import Matter, {
   Svg,
   World,
 } from 'matter-js';
+import MatterWrap from 'matter-wrap'; // Import the plugin
+Matter.use(MatterWrap); // Use the plugin with Matter.js
 
 const MatterDemo = () => {
   let isFiring = false;
@@ -28,11 +30,23 @@ const MatterDemo = () => {
 
   const bodies = [];
 
+  // Enable wrapping for all bodies added to the world
+  // You can set wrap bounds after creating each body, e.g. in loadResponsiveBody:
+  function enableWrap(body, width, height) {
+    body.plugin.wrap = {
+      min: { x: 0, y: 0 },
+      max: { x: width, y: height },
+    };
+  }
+
   useEffect(() => {
-    // stores reference to all objects
     async function loadResponsiveBody(shape: SvgList, world: World, scale = 1) {
       const res = await fetch(shape.path);
       const raw = await res.json();
+
+      function randomBetweenMinusOneAndOne() {
+        return Math.random() * 2 - 1;
+      }
 
       // Clone so we don’t mutate original
       const verts = raw.map(v => ({ x: v.x, y: v.y })); // ← clone manually
@@ -47,9 +61,14 @@ const MatterDemo = () => {
         {
           //inertia: Infinity, stops rotation
           label: shape.name,
-          frictionAir: shape.frictionAir,
-          restitution: shape.restitution,
-          // isStatic: true, stays in place, no mouse
+          frictionAir: shape.frictionAir, // air resistance
+          restitution: shape.restitution, // bounciness
+          isStatic: false,
+          force: {
+            x: randomBetweenMinusOneAndOne(), // Add any initial force if needed
+            y: randomBetweenMinusOneAndOne(), // Add any initial force if needed
+          },
+          // isSensor: true, // Uncomment if you want it to be a sensor
           render: {
             sprite: {
               texture: shape.sprite,
@@ -60,6 +79,11 @@ const MatterDemo = () => {
         },
         true
       );
+
+      // Enable wrapping for this body
+      const width = sceneRef.current?.clientWidth || 800;
+      const height = sceneRef.current?.clientHeight || 600;
+      enableWrap(body, width, height);
 
       Matter.World.add(world, body);
       bodies[shape.name] = body;
@@ -75,9 +99,7 @@ const MatterDemo = () => {
         await loadResponsiveBody(shape, world, scale);
         await new Promise(res => setTimeout(res, delay));
       }
-      console.log('All shapes loaded:', bodies);
       setupClickHandler(bodies['rainbowOne']);
-      setupClickHandler(bodies['rainbowTwo']);
     }
 
     const setupClickHandler = shape => {
@@ -108,6 +130,7 @@ const MatterDemo = () => {
 
     const world = engine.world;
     engineRef.current = engine;
+    engine.gravity.y = 0; // Adjust gravity if needed
 
     const width = sceneRef.current.clientWidth || 800;
     const height = sceneRef.current.clientHeight || 600;
@@ -124,39 +147,6 @@ const MatterDemo = () => {
         // showAngleIndicator: true,
       },
     });
-
-    // Create initial ground
-    const ground = Bodies.rectangle(
-      width / 2,
-      height + THICCNESS / 2,
-      width + 100,
-      THICCNESS,
-      {
-        isStatic: true,
-        render: { fillStyle: '#ffffff' },
-      }
-    );
-    const leftWall = Bodies.rectangle(-30, height / 2, 60, height + 100, {
-      isStatic: true,
-      render: { fillStyle: '#95a5a6' },
-    });
-    const rightWall = Bodies.rectangle(
-      width + 30,
-      height / 2,
-      60,
-      height + 100,
-      {
-        isStatic: true,
-        render: { fillStyle: '#95a5a6' },
-      }
-    );
-
-    groundRef.current = ground;
-    leftWallRef.current = leftWall;
-    rightWallRef.current = rightWall;
-
-    // add all of the bodies to the world
-    Composite.add(world, [ground, leftWall, rightWall]);
 
     // 🖱️ Mouse constraint for interactivity
     const mouse = Mouse.create(render.canvas);
@@ -195,39 +185,6 @@ const MatterDemo = () => {
       render.options.width = newWidth;
       render.options.height = newHeight;
 
-      // Resize & reposition ground
-      Body.setPosition(groundRef.current, {
-        x: newWidth / 2,
-        y: newHeight + THICCNESS / 2,
-      });
-      Body.setVertices(groundRef.current, [
-        { x: 0, y: newHeight - THICCNESS },
-        { x: newWidth, y: newHeight - THICCNESS },
-        { x: newWidth, y: newHeight },
-        { x: 0, y: newHeight },
-      ]);
-
-      // Resize left wall
-      Body.setPosition(leftWallRef.current, { x: -30, y: newHeight / 2 });
-      Body.setVertices(leftWallRef.current, [
-        { x: -60, y: 0 },
-        { x: 0, y: 0 },
-        { x: 0, y: newHeight },
-        { x: -60, y: newHeight },
-      ]);
-
-      // Resize right wall
-      Body.setPosition(rightWallRef.current, {
-        x: newWidth + 30,
-        y: newHeight / 2,
-      });
-      Body.setVertices(rightWallRef.current, [
-        { x: newWidth, y: 0 },
-        { x: newWidth + 60, y: 0 },
-        { x: newWidth + 60, y: newHeight },
-        { x: newWidth, y: newHeight },
-      ]);
-
       // Scale all bodies in the "bodies" constant
       const scale = Math.min(newWidth / 1200, newHeight / 1200);
       Object.values(bodies).forEach(body => {
@@ -250,31 +207,11 @@ const MatterDemo = () => {
       isFiring = false;
     });
 
-    const onScroll = () => {
-      const baseHeight = window.innerHeight;
-      const scrollY = window.scrollY;
-      const shrinkAmount = Math.min(scrollY, baseHeight);
-
-      const newHeight = baseHeight - shrinkAmount + THICCNESS;
-
-      // Resize canvas
-      render.canvas.style.height = `${newHeight}px`;
-      render.canvas.height = newHeight;
-      render.options.height = newHeight;
-
-      // Move ground up so it stays at the new "bottom"
-      Body.setPosition(groundRef.current, {
-        x: window.innerWidth / 2,
-        y: newHeight - 30,
-      });
-    };
-
     window.addEventListener('resize', handleResize);
-    window.addEventListener('scroll', onScroll);
 
     // Load all SVG's
     const getScale = () => {
-      const baseWidth = 1200; // Base width for scaling
+      const baseWidth = 1500; // Base width for scaling
       return Math.min(
         window.innerWidth / baseWidth,
         window.innerHeight / baseWidth
@@ -282,24 +219,7 @@ const MatterDemo = () => {
     };
     loadAllShapes(shapeDefs, world, 1000, getScale());
 
-    // const svg3 = document.querySelector('#lightning-path');
-    // if (!svg3) {
-    //   console.warn('SVG not found yet');
-    //   return;
-    // }
-
-    // const pathEl3 = svg3.querySelector('path');
-    // if (!pathEl3) {
-    //   console.warn('Path not found in SVG');
-    //   return;
-    // }
-
-    // const vertices3 = Matter.Svg.pathToVertices(pathEl3, 30);
-
-    // console.log(JSON.stringify(vertices3, null, 2));
-
     return () => {
-      window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', handleResize);
       Render.stop(render);
       Composite.clear(engine.world, false);

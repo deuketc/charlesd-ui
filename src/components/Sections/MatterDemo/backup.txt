@@ -337,3 +337,25 @@
           Composite.add(world, body);
         });
     });
+
+
+
+
+
+
+
+    // const svg3 = document.querySelector('#lightning-path');
+    // if (!svg3) {
+    //   console.warn('SVG not found yet');
+    //   return;
+    // }
+
+    // const pathEl3 = svg3.querySelector('path');
+    // if (!pathEl3) {
+    //   console.warn('Path not found in SVG');
+    //   return;
+    // }
+
+    // const vertices3 = Matter.Svg.pathToVertices(pathEl3, 30);
+
+    // console.log(JSON.stringify(vertices3, null, 2));
