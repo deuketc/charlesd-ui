@@ -96,7 +96,7 @@ const IagPage = () => {
       />
 
       <BtnSection
-        btn01Url="https://charlesd.co.nz/wato/"
+        btn01Url="https://deuketc.github.io/wato/"
         btn02Url="/projects/wato"
         btn01Label="Launch Project"
         btn02Label="More Info"

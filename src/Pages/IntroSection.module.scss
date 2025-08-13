@@ -31,9 +31,9 @@
     @media (min-width: var.$min-width-1280px) {
       height: 100vh;
       position: absolute;
-      left: 50%;
-      padding-right: 10%;
-      width: 50%;
+      left: 20%;
+      width: 60%;
+      max-width: 2000px;
     }
   }
   &__heading {
@@ -41,7 +41,10 @@
     & {
       margin-top: 0;
     }
-    @include mixin.STYLE-HEADER-SUPER;
+    margin-bottom: 4rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: clamp(1rem, -0.875rem + 8.333vw, 11rem);
   }
   &__p1 {
     color: #fff;

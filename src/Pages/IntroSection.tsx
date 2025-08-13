@@ -141,9 +141,11 @@ const Landing = () => {
             Welcome to my Digital Sandbox
           </h1>
           <p ref={copyRef} className={styles.intro__p1}>
-            I'm Charles Deukett. Explore my digital gallery where each project
-            is a testament to my passion for crafting interactive experiences
-            that captivate and inspire.
+            I'm Charlie, a developer building diverse and engaging web
+            experiences.
+            <br />
+            Tap the mushroom, stir the cosmos, trip the lights. Then check out
+            my projects below.
           </p>
 
           <div className={styles.intro__btn_section}>

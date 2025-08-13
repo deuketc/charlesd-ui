@@ -31,11 +31,11 @@ const watoPageImages = [
   screenhotImageMobile,
   screenhotImageMobile,
   screenhotImageDesktop,
-  mobile01, 
-  mobile02, 
+  mobile01,
+  mobile02,
   mobile03,
-  watoCityImage
-]
+  watoCityImage,
+];
 
 const WatoPage = () => {
   const imgsLoaded = useImagesPreloader(watoPageImages);
@@ -46,7 +46,7 @@ const WatoPage = () => {
         title="What are the odds?"
         copy="A promotional microsite built for State Insurance and Flybuys."
         imgSrc={heroImage}
-        url="https://charlesd.co.nz/wato"
+        url="https://deuketc.github.io/wato/"
       />
       <CopySection
         paddingTop={true}
@@ -86,7 +86,7 @@ const WatoPage = () => {
         backgroundColor="#ffffff"
         header="The above project was built during my time at IAG Insurance."
         copy="Learn about my role and other projects I've worked on as a Developer?"
-        btnLabel='IAG casestudy'
+        btnLabel="IAG casestudy"
         btnUrl="/projects/iag"
       />
     </>
