@@ -1,27 +1,14 @@
 @use '../../../mixins' as mixin;
 @use '../../../variables' as var;
 
-.education {
-  overflow: hidden;
-  @include mixin.STYLE-SECTION-PADDING;
-}
-
 .wrapper {
   @include mixin.SECTION-WRAPPER;
   max-width: none;
 }
 
 .header {
-  @include mixin.STYLE-HEADER;
-}
-
-.flex {
-  display: flex;
-  flex-direction: column;
-  @include mixin.min-width-1600px {
-    flex-direction: row;
-    justify-content: space-between;
-  }
+  //text-align: center;
+  @include mixin.STYLE-HEADER-SUPER;
 }
 
 .resumeEducation {
@@ -29,10 +16,14 @@
   }
   &__header {
   }
+  &__grid {
+    @include mixin.STYLE-GRID-COLUMNS-2-NOGAP;
+  }
   &__headerSub {
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 1.5%;
     @include mixin.STYLE-HEADER-SUB;
+    @include mixin.HIDDEN-TEXT;
   }
   &__headerItal {
     font-style: italic;
@@ -40,19 +31,24 @@
     margin-bottom: 1rem;
     @include mixin.STYLE-COPY;
   }
-  &__flex {
-  }
   &__col {
     @include mixin.STYLE-COPY;
     @include mixin.STYLE-SECTION-PADDING-BOTTOM;
-    @include mixin.min-width-1600px {
-      width: 48%;
-    }
+  }
+  &__col__mds {
+    background-color: #354a5d;
+    color: #fff;
+    padding: 10%;
+  }
+  &__col__mit {
+    background-color: #dd1122;
+    color: #fff;
+    padding: 10%;
   }
   &__date {
     display: inline-block;
     margin-right: 0.5rem;
-    @include mixin.STYLE-COPY-DETAILS;
+    @include mixin.STYLE-HEADER-SUB;
   }
   &__date_block {
     display: block;
@@ -60,9 +56,9 @@
     @include mixin.STYLE-COPY-DETAILS;
   }
   &__details {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     &:first-child {
-      border-top: 1px solid #ccc;
+      border-top: 1px solid rgba(255, 255, 255, 0.5);
     }
     &[open] > summary {
       background-image: url('../../../assets/images/icon-expanded-2dpi.gif');
@@ -82,7 +78,7 @@
 
     &:hover {
       transition: color 0.2s linear;
-      background-color: #f2f2f2;
+      background-color: rgba(255, 255, 255, 0.6);
       cursor: pointer;
       color: #333;
     }

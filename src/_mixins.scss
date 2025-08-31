@@ -134,6 +134,39 @@
   }
 }
 
+@mixin STYLE-GRID-COLUMNS-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 6rem;
+  row-gap: 6rem;
+}
+
+@mixin STYLE-GRID-COLUMNS-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 2rem;
+  row-gap: 2rem;
+}
+
+@mixin STYLE-GRID-COLUMNS-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 3rem;
+}
+
+@mixin STYLE-GRID-COLUMNS-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 3rem;
+  row-gap: 3rem;
+}
+
+@mixin STYLE-GRID-COLUMNS-2-NOGAP {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 0;
+}
+
 @mixin STYLE-HEADER-FAMILY {
   font-family: 'Montserrat', sans-serif;
 }
@@ -159,7 +192,7 @@
     font-size: 6rem;
   }
   @include min-width-1921px {
-    font-size: 6rem;
+    font-size: 7rem;
   }
 }
 
@@ -168,8 +201,8 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 2.5rem;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
   }
   @include min-width-768px {
     font-size: 3.5rem;

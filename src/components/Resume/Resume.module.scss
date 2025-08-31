@@ -2,7 +2,9 @@
 
 .resume {
   &__header {
-    @include mixin.STYLE-HEADER-SUPER;
+    //display: none;
+    text-align: center;
+    @include mixin.STYLE-HEADER-ULTRA;
   }
   &__wrapper {
     @include mixin.PAGE;

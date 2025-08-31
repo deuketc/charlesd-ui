@@ -10,6 +10,26 @@
   }
 
   &__header {
-    @include mixin.STYLE-HEADER;
+    //text-align: center;
+    @include mixin.STYLE-HEADER-SUPER;
+  }
+
+  &__content {
+    @include mixin.STYLE-GRID-COLUMNS-4;
+  }
+
+  &__cell {
+    width: 100%;
+  }
+
+  &__image {
+    margin-bottom: 1rem;
+    // height: 400px;
+    // background-color: burlywood;
+  }
+
+  &__image svg {
+    width: 100%;
+    height: auto;
   }
 }

@@ -13,13 +13,16 @@
   &__copy {
     margin-bottom: 5%;
     max-width: 47%;
+    margin: 0 auto;
   }
 
   &__header {
+    text-align: center;
     @include mixin.STYLE-HEADER-SUPER;
   }
 
   &__header_sub {
+    text-align: center;
     max-width: 100%;
     @include mixin.STYLE-COPY;
   }
@@ -27,13 +30,10 @@
   &__list {
     @include mixin.LIST-RESET;
     @include mixin.min-width-768px {
-      display: grid;
-      grid-template-columns: 47% 47%;
-      column-gap: 6%;
+      @include mixin.STYLE-GRID-COLUMNS-2;
     }
     @include mixin.min-width-2561px {
-      grid-template-columns: 30% 30% 30%;
-      column-gap: 5%;
+      @include mixin.STYLE-GRID-COLUMNS-3;
     }
   }
 
@@ -41,7 +41,6 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    @include mixin.STYLE-SECTION-PADDING-BOTTOM;
   }
 
   &__list_item_link {

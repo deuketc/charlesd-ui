@@ -12,37 +12,39 @@
   max-width: none;
 }
 .header {
-  @include mixin.STYLE-HEADER;
+  //text-align: center;
+  @include mixin.STYLE-HEADER-SUPER;
 }
 .listWrapper {
-  border-top: 1px solid gray;
-  border-bottom: 1px solid gray;
+  // border-top: 1px solid gray;
+  // border-bottom: 1px solid gray;
   max-width: none;
 }
 .list {
   @include mixin.SECTION-WRAPPER;
+  @include mixin.STYLE-GRID-COLUMNS-5;
   max-width: none;
   list-style: none;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
+  // display: flex;
+  // flex-wrap: wrap;
 }
 .listItem {
-  width: 50%;
+  //width: 50%;
   text-align: center;
-  outline: 1px solid grey;
+  //outline: 1px solid grey;
   @include mixin.min-width-768px {
-    width: 33.3%;
+    //width: 33.3%;
   }
   @include mixin.min-width-1600px {
-    width: 20%;
+    //width: 20%;
     background-color: #fff;
-    aspect-ratio: 1 / 1;
+    //aspect-ratio: 1 / 1;
   }
 }
 
 .listItem svg {
-  width: 80%;
+  width: 100%;
   height: auto;
 }
 
