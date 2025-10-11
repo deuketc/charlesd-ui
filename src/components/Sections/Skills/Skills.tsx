@@ -5,7 +5,10 @@ import LogoJavascript from '../../../assets/svg/LogoJavascript';
 import LogoScss from '../../../assets/svg/LogoScss';
 import LogoGit from '../../../assets/svg/LogoGit';
 import LogoRedux from '../../../assets/svg/LogoRedux';
+import LogoTailwind from '../../../assets/svg/LogoTailwind';
 import styles from './Skills.module.scss';
+import LogoNext from '../../../assets/svg/LogoNext';
+import LogoTypescript from '../../../assets/svg/LogoTypescript';
 
 const Skills = () => {
   return (
@@ -29,22 +32,40 @@ const Skills = () => {
           </li>
           <li className={styles.listItem}>
             <p>
-              <LogoScss />
-            </p>
-            <p className={styles.label}>SCSS</p>
-          </li>
-          <li className={styles.listItem}>
-            <p>
               <LogoJavascript />
             </p>
             <p className={styles.label}>Javascript</p>
           </li>
           <li className={styles.listItem}>
             <p>
+              <LogoTypescript />
+            </p>
+            <p className={styles.label}>Typescript</p>
+          </li>
+          <li className={styles.listItem}>
+            <p>
+              <LogoScss />
+            </p>
+            <p className={styles.label}>SCSS</p>
+          </li>
+          <li className={styles.listItem}>
+            <p>
+              <LogoTailwind />
+            </p>
+            <p className={styles.label}>Tailwind</p>
+          </li>
+          <li className={styles.listItem}>
+            <p>
               <LogoReact />
             </p>
-            <p className={styles.label}>React</p>
+            <p className={styles.label}>React / Next.js</p>
           </li>
+          {/* <li className={styles.listItem}>
+            <p>
+              <LogoNext />
+            </p>
+            <p className={styles.label}>Next.js</p>
+          </li> */}
           <li className={styles.listItem}>
             <p>
               <LogoRedux />

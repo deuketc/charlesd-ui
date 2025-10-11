@@ -13,7 +13,9 @@
   }
 }
 .header {
-  //text-align: center;
+  @include mixin.max-width-1279px {
+    text-align: center;
+  }
   @include mixin.STYLE-HEADER-SUPER;
 }
 .headerSub {

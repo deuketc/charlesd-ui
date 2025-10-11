@@ -12,7 +12,9 @@
   max-width: none;
 }
 .header {
-  //text-align: center;
+  @include mixin.max-width-1279px {
+    text-align: center;
+  }
   @include mixin.STYLE-HEADER-SUPER;
 }
 .listWrapper {
@@ -22,7 +24,14 @@
 }
 .list {
   @include mixin.SECTION-WRAPPER;
-  @include mixin.STYLE-GRID-COLUMNS-5;
+  @include mixin.STYLE-GRID-COLUMNS-2-NOGAP;
+  @include mixin.min-width-768px {
+    @include mixin.STYLE-GRID-COLUMNS-3-NOGAP;
+  }
+  @include mixin.min-width-1280px {
+    @include mixin.STYLE-GRID-COLUMNS-5;
+  }
+
   max-width: none;
   list-style: none;
   padding: 0;
@@ -44,7 +53,7 @@
 }
 
 .listItem svg {
-  width: 100%;
+  width: 80%;
   height: auto;
 }
 

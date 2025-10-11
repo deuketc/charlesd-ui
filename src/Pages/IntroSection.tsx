@@ -144,8 +144,7 @@ const Landing = () => {
             I'm Charlie, a developer building diverse and engaging web
             experiences.
             <br />
-            Tap the mushroom, stir the cosmos, trip the lights. Then check out
-            my projects below.
+            Stir the cosmos, then check out my projects below.
           </p>
 
           <div className={styles.intro__btn_section}>

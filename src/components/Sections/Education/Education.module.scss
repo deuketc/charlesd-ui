@@ -7,7 +7,9 @@
 }
 
 .header {
-  //text-align: center;
+  @include mixin.max-width-1279px {
+    text-align: center;
+  }
   @include mixin.STYLE-HEADER-SUPER;
 }
 
@@ -17,7 +19,9 @@
   &__header {
   }
   &__grid {
-    @include mixin.STYLE-GRID-COLUMNS-2-NOGAP;
+    @include mixin.min-width-1280px {
+      @include mixin.STYLE-GRID-COLUMNS-2-NOGAP;
+    }
   }
   &__headerSub {
     margin-top: 0;
@@ -32,7 +36,7 @@
     @include mixin.STYLE-COPY;
   }
   &__col {
-    @include mixin.STYLE-COPY;
+    //@include mixin.STYLE-COPY;
     @include mixin.STYLE-SECTION-PADDING-BOTTOM;
   }
   &__col__mds {
@@ -65,7 +69,8 @@
     }
   }
   &__summary {
-    margin: 0;
+    @include mixin.STYLE-COPY;
+    margin: 0 !important;
     transition: color 0.2s linear;
     display: block;
     text-decoration: none;
@@ -84,7 +89,8 @@
     }
   }
   &__detailsList {
-    margin-top: 0;
+    @include mixin.STYLE-COPY;
+    margin-top: 0 !important;
     list-style: none;
     padding: 0;
   }
@@ -118,5 +124,10 @@
   }
   &__detailsListLevel2Item {
     padding: 0.3em 0.3em 0.3em 0;
+  }
+  &__logo {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
   }
 }

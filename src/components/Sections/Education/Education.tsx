@@ -15,8 +15,7 @@ const Education = () => {
               <img
                 src="/MDS-logo-white-one-line.png"
                 alt="Media Design School Logo"
-                className={styles.education__logo}
-                style={{ maxWidth: '500px', marginBottom: '2rem' }}
+                className={styles.resumeEducation__logo}
               />
             </div>
             <h3 className={styles.resumeEducation__headerSub}>
@@ -101,8 +100,7 @@ const Education = () => {
               <img
                 src="/mit-logo-transparent.png"
                 alt="Manukau Institute of Technology Logo"
-                className={styles.education__logo}
-                style={{ maxWidth: '500px', marginBottom: '2rem' }}
+                className={styles.resumeEducation__logo}
               />
             </div>
             <p className={styles.resumeEducation__date}>

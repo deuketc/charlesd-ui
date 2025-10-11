@@ -7,7 +7,7 @@
   background-color: #ffffff;
   z-index: 10;
   &__header {
-    margin-right: 2rem;
+    // margin-right: 2rem;
     text-align: center;
     @include mixin.STYLE-HEADER-SUPER;
   }

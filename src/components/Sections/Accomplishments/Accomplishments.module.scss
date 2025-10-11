@@ -1,6 +1,7 @@
 @use '../../../_mixins' as mixin;
 
 .accomplishments {
+  padding-top: 0 !important;
   @include mixin.STYLE-SECTION-PADDING;
   &__wrapper {
     @include mixin.SECTION-WRAPPER;
@@ -10,12 +11,24 @@
   }
 
   &__header {
-    //text-align: center;
+    @include mixin.max-width-1279px {
+      text-align: center;
+    }
     @include mixin.STYLE-HEADER-SUPER;
   }
 
   &__content {
-    @include mixin.STYLE-GRID-COLUMNS-4;
+    @include mixin.min-width-420px {
+    }
+    @include mixin.min-width-768px {
+      @include mixin.STYLE-GRID-COLUMNS-2;
+    }
+    @include mixin.min-width-1280px {
+      @include mixin.STYLE-GRID-COLUMNS-3;
+    }
+    @include mixin.min-width-1600px {
+      @include mixin.STYLE-GRID-COLUMNS-4;
+    }
   }
 
   &__cell {
@@ -31,5 +44,9 @@
   &__image svg {
     width: 100%;
     height: auto;
+  }
+
+  &__link {
+    text-align: center;
   }
 }

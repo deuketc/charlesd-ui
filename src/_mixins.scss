@@ -148,6 +148,13 @@
   row-gap: 2rem;
 }
 
+@mixin STYLE-GRID-COLUMNS-3-NOGAP {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 0;
+  row-gap: 0;
+}
+
 @mixin STYLE-GRID-COLUMNS-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -177,22 +184,11 @@
 
 @mixin STYLE-HEADER-ULTRA {
   & {
-    margin-top: 3rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 3rem;
-  }
-  @include min-width-768px {
-    font-size: 4rem;
-  }
-  @include min-width-1280px {
-    font-size: 5rem;
-  }
-  @include min-width-1600px {
-    font-size: 6rem;
-  }
-  @include min-width-1921px {
-    font-size: 7rem;
+    font-size: clamp(3rem, 10vw, 7rem);
+    margin-top: min(10%, 4rem);
+    margin-bottom: min(10%, 4rem);
   }
 }
 
@@ -200,21 +196,9 @@
   & {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 2.5rem;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-  }
-  @include min-width-768px {
-    font-size: 3.5rem;
-  }
-  @include min-width-1280px {
-    font-size: 4rem;
-  }
-  @include min-width-1600px {
-    font-size: 4.5rem;
-  }
-  @include min-width-1921px {
-    font-size: 5rem;
+    font-size: clamp(2rem, 4vw, 5rem);
+    margin-top: min(10%, 4rem);
+    margin-bottom: min(10%, 4rem);
   }
 }
 
@@ -255,20 +239,23 @@
 @mixin STYLE-COPY {
   & {
     font-weight: 400;
-    font-size: 1rem;
+    // font-size: 1rem;
+    font-size: clamp(1.2rem, 1.8vw, 2rem);
+    margin-top: min(10%, 4rem);
+    margin-bottom: min(10%, 4rem);
   }
-  @include min-width-768px {
-    font-size: 1.2rem;
-  }
-  @include min-width-1280px {
-    font-size: 1.4rem;
-  }
-  @include min-width-1600px {
-    font-size: 1.5rem;
-  }
-  @include min-width-1921px {
-    font-size: 2rem;
-  }
+  // @include min-width-768px {
+  //   font-size: 1.2rem;
+  // }
+  // @include min-width-1280px {
+  //   font-size: 1.4rem;
+  // }
+  // @include min-width-1600px {
+  //   font-size: 1.5rem;
+  // }
+  // @include min-width-1921px {
+  //   font-size: 2rem;
+  // }
 }
 
 @mixin STYLE-COPY-DETAILS {

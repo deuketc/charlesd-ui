@@ -20,7 +20,7 @@ const Accomplishments = () => {
               Awarded a &ldquo;TOA&rdquo; for the development of the "What are
               the odds" State Insurance promotion website.{' '}
             </p>
-            <p>
+            <p className={styles.accomplishments__link}>
               <Link className="btn" to="/projects/wato">
                 Read more
               </Link>
