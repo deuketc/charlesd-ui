@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { useEffect, useRef, useState } from 'react';
-import { shapeDefs, SvgList } from './shapes';
-import { spawnLightning } from './lightning';
+import { svgCharactersObject, SvgType } from './shapes';
+
 import Matter, {
   Engine,
   Render,
@@ -19,15 +19,8 @@ import MatterWrap from 'matter-wrap'; // Import the plugin
 Matter.use(MatterWrap); // Use the plugin with Matter.js
 
 const MatterDemo = () => {
-  let isFiring = false;
   const sceneRef = useRef(null);
   const engineRef = useRef(null);
-  const groundRef = useRef(null);
-  const leftWallRef = useRef(null);
-  const rightWallRef = useRef(null);
-  const myRef = useRef(null);
-  const THICCNESS = 60;
-
   const bodies = [];
 
   // Enable wrapping for all bodies added to the world
@@ -40,13 +33,13 @@ const MatterDemo = () => {
   }
 
   useEffect(() => {
-    async function loadResponsiveBody(shape: SvgList, world: World, scale = 1) {
-      const res = await fetch(shape.path);
+    async function loadResponsiveBody(
+      character: SvgType,
+      world: World,
+      scale = 1
+    ) {
+      const res = await fetch(character.path);
       const raw = await res.json();
-
-      function randomBetweenMinusOneAndOne() {
-        return Math.random() * 2 - 1;
-      }
 
       // Clone so we don’t mutate original
       const verts = raw.map(v => ({ x: v.x, y: v.y })); // ← clone manually
@@ -55,23 +48,23 @@ const MatterDemo = () => {
       Vertices.scale(verts, scale, scale, Vertices.centre(verts));
 
       const body = Matter.Bodies.fromVertices(
-        shape.x,
-        shape.y,
+        character.x,
+        character.y,
         [verts],
         {
           //inertia: Infinity, stops rotation
-          label: shape.name,
-          frictionAir: shape.frictionAir, // air resistance
-          restitution: shape.restitution, // bounciness
+          label: character.name,
+          frictionAir: character.frictionAir, // air resistance
+          restitution: character.restitution, // bounciness
           isStatic: false,
           force: {
-            x: randomBetweenMinusOneAndOne(), // Add any initial force if needed
-            y: randomBetweenMinusOneAndOne(), // Add any initial force if needed
+            x: 1, // Add any initial force if needed
+            y: 1, // Add any initial force if needed
           },
           // isSensor: true, // Uncomment if you want it to be a sensor
           render: {
             sprite: {
-              texture: shape.sprite,
+              texture: character.sprite,
               xScale: scale,
               yScale: scale,
             },
@@ -80,50 +73,29 @@ const MatterDemo = () => {
         true
       );
 
-      // Enable wrapping for this body
-      const width = sceneRef.current?.clientWidth || 800;
-      const height = sceneRef.current?.clientHeight || 600;
       enableWrap(body, width, height);
 
       Matter.World.add(world, body);
-      bodies[shape.name] = body;
+      // store body and its applied scale so we can update it on resize
+      body._scale = scale || 1;
+      if (body.render && body.render.sprite) {
+        body.render.sprite.xScale = body._scale;
+        body.render.sprite.yScale = body._scale;
+      }
+      bodies[character.name] = body;
     }
 
-    async function loadAllShapes(
-      shapes: SvgList[],
+    async function loadSvgCharacters(
+      characters: SvgType[],
       world: World,
       delay = 25,
       scale = 1
     ) {
-      for (const shape of shapes) {
-        await loadResponsiveBody(shape, world, scale);
+      for (const character of characters) {
+        await loadResponsiveBody(character, world, scale);
         await new Promise(res => setTimeout(res, delay));
       }
-      setupClickHandler(bodies['rainbowOne']);
     }
-
-    const setupClickHandler = shape => {
-      render.canvas.addEventListener('mousedown', e => {
-        const mousePos = mouse.position;
-
-        // Get cloud under mouse (simplified hit-test)
-        const clickedBody = Matter.Query.point([shape], mousePos)[0];
-
-        if (clickedBody) {
-          isFiring = true;
-          spawnLightningLoop(shape);
-        }
-      });
-    };
-
-    const spawnLightningLoop = shape => {
-      if (!isFiring) return;
-      spawnLightning(shape.position.x, shape.position.y + 220, world, getScale); // offset downward
-
-      setTimeout(() => {
-        spawnLightningLoop(shape); // recurse if still holding
-      }, 500); // fire every 0.5s or whatever feels good
-    };
 
     // create an engine
     const engine = Engine.create();
@@ -132,8 +104,8 @@ const MatterDemo = () => {
     engineRef.current = engine;
     engine.gravity.y = 0; // Adjust gravity if needed
 
-    const width = sceneRef.current.clientWidth || 800;
-    const height = sceneRef.current.clientHeight || 600;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
 
     // create a renderer
     const render = Render.create({
@@ -176,48 +148,59 @@ const MatterDemo = () => {
     // run the engine
     Runner.run(runner, engine);
 
-    const handleResize = () => {
-      const newWidth = sceneRef.current.clientWidth;
-      const newHeight = sceneRef.current.clientHeight;
-
-      render.canvas.width = newWidth;
-      render.canvas.height = newHeight;
-      render.options.width = newWidth;
-      render.options.height = newHeight;
-
-      // Scale all bodies in the "bodies" constant
-      const scale = Math.min(newWidth / 1200, newHeight / 1200);
-      Object.values(bodies).forEach(body => {
-        if (body) {
-          // Calculate current scale based on body's render.sprite.xScale
-          const currentScale = body.render?.sprite?.xScale || 1;
-          const scaleFactor = scale / currentScale;
-          Matter.Body.scale(body, scaleFactor, scaleFactor);
-
-          // Update sprite scale for rendering
-          if (body.render && body.render.sprite) {
-            body.render.sprite.xScale = scale;
-            body.render.sprite.yScale = scale;
-          }
-        }
-      });
-    };
-
-    render.canvas.addEventListener('mouseup', () => {
-      isFiring = false;
-    });
-
-    window.addEventListener('resize', handleResize);
-
     // Load all SVG's
     const getScale = () => {
-      const baseWidth = 1500; // Base width for scaling
-      return Math.min(
-        window.innerWidth / baseWidth,
-        window.innerHeight / baseWidth
+      const minWidth = 375; // mobile breakpoint
+      const maxWidth = 1400; // desktop breakpoint
+      const minScale = 0.5; // mobile scale
+      const maxScale = 1; // desktop scale
+
+      const ratio = Math.min(
+        Math.max((window.innerWidth - minWidth) / (maxWidth - minWidth), 0),
+        1
       );
+      return minScale + (maxScale - minScale) * ratio;
     };
-    loadAllShapes(shapeDefs, world, 1000, getScale());
+
+    loadSvgCharacters(svgCharactersObject, world, 500, getScale());
+
+    // Handle window resize: adjust renderer size, wrap bounds and body scales
+    const handleResize = () => {
+      const newWidth = window.innerWidth;
+      const newHeight = window.innerHeight;
+      Render.setSize(render, newWidth, newHeight);
+
+      // compute target scale for bodies
+      const targetScale = getScale();
+
+      // Update wrap bounds and scale bodies
+      for (const bodyName in bodies) {
+        const body = bodies[bodyName];
+        if (!body) continue;
+
+        // update wrap bounds for matter-wrap
+        if (body.plugin) {
+          body.plugin.wrap = {
+            min: { x: 0, y: 0 },
+            max: { x: newWidth, y: newHeight },
+          };
+        }
+
+        // rescale the body geometry and sprite if scale changed
+        const prevScale = body._scale || 1;
+        const scaleFactor = targetScale / prevScale;
+        if (scaleFactor !== 1 && Math.abs(scaleFactor - 1) > 1e-6) {
+          Body.scale(body, scaleFactor, scaleFactor);
+          body._scale = targetScale;
+          if (body.render && body.render.sprite) {
+            body.render.sprite.xScale = targetScale;
+            body.render.sprite.yScale = targetScale;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('resize', handleResize);

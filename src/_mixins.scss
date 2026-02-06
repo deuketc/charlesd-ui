@@ -117,9 +117,8 @@
 }
 
 @mixin STYLE-SECTION-PADDING-BOTTOM {
-  & {
-    padding-bottom: 2rem;
-  }
+  padding-bottom: 2rem;
+
   @include min-width-420px() {
     padding-bottom: 3rem;
   }
@@ -137,15 +136,15 @@
 @mixin STYLE-GRID-COLUMNS-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 6rem;
-  row-gap: 6rem;
+  column-gap: 3rem;
+  row-gap: 3rem;
 }
 
 @mixin STYLE-GRID-COLUMNS-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  column-gap: 2rem;
-  row-gap: 2rem;
+  column-gap: 5rem;
+  row-gap: 5rem;
 }
 
 @mixin STYLE-GRID-COLUMNS-3-NOGAP {
@@ -159,6 +158,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 3rem;
+  row-gap: 3rem;
 }
 
 @mixin STYLE-GRID-COLUMNS-5 {
@@ -241,8 +241,8 @@
     font-weight: 400;
     // font-size: 1rem;
     font-size: clamp(1.2rem, 1.8vw, 2rem);
-    margin-top: min(10%, 4rem);
-    margin-bottom: min(10%, 4rem);
+    // margin-top: min(10%, 4rem);
+    // margin-bottom: min(10%, 4rem);
   }
   // @include min-width-768px {
   //   font-size: 1.2rem;

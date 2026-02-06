@@ -138,13 +138,11 @@ const Landing = () => {
         <MatterDemo />
         <div ref={landing} className={styles.intro__right_col}>
           <h1 ref={headerRef} className={styles.intro__heading}>
-            Welcome to my Digital Sandbox
+            Built to move
           </h1>
           <p ref={copyRef} className={styles.intro__p1}>
             I'm Charlie, a developer building diverse and engaging web
             experiences.
-            <br />
-            Stir the cosmos, then check out my projects below.
           </p>
 
           <div className={styles.intro__btn_section}>

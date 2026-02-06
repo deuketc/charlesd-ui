@@ -1,4 +1,4 @@
-export type SvgList = {
+export type SvgType = {
   name: string;
   sprite: string;
   path: string;
@@ -12,10 +12,10 @@ export function getRandomPercent(): number {
   return Math.random() * 100;
 }
 
-const AIR_FRICTION = 0.0;
-const RESTITUTION = 0.5;
+const AIR_FRICTION = 0.03;
+const RESTITUTION = 0.8;
 
-export const shapeDefs: SvgList[] = [
+export const svgCharactersObject: SvgType[] = [
   {
     name: 'smileyTounge',
     sprite: '/svg/smiley-tounge.svg',
@@ -85,7 +85,7 @@ export const shapeDefs: SvgList[] = [
     path: '/vertices/pill-path.json',
     x: (window.innerWidth * getRandomPercent()) / 100,
     y: (window.innerHeight * getRandomPercent()) / 100,
-    frictionAir: 0.008,
+    frictionAir: AIR_FRICTION,
     restitution: RESTITUTION,
   },
 ];

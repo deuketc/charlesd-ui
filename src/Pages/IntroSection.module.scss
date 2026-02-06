@@ -44,10 +44,12 @@
     margin-bottom: 4rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: clamp(1rem, -0.875rem + 8.333vw, 11rem);
+    font-size: 8.5vw;
+    text-align: center;
   }
   &__p1 {
     color: #fff;
+    text-align: center;
     @include mixin.STYLE-COPY;
   }
   &__scroll_cta {

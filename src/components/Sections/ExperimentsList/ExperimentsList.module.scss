@@ -7,7 +7,6 @@
   background-color: #ffffff;
   z-index: 10;
   &__header {
-    // margin-right: 2rem;
     text-align: center;
     @include mixin.STYLE-HEADER-SUPER;
   }
@@ -18,10 +17,10 @@
   &__wrapper {
     @include mixin.PAGE;
     @include mixin.SECTION-WRAPPER;
+    @include mixin.STYLE-SECTION-PADDING-BOTTOM;
   }
   &__list {
     @include mixin.LIST-RESET;
-    @include mixin.SECTION-WRAPPER;
     @include mixin.min-width-1280px {
       @include mixin.STYLE-GRID-COLUMNS-2;
     }
@@ -33,6 +32,9 @@
     }
   }
   &__list_item_link {
+    @include mixin.max-width-1279px {
+      margin-bottom: 3rem;
+    }
     text-decoration: none;
     display: block;
     background-color: #ccc;

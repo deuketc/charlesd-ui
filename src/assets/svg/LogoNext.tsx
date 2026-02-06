@@ -12,9 +12,9 @@ const LogoNext = () => {
         transform="translate(-26.068 32.185)"
       />
       <path
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M313.525 540.356 196.55 395.102h-31.15v145.193h24.92V426.137l91.896 114.219z"
-        clip-rule="evenodd"
+        clipRule="evenodd"
         style={{ strokeWidth: 1.8308 }}
         transform="translate(-26.068 32.185)"
       />
