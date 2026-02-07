@@ -26,16 +26,11 @@
     flex-direction: column;
     box-sizing: border-box;
     margin: 0 auto;
-
-    //@media (min-width: var.$min-width-1280px) {
     height: 100vh;
     position: absolute;
     left: 5%;
     width: 90%;
-    //}
-    @media (min-width: var.$min-width-1280px) {
-      pointer-events: none;
-    }
+    pointer-events: none;
   }
   &__heading {
     color: #fff;
@@ -76,6 +71,7 @@
     //@include mixin.STYLE-COPY-DETAILS;
   }
   &__btn_section {
+    pointer-events: all;
     display: flex;
     flex-direction: column;
     @media (min-width: var.$min-width-420px) {
