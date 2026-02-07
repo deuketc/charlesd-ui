@@ -152,7 +152,7 @@ const MatterDemo = () => {
     const getScale = () => {
       const minWidth = 375; // mobile breakpoint
       const maxWidth = 1400; // desktop breakpoint
-      const minScale = 0.5; // mobile scale
+      const minScale = 0.3; // mobile scale
       const maxScale = 1; // desktop scale
 
       const ratio = Math.min(

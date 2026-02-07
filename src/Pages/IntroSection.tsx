@@ -156,10 +156,10 @@ const Landing = () => {
 
             <Link
               ref={buttonSecondaryRef}
-              to="/experiments"
+              to="/resume"
               className={styles.intro__button_secondary}
             >
-              Experiments
+              Resume
             </Link>
           </div>
         </div>

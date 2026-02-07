@@ -17,7 +17,6 @@
 
   //position: relative;
   &__right_col {
-    pointer-events: none;
     width: 90%;
     left: 0;
     top: 0;
@@ -27,13 +26,15 @@
     flex-direction: column;
     box-sizing: border-box;
     margin: 0 auto;
-    pointer-events: none;
+
+    //@media (min-width: var.$min-width-1280px) {
+    height: 100vh;
+    position: absolute;
+    left: 5%;
+    width: 90%;
+    //}
     @media (min-width: var.$min-width-1280px) {
-      height: 100vh;
-      position: absolute;
-      left: 20%;
-      width: 60%;
-      max-width: 2000px;
+      pointer-events: none;
     }
   }
   &__heading {
