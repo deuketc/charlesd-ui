@@ -3,8 +3,7 @@ import gsap from 'gsap';
 import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 
-gsap.registerPlugin(DrawSVGPlugin);
-gsap.registerPlugin(MotionPathPlugin);
+gsap.registerPlugin(DrawSVGPlugin, MotionPathPlugin);
 
 const LogoReact = () => {
   const circle = useRef(null);

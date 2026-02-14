@@ -3,8 +3,7 @@ import gsap from 'gsap';
 import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 
-gsap.registerPlugin(DrawSVGPlugin);
-gsap.registerPlugin(MotionPathPlugin);
+gsap.registerPlugin(DrawSVGPlugin, MotionPathPlugin);
 
 const LogoRedux = () => {
   const svgSwooshLeft = useRef(null);
@@ -238,7 +237,7 @@ const LogoRedux = () => {
       <g id="animation">
         <g id="lines">
           <path
-            className='svgSwooshLeft'
+            className="svgSwooshLeft"
             id="swoosh-left"
             fill="#764ABC"
             d="M609.458,629.625c-34.621,68.229-89.204,121.207-168.635,162.961
@@ -249,7 +248,7 @@ const LogoRedux = () => {
         L609.458,629.625z"
           />
           <path
-            className='svgSwooshLeftHide'
+            className="svgSwooshLeftHide"
             id="swoosh-left-hide"
             fill="none"
             stroke="#FFFFFF"

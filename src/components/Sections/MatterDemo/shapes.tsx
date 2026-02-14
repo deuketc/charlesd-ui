@@ -40,7 +40,7 @@ export const svgCharactersObject: SvgType[] = [
     path: '/vertices/pill-path.json',
     x: (window.innerWidth * getRandomPercent()) / 100,
     y: (window.innerHeight * getRandomPercent()) / 100,
-    frictionAir: 0.008,
+    frictionAir: AIR_FRICTION,
     restitution: RESTITUTION,
   },
   {
