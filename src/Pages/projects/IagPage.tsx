@@ -56,12 +56,7 @@ const IagPage = () => {
 
   return imgsLoaded ? (
     <>
-      <Hero
-        url="https://www.iag.co.nz"
-        title="We make your world a safer place"
-        copy={'Full-time front-end engineer role.'}
-        heroComponent={<IagHero />}
-      />
+      <IagHero />
       <CopySection
         paddingTop={true}
         title="Our team built..."
