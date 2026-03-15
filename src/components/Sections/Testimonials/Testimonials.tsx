@@ -3,14 +3,17 @@ import gsap from 'gsap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 
-import styles from './Accordion.module.scss';
+import styles from './Testimonials.module.scss';
 
-interface AccordionProps {
+interface TestimonialsProps {
   children: React.ReactNode;
   childWidth: number;
 }
 
-const Accordion: React.FC<AccordionProps> = ({ children, childWidth }) => {
+const Testimonials: React.FC<TestimonialsProps> = ({
+  children,
+  childWidth,
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
   const totalItems = React.Children.count(children);
@@ -82,4 +85,4 @@ const Accordion: React.FC<AccordionProps> = ({ children, childWidth }) => {
     </>
   );
 };
-export default Accordion;
+export default Testimonials;

@@ -57,7 +57,7 @@ import styles from './Iag.module.scss';
 import LogosHorizontalScroll from '../../../components/Sections/LogosHorizontalScroll/LogosHorizontalScroll';
 import SectionHeader from '../../../components/Sections/SectionHeader/SectionHeader';
 import SectionColumns from '../../../components/SectionColumns/SectionColumns';
-import Accordion from '../../../components/Sections/Accordion/accordion';
+import Testimonials from '../../../components/Sections/Testimonials/Testimonials';
 import DualImage from '../../../components/Sections/DualImage/DualImage';
 
 //const sliderImagesEmail = [sliderImageEmail01, sliderImageEmail02];
@@ -515,7 +515,7 @@ const IagPage = () => {
         width="90%"
       >
         <SectionHeader h2="Testimonials" style="L3" color="#000" />
-        <Accordion childWidth={30}>
+        <Testimonials childWidth={30}>
           <SectionCopy>
             <p>
               "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
@@ -564,7 +564,7 @@ const IagPage = () => {
             </p>
             <p>Charlie Deukett</p>
           </SectionCopy>
-        </Accordion>
+        </Testimonials>
       </SectionWrapper>
 
       {/* Disaster claims hub */}
