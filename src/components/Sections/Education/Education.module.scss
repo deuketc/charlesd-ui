@@ -10,7 +10,7 @@
   @include mixin.max-width-1279px {
     text-align: center;
   }
-  @include mixin.STYLE-HEADER-SUPER;
+  @include mixin.STYLE-HEADER-L3;
 }
 
 .resumeEducation {
@@ -26,7 +26,7 @@
   &__headerSub {
     margin-top: 0;
     margin-bottom: 1.5%;
-    @include mixin.STYLE-HEADER-SUB;
+    @include mixin.STYLE-HEADER-L1;
     @include mixin.HIDDEN-TEXT;
   }
   &__headerItal {
@@ -52,7 +52,7 @@
   &__date {
     display: inline-block;
     margin-right: 0.5rem;
-    @include mixin.STYLE-HEADER-SUB;
+    @include mixin.STYLE-HEADER-L1;
   }
   &__date_block {
     display: block;

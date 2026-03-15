@@ -136,7 +136,7 @@
 @mixin STYLE-GRID-COLUMNS-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 3rem;
+  column-gap: 10%;
   row-gap: 3rem;
 }
 
@@ -182,7 +182,7 @@
   font-family: 'Source Sans 3', sans-serif;
 }
 
-@mixin STYLE-HEADER-ULTRA {
+@mixin STYLE-HEADER-L4 {
   & {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
@@ -192,7 +192,7 @@
   }
 }
 
-@mixin STYLE-HEADER-SUPER {
+@mixin STYLE-HEADER-L3 {
   & {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
@@ -202,7 +202,7 @@
   }
 }
 
-@mixin STYLE-HEADER {
+@mixin STYLE-HEADER-L2 {
   font-weight: 500;
   font-size: 1.2rem;
   @include min-width-768px {
@@ -219,7 +219,7 @@
   }
 }
 
-@mixin STYLE-HEADER-SUB {
+@mixin STYLE-HEADER-L1 {
   font-weight: 500;
   font-size: 1.4rem;
   @include min-width-768px {

@@ -20,7 +20,7 @@
     font-size: 1rem;
     margin: 0;
     margin-bottom: 1rem;
-    @include mixin.STYLE-HEADER-SUB;
+    @include mixin.STYLE-HEADER-L1;
     @include mixin.min-width-1280px {
       display: none;
     }

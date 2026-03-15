@@ -1,0 +1,18 @@
+@use '../../mixins' as mixin;
+@use '../../variables' as var;
+
+.sectionColumns2 {
+  @include mixin.STYLE-GRID-COLUMNS-2;
+}
+
+.sectionColumns3 {
+  @include mixin.STYLE-GRID-COLUMNS-3;
+}
+
+.sectionColumns4 {
+  @include mixin.STYLE-GRID-COLUMNS-4;
+}
+
+.sectionColumns5 {
+  @include mixin.STYLE-GRID-COLUMNS-5;
+}

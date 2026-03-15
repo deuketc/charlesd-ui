@@ -1,0 +1,53 @@
+.accordion_wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.accordion_content {
+  //width: 180%;
+  display: flex;
+}
+
+.accordion_itemWrapper {
+  //width: 30%;
+}
+
+.accordion_item {
+  width: 80%;
+}
+
+.accordion_controls {
+  position: absolute;
+  top: 11.5rem;
+  right: 5%;
+}
+
+.accordion_button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  outline: none;
+  box-shadow: none;
+  appearance: none;
+  cursor: pointer;
+  color: #592c82;
+  font-size: 6rem;
+}
+
+.accordion_button:hover {
+  color: #592c82;
+  opacity: 0.8;
+}
+
+.accordion_buttonInactive {
+  opacity: 0.3;
+  color: #592c82;
+}
+
+.accordion_buttonInactive:hover {
+  opacity: 0.3;
+  color: #592c82;
+}

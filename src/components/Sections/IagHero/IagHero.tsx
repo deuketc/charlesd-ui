@@ -64,46 +64,46 @@ const iagHero = () => {
           g1.current,
           { drawSVG: '100% 100%' },
           { duration: 0.5, drawSVG: '0% 100% ', ease: 'none' },
-          0
+          0.4
         )
         .fromTo(
           g2.current,
           { drawSVG: '0% 0%' },
           { duration: 0.75, drawSVG: '100% 0% ' },
-          0.5
+          0.9
         )
         .fromTo(
           g3.current,
           { drawSVG: '0% 0%' },
           { duration: 0.2, drawSVG: '100% 0% ', ease: 'none' },
-          0.75
+          1.15
         )
         .fromTo(
           g4.current,
           { drawSVG: '0% 0%' },
           { duration: 0.3, drawSVG: '100% 0% ' },
-          0.95
+          1.35
         )
         .fromTo(
           a1.current,
           { drawSVG: '0% 0%' },
           { duration: 0.5, drawSVG: '100% 0% ' },
-          0.6
+          1
         )
         .fromTo(
           a2.current,
           { drawSVG: '100% 100%' },
           { duration: 0.75, drawSVG: '0% 100% ' },
-          0.8
+          1.2
         )
         .fromTo(
           i1.current,
           { drawSVG: '0% 0%' },
           { duration: 0.5, drawSVG: '100% 0% ' },
-          1.2
+          1.6
         )
 
-        .to(i2.current, { scale: 1, duration: 1, ease: 'elastic.out' }, 1.65);
+        .to(i2.current, { scale: 1, duration: 1, ease: 'elastic.out' }, 2.05);
     }, comp);
 
     iagtl.play();
@@ -129,14 +129,12 @@ const iagHero = () => {
           id="i1"
           ref={i1}
           stroke="#fff"
-          stroke-dasharray="none"
-          stroke-dashoffset="16"
-          stroke-linecap="butt"
-          stroke-linejoin="round"
-          stroke-opacity="1"
-          stroke-width="56"
+          strokeDasharray="none"
+          strokeDashoffset="16"
+          strokeLinecap="butt"
+          strokeLinejoin="round"
+          strokeWidth="56"
           d="M55.861 315.901V101.865"
-          paint-order="markers stroke fill"
         />
         <circle
           id="i2"
@@ -146,24 +144,22 @@ const iagHero = () => {
           r="32.047"
           fill="#fff"
           stroke="none"
-          stroke-dashoffset="16"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="9.215"
+          strokeDashoffset="16"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="9.215"
           opacity="1"
         />
         <path
           id="a1"
           ref={a1}
           stroke="#fff"
-          stroke-dasharray="none"
-          stroke-dashoffset="16"
-          stroke-linecap="butt"
-          stroke-linejoin="round"
-          stroke-opacity="1"
-          stroke-width="56"
+          strokeDasharray="none"
+          strokeDashoffset="16"
+          strokeLinecap="butt"
+          strokeLinejoin="round"
+          strokeWidth="56"
           d="M304.092 315.901V101.865"
-          paint-order="markers stroke fill"
         />
         <circle
           id="a2"
@@ -173,13 +169,11 @@ const iagHero = () => {
           r="85.259"
           fill="none"
           stroke="#fff"
-          stroke-dasharray="none"
-          stroke-dashoffset="16"
-          stroke-linecap="butt"
-          stroke-linejoin="round"
-          stroke-opacity="1"
-          stroke-width="51"
-          paint-order="markers stroke fill"
+          strokeDasharray="none"
+          strokeDashoffset="16"
+          strokeLinecap="butt"
+          strokeLinejoin="round"
+          strokeWidth="51"
         />
         <circle
           id="g1"
@@ -189,14 +183,12 @@ const iagHero = () => {
           r="60.375"
           fill="none"
           stroke="#fff"
-          stroke-dasharray="none"
-          stroke-dashoffset="16"
-          stroke-linecap="butt"
-          stroke-linejoin="round"
-          stroke-opacity="1"
-          stroke-width="51"
+          strokeDasharray="none"
+          strokeDashoffset="16"
+          strokeLinecap="butt"
+          strokeLinejoin="round"
+          strokeWidth="51"
           display="inline"
-          paint-order="markers stroke fill"
         />
         <circle
           id="g2"
@@ -206,40 +198,34 @@ const iagHero = () => {
           r="85.259"
           fill="none"
           stroke="#fff"
-          stroke-dasharray="none"
-          stroke-dashoffset="16"
-          stroke-linecap="butt"
-          stroke-linejoin="round"
-          stroke-opacity="1"
-          stroke-width="51"
+          strokeDasharray="none"
+          strokeDashoffset="16"
+          strokeLinecap="butt"
+          strokeLinejoin="round"
+          strokeWidth="51"
           display="inline"
-          paint-order="markers stroke fill"
         />
         <path
           id="g3"
           ref={g3}
           stroke="#fff"
-          stroke-dasharray="none"
-          stroke-dashoffset="16"
-          stroke-linecap="butt"
-          stroke-linejoin="round"
-          stroke-opacity="1"
-          stroke-width="25.25"
+          strokeDasharray="none"
+          strokeDashoffset="16"
+          strokeLinecap="butt"
+          strokeLinejoin="round"
+          strokeWidth="25.25"
           d="M467.028 110.15h55"
-          paint-order="markers stroke fill"
         />
         <path
           id="g4"
           ref={g4}
           stroke="#fff"
-          stroke-dasharray="none"
-          stroke-dashoffset="16"
-          stroke-linecap="butt"
-          stroke-linejoin="round"
-          stroke-opacity="1"
-          stroke-width="57.125"
+          strokeDasharray="none"
+          strokeDashoffset="16"
+          strokeLinecap="butt"
+          strokeLinejoin="round"
+          strokeWidth="57.125"
           d="M521.796 126.088h53.232"
-          paint-order="markers stroke fill"
         />
       </svg>
 

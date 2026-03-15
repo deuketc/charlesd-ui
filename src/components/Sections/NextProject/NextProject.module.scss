@@ -12,7 +12,7 @@
     @include mixin.STYLE-SECTION-PADDING;
   }
   &__header {
-    @include mixin.STYLE-HEADER;
+    @include mixin.STYLE-HEADER-L2;
   }
   &__copy {
     @include mixin.STYLE-COPY;

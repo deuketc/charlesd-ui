@@ -1,0 +1,30 @@
+@use '../../../mixins' as mixin;
+@use '../../../variables' as var;
+
+.section_container {
+  position: relative;
+  z-index: 2;
+}
+
+.section_content_wrapper {
+  margin: 0 auto;
+}
+
+.padding_top {
+  @include mixin.STYLE-SECTION-PADDING-TOP;
+}
+.padding_bottom {
+  @include mixin.STYLE-SECTION-PADDING-BOTTOM;
+}
+
+.align_left {
+  margin: 0;
+}
+
+.align_center {
+  margin: 0 auto;
+}
+
+.align_right {
+  margin: 0 0 0 auto;
+}

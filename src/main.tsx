@@ -22,7 +22,7 @@ import TouchpointPage from './Pages/projects/TouchpointPage';
 import UdcPage from './Pages/projects/UdcPage';
 import Unichem from './Pages/projects/Unichem';
 import WatoPage from './Pages/projects/Wato';
-import IagPage from './Pages/projects/IagPage';
+import IagPage from './Pages/projects/Iag/IagPage';
 
 import './index.scss';
 

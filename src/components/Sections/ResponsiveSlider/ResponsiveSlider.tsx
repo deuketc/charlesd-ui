@@ -13,9 +13,16 @@ gsap.registerPlugin(ScrollTrigger);
 interface Iprops {
   images: string[];
   refreshPriority?: number;
+  backgroundColor?: string;
+  brandColor?: string;
 }
 
-const ResponsiveSlider = ({ images, refreshPriority }: Iprops) => {
+const ResponsiveSlider = ({
+  images,
+  refreshPriority,
+  backgroundColor,
+  brandColor,
+}: Iprops) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slideResolution, setSlideResolution] = useState('mobile');
   const heroBackgroundLayer = useRef(null);
@@ -60,7 +67,11 @@ const ResponsiveSlider = ({ images, refreshPriority }: Iprops) => {
   };
 
   return (
-    <section ref={heroBackgroundLayer} className={styles.slider}>
+    <section
+      ref={heroBackgroundLayer}
+      className={styles.slider}
+      style={backgroundColor ? { backgroundColor } : undefined}
+    >
       <div className={styles.slider__wrapper}>
         {toggleResponsive && (
           <>
@@ -85,6 +96,7 @@ const ResponsiveSlider = ({ images, refreshPriority }: Iprops) => {
               })}
             </div>
             <RadioListNav
+              brandColor={brandColor}
               radioListName={'responsive-demo'}
               images={['', '', '']}
               currentIndex={currentSlide}

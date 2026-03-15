@@ -58,7 +58,7 @@
       position: absolute;
       right: -10px;
     }
-    @include mixin.STYLE-HEADER-SUB;
+    @include mixin.STYLE-HEADER-L1;
     @include mixin.max-width-1279px {
       display: none;
     }

@@ -4,7 +4,7 @@
   &__header {
     //display: none;
     text-align: center;
-    @include mixin.STYLE-HEADER-ULTRA;
+    @include mixin.STYLE-HEADER-L4;
   }
   &__wrapper {
     @include mixin.PAGE;

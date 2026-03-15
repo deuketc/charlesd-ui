@@ -1,0 +1,22 @@
+@use '../../../mixins' as mixin;
+@use '../../../variables' as var;
+
+.copy {
+  @include mixin.STYLE-COPY;
+}
+
+.L4 {
+  @include mixin.STYLE-HEADER-L4;
+}
+
+.L3 {
+  @include mixin.STYLE-HEADER-L3;
+}
+
+.L2 {
+  @include mixin.STYLE-HEADER-L2;
+}
+
+.L1 {
+  @include mixin.STYLE-HEADER-L1;
+}

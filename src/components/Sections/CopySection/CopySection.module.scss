@@ -19,11 +19,18 @@
     @include mixin.SECTION-WRAPPER;
   }
   &__details {
-    max-width: 1200px;
+    @include mixin.min-width-1600px {
+      width: 60%;
+      //max-width: 1200px;
+    }
+
     margin: 0 auto;
   }
   &__header {
-    @include mixin.STYLE-HEADER;
+    @include mixin.STYLE-HEADER-L3;
+  }
+  &__header_super {
+    @include mixin.STYLE-HEADER-L4;
   }
   &__copy {
     @include mixin.STYLE-COPY;

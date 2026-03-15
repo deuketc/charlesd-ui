@@ -21,7 +21,7 @@
 
   &__header {
     text-align: center;
-    @include mixin.STYLE-HEADER-SUPER;
+    @include mixin.STYLE-HEADER-L3;
   }
 
   &__header_sub {
@@ -70,7 +70,7 @@
     order: 1;
     margin-left: -4rem;
     transition: margin 0.5s ease;
-    @include mixin.STYLE-HEADER-SUB;
+    @include mixin.STYLE-HEADER-L1;
   }
 
   &__list_item_header_arrow {

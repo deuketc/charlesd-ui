@@ -1,0 +1,29 @@
+@use '../../../mixins' as mixin;
+@use '../../../variables' as var;
+
+.container {
+  background-color: #ffffff;
+}
+
+.wrapper {
+  overflow: hidden;
+  //@include mixin.SECTION-WRAPPER;
+}
+
+.flexWrapper {
+  position: relative;
+  width: 200%;
+  display: flex;
+  left: 0%;
+  box-sizing: border-box;
+}
+
+.cell {
+  text-align: center;
+  width: 25%;
+}
+
+.cell svg {
+  width: 60%;
+  height: auto;
+}

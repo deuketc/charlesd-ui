@@ -16,13 +16,13 @@
   @include mixin.max-width-1279px {
     text-align: center;
   }
-  @include mixin.STYLE-HEADER-SUPER;
+  @include mixin.STYLE-HEADER-L3;
 }
 .headerSub {
   margin-top: 0;
   margin-bottom: 0;
   min-height: 95px;
-  @include mixin.STYLE-HEADER-SUB;
+  @include mixin.STYLE-HEADER-L1;
 }
 .listWrapper {
   overflow: hidden;

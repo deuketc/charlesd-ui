@@ -1,0 +1,10 @@
+@use '../../../mixins' as mixin;
+@use '../../../variables' as var;
+
+.section_copy {
+  @include mixin.STYLE-COPY;
+}
+
+.section_bulletlist {
+  @include mixin.STYLE-COPY;
+}

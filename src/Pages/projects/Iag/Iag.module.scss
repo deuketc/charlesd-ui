@@ -1,0 +1,64 @@
+@use '../../../mixins' as mixin;
+@use '../../../variables' as var;
+
+.twoColumnWrapper {
+  @include mixin.min-width-768px {
+    @include mixin.STYLE-GRID-COLUMNS-2;
+  }
+}
+
+.architectureSection {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid #ccc;
+  &_listItemCopy {
+    margin-bottom: 1rem;
+  }
+}
+
+.architectureSectionCol1 {
+  width: 40%;
+  padding-right: 6rem;
+  box-sizing: border-box;
+}
+
+.architectureSectionCol2 {
+  flex-basis: 100%;
+}
+
+.architectureSectionCol3 {
+  //width: 100px;
+}
+
+.architectureSectionIcon {
+  font-size: 6rem;
+}
+
+// .supportsMajorBrands {
+//   border-left: 1px solid #ccc;
+// }
+
+// .supportsMajorBrandsRightBorder {
+//   border-right: 1px solid #ccc;
+// }
+
+.supportsMajorBrands_copy {
+  margin-bottom: 5rem;
+  min-height: 6rem;
+}
+
+.supportsMajorBrands_count {
+  font-size: 13rem;
+  font-weight: 400;
+  line-height: 0.6;
+}
+
+.supportsMajorBrands_attribute {
+  font-size: 6rem;
+  font-weight: 600;
+  vertical-align: top;
+  line-height: 2.2rem;
+}

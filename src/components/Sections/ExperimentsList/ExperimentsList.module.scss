@@ -8,7 +8,7 @@
   z-index: 10;
   &__header {
     text-align: center;
-    @include mixin.STYLE-HEADER-SUPER;
+    @include mixin.STYLE-HEADER-L3;
   }
   &__header_sub {
     text-align: center;
@@ -69,7 +69,7 @@
   &__list_item_title {
     margin-right: 2rem;
     margin-bottom: 0.5rem;
-    @include mixin.STYLE-HEADER-SUB;
+    @include mixin.STYLE-HEADER-L1;
   }
   &__list_item_description {
     display: inline-block;
