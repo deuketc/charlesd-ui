@@ -4,7 +4,6 @@
 .video {
   position: relative;
   z-index: 1;
-  @include mixin.STYLE-SECTION-PADDING-BOTTOM;
   &__padding_top {
     padding-bottom: 0 !important;
   }

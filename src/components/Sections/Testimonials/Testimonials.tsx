@@ -17,11 +17,16 @@ const Testimonials: React.FC<TestimonialsProps> = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
   const totalItems = React.Children.count(children);
+  // console.log('total', totalItems);
   const containerWidth = totalItems * childWidth;
   const increment = 100 / totalItems;
+  // const increment = containerWidth / totalItems;
+  console.log('increment', increment);
   const itemWidth = Math.floor((childWidth / 100) * 10);
+  // console.log('itemWidth', itemWidth);
   const itemsOutView = totalItems - itemWidth;
-  const maxIndex = totalItems - itemsOutView;
+  // console.log('itemsOutView', itemsOutView);
+  const maxIndex = totalItems - itemsOutView + 1;
 
   const handleNext = () => {
     if (currentIndex < maxIndex) {
@@ -47,35 +52,35 @@ const Testimonials: React.FC<TestimonialsProps> = ({
 
   return (
     <>
-      <div className={styles.accordion_wrapper}>
+      <div className={styles.slider_wrapper}>
         <div
-          className={styles.accordion_content}
+          className={styles.slider_content}
           ref={contentRef}
           style={{ width: `${containerWidth}%` }}
         >
           {React.Children.map(children, (child, index) => (
             <div
-              className={styles.accordion_itemWrapper}
+              className={styles.slider_itemWrapper}
               key={index}
               style={{ width: `${childWidth}%` }}
             >
-              <div className={styles.accordion_item}>{child}</div>
+              <div className={styles.slider_item}>{child}</div>
             </div>
           ))}
         </div>
       </div>
-      <div className={styles.accordion_controls}>
+      <div className={styles.slider_controls}>
         <button
-          className={`${styles.accordion_button} ${
-            currentIndex === 0 ? styles.accordion_buttonInactive : ''
+          className={`${styles.slider_button} ${
+            currentIndex === 0 ? styles.slider_buttonInactive : ''
           }`}
           onClick={handlePrevious}
         >
           <FontAwesomeIcon icon={faAngleLeft} />
         </button>
         <button
-          className={`${styles.accordion_button} ${
-            currentIndex === maxIndex ? styles.accordion_buttonInactive : ''
+          className={`${styles.slider_button} ${
+            currentIndex === maxIndex ? styles.slider_buttonInactive : ''
           }`}
           onClick={handleNext}
         >

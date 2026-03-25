@@ -8,12 +8,14 @@ interface SectionCopyProps {
   children?: React.ReactNode;
   bulletlist?: { icon: any; text: string }[];
   textColor?: string;
+  iconColor?: string;
   textAlign?: 'left' | 'center' | 'right' | 'justify';
 }
 
 const SectionCopy: React.FC<SectionCopyProps> = ({
   children,
   textColor,
+  iconColor,
   textAlign,
   bulletlist,
 }) => {
@@ -51,6 +53,7 @@ const SectionCopy: React.FC<SectionCopyProps> = ({
                     minWidth: '6rem',
                     display: 'inline-block',
                     textAlign: 'center',
+                    ...(iconColor && { color: iconColor }),
                   }}
                 >
                   <FontAwesomeIcon

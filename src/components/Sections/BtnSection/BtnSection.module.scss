@@ -1,35 +1,41 @@
 @use '../../../_mixins' as mixin;
 
 .btn_section {
-  &__wrapper {
-    padding-bottom: 4rem;
-  }
+  // &__wrapper {
+  //   padding-bottom: 4rem;
+  // }
   &__container {
-    text-align: center;
-    max-width: 800px;
-    @include mixin.SECTION-WRAPPER;
-    @include mixin.min-width-420px {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
+    //text-align: center;
+    //max-width: 800px;
+    //@include mixin.SECTION-WRAPPER;
+    //@include mixin.min-width-420px {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 3rem;
+    flex-wrap: wrap;
+    //}
+  }
+  &__icon {
+    margin-right: 1.5rem;
   }
 }
 
 .btn__primary {
-  margin-bottom: 1rem;
-  width: 100%;
   @include mixin.BTN;
-  @include mixin.min-width-420px {
-    width: 47%;
-  }
+  margin-bottom: 1rem;
+  //width: 100%;
+
+  padding-left: 3rem;
+  padding-right: 3rem;
+  white-space: nowrap;
 }
 
 .btn__secondary {
-  margin-bottom: 1rem;
-  width: 100%;
   @include mixin.BTN__SECONDARY;
-  @include mixin.min-width-420px {
-    width: 47%;
-  }
+  padding-left: 3rem;
+  padding-right: 3rem;
+  white-space: nowrap;
+  margin-bottom: 1rem;
+  //width: 100%;
 }

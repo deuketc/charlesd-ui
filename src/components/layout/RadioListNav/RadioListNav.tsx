@@ -5,7 +5,6 @@ interface Iprops {
   currentIndex: number;
   onChangeFunc: Function;
   radioListName: string;
-  brandColor?: string;
 }
 
 const RadioListNav = ({
@@ -13,7 +12,6 @@ const RadioListNav = ({
   currentIndex,
   onChangeFunc,
   radioListName,
-  brandColor,
 }: Iprops) => {
   return (
     <nav className={styles.sliderNav}>

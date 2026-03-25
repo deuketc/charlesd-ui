@@ -14,14 +14,12 @@ interface Iprops {
   images: string[];
   refreshPriority?: number;
   backgroundColor?: string;
-  brandColor?: string;
 }
 
 const ResponsiveSlider = ({
   images,
   refreshPriority,
   backgroundColor,
-  brandColor,
 }: Iprops) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slideResolution, setSlideResolution] = useState('mobile');
@@ -96,7 +94,6 @@ const ResponsiveSlider = ({
               })}
             </div>
             <RadioListNav
-              brandColor={brandColor}
               radioListName={'responsive-demo'}
               images={['', '', '']}
               currentIndex={currentSlide}

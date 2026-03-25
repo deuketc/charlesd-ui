@@ -2,12 +2,12 @@ import IagHero from '../../../components/Sections/IagHero/IagHero';
 
 import Mobile from '../../../components/Sections/Mobile/Mobile';
 import ResponsiveSlider from '../../../components/Sections/ResponsiveSlider/ResponsiveSlider';
-import NextProject from '../../../components/Sections/NextProject/NextProject';
+// import NextProject from '../../../components/Sections/NextProject/NextProject';
 
 import Video from '../../../components/Sections/Video/Video';
 import useImagesPreloader from '../../../hooks/UseImagesPreloader';
 import Spinner from '../../../components/layout/Spinner/Spinner';
-import DarkMode from '../../../components/Sections/DarkMode/DarkMode';
+// import DarkMode from '../../../components/Sections/DarkMode/DarkMode';
 import BtnSection from '../../../components/Sections/BtnSection/BtnSection';
 import SectionCopy from '../../../components/Sections/SectionCopy/SectionCopy';
 import SectionWrapper from '../../../components/Sections/SectionWrapper/SectionWrapper';
@@ -32,6 +32,7 @@ import {
   faBoltLightning,
   faDatabase,
   faCode,
+  faArrowUpRightFromSquare,
 } from '@fortawesome/free-solid-svg-icons';
 
 import sliderMobileImage from '../../../assets/projects/iag/iag-claims-ami-mobile.png';
@@ -59,19 +60,13 @@ import SectionHeader from '../../../components/Sections/SectionHeader/SectionHea
 import SectionColumns from '../../../components/SectionColumns/SectionColumns';
 import Testimonials from '../../../components/Sections/Testimonials/Testimonials';
 import DualImage from '../../../components/Sections/DualImage/DualImage';
+import NumberCountAnimation from '../../../components/Sections/NumberCountAnimation/NumberCountAnimation';
 
-//const sliderImagesEmail = [sliderImageEmail01, sliderImageEmail02];
 const responsiveSliderImages = [
   sliderMobileImage,
   sliderTabletImage,
   sliderDesktopImage,
 ];
-// const mySingleImage = {
-//   name: 'Disaster hub Image',
-//   mobileSrc: screenhotImageMobile,
-//   tabletSrc: screenhotImageTablet,
-//   desktopSrc: screenhotImageDesktop,
-// };
 
 const myDualImage = {
   image1: {
@@ -134,7 +129,7 @@ const IagPage = () => {
       <SectionWrapper
         backgroundColor="#ffffff"
         paddingTop={true}
-        paddingBottom={true}
+        paddingBottom={false}
         width="90%"
         maxWidth="110rem"
         align="center"
@@ -156,14 +151,13 @@ const IagPage = () => {
       </SectionWrapper>
 
       <ResponsiveSlider
-        brandColor="#592c82"
         backgroundColor="#ffffff"
         images={responsiveSliderImages}
       />
 
       <SectionWrapper
         backgroundColor="#ffffff"
-        paddingTop={true}
+        paddingTop={false}
         paddingBottom={true}
         width="90%"
         maxWidth="110rem"
@@ -239,7 +233,7 @@ const IagPage = () => {
           </div>
           <div className={styles.architectureSectionCol2}>
             <SectionCopy>
-              <ul>
+              <ul className={styles.architectureSection_list}>
                 <li className={styles.architectureSection_listItem}>
                   <p className={styles.architectureSection_listItemCopy}>
                     Architect large-scale UI applications from the ground up,
@@ -280,7 +274,7 @@ const IagPage = () => {
           </div>
           <div className={styles.architectureSectionCol2}>
             <SectionCopy>
-              <ul>
+              <ul className={styles.architectureSection_list}>
                 <li className={styles.architectureSection_listItem}>
                   <p className={styles.architectureSection_listItemCopy}>
                     Research, evaluate, and implement modern UI technologies to
@@ -321,7 +315,7 @@ const IagPage = () => {
           </div>
           <div className={styles.architectureSectionCol2}>
             <SectionCopy>
-              <ul>
+              <ul className={styles.architectureSection_list}>
                 <li className={styles.architectureSection_listItem}>
                   <p className={styles.architectureSection_listItemCopy}>
                     Write comprehensive unit and integration tests to ensure
@@ -358,7 +352,7 @@ const IagPage = () => {
           </div>
           <div className={styles.architectureSectionCol2}>
             <SectionCopy>
-              <ul>
+              <ul className={styles.architectureSection_list}>
                 <li className={styles.architectureSection_listItem}>
                   <p className={styles.architectureSection_listItemCopy}>
                     Configure and maintain CI/CD pipelines to support safe,
@@ -399,7 +393,7 @@ const IagPage = () => {
           </div>
           <div className={styles.architectureSectionCol2}>
             <SectionCopy>
-              <ul>
+              <ul className={styles.architectureSection_list}>
                 <li className={styles.architectureSection_listItem}>
                   <p className={styles.architectureSection_listItemCopy}>
                     Present new features and architectural decisions to
@@ -458,55 +452,44 @@ const IagPage = () => {
         </SectionCopy>
       </SectionWrapper>
 
-      <SectionWrapper
-        backgroundColor="#ffffff"
-        paddingTop={false}
-        paddingBottom={true}
-        width="90%"
-      >
-        <SectionColumns>
-          <SectionCopy textAlign="center">
-            <div className={styles.supportsMajorBrands}>
-              <p className={styles.supportsMajorBrands_copy}>
-                Supports major insurance brands
-              </p>
-              <p>
-                <span className={styles.supportsMajorBrands_count}>7</span>
-                <span className={styles.supportsMajorBrands_attribute}>+</span>
-              </p>
-            </div>
-          </SectionCopy>
-          <SectionCopy textAlign="center">
-            <div className={styles.supportsMajorBrands}>
-              <p className={styles.supportsMajorBrands_copy}>User Interfaces</p>
-              <p>
-                <span className={styles.supportsMajorBrands_count}>16</span>
-                <span className={styles.supportsMajorBrands_attribute}>+</span>
-              </p>
-            </div>
-          </SectionCopy>
-          <SectionCopy textAlign="center">
-            <div className={styles.supportsMajorBrands}>
-              <p className={styles.supportsMajorBrands_copy}>
-                Integrate with backend API's
-              </p>
-              <p>
-                <span className={styles.supportsMajorBrands_count}>20</span>
-                <span className={styles.supportsMajorBrands_attribute}>+</span>
-              </p>
-            </div>
-          </SectionCopy>
-          <SectionCopy textAlign="center">
-            <div className={styles.supportsMajorBrands}>
-              <p className={styles.supportsMajorBrands_copy}>User per month</p>
-              <p>
-                <span className={styles.supportsMajorBrands_count}>5,000</span>
-                <span className={styles.supportsMajorBrands_attribute}>+</span>
-              </p>
-            </div>
-          </SectionCopy>
-        </SectionColumns>
-      </SectionWrapper>
+      <div className={styles.supportsMajorBrands_wrapper}>
+        <SectionWrapper
+          backgroundColor="#ffffff"
+          paddingTop={false}
+          paddingBottom={true}
+          width="90%"
+        >
+          <SectionColumns>
+            <SectionCopy textAlign="center">
+              <SectionHeader
+                textAlign="center"
+                h3="Supports major insurance brands"
+                style="L2"
+                color="#000"
+              />
+              <NumberCountAnimation number="7" />
+            </SectionCopy>
+            <SectionCopy textAlign="center">
+              <SectionHeader
+                textAlign="center"
+                h3="User Interfaces"
+                style="L2"
+                color="#000"
+              />
+              <NumberCountAnimation number="16" />
+            </SectionCopy>
+            <SectionCopy textAlign="center">
+              <SectionHeader
+                textAlign="center"
+                h3="Integrate with backend API's"
+                style="L2"
+                color="#000"
+              />
+              <NumberCountAnimation number="20" />
+            </SectionCopy>
+          </SectionColumns>
+        </SectionWrapper>
+      </div>
 
       <SectionWrapper
         backgroundColor="#ffffff"
@@ -518,51 +501,95 @@ const IagPage = () => {
         <Testimonials childWidth={30}>
           <SectionCopy>
             <p>
-              "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore."
+              "I just want to take the chance to give a shout out to you for all
+              the effort you have put into BOL and Disaster Claims Hub redesign.
+              It's definitely "Act & Own it" spirit when you step outside of the
+              "developer" zone to connect and collaborate with our vendors and
+              other teams to get the works done in orchestration. Great work,
+              buddy!!!"
             </p>
-            <p>Charlie Deukett</p>
+            <p>Van-Anh Tran</p>
           </SectionCopy>
           <SectionCopy>
             <p>
-              "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore."
+              "Charlie has been an incredible asset to the Buy 1 team's skill
+              uplift in React. Since October 2021 Charlie has been coaching the
+              team and dedicating approx. 3 hours of his personal time each week
+              to plan and prepare content, present it, facilitate coaching
+              sessions, answer questions, and provide guidance to learners.
+              Throughout the entire programme Charlie has embodied the IAG
+              values Easier together & Reimagine today and without a doubt it
+              has been his enthusiastic attitude and willingness to share his
+              knowledge and coach others that has added to the success of this
+              programme."
             </p>
-            <p>Charlie Deukett</p>
+            <p>Natalia Gimenez</p>
           </SectionCopy>
           <SectionCopy>
             <p>
-              "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore."
+              "Charlie is always very helpful and friendly in our team. He has
+              kindly scheduled meeting to coach me with HTML and CSS lesson that
+              helped me a lot during my skill up in front-end work. When I have
+              questions regarding to front-end development, he is always make
+              some time to help me fix issue that I was struggled with. he loves
+              to share his experience/knowledge with me, help me quickly
+              understand the front-end frame work. I would like to THANK Charlie
+              for his helping and knowledge sharing, which helped me skilling up
+              in front-end development."
             </p>
-            <p>Charlie Deukett</p>
+            <p>Quin Zhou</p>
           </SectionCopy>
           <SectionCopy>
             <p>
-              "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore."
+              "Charlie has been essential in assisting our team in upskilling in
+              React. He would not only be our react champion who would take us
+              through this learning process, but he would be also available
+              outside of the allocated time to have a chat and help us with this
+              way of developing websites. There were times where Charlie went
+              above and beyond what I could consider a very helpful colleague;
+              when we approached him with something more complex, he would spend
+              extra time researching the subject over the weekend so he would be
+              able to come with an answer the following week."
             </p>
-            <p>Charlie Deukett</p>
+            <p>Radek Soucek</p>
           </SectionCopy>
           <SectionCopy>
             <p>
-              "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore."
+              "Charlie has been incredibly helpful, supportive and understanding
+              during the process of getting me onboard. With doing regular
+              meetings and catchups to assist me in wherever I need support, I
+              am already feeling more confident to tackle whatever comes.
+              Charlie's willingness to take time out of his schedule and be
+              availible when I needed has been invaluable. He also has assisted
+              me in my first ticket and pointing me in the right direction to
+              get it over the line. It was a huge milestone for me and couldn't
+              have asked for a better person to guide me through it! Thank you
+              so much Charlie and Happy Birthday for tomorrow!"
             </p>
-            <p>Charlie Deukett</p>
+            <p>Ken Sethi</p>
           </SectionCopy>
           <SectionCopy>
             <p>
-              "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore."
+              "Loving the energy Charlie is bringing to the PRJ rewrite! Had a
+              really good meeting today, about how we can deliver Glass Breakage
+              and Keys and Locks to the current PRJ environment as we are likely
+              to have some team constraints that may prevent us from being able
+              to deliver in November. Charlies energy and excitment for the work
+              hes doing in PRJ is infectious. So cool to see the work we are
+              doing to making him & our team Fizz!!"
             </p>
-            <p>Charlie Deukett</p>
+            <p>Keisha Soffee</p>
+          </SectionCopy>
+          <SectionCopy>
+            <p>
+              "When new requirements or challenges emerge, Charllie steps up and
+              gets the job done with enthusiasm and efficacy. Even when the
+              tasks require after hours stakeholder meetings, or research,
+              Charlie makes it happen, setting aside the time, ensuring we
+              consistantly hit our targets and continue delivering great
+              business value"
+            </p>
+            <p>Andy Saunders</p>
           </SectionCopy>
         </Testimonials>
       </SectionWrapper>
@@ -610,14 +637,14 @@ const IagPage = () => {
         </SectionCopy>
       </SectionWrapper>
 
-      <SectionWrapper backgroundColor="#f2f2f2">
+      <SectionWrapper width="90%" backgroundColor="#f2f2f2">
         <DualImage images={myDualImage} />
       </SectionWrapper>
 
       <SectionWrapper
         backgroundColor="#f2f2f2"
         paddingTop={true}
-        paddingBottom={true}
+        paddingBottom={false}
         width="90%"
         maxWidth="110rem"
         align="left"
@@ -662,11 +689,18 @@ const IagPage = () => {
       >
         <SectionCopy textAlign="right">
           <p>
-            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae ab illo inventore."
+            "Charlie, honestly you are one of the best developers I've worked
+            with. You're super talented, amazing at communication, and always so
+            helpful. Thank you so much for your epic ownership of the Disaster
+            Claims Hub...you also just made the whole thing look easy, which is
+            a true gift to be able to do. I know I can speak for the whole
+            project team when I say how much we've appreciated the regular
+            updates...and now we're almost live! Congrats on a great job getting
+            this across the line for us, despite the last minute hiccups, which
+            you also jumped on and fixed, and communicated with us about. You're
+            a true legend!"
           </p>
-          <p>Charlie Deukett</p>
+          <p>Tineke Bright</p>
         </SectionCopy>
       </SectionWrapper>
 
@@ -675,7 +709,7 @@ const IagPage = () => {
       <SectionWrapper
         backgroundColor="#ffffff"
         paddingTop={true}
-        paddingBottom={false}
+        paddingBottom={true}
         width="90%"
         align="center"
         maxWidth="110rem"
@@ -694,20 +728,23 @@ const IagPage = () => {
             desktop and mobile devices.
           </p>
         </SectionCopy>
+        <Video
+          src="https://player.vimeo.com/video/355045208?autoplay=1&loop=1&autopause=0"
+          backgroundColor="#fff"
+        />
+
+        <BtnSection
+          buttons={[
+            {
+              icon: faArrowUpRightFromSquare,
+              label: 'Launch Project',
+              url: 'https://deuketc.github.io/wato/',
+            },
+            { label: 'More Info', url: '/projects/wato' },
+          ]}
+          backgroundColor="#fff"
+        />
       </SectionWrapper>
-
-      <Video
-        src="https://player.vimeo.com/video/355045208?autoplay=1&loop=1&autopause=0"
-        backgroundColor="#fff"
-      />
-
-      <BtnSection
-        btn01Url="https://deuketc.github.io/wato/"
-        btn02Url="/projects/wato"
-        btn01Label="Launch Project"
-        btn02Label="More Info"
-        backgroundColor="#fff"
-      />
 
       {/* email templates */}
 
@@ -739,7 +776,7 @@ const IagPage = () => {
       <SectionWrapper
         backgroundColor="#f2f2f2"
         width="90%"
-        paddingBottom={true}
+        paddingBottom={false}
         paddingTop={false}
       >
         <DualImage images={myDualImage2} />
@@ -801,20 +838,56 @@ const IagPage = () => {
             teams to rapidly create new communications while maintaining
             consistent layout, accessibility, and brand styling.
           </p>
-          <p>
-            <button className="">Github Repo</button>
-          </p>
         </SectionCopy>
+        <BtnSection
+          buttons={[
+            {
+              icon: faCode,
+              label: 'GitHub Repo',
+              url: 'https://github.com/deuketc/edm-desktop-first',
+            },
+          ]}
+          backgroundColor="#f2f2f2"
+        />
       </SectionWrapper>
 
       {/* <DarkMode images={sliderImagesEmail} backgroundColor="#f2f2f2" /> */}
-      <NextProject
+
+      <SectionWrapper
+        backgroundColor="#ffffff"
+        paddingTop={true}
+        paddingBottom={true}
+        width="90%"
+        align="center"
+        maxWidth="110rem"
+      >
+        <SectionHeader
+          textAlign="center"
+          style="L3"
+          color="#000"
+          h2="Want to see another project?"
+        />
+        <SectionCopy textAlign="center">
+          <p>
+            Unichem is network of more than 250 pharmacies throughout
+            New&nbsp;Zealand.
+          </p>
+        </SectionCopy>
+        <BtnSection
+          buttons={[
+            { label: 'Unichem casestudy', url: '/projects/unichem' },
+            { label: 'All Projects', url: '/projects' },
+          ]}
+        />
+      </SectionWrapper>
+
+      {/* <NextProject
         backgroundColor="#fff"
         copy="Unichem is network of more than 250 pharmacies throughout New&nbsp;Zealand."
         header="Want to see another project?"
         btnUrl="/projects/unichem"
         btnLabel="Unichem casestudy"
-      />
+      /> */}
     </>
   ) : (
     <Spinner />

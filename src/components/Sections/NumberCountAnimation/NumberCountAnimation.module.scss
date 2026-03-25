@@ -1,0 +1,40 @@
+@use '../../../mixins' as mixin;
+@use '../../../variables' as var;
+
+.numberCount_count {
+  display: inline-block;
+  font-size: 6rem;
+  @include mixin.min-width-1280px {
+    font-size: 8rem;
+  }
+  @include mixin.min-width-1600px {
+    font-size: 13rem;
+  }
+  @include mixin.min-width-1921px {
+    font-size: 17rem;
+  }
+  @include mixin.min-width-2561px {
+    font-size: 20rem;
+  }
+
+  font-weight: 400;
+  line-height: 1;
+}
+
+.numberCount_attribute {
+  font-size: 3rem;
+  @include mixin.min-width-1280px {
+    font-size: 4rem;
+  }
+  @include mixin.min-width-1600px {
+    font-size: 5rem;
+  }
+  @include mixin.min-width-1600px {
+    font-size: 6rem;
+  }
+
+  font-weight: 600;
+  vertical-align: top;
+  line-height: 1;
+  display: inline-block;
+}

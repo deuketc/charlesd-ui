@@ -1,28 +1,35 @@
-.accordion_wrapper {
+@use '../../../mixins' as mixin;
+@use '../../../variables' as var;
+
+.slider_wrapper {
   position: relative;
   overflow: hidden;
 }
 
-.accordion_content {
+.slider_content {
   //width: 180%;
-  display: flex;
+  @include mixin.min-width-1921px {
+    display: flex;
+  }
 }
 
-.accordion_itemWrapper {
+.slider_itemWrapper {
   //width: 30%;
 }
 
-.accordion_item {
-  width: 80%;
+.slider_item {
+  @include mixin.min-width-1921px {
+    width: 80%;
+  }
 }
 
-.accordion_controls {
+.slider_controls {
   position: absolute;
   top: 11.5rem;
   right: 5%;
 }
 
-.accordion_button {
+.slider_button {
   background: none;
   border: none;
   padding: 0;
@@ -33,21 +40,21 @@
   box-shadow: none;
   appearance: none;
   cursor: pointer;
-  color: #592c82;
+  color: #000;
   font-size: 6rem;
 }
 
-.accordion_button:hover {
-  color: #592c82;
+.slider_button:hover {
+  color: #000;
   opacity: 0.8;
 }
 
-.accordion_buttonInactive {
+.slider_buttonInactive {
   opacity: 0.3;
-  color: #592c82;
+  color: #000;
 }
 
-.accordion_buttonInactive:hover {
+.slider_buttonInactive:hover {
   opacity: 0.3;
-  color: #592c82;
+  color: #000;
 }
