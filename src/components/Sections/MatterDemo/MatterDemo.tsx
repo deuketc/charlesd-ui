@@ -200,9 +200,41 @@ const MatterDemo = () => {
       }
     };
 
+    // Apply force to bodies near the mouse on move
+    const hoverRadius = 245;
+    const hoverForce = 0.5;
+    let prevMouse = { x: 0, y: 0 };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = render.canvas.getBoundingClientRect();
+      const mx = e.clientX - rect.left;
+      const my = e.clientY - rect.top;
+      const dx = mx - prevMouse.x;
+      const dy = my - prevMouse.y;
+      prevMouse = { x: mx, y: my };
+
+      const allBodies = Composite.allBodies(world);
+      for (const body of allBodies) {
+        if (body.isStatic) continue;
+        const bx = body.position.x;
+        const by = body.position.y;
+        const dist = Math.sqrt((bx - mx) ** 2 + (by - my) ** 2);
+        if (dist < hoverRadius) {
+          const strength = (1 - dist / hoverRadius) * hoverForce;
+          Body.applyForce(body, body.position, {
+            x: dx * strength,
+            y: dy * strength,
+          });
+        }
+      }
+    };
+
+    render.canvas.addEventListener('mousemove', handleMouseMove);
+
     window.addEventListener('resize', handleResize);
 
     return () => {
+      render.canvas.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
       Render.stop(render);
       Composite.clear(engine.world, false);
