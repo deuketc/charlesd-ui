@@ -2,18 +2,17 @@ import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import useWindowDimensions from '../../../hooks/UseWindowDimensions';
 
 import styles from './Testimonials.module.scss';
 
 interface TestimonialsProps {
   children: React.ReactNode;
-  childWidth: number;
 }
 
-const Testimonials: React.FC<TestimonialsProps> = ({
-  children,
-  childWidth,
-}) => {
+const Testimonials: React.FC<TestimonialsProps> = ({ children }) => {
+  const { width } = useWindowDimensions();
+  const childWidth = width > 2560 ? 30 : width < 768 ? 90 : 45;
   const [currentIndex, setCurrentIndex] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
   const totalItems = React.Children.count(children);

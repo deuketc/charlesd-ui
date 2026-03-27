@@ -26,15 +26,15 @@
   margin-bottom: 1rem;
   //width: 100%;
 
-  padding-left: 3rem;
-  padding-right: 3rem;
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
   white-space: nowrap;
 }
 
 .btn__secondary {
   @include mixin.BTN__SECONDARY;
-  padding-left: 3rem;
-  padding-right: 3rem;
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
   white-space: nowrap;
   margin-bottom: 1rem;
   //width: 100%;

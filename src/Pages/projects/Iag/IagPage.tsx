@@ -33,15 +33,18 @@ import {
   faDatabase,
   faCode,
   faArrowUpRightFromSquare,
+  faCircleHalfStroke,
+  faCubesStacked,
+  faEnvelope,
 } from '@fortawesome/free-solid-svg-icons';
 
 import sliderMobileImage from '../../../assets/projects/iag/iag-claims-ami-mobile.png';
 import sliderTabletImage from '../../../assets/projects/iag/iag-claims-ami-tablet.png';
 import sliderDesktopImage from '../../../assets/projects/iag/iag-claims-ami-desktop.png';
 
-import mobile01 from '../../../assets/projects/iag/mobile-01.jpg';
-import mobile02 from '../../../assets/projects/iag/mobile-02.jpg';
-import mobile03 from '../../../assets/projects/iag/mobile-03.jpg';
+import mobile01 from '../../../assets/projects/iag/mobile-01b.jpg';
+import mobile02 from '../../../assets/projects/iag/mobile-02b.jpg';
+import mobile03 from '../../../assets/projects/iag/mobile-03b.jpg';
 
 // import screenhotImageDesktop from '../../../assets/projects/iag/screenshot-disaster_hub-state-1440.jpg';
 // import screenhotImageTablet from '../../../assets/projects/iag/screenshot-disaster_hub-state-768.jpg';
@@ -299,7 +302,7 @@ const IagPage = () => {
           <div className={styles.architectureSectionCol3}>
             <SectionCopy textAlign="center">
               <span className={styles.architectureSectionIcon}>
-                <FontAwesomeIcon icon={faScaleBalanced} />
+                <FontAwesomeIcon icon={faJsSquare} />
               </span>
             </SectionCopy>
           </div>
@@ -340,7 +343,7 @@ const IagPage = () => {
           <div className={styles.architectureSectionCol3}>
             <SectionCopy textAlign="center">
               <span className={styles.architectureSectionIcon}>
-                <FontAwesomeIcon icon={faPeopleCarryBox} />
+                <FontAwesomeIcon icon={faScaleBalanced} />
               </span>
             </SectionCopy>
           </div>
@@ -419,7 +422,7 @@ const IagPage = () => {
           <div className={styles.architectureSectionCol3}>
             <SectionCopy textAlign="center">
               <span className={styles.architectureSectionIcon}>
-                <FontAwesomeIcon icon={faJsSquare} />
+                <FontAwesomeIcon icon={faPeopleCarryBox} />
               </span>
             </SectionCopy>
           </div>
@@ -493,12 +496,12 @@ const IagPage = () => {
 
       <SectionWrapper
         backgroundColor="#ffffff"
-        paddingTop={true}
+        paddingTop={false}
         paddingBottom={true}
         width="90%"
       >
         <SectionHeader h2="Testimonials" style="L3" color="#000" />
-        <Testimonials childWidth={30}>
+        <Testimonials>
           <SectionCopy>
             <p>
               "I just want to take the chance to give a shout out to you for all
@@ -582,7 +585,7 @@ const IagPage = () => {
           </SectionCopy>
           <SectionCopy>
             <p>
-              "When new requirements or challenges emerge, Charllie steps up and
+              "When new requirements or challenges emerge, Charlie steps up and
               gets the job done with enthusiasm and efficacy. Even when the
               tasks require after hours stakeholder meetings, or research,
               Charlie makes it happen, setting aside the time, ensuring we
@@ -696,9 +699,7 @@ const IagPage = () => {
             a true gift to be able to do. I know I can speak for the whole
             project team when I say how much we've appreciated the regular
             updates...and now we're almost live! Congrats on a great job getting
-            this across the line for us, despite the last minute hiccups, which
-            you also jumped on and fixed, and communicated with us about. You're
-            a true legend!"
+            this across the line for us. You're a true legend!"
           </p>
           <p>Tineke Bright</p>
         </SectionCopy>
@@ -795,23 +796,23 @@ const IagPage = () => {
           textAlign="center"
           bulletlist={[
             {
-              icon: faCloud,
+              icon: faDesktop,
               text: 'Fully responsive HTML email templates supporting mobile and desktop clients',
             },
             {
-              icon: faCode,
+              icon: faCircleCheck,
               text: 'Extensive cross-client testing using <a href="https://www.litmus.com/" target="_blank" rel="noopener noreferrer">Litmus</a>',
             },
             {
-              icon: faDesktop,
+              icon: faCircleHalfStroke,
               text: 'Optimized layouts for dark mode compatibility',
             },
             {
-              icon: faBoltLightning,
+              icon: faCubesStacked,
               text: 'Modular template structure allowing reuse across multiple communication types',
             },
             {
-              icon: faDatabase,
+              icon: faEnvelope,
               text: 'Built to support high-volume transactional email delivery',
             },
           ]}

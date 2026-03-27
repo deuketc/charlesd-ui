@@ -16,12 +16,16 @@
     @include mixin.SECTION-WRAPPER;
     @include mixin.STYLE-SECTION-PADDING;
   }
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 60px;
+  }
   &__header {
     display: none;
   }
-  &__phone_container {
-    position: relative;
-  }
+
   &__phone_vector {
     @include mixin.max-width-1599px {
       display: none;
@@ -30,7 +34,7 @@
       z-index: 100;
     }
     @include mixin.min-width-1600px {
-      margin: 0 40px;
+      // margin: 0 40px;
       display: inline-block;
       position: relative;
       padding: 50px 10px;
@@ -67,6 +71,11 @@
   }
   &__img {
     max-width: 100%;
+    position: relative;
+  }
+  &__img_conatiner {
+    overflow: hidden;
+    height: 640px;
   }
 }
 

@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect, useRef } from 'react';
+import { useState, useLayoutEffect, useRef, useEffect, createRef } from 'react';
 import RadioListNav from '../../layout/RadioListNav/RadioListNav';
 import useWindowDimensions from '../../../hooks/UseWindowDimensions';
 import { is_touch_device } from '../../../utils/utils';
@@ -59,6 +59,38 @@ const ResponsiveSlider = ({
     }
   }, [width]);
 
+  const imgRefs = useRef(images.map(() => createRef<HTMLImageElement>()));
+
+  useEffect(() => {
+    const yValues = [-900, -759, -1535];
+
+    const timelines = imgRefs.current.map((ref, index) => {
+      const yTarget = yValues[index] ?? -1350;
+      const tl = gsap.timeline({ repeat: -1, paused: true });
+      tl.to(ref.current, { y: yTarget, duration: 30, ease: 'none' }).to(
+        ref.current,
+        { y: 0, duration: 30, ease: 'none' }
+      );
+      //tl.seek(offset);
+      return tl;
+    });
+
+    const observer = new IntersectionObserver(
+      ([entry]) =>
+        timelines.forEach(tl =>
+          entry.isIntersecting ? tl.play() : tl.pause()
+        ),
+      { threshold: 0 }
+    );
+    if (heroBackgroundLayer.current)
+      observer.observe(heroBackgroundLayer.current);
+
+    return () => {
+      observer.disconnect();
+      timelines.forEach(tl => tl.kill());
+    };
+  }, [images]);
+
   const onNavClick = (index: number) => {
     setCurrentSlide(index);
     setSlideResolution(screenSizeLabels[index]);
@@ -88,7 +120,11 @@ const ResponsiveSlider = ({
                         : ''
                     }`}
                   >
-                    <img className={styles.bitmap__img} src={images[index]} />
+                    <img
+                      ref={imgRefs.current[index]}
+                      className={styles.bitmap__img}
+                      src={images[index]}
+                    />
                   </div>
                 );
               })}

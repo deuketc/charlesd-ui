@@ -27,10 +27,10 @@ const Mobile = ({ images, backgroundColor, refreshPriority }: Iprops) => {
     if (width > 1599 && !is_touch_device()) {
       let ctx = gsap.context(() => {
         gsap.set('.mobile-phone-00', {
-          x: 460,
+          x: 440,
         });
         gsap.set('.mobile-phone-02', {
-          x: -460,
+          x: -440,
         });
 
         gsap.to('.mobile-phone-00', {
@@ -61,6 +61,37 @@ const Mobile = ({ images, backgroundColor, refreshPriority }: Iprops) => {
 
   const [activeImage, setActiveImage] = useState(0);
 
+  const imgRefs = useRef(images.map(() => createRef<HTMLImageElement>()));
+
+  useEffect(() => {
+    const yValues = [-1350, -1350, -1350];
+
+    const timelines = imgRefs.current.map((ref, index) => {
+      const yTarget = yValues[index] ?? -1350;
+      const tl = gsap.timeline({ repeat: -1, paused: true });
+      tl.to(ref.current, { y: yTarget, duration: 30, ease: 'none' }).to(
+        ref.current,
+        { y: 0, duration: 30, ease: 'none' }
+      );
+      return tl;
+    });
+
+    const observer = new IntersectionObserver(
+      ([entry]) =>
+        timelines.forEach(tl =>
+          entry.isIntersecting ? tl.play() : tl.pause()
+        ),
+      { threshold: 0 }
+    );
+    if (mobilePhoneWrapper.current)
+      observer.observe(mobilePhoneWrapper.current);
+
+    return () => {
+      observer.disconnect();
+      timelines.forEach(tl => tl.kill());
+    };
+  }, [images]);
+
   return (
     <section
       ref={mobilePhoneWrapper}
@@ -69,7 +100,7 @@ const Mobile = ({ images, backgroundColor, refreshPriority }: Iprops) => {
     >
       <div className={styles.mobile__wrapper}>
         <h1 className={styles.mobile__header}>mobile</h1>
-        <div>
+        <div className={styles.mobile__container}>
           {images.map((image, index) => {
             return (
               <div
@@ -82,7 +113,13 @@ const Mobile = ({ images, backgroundColor, refreshPriority }: Iprops) => {
                     : ''
                 }`}
               >
-                <img className={styles.mobile__img} src={image} />
+                <div className={styles.mobile__img_conatiner}>
+                  <img
+                    ref={imgRefs.current[index]}
+                    className={styles.mobile__img}
+                    src={image}
+                  />
+                </div>
               </div>
             );
           })}

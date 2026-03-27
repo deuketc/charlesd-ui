@@ -7,25 +7,16 @@
 }
 
 .slider_content {
-  //width: 180%;
-  @include mixin.min-width-1921px {
-    display: flex;
-  }
-}
-
-.slider_itemWrapper {
-  //width: 30%;
+  display: flex;
 }
 
 .slider_item {
-  @include mixin.min-width-1921px {
-    width: 80%;
-  }
+  width: 80%;
 }
 
 .slider_controls {
   position: absolute;
-  top: 11.5rem;
+  top: 2rem;
   right: 5%;
 }
 
@@ -41,7 +32,7 @@
   appearance: none;
   cursor: pointer;
   color: #000;
-  font-size: 6rem;
+  @include mixin.STYLE-HEADER-L4;
 }
 
 .slider_button:hover {
