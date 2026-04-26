@@ -1,16 +1,18 @@
 import IagHero from '../../../components/Sections/IagHero/IagHero';
-
 import Mobile from '../../../components/Sections/Mobile/Mobile';
 import ResponsiveSlider from '../../../components/Sections/ResponsiveSlider/ResponsiveSlider';
-// import NextProject from '../../../components/Sections/NextProject/NextProject';
-
 import Video from '../../../components/Sections/Video/Video';
 import useImagesPreloader from '../../../hooks/UseImagesPreloader';
 import Spinner from '../../../components/layout/Spinner/Spinner';
-// import DarkMode from '../../../components/Sections/DarkMode/DarkMode';
 import BtnSection from '../../../components/Sections/BtnSection/BtnSection';
 import SectionCopy from '../../../components/Sections/SectionCopy/SectionCopy';
 import SectionWrapper from '../../../components/Sections/SectionWrapper/SectionWrapper';
+import LogosHorizontalScroll from '../../../components/Sections/LogosHorizontalScroll/LogosHorizontalScroll';
+import SectionHeader from '../../../components/Sections/SectionHeader/SectionHeader';
+import SectionColumns from '../../../components/SectionColumns/SectionColumns';
+import Testimonials from '../../../components/Sections/Testimonials/Testimonials';
+import DualImage from '../../../components/Sections/DualImage/DualImage';
+import NumberCountAnimation from '../../../components/Sections/NumberCountAnimation/NumberCountAnimation';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faJsSquare } from '@fortawesome/free-brands-svg-icons';
@@ -46,24 +48,13 @@ import mobile01 from '../../../assets/projects/iag/mobile-01b.jpg';
 import mobile02 from '../../../assets/projects/iag/mobile-02b.jpg';
 import mobile03 from '../../../assets/projects/iag/mobile-03b.jpg';
 
-// import screenhotImageDesktop from '../../../assets/projects/iag/screenshot-disaster_hub-state-1440.jpg';
-// import screenhotImageTablet from '../../../assets/projects/iag/screenshot-disaster_hub-state-768.jpg';
-// import screenhotImageMobile from '../../../assets/projects/iag/screenshot-disaster_hub-state-360.jpg';
 import sliderImageEmail01 from '../../../assets/projects/iag/email-state-light.jpg';
 import sliderImageEmail02 from '../../../assets/projects/iag/email-state-dark.jpg';
 
 import screenshotState1280 from '../../../assets/projects/iag/screenshot-disaster-hub-state-1280.jpg';
 import screenshotStateContent1280 from '../../../assets/projects/iag/screenshot-disaster-hub-state-content-1280.jpg';
-// import screenshotAmi1280 from '../../../assets/projects/iag/screenshot-disaster-hub-ami-1280.jpg';
 
 import styles from './Iag.module.scss';
-
-import LogosHorizontalScroll from '../../../components/Sections/LogosHorizontalScroll/LogosHorizontalScroll';
-import SectionHeader from '../../../components/Sections/SectionHeader/SectionHeader';
-import SectionColumns from '../../../components/SectionColumns/SectionColumns';
-import Testimonials from '../../../components/Sections/Testimonials/Testimonials';
-import DualImage from '../../../components/Sections/DualImage/DualImage';
-import NumberCountAnimation from '../../../components/Sections/NumberCountAnimation/NumberCountAnimation';
 
 const responsiveSliderImages = [
   sliderMobileImage,
@@ -96,9 +87,19 @@ const myDualImage2 = {
 const mobileShowcase = [mobile01, mobile02, mobile03];
 
 const iagPageImages = [
+  sliderMobileImage,
+  sliderTabletImage,
+  sliderDesktopImage,
+
   mobile01,
   mobile02,
   mobile03,
+
+  sliderImageEmail01,
+  sliderImageEmail02,
+
+  screenshotState1280,
+  screenshotStateContent1280,
 
   sliderImageEmail01,
   sliderImageEmail02,
@@ -560,7 +561,7 @@ const IagPage = () => {
             <p>
               "Charlie has been incredibly helpful, supportive and understanding
               during the process of getting me onboard. With doing regular
-              meetings and catchups to assist me in wherever I need support, I
+              meetings and catchups to assist me in where ever I need support, I
               am already feeling more confident to tackle whatever comes.
               Charlie's willingness to take time out of his schedule and be
               availible when I needed has been invaluable. He also has assisted
