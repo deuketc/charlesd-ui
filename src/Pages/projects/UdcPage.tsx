@@ -15,13 +15,17 @@ import sliderDesktopImage from '../../assets/projects/udc/udc-screenshot-desktop
 import sliderImage01 from '../../assets/projects/udc/screenshot-udc-calc-02.jpg';
 import sliderImage02 from '../../assets/projects/udc/screenshot-udc-calc-03.jpg';
 import screenhotImageDesktop from '../../assets/projects/udc/udc-capitaldrawdown-1440.png';
-import screenhotImageTablet from '../../assets/projects/udc/udc-capitaldrawdown-768.png'
-import screenhotImageMobile from '../../assets/projects/udc/udc-capitaldrawdown-360.png'
+import screenhotImageTablet from '../../assets/projects/udc/udc-capitaldrawdown-768.png';
+import screenhotImageMobile from '../../assets/projects/udc/udc-capitaldrawdown-360.png';
 import mobile01 from '../../assets/projects/udc/udc-mobile-nav-01.png';
 import mobile02 from '../../assets/projects/udc/udc-mobile-nav-02.png';
 import mobile03 from '../../assets/projects/udc/udc-mobile-nav-03.png';
 
-const responsiveSliderImages = [sliderMobileImage, sliderTabletImage, sliderDesktopImage];
+const responsiveSliderImages = [
+  sliderMobileImage,
+  sliderTabletImage,
+  sliderDesktopImage,
+];
 const mobileShowcase = [mobile01, mobile02, mobile03];
 const sliderImages = [sliderImage01, sliderImage02];
 const mySingleImage = {
@@ -33,18 +37,18 @@ const mySingleImage = {
 
 const udcPageImages = [
   heroImage,
-  sliderMobileImage, 
-  sliderTabletImage, 
-  sliderDesktopImage, 
-  mobile01, 
+  sliderMobileImage,
+  sliderTabletImage,
+  sliderDesktopImage,
+  mobile01,
   mobile02,
-  mobile03, 
-  sliderImage01, 
+  mobile03,
+  sliderImage01,
   sliderImage02,
   screenhotImageMobile,
   screenhotImageTablet,
-  screenhotImageDesktop
-]
+  screenhotImageDesktop,
+];
 
 const UdcPage = () => {
   const imgsLoaded = useImagesPreloader(udcPageImages);
@@ -55,7 +59,7 @@ const UdcPage = () => {
         title="UDC"
         copy="Providing asset-based finance to New&nbsp;Zealand businesses"
         imgSrc={heroImage}
-        url='https://udc.co.nz'
+        url="https://udc.co.nz"
       />
       <CopySection
         paddingTop={true}
@@ -63,7 +67,10 @@ const UdcPage = () => {
         body="A responsive, pixel perfect front-end enabling customers to easily access information."
         backgroundColor="#f2f2f2"
       />
-      <ResponsiveSlider images={responsiveSliderImages} />
+      <ResponsiveSlider
+        imageHeights={[-200, -200, -200]}
+        images={responsiveSliderImages}
+      />
       <CopySection
         paddingTop={true}
         title="Device optimized"
@@ -89,7 +96,7 @@ const UdcPage = () => {
         copy="A promotional microsite built for State Insurance and Flybuys, learn more?"
         header="Want to know the odds?"
         btnUrl="/projects/wato"
-        btnLabel='WATO casestudy'
+        btnLabel="WATO casestudy"
       />
     </>
   ) : (
