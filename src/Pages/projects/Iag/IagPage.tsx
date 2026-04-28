@@ -157,6 +157,7 @@ const IagPage = () => {
       <ResponsiveSlider
         backgroundColor="#ffffff"
         images={responsiveSliderImages}
+        imageHeights={[-900, -759, -1535]}
       />
 
       <SectionWrapper
@@ -681,7 +682,11 @@ const IagPage = () => {
         ></SectionCopy>
       </SectionWrapper>
 
-      <Mobile images={mobileShowcase} backgroundColor="#f2f2f2" />
+      <Mobile
+        shouldAnimate={true}
+        images={mobileShowcase}
+        backgroundColor="#f2f2f2"
+      />
 
       <SectionWrapper
         backgroundColor="#f2f2f2"

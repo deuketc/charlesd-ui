@@ -13,9 +13,15 @@ interface Iprops {
   images: string[];
   backgroundColor?: string;
   refreshPriority?: number;
+  shouldAnimate?: boolean;
 }
 
-const Mobile = ({ images, backgroundColor, refreshPriority }: Iprops) => {
+const Mobile = ({
+  images,
+  backgroundColor,
+  refreshPriority,
+  shouldAnimate,
+}: Iprops) => {
   const onSetActiveImage = (index: number) => {
     setActiveImage(index);
   };
@@ -64,6 +70,8 @@ const Mobile = ({ images, backgroundColor, refreshPriority }: Iprops) => {
   const imgRefs = useRef(images.map(() => createRef<HTMLImageElement>()));
 
   useEffect(() => {
+    if (!shouldAnimate) return;
+
     const yValues = [-1350, -1350, -1350];
 
     const timelines = imgRefs.current.map((ref, index) => {
@@ -90,7 +98,7 @@ const Mobile = ({ images, backgroundColor, refreshPriority }: Iprops) => {
       observer.disconnect();
       timelines.forEach(tl => tl.kill());
     };
-  }, [images]);
+  }, [images, shouldAnimate]);
 
   return (
     <section

@@ -14,12 +14,14 @@ interface Iprops {
   images: string[];
   refreshPriority?: number;
   backgroundColor?: string;
+  imageHeights: number[];
 }
 
 const ResponsiveSlider = ({
   images,
   refreshPriority,
   backgroundColor,
+  imageHeights,
 }: Iprops) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slideResolution, setSlideResolution] = useState('mobile');
@@ -62,7 +64,8 @@ const ResponsiveSlider = ({
   const imgRefs = useRef(images.map(() => createRef<HTMLImageElement>()));
 
   useEffect(() => {
-    const yValues = [-900, -759, -1535];
+    console.log(imageHeights);
+    const yValues = imageHeights;
 
     const timelines = imgRefs.current.map((ref, index) => {
       const yTarget = yValues[index] ?? -1350;
@@ -71,7 +74,6 @@ const ResponsiveSlider = ({
         ref.current,
         { y: 0, duration: 30, ease: 'none' }
       );
-      //tl.seek(offset);
       return tl;
     });
 

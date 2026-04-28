@@ -1,0 +1,30 @@
+@use '../../../mixins' as mixin;
+@use '../../../variables' as var;
+
+.unichemHero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0b458fff;
+}
+
+.unichemHero__container {
+  @include mixin.SECTION-WRAPPER;
+  max-width: 2000px;
+}
+
+.unichemHero__svg {
+  width: 100%;
+  height: auto;
+}
+
+.scrollIcon {
+  position: absolute;
+  bottom: 0rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 120px;
+  z-index: 3;
+}

@@ -4,6 +4,7 @@ import {
   faAtom,
   faCube,
   faWandMagicSparkles,
+  faCarSide,
 } from '@fortawesome/free-solid-svg-icons';
 import { faCodepen } from '@fortawesome/free-brands-svg-icons';
 import ExperimentsList from '../components/Sections/ExperimentsList/ExperimentsList';
@@ -14,6 +15,18 @@ import experiments3DScene from '../assets/images/experiments-3dscene-thumb.jpg';
 import experimentsAnimatedLogos from '../assets/images/experiments-animatedlogos-thumb.jpg';
 
 const experimentsList = [
+  {
+    title: '3D Damage Selector',
+    description:
+      'Damaged panel selector demo for a insurance claims application',
+    tags: ['3js', 'Blender', 'React', 'Zustand'],
+    date: '20262604T000000',
+    thumb: '',
+    full: '',
+    url: 'https://damage-picker-3d.vercel.app/',
+    icon: faCarSide,
+    backgroundColor: '#A7C7E7',
+  },
   {
     title: 'Klaims Kombat',
     description: 'Our team re-imagined as Mortal Kombat fighters with AI',
