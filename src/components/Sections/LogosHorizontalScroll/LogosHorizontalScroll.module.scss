@@ -2,7 +2,9 @@
 @use '../../../variables' as var;
 
 .container {
-  background-color: #ffffff;
+  //background-color: #ffffff;
+  position: relative;
+  z-index: 2;
 }
 
 .wrapper {
@@ -11,11 +13,11 @@
 }
 
 .flexWrapper {
-  position: relative;
   width: 200%;
   display: flex;
   left: 0%;
   box-sizing: border-box;
+  position: relative;
 }
 
 .cell {
@@ -23,6 +25,15 @@
   width: 25%;
 }
 
+.cellStart {
+  text-align: center;
+  width: 30%;
+}
+
+.cellEnd {
+  text-align: center;
+  width: 10%;
+}
 .cell svg {
   width: 60%;
   height: auto;

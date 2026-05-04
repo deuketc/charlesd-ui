@@ -3,6 +3,9 @@
 
 .slider {
   @include mixin.STYLE-SECTION-PADDING;
+  position: relative;
+  z-index: 2;
+
   &__wrapper {
     @include mixin.SECTION-WRAPPER;
 

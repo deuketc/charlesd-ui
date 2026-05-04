@@ -54,7 +54,16 @@ import sliderImageEmail02 from '../../../assets/projects/iag/email-state-dark.jp
 import screenshotState1280 from '../../../assets/projects/iag/screenshot-disaster-hub-state-1280.jpg';
 import screenshotStateContent1280 from '../../../assets/projects/iag/screenshot-disaster-hub-state-content-1280.jpg';
 
+import Ami from '../../../assets/projects/iag/Ami';
+import Coles from '../../../assets/projects/iag/Coles';
+import Lumley from '../../../assets/projects/iag/Lumley';
+import State from '../../../assets/projects/iag/State';
+import Nrma from '../../../assets/projects/iag/Nrma';
+import Nzi from '../../../assets/projects/iag/Nzi';
+
 import styles from './Iag.module.scss';
+
+const logos = [<Ami />, <State />, <Coles />, <Nzi />, <Lumley />, <Nrma />];
 
 const responsiveSliderImages = [
   sliderMobileImage,
@@ -431,7 +440,7 @@ const IagPage = () => {
         </div>
       </SectionWrapper>
 
-      <LogosHorizontalScroll />
+      <LogosHorizontalScroll images={logos} />
 
       <SectionWrapper
         backgroundColor="#ffffff"

@@ -4,6 +4,8 @@ import Video from '../../components/Sections/Video/Video';
 import SingleImage from '../../components/Sections/SingleImage/SingleImage';
 import useImagesPreloader from '../../hooks/UseImagesPreloader';
 import Spinner from '../../components/layout/Spinner/Spinner';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 
 import heroImage from '../../assets/projects/unichem/hero-unichem.jpg';
 import sliderMobileImage from '../../assets/projects/unichem/screenshot-unichem-mobile.jpg';
@@ -176,6 +178,29 @@ const UnichemPage = () => {
       <SingleImage image={mySingleImage} backgroundColor="#f2f2f2" />
 
       <SectionWrapper
+        backgroundColor="#f2f2f2"
+        paddingTop={false}
+        paddingBottom={true}
+        width="90%"
+        align="center"
+        maxWidth="110rem"
+      >
+        <SectionCopy textAlign="center">
+          <p>View the Unichem website live.</p>
+        </SectionCopy>
+        <SectionCopy textAlign="center">
+          <a
+            target="_blank"
+            href="https://www.unichem.co.nz/"
+            className="btn btn--primary"
+          >
+            <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+            &nbsp;&nbsp;&nbsp;Visit the website
+          </a>
+        </SectionCopy>
+      </SectionWrapper>
+
+      <SectionWrapper
         backgroundColor="#ffffff"
         paddingTop={true}
         paddingBottom={true}
@@ -202,13 +227,6 @@ const UnichemPage = () => {
           ]}
         />
       </SectionWrapper>
-
-      {/* <NextProject
-        header="I built the Unichem UI during my time at Touchpoint."
-        copy="Want to know more about the projects I worked on during my time at Touchpoint Group?"
-        btnLabel="Touchpoint casestudy"
-        btnUrl="/projects/touchpoint"
-      /> */}
     </>
   ) : (
     <Spinner />

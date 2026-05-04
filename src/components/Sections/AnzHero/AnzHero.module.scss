@@ -1,0 +1,44 @@
+@use '../../../mixins' as mixin;
+@use '../../../variables' as var;
+
+.heroSpacer {
+  height: 100vh;
+}
+
+.hero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background {
+  background-image: url('../../../assets/projects/touchpoint/background-anz-landing-01.jpg');
+  background-repeat: no-repeat;
+  display: block;
+  width: 100%;
+  height: 70%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #3574aa;
+  background-size: auto 100%;
+}
+
+.container {
+  @include mixin.SECTION-WRAPPER;
+  position: relative;
+  z-index: 2;
+}
+
+.heroImage {
+  margin: 0 auto;
+  display: block;
+  max-width: 100%;
+}
