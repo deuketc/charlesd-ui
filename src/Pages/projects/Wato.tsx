@@ -7,6 +7,8 @@ import useImagesPreloader from '../../hooks/UseImagesPreloader';
 import Video from '../../components/Sections/Video/Video';
 import SingleParallaxImage from '../../components/Sections/SingleParallaxImage/SingleParallaxImage';
 import NextProject from '../../components/Sections/NextProject/NextProject';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 
 import heroImage from '../../assets/projects/wato/hero-wato2.jpg';
 import screenhotImageDesktop from '../../assets/projects/wato/desktop.jpg';
@@ -16,6 +18,11 @@ import mobile01 from '../../assets/projects/wato/mobile-02.jpg';
 import mobile02 from '../../assets/projects/wato/mobile-01.jpg';
 import mobile03 from '../../assets/projects/wato/mobile-03.jpg';
 import watoCityImage from '../../assets/projects/wato/state-wato-promo03.jpg';
+
+import SectionWrapper from '../../components/Sections/SectionWrapper/SectionWrapper';
+import SectionHeader from '../../components/Sections/SectionHeader/SectionHeader';
+import SectionCopy from '../../components/Sections/SectionCopy/SectionCopy';
+import BtnSection from '../../components/Sections/BtnSection/BtnSection';
 
 const mySingleImage = {
   name: 'Wato Image',
@@ -42,53 +49,174 @@ const WatoPage = () => {
 
   return imgsLoaded ? (
     <>
-      <Hero
+      {/* <Hero
         title="What are the odds?"
         copy="A promotional microsite built for State Insurance and Flybuys."
         imgSrc={heroImage}
         url="https://deuketc.github.io/wato/"
-      />
-      <CopySection
-        paddingTop={true}
-        title="A chance to win."
-        body="Earning customers the chance to win 30,000 Flybuys points each day for the month of April 2018."
-        backgroundColor="#f2f2f2"
-      />
-      <SingleImage image={mySingleImage} backgroundColor="#f2f2f2" />
-      <CopySection
-        paddingTop={true}
-        title="Device compatibility"
-        body="As the front-end developer for the project my objective was to deliver a consistent experience to both desktop and mobile."
-      />
-      <Mobile images={mobileShowcase} />
-      <CopySection
-        paddingTop={true}
-        title="Animation with JavaScript"
-        body="Accomplished with responsive web development and the JavaScript animation library GreenSock."
-        backgroundColor="#f2f2f2"
-      />
-      <Video
-        src="https://player.vimeo.com/video/355045208?autoplay=1&loop=1&autopause=0"
-        backgroundColor="#f2f2f2"
-      />
-      <CopySection
+      /> */}
+
+      <SectionWrapper
+        backgroundColor="#1a1a1a"
         paddingTop={true}
         paddingBottom={true}
-        title="How did it go?"
-        body="The website was interacted with by over 10,000 unique visitors and hundreds of winners."
-      />
+        width="90%"
+      >
+        <SectionHeader
+          style="L4"
+          color="#fff"
+          h1='"What are the odds" is a promotional microsite built for State Insurance and Flybuys. Earning customers the chance to win 30,000 Flybuys points each day for the month of April 2018.'
+        />
+      </SectionWrapper>
+
+      <SectionWrapper
+        backgroundColor="#f2f2f2"
+        paddingTop={true}
+        paddingBottom={false}
+        width="90%"
+        maxWidth="110rem"
+        align="left"
+      >
+        <SectionHeader
+          textAlign="left"
+          style="L3"
+          color="#000"
+          h2="A chance to win."
+        />
+        <SectionCopy textAlign="left">
+          <p>
+            An interactive microsite built with GSAP animation to promote a
+            campaign for State Insurance and Flybuys.
+          </p>
+        </SectionCopy>
+      </SectionWrapper>
+
+      <SingleImage image={mySingleImage} backgroundColor="#f2f2f2" />
+
+      <SectionWrapper
+        backgroundColor="#ffffff"
+        paddingTop={true}
+        paddingBottom={false}
+        width="90%"
+        maxWidth="110rem"
+        align="center"
+      >
+        <SectionHeader
+          textAlign="center"
+          style="L3"
+          color="#000"
+          h2="Device compatibility"
+        />
+        <SectionCopy textAlign="center">
+          <p>
+            As the front-end developer for the project my objective was to
+            deliver a consistent experience to both desktop and mobile.
+          </p>
+        </SectionCopy>
+      </SectionWrapper>
+
+      <Mobile images={mobileShowcase} />
+
+      <SectionWrapper
+        backgroundColor="#f2f2f2"
+        paddingTop={true}
+        paddingBottom={false}
+        width="90%"
+        maxWidth="110rem"
+        align="left"
+      >
+        <SectionHeader
+          textAlign="left"
+          style="L3"
+          color="#000"
+          h2="Animation with JavaScript"
+        />
+        <SectionCopy textAlign="left">
+          <p>
+            Accomplished with responsive web development and the JavaScript
+            animation library GSAP.
+          </p>
+        </SectionCopy>
+      </SectionWrapper>
+
+      <SectionWrapper
+        backgroundColor="#f2f2f2"
+        paddingTop={false}
+        paddingBottom={true}
+        width="90%"
+        align="center"
+      >
+        <Video
+          src="https://player.vimeo.com/video/355045208?autoplay=1&loop=1&autopause=0"
+          backgroundColor="#f2f2f2"
+        />
+      </SectionWrapper>
+
+      <SectionWrapper
+        backgroundColor="#ffffff"
+        paddingTop={true}
+        paddingBottom={true}
+        width="90%"
+        maxWidth="110rem"
+        align="center"
+      >
+        <SectionHeader
+          textAlign="center"
+          style="L3"
+          color="#000"
+          h2="How did it go?"
+        />
+        <SectionCopy textAlign="center">
+          <p>
+            The website was interacted with by over 10,000 unique visitors and
+            hundreds of winners.
+          </p>
+          <p>
+            <a
+              target="_blank"
+              href="https://deuketc.github.io/wato/"
+              className="btn btn--primary"
+            >
+              <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+              &nbsp;&nbsp;&nbsp;Launch the WATO Experience
+            </a>
+          </p>
+        </SectionCopy>
+      </SectionWrapper>
+
       <SingleParallaxImage
         image={watoCityImage}
         scrollTriggerAni={true}
         backgroundColor="#ffffff"
       />
-      <NextProject
+
+      <SectionWrapper
         backgroundColor="#ffffff"
-        header="The above project was built during my time at IAG Insurance."
-        copy="Learn about my role and other projects I've worked on as a Developer?"
-        btnLabel="IAG casestudy"
-        btnUrl="/projects/iag"
-      />
+        paddingTop={true}
+        paddingBottom={true}
+        width="90%"
+        align="center"
+        maxWidth="110rem"
+      >
+        <SectionHeader
+          textAlign="center"
+          style="L3"
+          color="#000"
+          h2="The above project was built during my time at IAG Insurance."
+        />
+        <SectionCopy textAlign="center">
+          <p>
+            Learn about my role and other projects I've worked on as a
+            Developer?
+          </p>
+        </SectionCopy>
+        <BtnSection
+          buttons={[
+            { label: 'IAG casestudy', url: '/projects/iag' },
+            { label: 'All Projects', url: '/projects' },
+          ]}
+        />
+      </SectionWrapper>
     </>
   ) : (
     <Spinner />
