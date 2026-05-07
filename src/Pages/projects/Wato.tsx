@@ -1,28 +1,23 @@
-import Hero from '../../components/Sections/Hero/Hero';
-import CopySection from '../../components/Sections/CopySection/CopySection';
 import SingleImage from '../../components/Sections/SingleImage/SingleImage';
 import Mobile from '../../components/Sections/Mobile/Mobile';
 import Spinner from '../../components/layout/Spinner/Spinner';
 import useImagesPreloader from '../../hooks/UseImagesPreloader';
 import Video from '../../components/Sections/Video/Video';
-import SingleParallaxImage from '../../components/Sections/SingleParallaxImage/SingleParallaxImage';
-import NextProject from '../../components/Sections/NextProject/NextProject';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
-
-import heroImage from '../../assets/projects/wato/hero-wato2.jpg';
-import screenhotImageDesktop from '../../assets/projects/wato/desktop.jpg';
-import screenhotImageTablet from '../../assets/projects/wato/tablet.jpg';
-import screenhotImageMobile from '../../assets/projects/wato/mobile.jpg';
-import mobile01 from '../../assets/projects/wato/mobile-02.jpg';
-import mobile02 from '../../assets/projects/wato/mobile-01.jpg';
-import mobile03 from '../../assets/projects/wato/mobile-03.jpg';
-import watoCityImage from '../../assets/projects/wato/state-wato-promo03.jpg';
 
 import SectionWrapper from '../../components/Sections/SectionWrapper/SectionWrapper';
 import SectionHeader from '../../components/Sections/SectionHeader/SectionHeader';
 import SectionCopy from '../../components/Sections/SectionCopy/SectionCopy';
 import BtnSection from '../../components/Sections/BtnSection/BtnSection';
+
+import screenhotImageDesktop from '../../assets/projects/wato/desktop.jpg';
+import screenhotImageTablet from '../../assets/projects/wato/tablet.jpg';
+import screenhotImageMobile from '../../assets/projects/wato/mobile.jpg';
+
+import mobile01 from '../../assets/projects/wato/mobile-02.jpg';
+import mobile02 from '../../assets/projects/wato/mobile-01.jpg';
+import mobile03 from '../../assets/projects/wato/mobile-03.jpg';
 
 const mySingleImage = {
   name: 'Wato Image',
@@ -34,14 +29,12 @@ const mySingleImage = {
 const mobileShowcase = [mobile01, mobile02, mobile03];
 
 const watoPageImages = [
-  heroImage,
   screenhotImageMobile,
   screenhotImageMobile,
   screenhotImageDesktop,
   mobile01,
   mobile02,
   mobile03,
-  watoCityImage,
 ];
 
 const WatoPage = () => {
@@ -49,13 +42,6 @@ const WatoPage = () => {
 
   return imgsLoaded ? (
     <>
-      {/* <Hero
-        title="What are the odds?"
-        copy="A promotional microsite built for State Insurance and Flybuys."
-        imgSrc={heroImage}
-        url="https://deuketc.github.io/wato/"
-      /> */}
-
       <SectionWrapper
         backgroundColor="#1a1a1a"
         paddingTop={true}
@@ -63,9 +49,14 @@ const WatoPage = () => {
         width="90%"
       >
         <SectionHeader
+          style="hidden"
+          color="#fff"
+          h1="State - What are the odds?"
+        />
+        <SectionHeader
           style="L4"
           color="#fff"
-          h1='"What are the odds" is a promotional microsite built for State Insurance and Flybuys. Earning customers the chance to win 30,000 Flybuys points each day for the month of April 2018.'
+          h2='"What are the odds" is a promotional microsite built for State Insurance and Flybuys. Earning customers the chance to win 30,000 Flybuys points each day for the month of April 2018.'
         />
       </SectionWrapper>
 
@@ -74,7 +65,6 @@ const WatoPage = () => {
         paddingTop={true}
         paddingBottom={false}
         width="90%"
-        maxWidth="110rem"
         align="left"
       >
         <SectionHeader
@@ -89,9 +79,14 @@ const WatoPage = () => {
             campaign for State Insurance and Flybuys.
           </p>
         </SectionCopy>
-      </SectionWrapper>
 
-      <SingleImage image={mySingleImage} backgroundColor="#f2f2f2" />
+        <SingleImage
+          alignment="center"
+          alt="WATO screenshot"
+          image={mySingleImage}
+          backgroundColor="#f2f2f2"
+        />
+      </SectionWrapper>
 
       <SectionWrapper
         backgroundColor="#ffffff"
@@ -113,9 +108,9 @@ const WatoPage = () => {
             deliver a consistent experience to both desktop and mobile.
           </p>
         </SectionCopy>
-      </SectionWrapper>
 
-      <Mobile images={mobileShowcase} />
+        <Mobile images={mobileShowcase} />
+      </SectionWrapper>
 
       <SectionWrapper
         backgroundColor="#f2f2f2"
@@ -123,29 +118,21 @@ const WatoPage = () => {
         paddingBottom={false}
         width="90%"
         maxWidth="110rem"
-        align="left"
+        align="center"
       >
         <SectionHeader
-          textAlign="left"
+          textAlign="center"
           style="L3"
           color="#000"
           h2="Animation with JavaScript"
         />
-        <SectionCopy textAlign="left">
+        <SectionCopy textAlign="center">
           <p>
             Accomplished with responsive web development and the JavaScript
             animation library GSAP.
           </p>
         </SectionCopy>
-      </SectionWrapper>
 
-      <SectionWrapper
-        backgroundColor="#f2f2f2"
-        paddingTop={false}
-        paddingBottom={true}
-        width="90%"
-        align="center"
-      >
         <Video
           src="https://player.vimeo.com/video/355045208?autoplay=1&loop=1&autopause=0"
           backgroundColor="#f2f2f2"
@@ -153,8 +140,8 @@ const WatoPage = () => {
       </SectionWrapper>
 
       <SectionWrapper
-        backgroundColor="#ffffff"
-        paddingTop={true}
+        backgroundColor="#f2f2f2"
+        paddingTop={false}
         paddingBottom={true}
         width="90%"
         maxWidth="110rem"
@@ -183,12 +170,6 @@ const WatoPage = () => {
           </p>
         </SectionCopy>
       </SectionWrapper>
-
-      <SingleParallaxImage
-        image={watoCityImage}
-        scrollTriggerAni={true}
-        backgroundColor="#ffffff"
-      />
 
       <SectionWrapper
         backgroundColor="#ffffff"

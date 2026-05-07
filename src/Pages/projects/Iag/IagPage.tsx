@@ -758,6 +758,7 @@ const IagPage = () => {
             desktop and mobile devices.
           </p>
         </SectionCopy>
+
         <Video
           src="https://player.vimeo.com/video/355045208?autoplay=1&loop=1&autopause=0"
           backgroundColor="#fff"
