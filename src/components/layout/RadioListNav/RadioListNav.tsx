@@ -15,6 +15,7 @@ const RadioListNav = ({
 }: Iprops) => {
   return (
     <nav className={styles.sliderNav}>
+      <h3 className={styles.sliderNav__header}>Radio Navigation Items</h3>
       <div className={styles.sliderNav__wrapper}>
         {images.map((image, index) => {
           return (

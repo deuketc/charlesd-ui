@@ -20,6 +20,9 @@
     margin: 0 auto;
     @include mixin.STYLE-SECTION-BORDER-RADIUS;
   }
+  &__title {
+    display: none;
+  }
 }
 
 .bitmap {

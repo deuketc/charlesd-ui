@@ -110,8 +110,6 @@ const iagPageImages = [
   screenshotState1280,
   screenshotStateContent1280,
 
-  sliderImageEmail01,
-  sliderImageEmail02,
   sliderMobileImage,
   sliderTabletImage,
   sliderDesktopImage,
@@ -130,10 +128,11 @@ const IagPage = () => {
         paddingBottom={true}
         width="90%"
       >
+        <SectionHeader style="hidden" color="#fff" h1="IAG." />
         <SectionHeader
           style="L4"
           color="#fff"
-          h1="Senior UI Developer specialising in enterprise systems, animation, and scalable front-end architecture within large insurance environments."
+          h2="Senior UI Developer specialising in enterprise systems, animation, and scalable front-end architecture within large insurance environments."
         />
       </SectionWrapper>
 
@@ -217,7 +216,6 @@ const IagPage = () => {
         paddingTop={true}
         paddingBottom={true}
         width="90%"
-        maxWidth="110rem"
         align="center"
       >
         <SectionHeader
@@ -227,216 +225,220 @@ const IagPage = () => {
           h2="From Complexity to Scalable Systems"
         />
         <SectionCopy textAlign="center">
-          <p>
+          <p className={styles.copySection}>
             As a Senior UI Developer, I lead the front-end development of claims
             lodgement systems, collaborating closely with UX designers, backend
             developers, and product managers to ensure seamless integration and
             optimal user experience.
           </p>
         </SectionCopy>
-      </SectionWrapper>
 
-      <SectionWrapper width="90%" backgroundColor="#ffffff">
-        <div className={styles.architectureSection}>
-          <div className={styles.architectureSectionCol1}>
-            <SectionHeader
-              textAlign="left"
-              style="L2"
-              h3="Architecture & System Design"
-            />
-          </div>
-          <div className={styles.architectureSectionCol2}>
-            <SectionCopy>
-              <ul className={styles.architectureSection_list}>
-                <li className={styles.architectureSection_listItem}>
-                  <p className={styles.architectureSection_listItemCopy}>
-                    Architect large-scale UI applications from the ground up,
-                    ensuring long-term scalability and maintainability
-                  </p>
-                </li>
-                <li className={styles.architectureSection_listItem}>
-                  <p className={styles.architectureSection_listItemCopy}>
-                    Design modular component systems that support multi-brand
-                    consistency and future expansion
-                  </p>
-                </li>
-                <li className={styles.architectureSection_listItem}>
-                  <p className={styles.architectureSection_listItemCopy}>
-                    Structure complex workflows to reduce cognitive load while
-                    preserving business logic integrity
-                  </p>
-                </li>
-              </ul>
-            </SectionCopy>
-          </div>
-          <div className={styles.architectureSectionCol3}>
-            <SectionCopy textAlign="center">
-              <span className={styles.architectureSectionIcon}>
-                <FontAwesomeIcon icon={faSitemap} />
-              </span>
-            </SectionCopy>
-          </div>
-        </div>
+        <div>
+          <article className={styles.architectureSection}>
+            <div className={styles.architectureSectionCol1}>
+              <SectionHeader
+                textAlign="left"
+                style="L2"
+                h3="Architecture & System Design"
+              />
+            </div>
+            <div className={styles.architectureSectionCol2}>
+              <SectionCopy>
+                <ul className={styles.architectureSection_list}>
+                  <li className={styles.architectureSection_listItem}>
+                    <p className={styles.architectureSection_listItemCopy}>
+                      Architect large-scale UI applications from the ground up,
+                      ensuring long-term scalability and maintainability
+                    </p>
+                  </li>
+                  <li className={styles.architectureSection_listItem}>
+                    <p className={styles.architectureSection_listItemCopy}>
+                      Design modular component systems that support multi-brand
+                      consistency and future expansion
+                    </p>
+                  </li>
+                  <li className={styles.architectureSection_listItem}>
+                    <p className={styles.architectureSection_listItemCopy}>
+                      Structure complex workflows to reduce cognitive load while
+                      preserving business logic integrity
+                    </p>
+                  </li>
+                </ul>
+              </SectionCopy>
+            </div>
+            <div className={styles.architectureSectionCol3}>
+              <SectionCopy textAlign="center">
+                <span className={styles.architectureSectionIcon}>
+                  <FontAwesomeIcon icon={faSitemap} />
+                </span>
+              </SectionCopy>
+            </div>
+          </article>
 
-        <div className={styles.architectureSection}>
-          <div className={styles.architectureSectionCol1}>
-            <SectionHeader
-              textAlign="left"
-              style="L2"
-              h3="Modern Front-End Engineering"
-            />
-          </div>
-          <div className={styles.architectureSectionCol2}>
-            <SectionCopy>
-              <ul className={styles.architectureSection_list}>
-                <li className={styles.architectureSection_listItem}>
-                  <p className={styles.architectureSection_listItemCopy}>
-                    Research, evaluate, and implement modern UI technologies to
-                    improve performance and developer efficiency
-                  </p>
-                </li>
-                <li className={styles.architectureSection_listItem}>
-                  <p className={styles.architectureSection_listItemCopy}>
-                    Introduce progressive enhancements that elevate user
-                    experience without compromising stability
-                  </p>
-                </li>
-                <li className={styles.architectureSection_listItem}>
-                  <p className={styles.architectureSection_listItemCopy}>
-                    Balance innovation with enterprise constraints and
-                    compliance requirements
-                  </p>
-                </li>
-              </ul>
-            </SectionCopy>
-          </div>
-          <div className={styles.architectureSectionCol3}>
-            <SectionCopy textAlign="center">
-              <span className={styles.architectureSectionIcon}>
-                <FontAwesomeIcon icon={faJsSquare} />
-              </span>
-            </SectionCopy>
-          </div>
-        </div>
+          <article className={styles.architectureSection}>
+            <div className={styles.architectureSectionCol1}>
+              <SectionHeader
+                textAlign="left"
+                style="L2"
+                h3="Modern Front-End Engineering"
+              />
+            </div>
+            <div className={styles.architectureSectionCol2}>
+              <SectionCopy>
+                <ul className={styles.architectureSection_list}>
+                  <li className={styles.architectureSection_listItem}>
+                    <p className={styles.architectureSection_listItemCopy}>
+                      Research, evaluate, and implement modern UI technologies
+                      to improve performance and developer efficiency
+                    </p>
+                  </li>
+                  <li className={styles.architectureSection_listItem}>
+                    <p className={styles.architectureSection_listItemCopy}>
+                      Introduce progressive enhancements that elevate user
+                      experience without compromising stability
+                    </p>
+                  </li>
+                  <li className={styles.architectureSection_listItem}>
+                    <p className={styles.architectureSection_listItemCopy}>
+                      Balance innovation with enterprise constraints and
+                      compliance requirements
+                    </p>
+                  </li>
+                </ul>
+              </SectionCopy>
+            </div>
+            <div className={styles.architectureSectionCol3}>
+              <SectionCopy textAlign="center">
+                <span className={styles.architectureSectionIcon}>
+                  <FontAwesomeIcon icon={faJsSquare} />
+                </span>
+              </SectionCopy>
+            </div>
+          </article>
 
-        <div className={styles.architectureSection}>
-          <div className={styles.architectureSectionCol1}>
-            <SectionHeader
-              textAlign="left"
-              style="L2"
-              h3="Quality & Reliability"
-            />
-          </div>
-          <div className={styles.architectureSectionCol2}>
-            <SectionCopy>
-              <ul className={styles.architectureSection_list}>
-                <li className={styles.architectureSection_listItem}>
-                  <p className={styles.architectureSection_listItemCopy}>
-                    Write comprehensive unit and integration tests to ensure
-                    application resilience across edge cases
-                  </p>
-                </li>
-                <li className={styles.architectureSection_listItem}>
-                  <p className={styles.architectureSection_listItemCopy}>
-                    Advocate for test coverage as a core part of delivery, not
-                    an afterthought
-                  </p>
-                </li>
-                <li className={styles.architectureSection_listItem}>
-                  <p className={styles.architectureSection_listItemCopy}>
-                    Proactively identify performance bottlenecks and
-                    accessibility risks
-                  </p>
-                </li>
-              </ul>
-            </SectionCopy>
-          </div>
-          <div className={styles.architectureSectionCol3}>
-            <SectionCopy textAlign="center">
-              <span className={styles.architectureSectionIcon}>
-                <FontAwesomeIcon icon={faScaleBalanced} />
-              </span>
-            </SectionCopy>
-          </div>
-        </div>
+          <article className={styles.architectureSection}>
+            <div className={styles.architectureSectionCol1}>
+              <SectionHeader
+                textAlign="left"
+                style="L2"
+                h3="Quality & Reliability"
+              />
+            </div>
+            <div className={styles.architectureSectionCol2}>
+              <SectionCopy>
+                <ul className={styles.architectureSection_list}>
+                  <li className={styles.architectureSection_listItem}>
+                    <p className={styles.architectureSection_listItemCopy}>
+                      Write comprehensive unit and integration tests to ensure
+                      application resilience across edge cases
+                    </p>
+                  </li>
+                  <li className={styles.architectureSection_listItem}>
+                    <p className={styles.architectureSection_listItemCopy}>
+                      Advocate for test coverage as a core part of delivery, not
+                      an afterthought
+                    </p>
+                  </li>
+                  <li className={styles.architectureSection_listItem}>
+                    <p className={styles.architectureSection_listItemCopy}>
+                      Proactively identify performance bottlenecks and
+                      accessibility risks
+                    </p>
+                  </li>
+                </ul>
+              </SectionCopy>
+            </div>
+            <div className={styles.architectureSectionCol3}>
+              <SectionCopy textAlign="center">
+                <span className={styles.architectureSectionIcon}>
+                  <FontAwesomeIcon icon={faScaleBalanced} />
+                </span>
+              </SectionCopy>
+            </div>
+          </article>
 
-        <div className={styles.architectureSection}>
-          <div className={styles.architectureSectionCol1}>
-            <SectionHeader textAlign="left" style="L2" h3="DevOps & Delivery" />
-          </div>
-          <div className={styles.architectureSectionCol2}>
-            <SectionCopy>
-              <ul className={styles.architectureSection_list}>
-                <li className={styles.architectureSection_listItem}>
-                  <p className={styles.architectureSection_listItemCopy}>
-                    Configure and maintain CI/CD pipelines to support safe,
-                    repeatable deployments
-                  </p>
-                </li>
-                <li className={styles.architectureSection_listItem}>
-                  <p className={styles.architectureSection_listItemCopy}>
-                    Collaborate with backend teams to manage API integrations
-                    and deployment workflows
-                  </p>
-                </li>
-                <li className={styles.architectureSection_listItem}>
-                  <p className={styles.architectureSection_listItemCopy}>
-                    Ensure production releases meet both technical and business
-                    expectations
-                  </p>
-                </li>
-              </ul>
-            </SectionCopy>
-          </div>
-          <div className={styles.architectureSectionCol3}>
-            <SectionCopy textAlign="center">
-              <span className={styles.architectureSectionIcon}>
-                <FontAwesomeIcon icon={faGear} />
-              </span>
-            </SectionCopy>
-          </div>
-        </div>
+          <article className={styles.architectureSection}>
+            <div className={styles.architectureSectionCol1}>
+              <SectionHeader
+                textAlign="left"
+                style="L2"
+                h3="DevOps & Delivery"
+              />
+            </div>
+            <div className={styles.architectureSectionCol2}>
+              <SectionCopy>
+                <ul className={styles.architectureSection_list}>
+                  <li className={styles.architectureSection_listItem}>
+                    <p className={styles.architectureSection_listItemCopy}>
+                      Configure and maintain CI/CD pipelines to support safe,
+                      repeatable deployments
+                    </p>
+                  </li>
+                  <li className={styles.architectureSection_listItem}>
+                    <p className={styles.architectureSection_listItemCopy}>
+                      Collaborate with backend teams to manage API integrations
+                      and deployment workflows
+                    </p>
+                  </li>
+                  <li className={styles.architectureSection_listItem}>
+                    <p className={styles.architectureSection_listItemCopy}>
+                      Ensure production releases meet both technical and
+                      business expectations
+                    </p>
+                  </li>
+                </ul>
+              </SectionCopy>
+            </div>
+            <div className={styles.architectureSectionCol3}>
+              <SectionCopy textAlign="center">
+                <span className={styles.architectureSectionIcon}>
+                  <FontAwesomeIcon icon={faGear} />
+                </span>
+              </SectionCopy>
+            </div>
+          </article>
 
-        <div className={styles.architectureSection}>
-          <div className={styles.architectureSectionCol1}>
-            <SectionHeader
-              textAlign="left"
-              style="L2"
-              h3="Stakeholder Collaboration"
-            />
-          </div>
-          <div className={styles.architectureSectionCol2}>
-            <SectionCopy>
-              <ul className={styles.architectureSection_list}>
-                <li className={styles.architectureSection_listItem}>
-                  <p className={styles.architectureSection_listItemCopy}>
-                    Present new features and architectural decisions to
-                    stakeholders, translating technical detail into business
-                    value
-                  </p>
-                </li>
-                <li className={styles.architectureSection_listItem}>
-                  <p className={styles.architectureSection_listItemCopy}>
-                    Collaborate closely with product owners and designers to
-                    align user needs with technical feasibility
-                  </p>
-                </li>
-                <li className={styles.architectureSection_listItem}>
-                  <p className={styles.architectureSection_listItemCopy}>
-                    Mentor team members and contribute to raising overall UI
-                    standards
-                  </p>
-                </li>
-              </ul>
-            </SectionCopy>
-          </div>
-          <div className={styles.architectureSectionCol3}>
-            <SectionCopy textAlign="center">
-              <span className={styles.architectureSectionIcon}>
-                <FontAwesomeIcon icon={faPeopleCarryBox} />
-              </span>
-            </SectionCopy>
-          </div>
+          <article className={styles.architectureSection}>
+            <div className={styles.architectureSectionCol1}>
+              <SectionHeader
+                textAlign="left"
+                style="L2"
+                h3="Stakeholder Collaboration"
+              />
+            </div>
+            <div className={styles.architectureSectionCol2}>
+              <SectionCopy>
+                <ul className={styles.architectureSection_list}>
+                  <li className={styles.architectureSection_listItem}>
+                    <p className={styles.architectureSection_listItemCopy}>
+                      Present new features and architectural decisions to
+                      stakeholders, translating technical detail into business
+                      value
+                    </p>
+                  </li>
+                  <li className={styles.architectureSection_listItem}>
+                    <p className={styles.architectureSection_listItemCopy}>
+                      Collaborate closely with product owners and designers to
+                      align user needs with technical feasibility
+                    </p>
+                  </li>
+                  <li className={styles.architectureSection_listItem}>
+                    <p className={styles.architectureSection_listItemCopy}>
+                      Mentor team members and contribute to raising overall UI
+                      standards
+                    </p>
+                  </li>
+                </ul>
+              </SectionCopy>
+            </div>
+            <div className={styles.architectureSectionCol3}>
+              <SectionCopy textAlign="center">
+                <span className={styles.architectureSectionIcon}>
+                  <FontAwesomeIcon icon={faPeopleCarryBox} />
+                </span>
+              </SectionCopy>
+            </div>
+          </article>
         </div>
       </SectionWrapper>
 
@@ -447,7 +449,6 @@ const IagPage = () => {
         paddingTop={true}
         paddingBottom={true}
         width="90%"
-        maxWidth="110rem"
         align="center"
       >
         <SectionHeader
@@ -457,53 +458,53 @@ const IagPage = () => {
           color="#000"
         />
         <SectionCopy textAlign="center">
-          <p>
+          <p className={styles.copySection}>
             Designing for scale requires more than clean interfaces, it demands
             systems thinking. The claims platforms I work on support multiple
             brands, integrate with numerous backend services, and process
             thousands of real customer journeys every month.
           </p>
         </SectionCopy>
-      </SectionWrapper>
 
-      <div className={styles.supportsMajorBrands_wrapper}>
-        <SectionWrapper
-          backgroundColor="#ffffff"
-          paddingTop={false}
-          paddingBottom={true}
-          width="90%"
-        >
-          <SectionColumns>
-            <SectionCopy textAlign="center">
-              <SectionHeader
-                textAlign="center"
-                h3="Supports major insurance brands"
-                style="L2"
-                color="#000"
-              />
-              <NumberCountAnimation number="7" />
-            </SectionCopy>
-            <SectionCopy textAlign="center">
-              <SectionHeader
-                textAlign="center"
-                h3="User Interfaces"
-                style="L2"
-                color="#000"
-              />
-              <NumberCountAnimation number="16" />
-            </SectionCopy>
-            <SectionCopy textAlign="center">
-              <SectionHeader
-                textAlign="center"
-                h3="Integrate with backend API's"
-                style="L2"
-                color="#000"
-              />
-              <NumberCountAnimation number="20" />
-            </SectionCopy>
-          </SectionColumns>
-        </SectionWrapper>
-      </div>
+        <div className={styles.supportsMajorBrands_wrapper}>
+          <SectionWrapper
+            backgroundColor="#ffffff"
+            paddingTop={true}
+            paddingBottom={true}
+            width="90%"
+          >
+            <SectionColumns>
+              <SectionCopy textAlign="center">
+                <SectionHeader
+                  textAlign="center"
+                  h3="Supports major insurance brands"
+                  style="L2"
+                  color="#000"
+                />
+                <NumberCountAnimation number="7" />
+              </SectionCopy>
+              <SectionCopy textAlign="center">
+                <SectionHeader
+                  textAlign="center"
+                  h3="User Interfaces"
+                  style="L2"
+                  color="#000"
+                />
+                <NumberCountAnimation number="16" />
+              </SectionCopy>
+              <SectionCopy textAlign="center">
+                <SectionHeader
+                  textAlign="center"
+                  h3="Integrate with backend API's"
+                  style="L2"
+                  color="#000"
+                />
+                <NumberCountAnimation number="20" />
+              </SectionCopy>
+            </SectionColumns>
+          </SectionWrapper>
+        </div>
+      </SectionWrapper>
 
       <SectionWrapper
         backgroundColor="#ffffff"
@@ -615,7 +616,7 @@ const IagPage = () => {
         paddingTop={true}
         paddingBottom={true}
         width="90%"
-        maxWidth="110rem"
+        //maxWidth="110rem"
         align="center"
       >
         <SectionHeader
@@ -624,100 +625,113 @@ const IagPage = () => {
           color="#000"
           h2="Disaster Claims Hub"
         />
-        <SectionCopy
-          textAlign="center"
-          bulletlist={[
-            {
-              icon: faHouseCrack,
-              text: 'Built for AMI, State and IAG',
-            },
-            {
-              icon: faCar,
-              text: 'Designed to support high traffic during disaster events',
-            },
-            {
-              icon: faCloud,
-              text: 'Built using Oracle Service Cloud',
-            },
-          ]}
+        <div className={styles.copySection}>
+          <SectionCopy
+            textAlign="center"
+            bulletlist={[
+              {
+                icon: faHouseCrack,
+                text: 'Built for AMI, State and IAG',
+              },
+              {
+                icon: faCar,
+                text: 'Designed to support high traffic during disaster events',
+              },
+              {
+                icon: faCloud,
+                text: 'Built using Oracle Service Cloud',
+              },
+            ]}
+          >
+            <p>
+              During major weather events and natural hazards, customers need
+              fast access to clear information about the claims process. The
+              Disaster Claims Hub was designed as a central information portal
+              to help customers understand what to do after an event and how to
+              manage their claims across multiple insurance brands.
+            </p>
+          </SectionCopy>
+        </div>
+        <SectionWrapper
+          paddingTop={true}
+          width="100%"
+          backgroundColor="#f2f2f2"
         >
-          <p>
-            During major weather events and natural hazards, customers need fast
-            access to clear information about the claims process. The Disaster
-            Claims Hub was designed as a central information portal to help
-            customers understand what to do after an event and how to manage
-            their claims across multiple insurance brands.
-          </p>
-        </SectionCopy>
-      </SectionWrapper>
+          <DualImage images={myDualImage} />
+        </SectionWrapper>
 
-      <SectionWrapper width="90%" backgroundColor="#f2f2f2">
-        <DualImage images={myDualImage} />
-      </SectionWrapper>
+        <SectionWrapper
+          backgroundColor="#f2f2f2"
+          paddingTop={true}
+          paddingBottom={false}
+          align="left"
+        >
+          <SectionHeader
+            style="L3"
+            color="#000"
+            h2="Technical Implementation"
+          />
+          <SectionCopy
+            textAlign="center"
+            bulletlist={[
+              {
+                icon: faCloud,
+                text: 'Built within the constraints of Oracle Service Cloud',
+              },
+              {
+                icon: faCode,
+                text: 'Developed reusable UI components for multiple brands',
+              },
+              {
+                icon: faDesktop,
+                text: 'Implemented responsive layouts across device sizes',
+              },
+              {
+                icon: faBoltLightning,
+                text: 'Optimized for fast content updates during disaster events',
+              },
+              {
+                icon: faDatabase,
+                text: 'Integrated CMS-driven content structure for flexible updates',
+              },
+            ]}
+          ></SectionCopy>
+        </SectionWrapper>
 
-      <SectionWrapper
-        backgroundColor="#f2f2f2"
-        paddingTop={true}
-        paddingBottom={false}
-        width="90%"
-        maxWidth="110rem"
-        align="left"
-      >
-        <SectionHeader style="L3" color="#000" h2="Technical Implementation" />
-        <SectionCopy
-          textAlign="center"
-          bulletlist={[
-            {
-              icon: faCloud,
-              text: 'Built within the constraints of Oracle Service Cloud',
-            },
-            {
-              icon: faCode,
-              text: 'Developed reusable UI components for multiple brands',
-            },
-            {
-              icon: faDesktop,
-              text: 'Implemented responsive layouts across device sizes',
-            },
-            {
-              icon: faBoltLightning,
-              text: 'Optimized for fast content updates during disaster events',
-            },
-            {
-              icon: faDatabase,
-              text: 'Integrated CMS-driven content structure for flexible updates',
-            },
-          ]}
-        ></SectionCopy>
-      </SectionWrapper>
+        <Mobile
+          shouldAnimate={true}
+          images={mobileShowcase}
+          backgroundColor="#f2f2f2"
+        />
 
-      <Mobile
-        shouldAnimate={true}
-        images={mobileShowcase}
-        backgroundColor="#f2f2f2"
-      />
-
-      <SectionWrapper
-        backgroundColor="#f2f2f2"
-        paddingTop={false}
-        paddingBottom={true}
-        width="90%"
-        align="right"
-        maxWidth="60rem"
-      >
-        <SectionCopy textAlign="right">
-          <p>
-            "Charlie, honestly you are one of the best developers I've worked
-            with. You're super talented, amazing at communication, and always so
-            helpful. Thank you so much for your epic ownership of the Disaster
-            Claims Hub...you also just made the whole thing look easy, which is
-            a true gift to be able to do. I know I can speak for the whole
-            project team when I say how much we've appreciated the regular
-            updates...and now we're almost live! Congrats on a great job getting
-            this across the line for us. You're a true legend!"
-          </p>
-          <p>Tineke Bright</p>
-        </SectionCopy>
+        <SectionWrapper
+          backgroundColor="#f2f2f2"
+          paddingTop={false}
+          paddingBottom={false}
+          align="right"
+          maxWidth="60rem"
+        >
+          <SectionHeader
+            textAlign="right"
+            style="L2"
+            color="#000"
+            h3="Client Testimonial"
+          />
+          <SectionCopy textAlign="right">
+            <p>
+              "Charlie, honestly you are one of the best developers I've worked
+              with. You're super talented, amazing at communication, and always
+              so helpful. Thank you so much for your epic ownership of the
+              Disaster Claims Hub...you also just made the whole thing look
+              easy, which is a true gift to be able to do. I know I can speak
+              for the whole project team when I say how much we've appreciated
+              the regular updates...and now we're almost live! Congrats on a
+              great job getting this across the line for us. You're a true
+              legend!"
+            </p>
+            <p>Tineke Bright</p>
+          </SectionCopy>
+        </SectionWrapper>
       </SectionWrapper>
 
       {/* What are the odds Promotional microsite */}
@@ -770,101 +784,100 @@ const IagPage = () => {
         paddingBottom={true}
         width="90%"
         align="center"
-        maxWidth="110rem"
       >
-        <SectionHeader
-          textAlign="center"
-          style="L3"
-          color="#000"
-          h2="Engineering Scalable Email Communication Systems"
-        />
-        <SectionCopy textAlign="center">
-          <p>
-            Email remains a critical communication channel for our customers,
-            delivering important updates such as policy confirmations,
-            notifications, and service communications. I developed a scalable
-            responsive email template system used across multiple brands to
-            ensure consistent, reliable delivery across all major email clients.
-          </p>
-        </SectionCopy>
-      </SectionWrapper>
+        <div className={styles.copySection}>
+          <SectionHeader
+            textAlign="center"
+            style="L3"
+            color="#000"
+            h2="Engineering Scalable Email Communication Systems"
+          />
+          <SectionCopy textAlign="center">
+            <p>
+              Email remains a critical communication channel for our customers,
+              delivering important updates such as policy confirmations,
+              notifications, and service communications. I developed a scalable
+              responsive email template system used across multiple brands to
+              ensure consistent, reliable delivery across all major email
+              clients.
+            </p>
+          </SectionCopy>
+        </div>
 
-      <SectionWrapper
-        backgroundColor="#f2f2f2"
-        width="90%"
-        paddingBottom={false}
-        paddingTop={false}
-      >
-        <DualImage images={myDualImage2} />
-      </SectionWrapper>
-
-      <SectionWrapper
-        backgroundColor="#f2f2f2"
-        paddingTop={true}
-        paddingBottom={true}
-        width="90%"
-        maxWidth="110rem"
-        align="left"
-      >
-        <SectionHeader style="L3" color="#000" h2="Technical Highlights" />
-        <SectionCopy
-          textAlign="center"
-          bulletlist={[
-            {
-              icon: faDesktop,
-              text: 'Fully responsive HTML email templates supporting mobile and desktop clients',
-            },
-            {
-              icon: faCircleCheck,
-              text: 'Extensive cross-client testing using <a href="https://www.litmus.com/" target="_blank" rel="noopener noreferrer">Litmus</a>',
-            },
-            {
-              icon: faCircleHalfStroke,
-              text: 'Optimized layouts for dark mode compatibility',
-            },
-            {
-              icon: faCubesStacked,
-              text: 'Modular template structure allowing reuse across multiple communication types',
-            },
-            {
-              icon: faEnvelope,
-              text: 'Built to support high-volume transactional email delivery',
-            },
-          ]}
-        ></SectionCopy>
-      </SectionWrapper>
-
-      <SectionWrapper
-        backgroundColor="#f2f2f2"
-        paddingTop={true}
-        paddingBottom={true}
-        width="90%"
-        align="center"
-        maxWidth="110rem"
-      >
-        <SectionHeader
-          textAlign="center"
-          style="L3"
-          color="#000"
-          h2="Reusable Template System"
-        />
-        <SectionCopy textAlign="center">
-          <p>
-            The email templates were designed as a reusable system, allowing
-            teams to rapidly create new communications while maintaining
-            consistent layout, accessibility, and brand styling.
-          </p>
-        </SectionCopy>
-        <BtnSection
-          buttons={[
-            {
-              icon: faCode,
-              label: 'GitHub Repo',
-              url: 'https://github.com/deuketc/edm-desktop-first',
-            },
-          ]}
+        <SectionWrapper
           backgroundColor="#f2f2f2"
-        />
+          paddingBottom={false}
+          paddingTop={true}
+        >
+          <DualImage images={myDualImage2} />
+        </SectionWrapper>
+
+        <SectionWrapper
+          backgroundColor="#f2f2f2"
+          paddingTop={true}
+          paddingBottom={true}
+          maxWidth="110rem"
+          align="left"
+        >
+          <SectionHeader style="L3" color="#000" h2="Technical Highlights" />
+          <SectionCopy
+            textAlign="center"
+            bulletlist={[
+              {
+                icon: faDesktop,
+                text: 'Fully responsive HTML email templates supporting mobile and desktop clients',
+              },
+              {
+                icon: faCircleCheck,
+                text: 'Extensive cross-client testing using <a href="https://www.litmus.com/" target="_blank" rel="noopener noreferrer">Litmus</a>',
+              },
+              {
+                icon: faCircleHalfStroke,
+                text: 'Optimized layouts for dark mode compatibility',
+              },
+              {
+                icon: faCubesStacked,
+                text: 'Modular template structure allowing reuse across multiple communication types',
+              },
+              {
+                icon: faEnvelope,
+                text: 'Built to support high-volume transactional email delivery',
+              },
+            ]}
+          ></SectionCopy>
+        </SectionWrapper>
+
+        <SectionWrapper
+          backgroundColor="#f2f2f2"
+          paddingTop={false}
+          paddingBottom={false}
+          align="center"
+          maxWidth="110rem"
+        >
+          <SectionHeader
+            textAlign="center"
+            style="L3"
+            color="#000"
+            h2="Reusable Template System"
+          />
+          <SectionCopy textAlign="center">
+            <p>
+              The email templates were designed as a reusable system, allowing
+              teams to rapidly create new communications while maintaining
+              consistent layout, accessibility, and brand styling.
+            </p>
+          </SectionCopy>
+          <BtnSection
+            buttons={[
+              {
+                icon: faCode,
+                label: 'GitHub Repo',
+                url: 'https://github.com/deuketc/edm-desktop-first',
+              },
+            ]}
+            backgroundColor="#f2f2f2"
+          />
+        </SectionWrapper>
       </SectionWrapper>
 
       {/* <DarkMode images={sliderImagesEmail} backgroundColor="#f2f2f2" /> */}
@@ -896,14 +909,6 @@ const IagPage = () => {
           ]}
         />
       </SectionWrapper>
-
-      {/* <NextProject
-        backgroundColor="#fff"
-        copy="Unichem is network of more than 250 pharmacies throughout New&nbsp;Zealand."
-        header="Want to see another project?"
-        btnUrl="/projects/unichem"
-        btnLabel="Unichem casestudy"
-      /> */}
     </>
   ) : (
     <Spinner />

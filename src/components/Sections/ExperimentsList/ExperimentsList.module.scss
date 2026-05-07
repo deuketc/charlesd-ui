@@ -64,11 +64,9 @@
     @include mixin.SECTION-WRAPPER;
     @include mixin.STYLE-COPY;
   }
-  // &__list_item_title_wrapper {
-  // }
   &__list_item_title {
     margin-right: 2rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     @include mixin.STYLE-HEADER-L1;
   }
   &__list_item_description {

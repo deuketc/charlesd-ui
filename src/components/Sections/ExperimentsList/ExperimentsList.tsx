@@ -12,7 +12,6 @@ interface ExperimentsItem {
   description: string;
   tags: string[];
   date: string;
-  thumb: string;
   icon: IconDefinition;
   backgroundColor: string;
 }
@@ -48,9 +47,9 @@ const ExperimentsList = ({ experimentsList }: Iprops) => {
                       <p className={styles.experimentsList__list_item_icon}>
                         <FontAwesomeIcon icon={item.icon} />
                       </p>
-                      <p className={styles.experimentsList__list_item_title}>
+                      <h3 className={styles.experimentsList__list_item_title}>
                         {item.title}
-                      </p>
+                      </h3>
                       <p
                         className={
                           styles.experimentsList__list_item_description

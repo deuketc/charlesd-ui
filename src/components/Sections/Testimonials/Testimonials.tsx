@@ -16,15 +16,10 @@ const Testimonials: React.FC<TestimonialsProps> = ({ children }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
   const totalItems = React.Children.count(children);
-  // console.log('total', totalItems);
   const containerWidth = totalItems * childWidth;
   const increment = 100 / totalItems;
-  // const increment = containerWidth / totalItems;
-  console.log('increment', increment);
   const itemWidth = Math.floor((childWidth / 100) * 10);
-  // console.log('itemWidth', itemWidth);
   const itemsOutView = totalItems - itemWidth;
-  // console.log('itemsOutView', itemsOutView);
   const maxIndex = totalItems - itemsOutView + 1;
 
   const handleNext = () => {

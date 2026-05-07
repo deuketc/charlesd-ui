@@ -1,4 +1,4 @@
-import { useRef, createRef } from 'react';
+import { useRef } from 'react';
 import iagThumb from '../../assets/projects/iag-thumb.jpg';
 import touchpointThumb from '../../assets/projects/touchpoint-thumb.jpg';
 import udcThumb from '../../assets/projects/udc-thumb.jpg';

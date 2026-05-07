@@ -16,7 +16,7 @@ interface IProps {
 
 const BtnSection = ({ buttons }: IProps) => {
   return (
-    <section className={styles.btn_section__wrapper}>
+    <div className={styles.btn_section__wrapper}>
       <div className={styles.btn_section__container}>
         {buttons.map((btn, i) => (
           <Link
@@ -35,7 +35,7 @@ const BtnSection = ({ buttons }: IProps) => {
           </Link>
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 

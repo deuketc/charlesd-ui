@@ -21,18 +21,6 @@ import screenhotImageMobile from '../../assets/projects/touchpoint/touchpoint-sc
 import mobile01 from '../../assets/projects/touchpoint/screenshot-touchpoint-mobile-cx.jpg';
 import mobile02 from '../../assets/projects/touchpoint/screenshot-touchpoint-mobile-ip.jpg';
 import mobile03 from '../../assets/projects/touchpoint/screenshot-touchpoint-mobile-mx.jpg';
-import logoHarmony from '../../assets/projects/touchpoint/logo-harmoney.jpg';
-import logoKingsplantbarn from '../../assets/projects/touchpoint/logo-kingsplantbarn.jpg';
-import logoSamsung from '../../assets/projects/touchpoint/logo-samsung.jpg';
-import logoUDC from '../../assets/projects/touchpoint/logo-udc.jpg';
-import logoUnichem from '../../assets/projects/touchpoint/logo-unichem.jpg';
-import logoSpark from '../../assets/projects/touchpoint/logo-spark.jpg';
-import logoMercury from '../../assets/projects/touchpoint/logo-mercury.jpg';
-import logoLion from '../../assets/projects/touchpoint/logo-lion.jpg';
-import logoAA from '../../assets/projects/touchpoint/logo-aa.jpg';
-import logoHuawei from '../../assets/projects/touchpoint/logo-huawei.jpg';
-import logoFreedom from '../../assets/projects/touchpoint/logo-freedom.jpg';
-import logoASB from '../../assets/projects/touchpoint/logo-asb.jpg';
 
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 
@@ -77,18 +65,6 @@ const mobileShowcase = [mobile01, mobile02, mobile03];
 
 const touchpointPageImages = [
   heroImage,
-  logoHarmony,
-  logoKingsplantbarn,
-  logoSamsung,
-  logoUDC,
-  logoUnichem,
-  logoSpark,
-  logoMercury,
-  logoLion,
-  logoAA,
-  logoHuawei,
-  logoFreedom,
-  logoASB,
   screenhotImageDesktop,
   screenhotImageTablet,
   screenhotImageMobile,

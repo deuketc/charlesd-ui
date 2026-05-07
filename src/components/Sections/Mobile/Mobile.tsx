@@ -107,7 +107,7 @@ const Mobile = ({
       style={{ backgroundColor: backgroundColor ? backgroundColor : '#ffffff' }}
     >
       <div className={styles.mobile__wrapper}>
-        <h1 className={styles.mobile__header}>mobile</h1>
+        <h1 className={styles.mobile__header}>Mobile Screenshot Showcase</h1>
         <div className={styles.mobile__container}>
           {images.map((image, index) => {
             return (

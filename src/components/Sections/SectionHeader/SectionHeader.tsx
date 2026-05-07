@@ -6,7 +6,7 @@ interface SectionHeaderProps {
   h2?: string;
   h3?: string;
   h4?: string;
-  style?: 'copy' | 'L1' | 'L2' | 'L3' | 'L4';
+  style?: 'copy' | 'L1' | 'L2' | 'L3' | 'L4' | 'hidden';
   color?: string;
   textAlign?: 'left' | 'center' | 'right' | 'justify';
 }

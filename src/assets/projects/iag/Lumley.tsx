@@ -12,7 +12,7 @@ const Lumley = () => {
         </clipPath>
       </defs>
       <g
-        clip-path="url(#a)"
+        clipPath="url(#a)"
         transform="matrix(7.46719 0 0 -7.46719 -3111.525 6247.888)"
       >
         <path

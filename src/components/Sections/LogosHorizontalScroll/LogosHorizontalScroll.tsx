@@ -47,6 +47,7 @@ const LogosHorizontalScroll = ({
   return (
     <section className={styles.container}>
       <div className={styles.wrapper}>
+        <h2 className={styles.title}>Logo Carousel</h2>
         <div
           className={styles.flexWrapper}
           ref={flexWrapperRef}

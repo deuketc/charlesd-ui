@@ -15,6 +15,7 @@ interface Iprops {
   refreshPriority?: number;
   backgroundColor?: string;
   imageHeights: number[];
+  title?: string;
 }
 
 const ResponsiveSlider = ({
@@ -22,6 +23,7 @@ const ResponsiveSlider = ({
   refreshPriority,
   backgroundColor,
   imageHeights,
+  title,
 }: Iprops) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slideResolution, setSlideResolution] = useState('mobile');
@@ -64,7 +66,6 @@ const ResponsiveSlider = ({
   const imgRefs = useRef(images.map(() => createRef<HTMLImageElement>()));
 
   useEffect(() => {
-    console.log(imageHeights);
     const yValues = imageHeights;
 
     const timelines = imgRefs.current.map((ref, index) => {
@@ -104,6 +105,11 @@ const ResponsiveSlider = ({
       className={styles.slider}
       style={backgroundColor ? { backgroundColor } : undefined}
     >
+      {
+        <h2 className={styles.slider__title}>
+          {title ? title : 'Responsive Slider'}
+        </h2>
+      }
       <div className={styles.slider__wrapper}>
         {toggleResponsive && (
           <>

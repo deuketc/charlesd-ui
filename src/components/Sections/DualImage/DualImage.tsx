@@ -17,6 +17,7 @@ interface DualImageProps {
 const DualImage = ({ images }: DualImageProps) => {
   return (
     <div className={styles.dualImage}>
+      <h2 className={styles.dualImageHeader}>Image Section</h2>
       <div className={styles.col1}>
         <img
           className={styles.image}

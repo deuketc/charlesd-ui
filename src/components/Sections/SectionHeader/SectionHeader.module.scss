@@ -20,3 +20,7 @@
 .L1 {
   @include mixin.STYLE-HEADER-L1;
 }
+
+.hidden {
+  display: none;
+}

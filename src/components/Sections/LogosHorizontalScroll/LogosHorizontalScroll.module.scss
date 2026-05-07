@@ -12,6 +12,10 @@
   //@include mixin.SECTION-WRAPPER;
 }
 
+.title {
+  display: none;
+}
+
 .flexWrapper {
   width: 200%;
   display: flex;
