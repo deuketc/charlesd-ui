@@ -237,7 +237,10 @@ const MatterDemo = () => {
     let lastAccel = { x: 0, y: 0 };
 
     const handleDeviceMotion = (e: DeviceMotionEvent) => {
-      const accel = e.acceleration ?? e.accelerationIncludingGravity;
+      // e.acceleration may exist as an object but have null x/y/z on many Android devices;
+      // fall back to accelerationIncludingGravity which is always populated.
+      const accel =
+        e.acceleration?.x != null ? e.acceleration : e.accelerationIncludingGravity;
       if (!accel) return;
 
       const ax = accel.x ?? 0;
