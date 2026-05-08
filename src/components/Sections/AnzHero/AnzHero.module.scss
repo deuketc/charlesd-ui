@@ -23,6 +23,15 @@
   display: block;
   width: 100%;
   height: 70%;
+  background-size: cover;
+  @include mixin.max-width-767px {
+    height: 50%;
+    background-size: contain;
+  }
+  @media (orientation: portrait) and (max-width: 1023px) {
+    height: 50%;
+    background-size: contain;
+  }
   position: absolute;
   top: 0;
   left: 0;
