@@ -232,8 +232,8 @@ const MatterDemo = () => {
     render.canvas.addEventListener('mousemove', handleMouseMove);
 
     // Device shake handler for mobile
-    const shakeThreshold = 12;
-    const shakeForceMagnitude = 0.04;
+    const shakeThreshold = 5;
+    const shakeForceMagnitude = 0.06;
     let lastAccel = { x: 0, y: 0 };
 
     const handleDeviceMotion = (e: DeviceMotionEvent) => {
