@@ -1,6 +1,7 @@
 import React, { useLayoutEffect } from 'react';
 import IagHero from '../../../components/Sections/IagHero/IagHero';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Mobile from '../../../components/Sections/Mobile/Mobile';
 import ResponsiveSlider from '../../../components/Sections/ResponsiveSlider/ResponsiveSlider';
 import Video from '../../../components/Sections/Video/Video';
