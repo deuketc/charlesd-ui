@@ -231,10 +231,71 @@ const MatterDemo = () => {
 
     render.canvas.addEventListener('mousemove', handleMouseMove);
 
+    // Device shake handler for mobile
+    const shakeThreshold = 12;
+    const shakeForceMagnitude = 0.04;
+    let lastAccel = { x: 0, y: 0 };
+
+    const handleDeviceMotion = (e: DeviceMotionEvent) => {
+      const accel = e.acceleration ?? e.accelerationIncludingGravity;
+      if (!accel) return;
+
+      const ax = accel.x ?? 0;
+      const ay = accel.y ?? 0;
+      const dx = ax - lastAccel.x;
+      const dy = ay - lastAccel.y;
+      lastAccel = { x: ax, y: ay };
+
+      const magnitude = Math.sqrt(dx * dx + dy * dy);
+      if (magnitude > shakeThreshold) {
+        const allBodies = Composite.allBodies(world);
+        for (const body of allBodies) {
+          if (body.isStatic) continue;
+          Body.applyForce(body, body.position, {
+            x: dx * shakeForceMagnitude,
+            y: -dy * shakeForceMagnitude, // device +Y is up; canvas +Y is down
+          });
+        }
+      }
+    };
+
+    const registerMotion = () => {
+      if (
+        typeof DeviceMotionEvent !== 'undefined' &&
+        typeof (DeviceMotionEvent as any).requestPermission === 'function'
+      ) {
+        (DeviceMotionEvent as any)
+          .requestPermission()
+          .then((permission: string) => {
+            if (permission === 'granted') {
+              window.addEventListener('devicemotion', handleDeviceMotion);
+            }
+          })
+          .catch(console.error);
+      } else {
+        window.addEventListener('devicemotion', handleDeviceMotion);
+      }
+    };
+
+    const isMobile = 'ontouchstart' in window;
+    let motionRegistered = false;
+    const handleFirstTouch = () => {
+      if (!motionRegistered) {
+        motionRegistered = true;
+        registerMotion();
+      }
+    };
+
+    if (isMobile) {
+      render.canvas.addEventListener('touchstart', handleFirstTouch);
+    }
+
     window.addEventListener('resize', handleResize);
 
     return () => {
       render.canvas.removeEventListener('mousemove', handleMouseMove);
+      render.canvas.removeEventListener('touchstart', handleFirstTouch);
+      window.removeEventListener('devicemotion', handleDeviceMotion);
       window.removeEventListener('resize', handleResize);
       Render.stop(render);
       Composite.clear(engine.world, false);
