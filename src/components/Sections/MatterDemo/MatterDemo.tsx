@@ -281,6 +281,9 @@ const MatterDemo = () => {
     };
 
     const isMobile = 'ontouchstart' in window;
+    const isIos =
+      typeof (DeviceMotionEvent as any).requestPermission === 'function';
+
     let motionRegistered = false;
     const handleFirstTouch = () => {
       if (!motionRegistered) {
@@ -290,7 +293,13 @@ const MatterDemo = () => {
     };
 
     if (isMobile) {
-      render.canvas.addEventListener('touchstart', handleFirstTouch);
+      if (isIos) {
+        // iOS requires requestPermission from a user gesture
+        render.canvas.addEventListener('touchstart', handleFirstTouch);
+      } else {
+        // Android: register immediately, no permission needed
+        window.addEventListener('devicemotion', handleDeviceMotion);
+      }
     }
 
     window.addEventListener('resize', handleResize);
