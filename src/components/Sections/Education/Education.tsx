@@ -24,9 +24,6 @@ const Education = () => {
             <p className={styles.resumeEducation__date}>
               Diploma of Digital Media
             </p>
-            {/* <p className={styles.resumeEducation__date}>
-                February 2011 - December 2011
-              </p> */}
             <h4 className={styles.resumeEducation__headerItal}>Projects</h4>
             <div>
               <details className={styles.resumeEducation__details}>
@@ -35,27 +32,12 @@ const Education = () => {
                 </summary>
                 <div className={styles.resumeEducation__detailsListItem}>
                   <p>
-                    <span className={styles.resumeEducation__headerItal}>
-                      Brief:
-                    </span>{' '}
-                    Pick a favourite visual Artist that is currently living, and
-                    that you have access to at least 15 visual samples of their
-                    work. Analyze the visual style of the Artist in order to
-                    create a Brand concept around the artist.
+                    Brief: Pick a favourite visual Artist that is currently
+                    living, and that you have access to at least 15 visual
+                    samples of their work. Analyze the visual style of the
+                    Artist in order to create a Brand concept around the artist.
                   </p>
-                  <p className={styles.resumeEducation__date}>
-                    XHTML, CSS, JavaScript
-                  </p>
-                  {/* <p>
-                      <a
-                        className="btn"
-                        target="_blank"
-                        rel="noreferrer"
-                        href="http://charlesd.co.nz/artist/"
-                      >
-                        Launch
-                      </a>
-                    </p> */}
+                  <p>XHTML, CSS, JavaScript</p>
                 </div>
               </details>
               <details className={styles.resumeEducation__details}>
@@ -64,27 +46,13 @@ const Education = () => {
                 </summary>
                 <div className={styles.resumeEducation__detailsListItem}>
                   <p>
-                    <span className={styles.resumeEducation__headerItal}>
-                      Brief:
-                    </span>{' '}
-                    Using the skills given to you in the course so far you will
-                    be able to produce a well designed, cohesive and usable
-                    website with a wordpress content management system allowing
-                    the client to easily update all content on the website.
+                    Brief: Using the skills given to you in the course so far
+                    you will be able to produce a well designed, cohesive and
+                    usable website with a wordpress content management system
+                    allowing the client to easily update all content on the
+                    website.
                   </p>
-                  <p className={styles.resumeEducation__date}>
-                    Tech: HTML5 &amp; CSS
-                  </p>
-                  {/* <p>
-                      <a
-                        className="btn"
-                        target="_blank"
-                        rel="noreferrer"
-                        href="http://charlesd.co.nz/zen/"
-                      >
-                        Launch
-                      </a>
-                    </p> */}
+                  <p>Tech: HTML5 &amp; CSS</p>
                 </div>
               </details>
             </div>

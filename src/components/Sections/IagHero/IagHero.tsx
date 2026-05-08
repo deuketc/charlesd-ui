@@ -48,62 +48,62 @@ const iagHero = () => {
     let ctx = gsap.context(() => {
       iagtl
 
-        .set(g1.current, {
-          transformOrigin: 'center center',
-          rotation: -90,
-        })
-        .set(g2.current, {
-          transformOrigin: 'center center',
-          rotation: 90,
-        })
-        .set(i2.current, { scale: 0, transformOrigin: 'center center' })
+        //       .set(g1.current, {
+        //         transformOrigin: 'center center',
+        //         rotation: -90,
+        //       })
+        //       .set(g2.current, {
+        //         transformOrigin: 'center center',
+        //         rotation: 90,
+        //       })
+        //       .set(i2.current, { scale: 0, transformOrigin: 'center center' })
 
-        .to(background.current, { duration: 1.5, width: '100%' })
+        .to(background.current, { duration: 1.5, width: '100%' });
 
-        .fromTo(
-          g1.current,
-          { drawSVG: '100% 100%' },
-          { duration: 0.5, drawSVG: '0% 100% ', ease: 'none' },
-          0.4
-        )
-        .fromTo(
-          g2.current,
-          { drawSVG: '0% 0%' },
-          { duration: 0.75, drawSVG: '100% 0% ' },
-          0.9
-        )
-        .fromTo(
-          g3.current,
-          { drawSVG: '0% 0%' },
-          { duration: 0.2, drawSVG: '100% 0% ', ease: 'none' },
-          1.15
-        )
-        .fromTo(
-          g4.current,
-          { drawSVG: '0% 0%' },
-          { duration: 0.3, drawSVG: '100% 0% ' },
-          1.35
-        )
-        .fromTo(
-          a1.current,
-          { drawSVG: '0% 0%' },
-          { duration: 0.5, drawSVG: '100% 0% ' },
-          1
-        )
-        .fromTo(
-          a2.current,
-          { drawSVG: '100% 100%' },
-          { duration: 0.75, drawSVG: '0% 100% ' },
-          1.2
-        )
-        .fromTo(
-          i1.current,
-          { drawSVG: '0% 0%' },
-          { duration: 0.5, drawSVG: '100% 0% ' },
-          1.6
-        )
+      //       .fromTo(
+      //         g1.current,
+      //         { drawSVG: '100% 100%' },
+      //         { duration: 0.5, drawSVG: '0% 100% ', ease: 'none' },
+      //         0.4
+      //       )
+      //       .fromTo(
+      //         g2.current,
+      //         { drawSVG: '0% 0%' },
+      //         { duration: 0.75, drawSVG: '100% 0% ' },
+      //         0.9
+      //       )
+      //       .fromTo(
+      //         g3.current,
+      //         { drawSVG: '0% 0%' },
+      //         { duration: 0.2, drawSVG: '100% 0% ', ease: 'none' },
+      //         1.15
+      //       )
+      //       .fromTo(
+      //         g4.current,
+      //         { drawSVG: '0% 0%' },
+      //         { duration: 0.3, drawSVG: '100% 0% ' },
+      //         1.35
+      //       )
+      //       .fromTo(
+      //         a1.current,
+      //         { drawSVG: '0% 0%' },
+      //         { duration: 0.5, drawSVG: '100% 0% ' },
+      //         1
+      //       )
+      //       .fromTo(
+      //         a2.current,
+      //         { drawSVG: '100% 100%' },
+      //         { duration: 0.75, drawSVG: '0% 100% ' },
+      //         1.2
+      //       )
+      //       .fromTo(
+      //         i1.current,
+      //         { drawSVG: '0% 0%' },
+      //         { duration: 0.5, drawSVG: '100% 0% ' },
+      //         1.6
+      //       )
 
-        .to(i2.current, { scale: 1, duration: 1, ease: 'elastic.out' }, 2.05);
+      //.to(i2.current, { scale: 1, duration: 1, ease: 'elastic.out' }, 2.05);
     }, comp);
 
     iagtl.play();

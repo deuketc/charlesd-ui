@@ -4,7 +4,9 @@ import { gsap } from 'gsap';
 import styles from './UnichemHero.module.scss';
 
 const UnichemHero = () => {
-  const comp = useRef(null); // create a ref for the root level element (for scoping)
+  const comp = useRef(null);
+  var unichemtl = gsap.timeline({ paused: true });
+  const background = useRef(null);
   useLayoutEffect(() => {
     if (!is_touch_device()) {
       let ctx = gsap.context(() => {
@@ -22,6 +24,21 @@ const UnichemHero = () => {
       return () => ctx.revert();
     }
   });
+
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      unichemtl.to(background.current, { duration: 1.5, width: '100%' }, 0);
+      unichemtl.fromTo(
+        comp.current,
+        { clipPath: 'inset(0 0 0 100%)' },
+        { clipPath: 'inset(0 0 0 0%)', duration: 1.5 },
+        0
+      );
+    }, comp);
+
+    unichemtl.play();
+    return () => ctx.revert(); // cleanup
+  }, []);
 
   return (
     <div className={styles.unichemHero} ref={comp}>
@@ -67,6 +84,7 @@ const UnichemHero = () => {
           <path fill="#fff" d="M60 77 30 47l7-7 23 23 23-23 7 7-30 30Z" />
         </svg>
       </div>
+      <div className={styles.background} ref={background}></div>
     </div>
   );
 };

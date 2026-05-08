@@ -6,12 +6,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #0b458fff;
+  // background-color: #0b458fff;
 }
 
 .unichemHero__container {
   @include mixin.SECTION-WRAPPER;
   max-width: 2000px;
+  position: relative;
+  z-index: 2;
 }
 
 .unichemHero__svg {
@@ -27,4 +29,14 @@
   width: 120px;
   height: 120px;
   z-index: 3;
+}
+
+.background {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #0b458fff;
 }
