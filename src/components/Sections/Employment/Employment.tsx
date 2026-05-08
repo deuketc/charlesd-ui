@@ -13,7 +13,7 @@ const Employment = () => {
               <h3 className={styles.headerSub}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  //xmlns:xlink="http://www.w3.org/1999/xlink"
+                  role="img"
                   version="1.1"
                   id="Layer_1"
                   x="0px"
@@ -21,9 +21,8 @@ const Employment = () => {
                   width="120px"
                   height="94.5px"
                   viewBox="0 0 600 498"
-                  //style="enable-background:new 0 0 600 498;"
-                  //xml:space="preserve"
                 >
+                  <title>IAG</title>
                   <path
                     //class="st0"
                     fill="#ffffff"
@@ -49,7 +48,7 @@ const Employment = () => {
           </article>
 
           <div className={styles.listPreviousWrapper}>
-            <article className={styles.listItem}>
+            <article>
               <div className={styles.listItemWrapper}>
                 <h3 className={styles.headerSub}>Touchpoint Group</h3>
                 <p className={styles.date}>Front-End Web Developer</p>

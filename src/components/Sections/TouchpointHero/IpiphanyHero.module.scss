@@ -1,0 +1,49 @@
+@use '../../../mixins' as mixin;
+@use '../../../variables' as var;
+
+.ipiphanyHeroContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+.svg {
+  position: relative;
+  z-index: 3;
+  width: 70%;
+  height: auto;
+  max-width: 1000px;
+}
+.ipiphanyBackground {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #5eb957ff;
+}
+
+.scrollIcon {
+  position: absolute;
+  bottom: 0rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 120px;
+  z-index: 3;
+}
+
+.ipiphanyBackgroundWhite {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}

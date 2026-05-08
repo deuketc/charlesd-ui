@@ -32,7 +32,7 @@ const projectItemList = [
     img: udcThumb,
   },
   {
-    title: 'Touchpoint Group',
+    title: 'Touchpoint Group (Ipiphany)',
     subTitle: 'Front-end developer role',
     href: '/projects/touchpoint',
     img: touchpointThumb,

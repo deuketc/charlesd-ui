@@ -60,10 +60,11 @@ const UnichemPage = () => {
         paddingBottom={true}
         width="90%"
       >
+        <SectionHeader style="hidden" color="#fff" h1="Unichem" />
         <SectionHeader
           style="L4"
           color="#fff"
-          h1="A fully custom, responsive front-end build for the Unichem website, supported by a CMS for flexible content management."
+          h2="A fully custom, responsive front-end build for the Unichem website, supported by a CMS for flexible content management."
         />
       </SectionWrapper>
 
@@ -119,7 +120,7 @@ const UnichemPage = () => {
       <SectionWrapper
         backgroundColor="#4f5565"
         paddingTop={true}
-        paddingBottom={false}
+        paddingBottom={true}
         width="90%"
         maxWidth="110rem"
         align="center"
@@ -136,15 +137,7 @@ const UnichemPage = () => {
             information, locations and interactive brochures.
           </p>
         </SectionCopy>
-      </SectionWrapper>
-      <SectionWrapper
-        backgroundColor="#4f5565"
-        paddingTop={false}
-        paddingBottom={true}
-        width="90%"
-        maxWidth="110rem"
-        align="center"
-      >
+
         <Video
           src={
             'https://player.vimeo.com/video/355039310?autoplay=1&loop=1&autopause=0'
@@ -175,7 +168,11 @@ const UnichemPage = () => {
         </SectionCopy>
       </SectionWrapper>
 
-      <SingleImage image={mySingleImage} backgroundColor="#f2f2f2" />
+      <SingleImage
+        alt="Unichem Website Screenshot"
+        image={mySingleImage}
+        backgroundColor="#f2f2f2"
+      />
 
       <SectionWrapper
         backgroundColor="#f2f2f2"
@@ -185,9 +182,12 @@ const UnichemPage = () => {
         align="center"
         maxWidth="110rem"
       >
-        <SectionCopy textAlign="center">
-          <p>View the Unichem website live.</p>
-        </SectionCopy>
+        <SectionHeader
+          textAlign="center"
+          style="L1"
+          color="#000"
+          h3="Visit the Unichem website"
+        />
         <SectionCopy textAlign="center">
           <a
             target="_blank"

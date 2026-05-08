@@ -21,6 +21,7 @@ const ImageSlider = ({ images, backgroundColor }: Iprops) => {
       style={{ backgroundColor: backgroundColor }}
     >
       <div className={styles.slider__wrapper}>
+        <h2 className={styles.slider__title}>Image Slider</h2>
         <div>
           {images.map((image, index) => {
             return (

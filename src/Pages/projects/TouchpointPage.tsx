@@ -2,27 +2,24 @@ import SectionCopy from '../../components/Sections/SectionCopy/SectionCopy';
 import SectionWrapper from '../../components/Sections/SectionWrapper/SectionWrapper';
 import SectionHeader from '../../components/Sections/SectionHeader/SectionHeader';
 
-import CopySection from '../../components/Sections/CopySection/CopySection';
-import SingleParallaxImage from '../../components/Sections/SingleParallaxImage/SingleParallaxImage';
 import Mobile from '../../components/Sections/Mobile/Mobile';
-import LogosTiled from '../../components/Sections/LogosTiled/LogosTiled';
 import Video from '../../components/Sections/Video/Video';
 import SingleImage from '../../components/Sections/SingleImage/SingleImage';
-import NextProject from '../../components/Sections/NextProject/NextProject';
 import useImagesPreloader from '../../hooks/UseImagesPreloader';
 import Spinner from '../../components/layout/Spinner/Spinner';
 import BtnSection from '../../components/Sections/BtnSection/BtnSection';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import IpiphanyHero from '../../components/Sections/TouchpointHero/IpiphanyHero';
 
-import heroImage from '../../assets/projects/touchpoint/hero-touchpoint.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+
 import screenhotImageDesktop from '../../assets/projects/touchpoint/touchpoint-screenshot-desktop.jpg';
 import screenhotImageTablet from '../../assets/projects/touchpoint/touchpoint-screenshot-tablet.jpg';
 import screenhotImageMobile from '../../assets/projects/touchpoint/touchpoint-screenshot-mobile.jpg';
+
 import mobile01 from '../../assets/projects/touchpoint/screenshot-touchpoint-mobile-cx.jpg';
 import mobile02 from '../../assets/projects/touchpoint/screenshot-touchpoint-mobile-ip.jpg';
 import mobile03 from '../../assets/projects/touchpoint/screenshot-touchpoint-mobile-mx.jpg';
-
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 
 import Asb from '../../assets/projects/touchpoint/Asb';
 import LogosHorizontalScroll from '../../components/Sections/LogosHorizontalScroll/LogosHorizontalScroll';
@@ -38,8 +35,6 @@ import AA from '../../assets/projects/touchpoint/Aainsurance';
 import Kingsplantbarn from '../../assets/projects/touchpoint/Kingsplantbarn';
 import Lion from '../../assets/projects/touchpoint/Lion';
 
-import TouchpointHero from '../../components/Sections/TouchpointHero/TouchpointHero';
-
 const logos = [<Samsung />, <Unichem />, <AA />, <Asb />, <Spark />, <Lion />];
 
 const logos2 = [
@@ -51,7 +46,6 @@ const logos2 = [
   <Freedom />,
 ];
 
-import anzHeroImage from '../../assets/projects/touchpoint/hero-anz.jpg';
 import AnzHero from '../../components/Sections/AnzHero/AnzHero';
 
 const mySingleImage = {
@@ -64,7 +58,6 @@ const mySingleImage = {
 const mobileShowcase = [mobile01, mobile02, mobile03];
 
 const touchpointPageImages = [
-  heroImage,
   screenhotImageDesktop,
   screenhotImageTablet,
   screenhotImageMobile,
@@ -77,7 +70,7 @@ const TouchpointPage = () => {
   const imgsLoaded = useImagesPreloader(touchpointPageImages);
   return imgsLoaded ? (
     <>
-      <TouchpointHero />
+      <IpiphanyHero />
 
       <SectionWrapper
         backgroundColor="#1a1a1a"
@@ -85,10 +78,11 @@ const TouchpointPage = () => {
         paddingBottom={true}
         width="90%"
       >
+        <SectionHeader style="hidden" color="#fff" h1="Touchpoint" />
         <SectionHeader
           style="L4"
           color="#fff"
-          h1="Front-End Developer specialising in, UI and email systems, with a strong focus on building responsive, cross-client compatible email templates at scale."
+          h2="Front-End Developer specialising in, UI and email systems, with a strong focus on building responsive, cross-client compatible email templates at scale."
         />
       </SectionWrapper>
 
@@ -118,7 +112,7 @@ const TouchpointPage = () => {
       <SectionWrapper
         backgroundColor="#ffffff"
         paddingTop={true}
-        paddingBottom={false}
+        paddingBottom={true}
         width="90%"
         maxWidth="110rem"
         align="center"
@@ -135,15 +129,7 @@ const TouchpointPage = () => {
             approach to customized responsive UI's
           </p>
         </SectionCopy>
-      </SectionWrapper>
 
-      <SectionWrapper
-        backgroundColor="#ffffff"
-        paddingTop={true}
-        paddingBottom={true}
-        width="90%"
-        align="center"
-      >
         <Video
           src={
             'https://player.vimeo.com/video/355046363?autoplay=1&loop=1&autopause=0'
@@ -181,11 +167,21 @@ const TouchpointPage = () => {
         width="100%%"
         align="center"
       >
+        <SectionHeader
+          textAlign="center"
+          style="hidden"
+          color="#000"
+          h2="Company logo images carousel"
+        />
         <LogosHorizontalScroll images={logos} />
         <LogosHorizontalScroll direction="right" images={logos2} />
       </SectionWrapper>
 
-      <SingleImage image={mySingleImage} backgroundColor="#f2f2f2" />
+      <SingleImage
+        alt="Touchpoint Website Screenshot"
+        image={mySingleImage}
+        backgroundColor="#f2f2f2"
+      />
 
       <SectionWrapper
         backgroundColor="#f2f2f2"
@@ -195,19 +191,20 @@ const TouchpointPage = () => {
         align="center"
         maxWidth="110rem"
       >
-        <SectionCopy textAlign="center">
-          <p>Visit the Touchpoint team (now Ipiphany).</p>
-        </SectionCopy>
+        <SectionHeader
+          textAlign="center"
+          style="L1"
+          color="#000"
+          h3="Visit the Touchpoint team (now Ipiphany)."
+        />
+
         <SectionCopy textAlign="center">
           <a
             target="_blank"
             href="https://www.ipiphany.ai/"
             className="btn btn--primary"
           >
-            <FontAwesomeIcon
-              icon={faArrowUpRightFromSquare}
-              //className={styles.btn_section__icon}
-            />
+            <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
             &nbsp;&nbsp;&nbsp;Visit the website
           </a>
         </SectionCopy>

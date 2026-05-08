@@ -20,8 +20,6 @@ import {
   faSitemap,
   faScaleBalanced,
   faPeopleCarryBox,
-} from '@fortawesome/free-solid-svg-icons';
-import {
   faCircleCheck,
   faClipboard,
   faStairs,
@@ -128,7 +126,7 @@ const IagPage = () => {
         paddingBottom={true}
         width="90%"
       >
-        <SectionHeader style="hidden" color="#fff" h1="IAG." />
+        <SectionHeader style="hidden" color="#fff" h1="IAG" />
         <SectionHeader
           style="L4"
           color="#fff"

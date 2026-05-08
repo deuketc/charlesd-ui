@@ -69,10 +69,11 @@ const UdcPage = () => {
         paddingBottom={true}
         width="90%"
       >
+        <SectionHeader style="hidden" color="#fff" h1="UDC" />
         <SectionHeader
           style="L4"
           color="#fff"
-          h1="A fully custom front-end UI for UDC, integrated with an in-house CMS to support flexible content management."
+          h2="A fully custom front-end UI for UDC, integrated with an in-house CMS to support flexible content management."
         />
       </SectionWrapper>
 
@@ -134,8 +135,8 @@ const UdcPage = () => {
         paddingTop={true}
         paddingBottom={false}
         width="90%"
-        maxWidth="110rem"
-        align="left"
+        //maxWidth="110rem"
+        align="center"
       >
         <SectionHeader
           textAlign="left"
@@ -149,16 +150,15 @@ const UdcPage = () => {
             easily from any device.
           </p>
         </SectionCopy>
-      </SectionWrapper>
 
-      <ImageSlider images={sliderImages} backgroundColor="#eff7fa" />
+        <ImageSlider images={sliderImages} backgroundColor="#eff7fa" />
+      </SectionWrapper>
 
       <SectionWrapper
         backgroundColor="#f2f2f2"
         paddingTop={true}
         paddingBottom={false}
         width="90%"
-        maxWidth="110rem"
         align="right"
       >
         <SectionHeader
@@ -173,9 +173,13 @@ const UdcPage = () => {
             content management CMS.
           </p>
         </SectionCopy>
-      </SectionWrapper>
 
-      <SingleImage image={mySingleImage} backgroundColor={'#f2f2f2'} />
+        <SingleImage
+          alt="UDC screenshot"
+          image={mySingleImage}
+          backgroundColor={'#f2f2f2'}
+        />
+      </SectionWrapper>
 
       <SectionWrapper
         backgroundColor="#ffffff"
