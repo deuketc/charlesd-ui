@@ -1,3 +1,6 @@
+import { useLayoutEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SectionCopy from '../../components/Sections/SectionCopy/SectionCopy';
 import SectionWrapper from '../../components/Sections/SectionWrapper/SectionWrapper';
 import SectionHeader from '../../components/Sections/SectionHeader/SectionHeader';
@@ -7,6 +10,8 @@ import Video from '../../components/Sections/Video/Video';
 import SingleImage from '../../components/Sections/SingleImage/SingleImage';
 import useImagesPreloader from '../../hooks/UseImagesPreloader';
 import Spinner from '../../components/layout/Spinner/Spinner';
+
+gsap.registerPlugin(ScrollTrigger);
 import BtnSection from '../../components/Sections/BtnSection/BtnSection';
 import IpiphanyHero from '../../components/Sections/TouchpointHero/IpiphanyHero';
 
@@ -68,6 +73,13 @@ const touchpointPageImages = [
 
 const TouchpointPage = () => {
   const imgsLoaded = useImagesPreloader(touchpointPageImages);
+
+  useLayoutEffect(() => {
+    if (!imgsLoaded) return;
+    const raf = requestAnimationFrame(() => ScrollTrigger.refresh());
+    return () => cancelAnimationFrame(raf);
+  }, [imgsLoaded]);
+
   return imgsLoaded ? (
     <>
       <IpiphanyHero />

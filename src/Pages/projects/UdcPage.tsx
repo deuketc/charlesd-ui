@@ -1,12 +1,14 @@
-import Hero from '../../components/Sections/Hero/Hero';
-import CopySection from '../../components/Sections/CopySection/CopySection';
+import { useLayoutEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ResponsiveSlider from '../../components/Sections/ResponsiveSlider/ResponsiveSlider';
 import Mobile from '../../components/Sections/Mobile/Mobile';
 import SingleImage from '../../components/Sections/SingleImage/SingleImage';
-import NextProject from '../../components/Sections/NextProject/NextProject';
 import ImageSlider from '../../components/Sections/ImageSlider/ImageSlider';
 import useImagesPreloader from '../../hooks/UseImagesPreloader';
 import Spinner from '../../components/layout/Spinner/Spinner';
+
+gsap.registerPlugin(ScrollTrigger);
 
 import heroImage from '../../assets/projects/udc/hero-udc.jpg';
 import sliderMobileImage from '../../assets/projects/udc/udc-screenshot-mobile.png';
@@ -59,6 +61,12 @@ const udcPageImages = [
 
 const UdcPage = () => {
   const imgsLoaded = useImagesPreloader(udcPageImages);
+
+  useLayoutEffect(() => {
+    if (!imgsLoaded) return;
+    const raf = requestAnimationFrame(() => ScrollTrigger.refresh());
+    return () => cancelAnimationFrame(raf);
+  }, [imgsLoaded]);
 
   return imgsLoaded ? (
     <>

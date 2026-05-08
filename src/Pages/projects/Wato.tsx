@@ -1,3 +1,6 @@
+import { useLayoutEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SingleImage from '../../components/Sections/SingleImage/SingleImage';
 import Mobile from '../../components/Sections/Mobile/Mobile';
 import Spinner from '../../components/layout/Spinner/Spinner';
@@ -5,6 +8,8 @@ import useImagesPreloader from '../../hooks/UseImagesPreloader';
 import Video from '../../components/Sections/Video/Video';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+
+gsap.registerPlugin(ScrollTrigger);
 
 import SectionWrapper from '../../components/Sections/SectionWrapper/SectionWrapper';
 import SectionHeader from '../../components/Sections/SectionHeader/SectionHeader';
@@ -39,6 +44,12 @@ const watoPageImages = [
 
 const WatoPage = () => {
   const imgsLoaded = useImagesPreloader(watoPageImages);
+
+  useLayoutEffect(() => {
+    if (!imgsLoaded) return;
+    const raf = requestAnimationFrame(() => ScrollTrigger.refresh());
+    return () => cancelAnimationFrame(raf);
+  }, [imgsLoaded]);
 
   return imgsLoaded ? (
     <>

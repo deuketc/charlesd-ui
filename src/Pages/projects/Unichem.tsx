@@ -1,9 +1,14 @@
+import { useLayoutEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ResponsiveSlider from '../../components/Sections/ResponsiveSlider/ResponsiveSlider';
 import Mobile from '../../components/Sections/Mobile/Mobile';
 import Video from '../../components/Sections/Video/Video';
 import SingleImage from '../../components/Sections/SingleImage/SingleImage';
 import useImagesPreloader from '../../hooks/UseImagesPreloader';
 import Spinner from '../../components/layout/Spinner/Spinner';
+
+gsap.registerPlugin(ScrollTrigger);
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 
@@ -49,6 +54,12 @@ const unichemPageImages = [
 
 const UnichemPage = () => {
   const imgsLoaded = useImagesPreloader(unichemPageImages);
+
+  useLayoutEffect(() => {
+    if (!imgsLoaded) return;
+    const raf = requestAnimationFrame(() => ScrollTrigger.refresh());
+    return () => cancelAnimationFrame(raf);
+  }, [imgsLoaded]);
 
   return imgsLoaded ? (
     <>
