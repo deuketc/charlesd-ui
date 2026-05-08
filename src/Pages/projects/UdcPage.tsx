@@ -186,6 +186,7 @@ const UdcPage = () => {
           alt="UDC screenshot"
           image={mySingleImage}
           backgroundColor={'#f2f2f2'}
+          onImageLoad={() => ScrollTrigger.refresh()}
         />
       </SectionWrapper>
 

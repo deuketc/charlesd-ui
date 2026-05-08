@@ -96,6 +96,7 @@ const WatoPage = () => {
           alt="WATO screenshot"
           image={mySingleImage}
           backgroundColor="#f2f2f2"
+          onImageLoad={() => ScrollTrigger.refresh()}
         />
       </SectionWrapper>
 

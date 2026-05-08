@@ -1,3 +1,4 @@
+import { useRef, useEffect } from 'react';
 import styles from './SingleImage.module.scss';
 
 interface IProps {
@@ -6,6 +7,7 @@ interface IProps {
   deviceWidth?: number;
   alignment?: 'left' | 'center' | 'right';
   alt?: string;
+  onImageLoad?: () => void;
 }
 
 interface imageObj {
@@ -20,7 +22,18 @@ const SingleImage = ({
   deviceWidth,
   alignment = 'center',
   alt = '',
+  onImageLoad,
 }: IProps) => {
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    if (!onImageLoad) return;
+    const img = imgRef.current;
+    if (img?.complete && img.naturalHeight > 0) {
+      requestAnimationFrame(onImageLoad);
+    }
+  }, [onImageLoad]);
+
   return (
     <section
       style={{ backgroundColor: backgroundColor }}
@@ -35,9 +48,11 @@ const SingleImage = ({
             srcSet={image.tabletSrc}
           />
           <img
+            ref={imgRef}
             className={styles.singleImage__picture}
             src={image.desktopSrc}
             alt={alt}
+            onLoad={onImageLoad}
             style={{
               margin:
                 alignment === 'left'

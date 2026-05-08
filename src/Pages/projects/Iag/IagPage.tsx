@@ -475,7 +475,7 @@ const IagPage = () => {
               <SectionCopy textAlign="center">
                 <SectionHeader
                   textAlign="center"
-                  h3="Supports major insurance brands"
+                  h3="Insurance brands"
                   style="L2"
                   color="#000"
                 />
@@ -493,7 +493,7 @@ const IagPage = () => {
               <SectionCopy textAlign="center">
                 <SectionHeader
                   textAlign="center"
-                  h3="Integrate with backend API's"
+                  h3="Backend API's"
                   style="L2"
                   color="#000"
                 />

@@ -136,15 +136,19 @@
 @mixin STYLE-GRID-COLUMNS-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 10%;
-  row-gap: 3rem;
+  column-gap: 4rem;
+  row-gap: 4rem;
 }
 
 @mixin STYLE-GRID-COLUMNS-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  column-gap: 5%;
-  row-gap: 5rem;
+  column-gap: 4rem;
+  row-gap: 4rem;
+  @media (min-width: 3000px) {
+    column-gap: 6rem;
+    row-gap: 6rem;
+  }
 }
 
 @mixin STYLE-GRID-COLUMNS-3-NOGAP {

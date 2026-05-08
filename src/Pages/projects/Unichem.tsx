@@ -183,6 +183,7 @@ const UnichemPage = () => {
         alt="Unichem Website Screenshot"
         image={mySingleImage}
         backgroundColor="#f2f2f2"
+        onImageLoad={() => ScrollTrigger.refresh()}
       />
 
       <SectionWrapper
