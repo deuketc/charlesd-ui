@@ -1,4 +1,6 @@
+import React, { useLayoutEffect } from 'react';
 import IagHero from '../../../components/Sections/IagHero/IagHero';
+import { gsap } from 'gsap';
 import Mobile from '../../../components/Sections/Mobile/Mobile';
 import ResponsiveSlider from '../../../components/Sections/ResponsiveSlider/ResponsiveSlider';
 import Video from '../../../components/Sections/Video/Video';
@@ -13,6 +15,8 @@ import SectionColumns from '../../../components/SectionColumns/SectionColumns';
 import Testimonials from '../../../components/Sections/Testimonials/Testimonials';
 import DualImage from '../../../components/Sections/DualImage/DualImage';
 import NumberCountAnimation from '../../../components/Sections/NumberCountAnimation/NumberCountAnimation';
+
+gsap.registerPlugin(ScrollTrigger);
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faJsSquare } from '@fortawesome/free-brands-svg-icons';
@@ -115,6 +119,12 @@ const iagPageImages = [
 
 const IagPage = () => {
   const imgsLoaded = useImagesPreloader(iagPageImages);
+
+  useLayoutEffect(() => {
+    if (!imgsLoaded) return;
+    const raf = requestAnimationFrame(() => ScrollTrigger.refresh());
+    return () => cancelAnimationFrame(raf);
+  }, [imgsLoaded]);
 
   return imgsLoaded ? (
     <>
@@ -655,7 +665,10 @@ const IagPage = () => {
           width="100%"
           backgroundColor="#f2f2f2"
         >
-          <DualImage images={myDualImage} />
+          <DualImage
+            onImageLoad={() => ScrollTrigger.refresh()}
+            images={myDualImage}
+          />
         </SectionWrapper>
 
         <SectionWrapper
@@ -808,7 +821,10 @@ const IagPage = () => {
           paddingBottom={false}
           paddingTop={true}
         >
-          <DualImage images={myDualImage2} />
+          <DualImage
+            onImageLoad={() => ScrollTrigger.refresh()}
+            images={myDualImage2}
+          />
         </SectionWrapper>
 
         <SectionWrapper
