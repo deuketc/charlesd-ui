@@ -80,7 +80,7 @@ const Landing = () => {
             experiences.
           </p>
 
-          <div className={styles.intro__btn_section}>
+          {/* <div className={styles.intro__btn_section}>
             <Link
               ref={buttonRef}
               to="/projects"
@@ -96,7 +96,7 @@ const Landing = () => {
             >
               Resume
             </Link>
-          </div>
+          </div> */}
         </div>
         <p className={styles.intro__scroll_cta}>
           <span className={styles.intro__scroll_cta_copy}>
@@ -105,6 +105,16 @@ const Landing = () => {
             <FontAwesomeIcon icon={faAnglesDown} />
           </span>
         </p>
+        <div className={styles.scrollIcon}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="120"
+            height="120"
+            fill="none"
+          >
+            <path fill="#fff" d="M60 77 30 47l7-7 23 23 23-23 7 7-30 30Z" />
+          </svg>
+        </div>
       </section>
       <div className={styles.spacer}></div>
     </>

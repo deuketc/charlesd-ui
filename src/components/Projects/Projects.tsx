@@ -32,7 +32,7 @@ const projectItemList = [
     img: udcThumb,
   },
   {
-    title: 'Touchpoint Group (Ipiphany)',
+    title: 'Touchpoint Group',
     subTitle: 'Front-end developer role',
     href: '/projects/touchpoint',
     img: touchpointThumb,
@@ -78,15 +78,17 @@ const Projects = () => {
                     alt=""
                   />
                 </div>
-                <h2 className={styles.projects__list_item_header}>
-                  <span className={styles.projects__list_item_header_arrow}>
-                    <FontAwesomeIcon icon={faArrowRight} />
-                  </span>
-                  {projectItem.title}
-                </h2>
-                <p className={styles.projects__list_item_subheader}>
-                  {projectItem.subTitle}
-                </p>
+                <div className={styles.projects__list_item_content}>
+                  <h2 className={styles.projects__list_item_header}>
+                    <span className={styles.projects__list_item_header_arrow}>
+                      <FontAwesomeIcon icon={faArrowRight} />
+                    </span>
+                    {projectItem.title}
+                  </h2>
+                  <p className={styles.projects__list_item_subheader}>
+                    {projectItem.subTitle}
+                  </p>
+                </div>
               </Link>
             </li>
           ))}

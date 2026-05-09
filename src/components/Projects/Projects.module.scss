@@ -7,12 +7,13 @@
 
   &__wrapper {
     @include mixin.PAGE;
-    @include mixin.SECTION-WRAPPER;
+    // @include mixin.SECTION-WRAPPER;
     @include mixin.STYLE-SECTION-PADDING-BOTTOM;
   }
 
   &__copy {
     margin-bottom: 5%;
+    width: 90%;
     margin: 0 auto;
     @include mixin.min-width-768px {
       max-width: 47%;
@@ -33,8 +34,14 @@
   &__list {
     @include mixin.STYLE-SECTION-PADDING-BOTTOM;
     @include mixin.LIST-RESET;
+    @include mixin.min-width-360px {
+      @include mixin.STYLE-GRID-COLUMNS-2;
+      @include mixin.STYLE-GRID-CLEAR-GAP;
+    }
     @include mixin.min-width-768px {
       @include mixin.STYLE-GRID-COLUMNS-2;
+      width: 90%;
+      margin: 0 auto;
     }
     @include mixin.min-width-1921px {
       @include mixin.STYLE-GRID-COLUMNS-3;
@@ -43,23 +50,44 @@
 
   &__list_item {
     @include mixin.max-width-767px {
-      margin-bottom: 3rem;
+      //margin-bottom: 3rem;
     }
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+    // display: grid;
+    // grid-row: span 3;
+    // grid-template-rows: subgrid;
   }
 
   &__list_item_link {
     text-decoration: none;
     overflow: hidden;
+    // display: grid;
+    // grid-row: span 3;
+    // grid-template-rows: subgrid;
     &:hover {
       .projects__list_item_image {
         transform: scale(1.05);
       }
       .projects__list_item_header {
-        margin-left: 0;
+        @include mixin.min-width-1280px {
+          margin-left: 0;
+        }
       }
+    }
+  }
+
+  &__list_item_content {
+    padding-left: 10%;
+    padding-right: 10%;
+    display: grid;
+    grid-row: span 2;
+    grid-template-rows: subgrid;
+    align-content: start;
+    display: none;
+    overflow: hidden;
+    @include mixin.min-width-768px {
+      display: block;
+      padding-left: 0%;
+      padding-right: 0%;
     }
   }
 
@@ -74,6 +102,7 @@
   }
 
   &__list_item_header_arrow {
+    //display: none;
     width: 4rem;
     display: inline-block;
   }
@@ -84,8 +113,11 @@
   }
 
   &__list_item_image_wrapper {
-    border-radius: 20px;
+    //border-radius: 20px;
     overflow: hidden;
+    @include mixin.min-width-768px {
+      border-radius: 20px;
+    }
   }
 
   &__list_item_image {

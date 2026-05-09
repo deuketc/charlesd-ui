@@ -40,16 +40,20 @@ const ExperimentsList = ({ experimentsList }: Iprops) => {
                 <li className={styles.experimentsList__list_item}>
                   <div className={styles.experimentsList__list_item_wrapper}>
                     <div
-                      className={
-                        styles.experimentsList__list_item_title_wrapper
-                      }
+                      className={styles.experimentsList__list_item_copy_wrapper}
                     >
-                      <p className={styles.experimentsList__list_item_icon}>
-                        <FontAwesomeIcon icon={item.icon} />
-                      </p>
-                      <h3 className={styles.experimentsList__list_item_title}>
-                        {item.title}
-                      </h3>
+                      <div
+                        className={
+                          styles.experimentsList__list_item_title_wrapper
+                        }
+                      >
+                        <p className={styles.experimentsList__list_item_icon}>
+                          <FontAwesomeIcon icon={item.icon} />
+                        </p>
+                        <h3 className={styles.experimentsList__list_item_title}>
+                          {item.title}
+                        </h3>
+                      </div>
                       <p
                         className={
                           styles.experimentsList__list_item_description

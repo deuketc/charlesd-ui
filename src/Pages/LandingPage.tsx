@@ -9,12 +9,12 @@ const LandingPage = () => {
   return (
     <>
       <IntroSection />
-      {width > 1280 && (
-        <>
-          <ProjectSection />
-          <ExperimentsSection />
-        </>
-      )}
+      {/* {width > 1280 && ( */}
+      <>
+        <ProjectSection />
+        <ExperimentsSection />
+      </>
+      {/* )} */}
     </>
   );
 };

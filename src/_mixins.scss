@@ -1,7 +1,26 @@
 @use './variables.scss' as var;
 
 @mixin PAGE {
-  padding-top: 10rem;
+  padding-top: 2rem;
+
+  @include min-width-420px {
+    padding: 3rem 0;
+  }
+  @include min-width-768px {
+    padding: 4rem 0;
+  }
+  @include min-width-1280px {
+    padding: 5rem 0;
+  }
+  @include min-width-1921px() {
+    padding: 6rem 0;
+  }
+}
+
+@mixin min-width-360px {
+  @media (min-width: var.$min-width-360px) {
+    @content;
+  }
 }
 
 @mixin min-width-420px {
@@ -136,8 +155,8 @@
 @mixin STYLE-GRID-COLUMNS-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 4rem;
-  row-gap: 4rem;
+  column-gap: 3rem;
+  row-gap: 3rem;
 }
 
 @mixin STYLE-GRID-COLUMNS-3 {
@@ -149,6 +168,11 @@
     column-gap: 6rem;
     row-gap: 6rem;
   }
+}
+
+@mixin STYLE-GRID-CLEAR-GAP {
+  column-gap: 0;
+  row-gap: 0;
 }
 
 @mixin STYLE-GRID-COLUMNS-3-NOGAP {
