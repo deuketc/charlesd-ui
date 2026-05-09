@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { useEffect, useRef, useState } from 'react';
 import { svgCharactersObject, SvgType } from './shapes';
+import { is_touch_device } from '../../../utils/utils';
 
 import Matter, {
   Engine,
@@ -120,24 +121,25 @@ const MatterDemo = () => {
       },
     });
 
-    // 🖱️ Mouse constraint for interactivity
-    const mouse = Mouse.create(render.canvas);
-    const mouseConstraint = MouseConstraint.create(engine, {
-      mouse,
-      constraint: {
-        stiffness: 0.2,
-        render: {
-          visible: false,
+    // 🖱️ Mouse constraint for interactivity — skip on touch devices so scroll is not blocked
+    if (!is_touch_device()) {
+      const mouse = Mouse.create(render.canvas);
+      const mouseConstraint = MouseConstraint.create(engine, {
+        mouse,
+        constraint: {
+          stiffness: 0.2,
+          render: {
+            visible: false,
+          },
         },
-      },
-    });
+      });
 
-    mouse.element.removeEventListener('wheel', mouse.mousewheel);
-    mouse.element.removeEventListener('DOMMouseScroll', mouse.mousewheel);
+      mouse.element.removeEventListener('wheel', mouse.mousewheel);
+      mouse.element.removeEventListener('DOMMouseScroll', mouse.mousewheel);
 
-    Composite.add(world, mouseConstraint);
-
-    render.mouse = mouse;
+      Composite.add(world, mouseConstraint);
+      render.mouse = mouse;
+    }
 
     // run the renderer
     Render.run(render);
@@ -229,7 +231,9 @@ const MatterDemo = () => {
       }
     };
 
-    render.canvas.addEventListener('mousemove', handleMouseMove);
+    if (!is_touch_device()) {
+      render.canvas.addEventListener('mousemove', handleMouseMove);
+    }
 
     // Device shake handler for mobile
     const shakeThreshold = 5;
@@ -305,7 +309,9 @@ const MatterDemo = () => {
     window.addEventListener('resize', handleResize);
 
     return () => {
-      render.canvas.removeEventListener('mousemove', handleMouseMove);
+      if (!is_touch_device()) {
+        render.canvas.removeEventListener('mousemove', handleMouseMove);
+      }
       render.canvas.removeEventListener('touchstart', handleFirstTouch);
       window.removeEventListener('devicemotion', handleDeviceMotion);
       window.removeEventListener('resize', handleResize);
