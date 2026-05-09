@@ -42,7 +42,7 @@ const SectionCopy: React.FC<SectionCopyProps> = ({
             {bulletlist.map((bullet, i) => (
               <li
                 key={i}
-                className={styles.copy_section__copy}
+                className={styles.copy_wrapper}
                 style={{
                   color: textColor ? textColor : '#000',
                   marginBottom: '1rem',
@@ -50,11 +50,9 @@ const SectionCopy: React.FC<SectionCopyProps> = ({
               >
                 <span
                   style={{
-                    minWidth: '6rem',
-                    display: 'inline-block',
-                    textAlign: 'center',
                     ...(iconColor && { color: iconColor }),
                   }}
+                  className={styles.icon}
                 >
                   <FontAwesomeIcon
                     icon={bullet.icon}

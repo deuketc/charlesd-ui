@@ -20,7 +20,7 @@ const ExperimentsList = ({ experimentsList }: Iprops) => {
   return (
     <section className={styles.experimentsList}>
       <div className={styles.experimentsList__wrapper}>
-        <div className={styles.projects__copy}>
+        <div className={styles.experimentsList__copy}>
           <h1 className={styles.experimentsList__header}>Experiments</h1>
           <p className={styles.experimentsList__header_sub}>
             Creative experiments, prototypes & playful builds

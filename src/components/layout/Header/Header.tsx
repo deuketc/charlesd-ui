@@ -27,7 +27,7 @@ const Header = () => {
           <Link to="/">Charles D.</Link>
         </h3>
 
-        <button
+        {/* <button
           onClick={onHeaderButtonClick}
           className={`${styles.navigation__button} ${btnClassName} hamburger hamburger--slider`}
         >
@@ -37,11 +37,11 @@ const Header = () => {
           <div className="hamburger-box">
             <div className="hamburger-inner"></div>
           </div>
-        </button>
+        </button> */}
         <nav className={contentClassName}>
           <h4 className={styles.navigation__header}>Header Navigation</h4>
           <ul className={styles.navigation__list}>
-            <li className={styles.navigation__list_item}>
+            {/* <li className={styles.navigation__list_item}>
               <Link
                 onClick={onHeaderLinkClick}
                 className={`${styles.navigation__list_item_link_mobile} ${styles.navigation__list_item_link}`}
@@ -58,7 +58,7 @@ const Header = () => {
               >
                 Experiments
               </Link>
-            </li>
+            </li> */}
             <li className={styles.navigation__list_item}>
               <Link
                 onClick={onHeaderLinkClick}
@@ -69,7 +69,9 @@ const Header = () => {
                   className={styles.navigation__list_item_link_icon}
                   icon={faUserTie}
                 />
-                Resume
+                <span className={styles.navigation__list_item_link_copy}>
+                  Resume
+                </span>
               </Link>
             </li>
           </ul>

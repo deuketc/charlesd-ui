@@ -8,3 +8,21 @@
 .section_bulletlist {
   @include mixin.STYLE-COPY;
 }
+
+.icon {
+  margin-right: 0.5rem;
+  min-width: 6rem;
+  display: inline-block;
+  text-align: center;
+
+  @include mixin.max-width-1599px {
+    font-size: 2.5rem;
+  }
+}
+
+.copy_wrapper {
+  @include mixin.max-width-1599px {
+    display: flex;
+    align-items: center;
+  }
+}

@@ -69,6 +69,7 @@
     display: inline-block;
     font-size: 1.2rem;
     //@include mixin.STYLE-COPY-DETAILS;
+    display: none;
   }
   &__btn_section {
     pointer-events: all;
