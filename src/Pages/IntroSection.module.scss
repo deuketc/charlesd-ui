@@ -33,6 +33,7 @@
     pointer-events: none;
   }
   &__heading {
+    font-size: 10vw;
     color: #fff;
     & {
       margin-top: 0;
@@ -40,7 +41,9 @@
     margin-bottom: 4rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 8.5vw;
+    @include mixin.min-width-1280px {
+      font-size: 8.5vw;
+    }
     text-align: center;
   }
   &__p1 {
@@ -102,7 +105,7 @@
 
 .scrollIcon {
   position: absolute;
-  bottom: 3rem;
+  bottom: 6rem;
   left: 50%;
   transform: translateX(-50%);
   width: 60px;
