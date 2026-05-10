@@ -23,6 +23,12 @@
   }
 }
 
+@mixin max-width-419px {
+  @media (max-width: var.$max-width-419px) {
+    @content;
+  }
+}
+
 @mixin min-width-420px {
   @media (min-width: var.$min-width-420px) {
     @content;
