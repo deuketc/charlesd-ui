@@ -1,8 +1,14 @@
+@use '../../../mixins.scss' as mixin;
+@use '../../../variables' as var;
+
 .dualImage {
   display: flex;
-  gap: 8rem;
   width: fit-content;
+
   margin: 0 auto;
+  @include mixin.min-width-768px {
+    gap: 10%;
+  }
 }
 
 .image {

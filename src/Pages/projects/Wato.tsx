@@ -23,6 +23,7 @@ import screenhotImageMobile from '../../assets/projects/wato/mobile.jpg';
 import mobile01 from '../../assets/projects/wato/mobile-02.jpg';
 import mobile02 from '../../assets/projects/wato/mobile-01.jpg';
 import mobile03 from '../../assets/projects/wato/mobile-03.jpg';
+import SectionAlignment from '../../components/Sections/SectionAlignment/SectionAlignment';
 
 const mySingleImage = {
   name: 'Wato Image',
@@ -128,22 +129,22 @@ const WatoPage = () => {
         backgroundColor="#f2f2f2"
         paddingTop={true}
         paddingBottom={false}
-        width="90%"
-        maxWidth="110rem"
         align="center"
       >
-        <SectionHeader
-          textAlign="center"
-          style="L3"
-          color="#000"
-          h2="Animation with JavaScript"
-        />
-        <SectionCopy textAlign="center">
-          <p>
-            Accomplished with responsive web development and the JavaScript
-            animation library GSAP.
-          </p>
-        </SectionCopy>
+        <SectionAlignment width="90%" maxWidth="110rem">
+          <SectionHeader
+            textAlign="center"
+            style="L3"
+            color="#000"
+            h2="Animation with JavaScript"
+          />
+          <SectionCopy textAlign="center">
+            <p>
+              Accomplished with responsive web development and the JavaScript
+              animation library GSAP.
+            </p>
+          </SectionCopy>
+        </SectionAlignment>
 
         <Video
           src="https://player.vimeo.com/video/355045208?autoplay=1&loop=1&autopause=0"
@@ -177,7 +178,7 @@ const WatoPage = () => {
               className="btn btn--primary"
             >
               <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-              &nbsp;&nbsp;&nbsp;Launch the WATO Experience
+              &nbsp;&nbsp;&nbsp;Launch WATO
             </a>
           </p>
         </SectionCopy>

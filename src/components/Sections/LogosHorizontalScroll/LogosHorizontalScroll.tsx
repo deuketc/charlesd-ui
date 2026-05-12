@@ -2,6 +2,7 @@ import styles from './LogosHorizontalScroll.module.scss';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef } from 'react';
+import useWindowDimensions from '../../../hooks/UseWindowDimensions';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,8 +13,9 @@ const LogosHorizontalScroll = ({
   images: JSX.Element[];
   direction?: 'left' | 'right';
 }) => {
+  const { width } = useWindowDimensions();
   const flexWrapperRef = useRef<HTMLDivElement>(null);
-  const cellWidth = 25; // Adjust this value based on your design (e.g., 25% for 4 logos per view)
+  const cellWidth = width > 768 ? 25 : 50; // Adjust this value based on your design (e.g., 25% for 4 logos per view)
   const cellEndWidth = direction === 'right' ? 30 : 10; // Width of the end cell
   const cellStartWidth = direction === 'right' ? 10 : 30; // Width of the start cell
 
@@ -42,7 +44,7 @@ const LogosHorizontalScroll = ({
     return () => {
       animation.scrollTrigger?.kill();
     };
-  }, [styles.container]);
+  }, [cellWidth, cellEndWidth, cellStartWidth, direction, images.length, styles.container]);
 
   return (
     <section className={styles.container}>

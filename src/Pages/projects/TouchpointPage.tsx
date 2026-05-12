@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SectionCopy from '../../components/Sections/SectionCopy/SectionCopy';
 import SectionWrapper from '../../components/Sections/SectionWrapper/SectionWrapper';
 import SectionHeader from '../../components/Sections/SectionHeader/SectionHeader';
+import SectionAlignment from '../../components/Sections/SectionAlignment/SectionAlignment';
 
 import Mobile from '../../components/Sections/Mobile/Mobile';
 import Video from '../../components/Sections/Video/Video';
@@ -125,22 +126,27 @@ const TouchpointPage = () => {
         backgroundColor="#ffffff"
         paddingTop={true}
         paddingBottom={true}
-        width="90%"
-        maxWidth="110rem"
         align="center"
       >
-        <SectionHeader
-          textAlign="center"
-          style="L3"
-          color="#000"
-          h2="More experts in more places"
-        />
-        <SectionCopy textAlign="center">
-          <p>
-            See below the UI adapt to all possible dimensions. A part of our
-            approach to customized responsive UI's
-          </p>
-        </SectionCopy>
+        <SectionAlignment
+          maxWidth="110rem"
+          alignment="center"
+          breakpoint="mobile"
+          width="90%"
+        >
+          <SectionHeader
+            textAlign="center"
+            style="L3"
+            color="#000"
+            h2="More experts in more places"
+          />
+          <SectionCopy textAlign="center">
+            <p>
+              See below the UI adapt to all possible dimensions. A part of our
+              approach to customized responsive UI's
+            </p>
+          </SectionCopy>
+        </SectionAlignment>
 
         <Video
           src={

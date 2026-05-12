@@ -5,15 +5,78 @@
   position: relative;
   z-index: 2;
   text-align: center;
+  // @include mixin.max-width-767px {
+  //   width: auto;
+  //   height: 360px;
+  //   overflow: hidden;
+  // }
+  @include mixin.max-width-767px {
+    padding-bottom: 3rem;
+  }
   &__wrapper {
     @include mixin.SECTION-WRAPPER;
     @include mixin.STYLE-SECTION-PADDING;
+    @include mixin.max-width-767px {
+      position: relative;
+      z-index: 2;
+      width: auto;
+      height: 300px;
+      overflow: hidden;
+      display: inline-block;
+    }
   }
   &__picture {
     max-width: 100%;
     display: block;
     margin: 0 auto;
     @include mixin.STYLE-SECTION-BORDER-RADIUS;
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  background-color: rgb(0 0 0 / 50%);
+  overflow-y: scroll;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 6rem;
+  cursor: pointer;
+
+  &__image {
+    width: 100%;
+    height: auto;
+    max-width: 1200px;
+  }
+}
+
+.singleImage__expand_button {
+  // width: 3rem;
+  // height: 3rem;
+  // display: block;
+  // background-color: #fff;
+  // right: 100px;
+  // bottom: 100px;
+  // position: absolute;
+  // color: #000;
+  // font-size: 2rem;
+  //@include mixin.BTN;
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  font-size: 2rem;
+  border: 0;
+  background-color: #fff;
+  color: #000;
+  border-radius: 10px;
+  border: 2px solid #000;
+  //@include mixin.STYLE-COPY;
+  padding: 0.5rem;
+  display: block;
+  @include mixin.min-width-768px {
+    display: none;
   }
 }
 

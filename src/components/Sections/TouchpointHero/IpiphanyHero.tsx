@@ -66,6 +66,7 @@ const ipiphanyHero = () => {
           xmlns="http://www.w3.org/2000/svg"
           width="120"
           height="120"
+          viewBox="0 0 120 120"
           fill="none"
         >
           <path fill="#fff" d="M60 77 30 47l7-7 23 23 23-23 7 7-30 30Z" />

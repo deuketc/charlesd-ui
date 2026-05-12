@@ -7,6 +7,7 @@ import Video from '../../components/Sections/Video/Video';
 import SingleImage from '../../components/Sections/SingleImage/SingleImage';
 import useImagesPreloader from '../../hooks/UseImagesPreloader';
 import Spinner from '../../components/layout/Spinner/Spinner';
+import useWindowDimensions from '../../hooks/UseWindowDimensions';
 
 gsap.registerPlugin(ScrollTrigger);
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -54,6 +55,7 @@ const unichemPageImages = [
 
 const UnichemPage = () => {
   const imgsLoaded = useImagesPreloader(unichemPageImages);
+  const { width } = useWindowDimensions();
 
   useLayoutEffect(() => {
     if (!imgsLoaded) return;
@@ -79,31 +81,35 @@ const UnichemPage = () => {
         />
       </SectionWrapper>
 
-      <SectionWrapper
-        backgroundColor="#f2f2f2"
-        paddingTop={true}
-        paddingBottom={false}
-        width="90%"
-        maxWidth="110rem"
-        align="center"
-      >
-        <SectionHeader
-          textAlign="center"
-          style="L3"
-          color="#000"
-          h2="Our team built"
-        />
-        <SectionCopy textAlign="center">
-          <p>
-            A customised content managed website, with a fully responsive UI.
-          </p>
-        </SectionCopy>
-      </SectionWrapper>
+      {width > 1600 && (
+        <SectionWrapper
+          backgroundColor="#f2f2f2"
+          paddingTop={true}
+          paddingBottom={false}
+          width="90%"
+          maxWidth="110rem"
+          align="center"
+        >
+          <SectionHeader
+            textAlign="center"
+            style="L3"
+            color="#000"
+            h2="Our team built"
+          />
+          <SectionCopy textAlign="center">
+            <p>
+              A customised content managed website, with a fully responsive UI.
+            </p>
+          </SectionCopy>
+        </SectionWrapper>
+      )}
 
-      <ResponsiveSlider
-        images={sliderImages}
-        imageHeights={[-1910, -1975, -1236]}
-      />
+      {width > 1600 && (
+        <ResponsiveSlider
+          images={sliderImages}
+          imageHeights={[-1910, -1975, -1236]}
+        />
+      )}
 
       <SectionWrapper
         backgroundColor="#ffffff"

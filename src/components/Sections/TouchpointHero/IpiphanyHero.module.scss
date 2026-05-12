@@ -30,12 +30,22 @@
 
 .scrollIcon {
   position: absolute;
-  bottom: 0rem;
+  bottom: 6rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 120px;
-  height: 120px;
+  width: 60px;
+  height: 60px;
   z-index: 3;
+  @media (min-width: var.$min-width-1280px) {
+    width: 120px;
+    height: 120px;
+    bottom: 0;
+  }
+}
+
+.scrollIcon svg {
+  width: 100%;
+  height: auto;
 }
 
 .ipiphanyBackgroundWhite {

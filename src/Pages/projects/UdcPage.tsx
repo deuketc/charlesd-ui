@@ -7,6 +7,7 @@ import SingleImage from '../../components/Sections/SingleImage/SingleImage';
 import ImageSlider from '../../components/Sections/ImageSlider/ImageSlider';
 import useImagesPreloader from '../../hooks/UseImagesPreloader';
 import Spinner from '../../components/layout/Spinner/Spinner';
+import useWindowDimensions from '../../hooks/UseWindowDimensions';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -61,6 +62,7 @@ const udcPageImages = [
 
 const UdcPage = () => {
   const imgsLoaded = useImagesPreloader(udcPageImages);
+  const { width } = useWindowDimensions();
 
   useLayoutEffect(() => {
     if (!imgsLoaded) return;
@@ -85,32 +87,36 @@ const UdcPage = () => {
         />
       </SectionWrapper>
 
-      <SectionWrapper
-        backgroundColor="#f2f2f2"
-        paddingTop={true}
-        paddingBottom={false}
-        width="90%"
-        maxWidth="110rem"
-        align="left"
-      >
-        <SectionHeader
-          textAlign="left"
-          style="L3"
-          color="#000"
-          h2="Our team developed..."
-        />
-        <SectionCopy textAlign="left">
-          <p>
-            A responsive, pixel perfect front-end enabling customers to easily
-            access information.
-          </p>
-        </SectionCopy>
-      </SectionWrapper>
+      {width > 1600 && (
+        <SectionWrapper
+          backgroundColor="#f2f2f2"
+          paddingTop={true}
+          paddingBottom={false}
+          width="90%"
+          maxWidth="110rem"
+          align="left"
+        >
+          <SectionHeader
+            textAlign="left"
+            style="L3"
+            color="#000"
+            h2="Our team developed..."
+          />
+          <SectionCopy textAlign="left">
+            <p>
+              A responsive, pixel perfect front-end enabling customers to easily
+              access information.
+            </p>
+          </SectionCopy>
+        </SectionWrapper>
+      )}
 
-      <ResponsiveSlider
-        imageHeights={[-450, -628, -810]}
-        images={responsiveSliderImages}
-      />
+      {width > 1600 && (
+        <ResponsiveSlider
+          imageHeights={[-450, -628, -810]}
+          images={responsiveSliderImages}
+        />
+      )}
 
       <SectionWrapper
         backgroundColor="#fff"
