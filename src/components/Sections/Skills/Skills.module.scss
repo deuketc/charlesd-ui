@@ -12,9 +12,6 @@
   max-width: none;
 }
 .header {
-  @include mixin.max-width-1279px {
-    text-align: center;
-  }
   @include mixin.STYLE-HEADER-L3;
 }
 .listWrapper {

@@ -38,9 +38,11 @@ const Accomplishments = () => {
                 <span className={styles.accomplishments__icon}>
                   <FontAwesomeIcon icon={faCode} />
                 </span>
-                Awarded a &ldquo;TOA&rdquo; for the development of the{' '}
-                <Link to="/projects/wato">What are the odds</Link> State
-                Insurance promotion website.
+                <span>
+                  Awarded a &ldquo;TOA&rdquo; for the development of the{' '}
+                  <Link to="/projects/wato">What are the odds</Link> State
+                  Insurance promotion website.
+                </span>
               </p>
             </li>
             <li>
@@ -48,8 +50,10 @@ const Accomplishments = () => {
                 <span className={styles.accomplishments__icon}>
                   <FontAwesomeIcon icon={faLightbulb} />
                 </span>
-                Received Touchpoint Group's innovation award for responsive
-                email
+                <span>
+                  Received Touchpoint Group's innovation award for responsive
+                  email
+                </span>
               </p>
             </li>
             <li>
@@ -57,8 +61,10 @@ const Accomplishments = () => {
                 <span className={styles.accomplishments__icon}>
                   <FontAwesomeIcon icon={faGraduationCap} />
                 </span>
-                Graduated with Distinction in the Diploma of Digital Media at
-                Media Design School.
+                <span>
+                  Graduated with Distinction in the Diploma of Digital Media at
+                  Media Design School.
+                </span>
               </p>
             </li>
           </ul>

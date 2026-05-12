@@ -7,6 +7,9 @@
     @include mixin.SECTION-WRAPPER;
   }
   &__copy {
+    display: flex;
+    align-items: flex-start;
+    align-items: center;
     @include mixin.STYLE-COPY;
   }
 
@@ -56,8 +59,10 @@
   }
 
   &__icon {
-    display: inline-block;
-    width: 6rem;
+    flex: 0 0 6rem;
     text-align: center;
+    @include mixin.max-width-1599px {
+      font-size: 2.5rem;
+    }
   }
 }

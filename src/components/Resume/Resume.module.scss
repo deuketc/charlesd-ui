@@ -2,9 +2,11 @@
 
 .resume {
   &__header {
-    //display: none;
     text-align: center;
     @include mixin.STYLE-HEADER-L4;
+    margin-top: clamp(6rem, 6vw, 6rem);
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
   &__wrapper {
     @include mixin.PAGE;
