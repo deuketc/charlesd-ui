@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './SingleImage.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExpand } from '@fortawesome/free-solid-svg-icons';
+import { faExpand, faMaximize } from '@fortawesome/free-solid-svg-icons';
 
 interface IProps {
   image: imageObj;

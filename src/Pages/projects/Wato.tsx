@@ -61,8 +61,8 @@ const WatoPage = () => {
         width="90%"
       >
         <SectionHeader
-          style="hidden"
-          color="#fff"
+          style="L3"
+          color="#1a1a1a"
           h1="State - What are the odds?"
         />
         <SectionHeader

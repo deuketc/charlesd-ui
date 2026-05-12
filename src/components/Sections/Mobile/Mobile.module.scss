@@ -75,7 +75,9 @@
   }
   &__img_conatiner {
     overflow: hidden;
-    height: 640px;
+    @include mixin.min-width-1600px {
+      height: 640px;
+    }
   }
 }
 

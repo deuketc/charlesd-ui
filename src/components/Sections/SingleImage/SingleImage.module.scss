@@ -71,9 +71,9 @@
   background-color: #fff;
   color: #000;
   border-radius: 10px;
-  border: 2px solid #000;
+  // border: 2px solid #000;
   //@include mixin.STYLE-COPY;
-  padding: 0.5rem;
+  padding: 0.7rem 0.8rem 0.5rem 0.8rem;
   display: block;
   @include mixin.min-width-768px {
     display: none;
