@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
+import useWindowDimensions from '../../../hooks/UseWindowDimensions';
 import { createPortal } from 'react-dom';
 import styles from './SingleImage.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -28,6 +29,7 @@ const SingleImage = ({
   onImageLoad,
 }: IProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { width } = useWindowDimensions();
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
@@ -43,7 +45,7 @@ const SingleImage = ({
       <section
         style={{ backgroundColor: backgroundColor }}
         className={styles.singleImage}
-        onClick={() => setIsExpanded(true)}
+        onClick={() => width < 768 && setIsExpanded(true)}
       >
         <div className={deviceWidth ? '' : styles.singleImage__wrapper}>
           <h2 className={styles.title}>{alt}</h2>

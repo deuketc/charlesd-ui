@@ -70,7 +70,7 @@ const Header = () => {
                   icon={faUserTie}
                 />
                 <span className={styles.navigation__list_item_link_copy}>
-                  Resume
+                  Resumé
                 </span>
               </Link>
             </li>

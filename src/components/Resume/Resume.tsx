@@ -8,7 +8,7 @@ const Resume = () => {
   return (
     <div className={styles.resume}>
       <div className={styles.resume__wrapper}>
-        <h1 className={styles.resume__header}>Resume</h1>
+        <h1 className={styles.resume__header}>Resumé</h1>
       </div>
       <Accomplishments />
       <Employment />

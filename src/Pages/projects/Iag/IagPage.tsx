@@ -680,10 +680,17 @@ const IagPage = () => {
           width="100%"
           backgroundColor="#f2f2f2"
         >
-          <DualImage
-            onImageLoad={() => ScrollTrigger.refresh()}
-            images={myDualImage}
-          />
+          <SectionAlignment
+            // maxWidth="110rem"
+            alignment="center"
+            breakpoint="desktop"
+            width="90%"
+          >
+            <DualImage
+              onImageLoad={() => ScrollTrigger.refresh()}
+              images={myDualImage}
+            />
+          </SectionAlignment>
         </SectionWrapper>
 
         <SectionWrapper
