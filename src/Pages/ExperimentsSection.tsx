@@ -5,11 +5,22 @@ import {
   faCube,
   faWandMagicSparkles,
   faCarSide,
+  faGamepad,
 } from '@fortawesome/free-solid-svg-icons';
 import { faCodepen } from '@fortawesome/free-brands-svg-icons';
 import ExperimentsList from '../components/Sections/ExperimentsList/ExperimentsList';
 
 const experimentsList = [
+  {
+    title: 'Gunman Gamejam',
+    description:
+      'A dark, rain-soaked pixel-art shooter set in a gothic cyberpunk city',
+    tags: ['Pixi.js', 'Pixellab.ai', 'Aseprite'],
+    date: '20260608T000000',
+    url: 'https://gunman-gamejam.vercel.app/',
+    icon: faGamepad,
+    backgroundColor: '#FFDAC1',
+  },
   {
     title: '3D Damage Selector',
     description:
